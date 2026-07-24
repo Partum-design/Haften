@@ -1,0 +1,2632 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logos/logo-haften.png">
+  <title>Redes Sociales — Haften · HVAC · BMS · Medición de Energía</title>
+  <meta name="description"
+    content="Síguenos en todas nuestras redes sociales: Facebook, Instagram, YouTube, LinkedIn, X y TikTok. Contenido técnico, novedades y productos HVAC/R.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --ac: #E11D48;
+      --ac-dark: #BE123C;
+      --ac-rgb: 225, 29, 72;
+      --bg: #030810;
+      --bg2: #060d1a;
+      --bg3: #0c1828;
+      --lt: #f4f8fb;
+      --lt2: #e9f1f7;
+      --white: #fff;
+      --text-1: #fff;
+      --text-2: #7aafc8;
+      --text-3: #3d7090;
+      --ink: #05162a;
+      --ink2: #183855;
+      --ink3: #2e6080;
+      --border-d: rgba(225, 29, 72, .1);
+      --border-l: rgba(5, 22, 42, .08);
+      --nav-h: 88px;
+      --font-scale: 1;
+
+      /* Colores Oficiales Redes */
+      --fb: #1877F2;
+      --ig: #E4405F;
+      --yt: #FF0000;
+      --li: #0A66C2;
+      --tw: #000000;
+      --tt: #00f2ea;
+    }
+
+    /* Mejora de la imagen de fondo */
+    /* --- NUEVA IMAGEN DE FONDO (Circuitos Tech) --- */
+    .page-hero-bg-img {
+      position: absolute;
+      inset: 0;
+      /* Imagen de stock técnica de alta resolución */
+      background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      /* Oscurecemos la imagen para que el texto y los iconos brillen */
+      filter: brightness(.15) saturate(.5);
+      pointer-events: none;
+      z-index: 1;
+      /* Asegura que esté detrás de todo */
+    }
+
+
+    html {
+      font-size: calc(16px*var(--font-scale));
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text-1);
+      overflow-x: hidden;
+      cursor: none
+    }
+
+    body.no-anim * {
+      transition: none !important;
+      animation: none !important
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ul {
+      list-style: none
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .6rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 14px
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv-l {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv-r {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv.on,
+    .rv-l.on,
+    .rv-r.on {
+      opacity: 1;
+      transform: none
+    }
+
+    .d1 {
+      transition-delay: .04s
+    }
+
+    .d2 {
+      transition-delay: .09s
+    }
+
+    .d3 {
+      transition-delay: .14s
+    }
+
+    .d4 {
+      transition-delay: .19s
+    }
+
+    .d5 {
+      transition-delay: .24s
+    }
+
+    .d6 {
+      transition-delay: .29s
+    }
+
+    /* SKIP */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      padding: .5rem 1rem;
+      background: var(--ac);
+      color: var(--ink);
+      font-weight: 700;
+      border-radius: 6px;
+      z-index: 99999;
+      transition: top .2s
+    }
+
+    .skip-link:focus {
+      top: 1rem
+    }
+
+    /* CURSOR */
+    .cur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ac);
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s
+    }
+
+    .cur-r {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9998;
+      pointer-events: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(var(--ac-rgb), .3);
+      transform: translate(-50%, -50%)
+    }
+
+    @media(hover:none) {
+
+      .cur,
+      .cur-r {
+        display: none
+      }
+
+      body {
+        cursor: auto
+      }
+    }
+
+    /* LOADER */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .5s, visibility .5s
+    }
+
+    #loader.done {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    .loader-ring {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(var(--ac-rgb), .12);
+      border-top-color: var(--ac);
+      animation: spin .8s linear infinite
+    }
+
+    .loader-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: .08em;
+      margin-top: 12px
+    }
+
+    .loader-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .loader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px
+    }
+
+    /* NAVBAR */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 24px;
+      background: rgba(3, 8, 16, .7);
+      backdrop-filter: blur(32px) saturate(1.8);
+      -webkit-backdrop-filter: blur(32px) saturate(1.8);
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      transition: background .3s, box-shadow .3s
+    }
+
+    #navbar.scrolled {
+      background: rgba(3, 8, 16, .95);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
+    }
+
+    .n-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0
+    }
+
+    .n-logo img {
+      height: 36px;
+      object-fit: contain
+    }
+
+    .n-logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.01em
+    }
+
+    .n-logo-text em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .n-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+      justify-content: center
+    }
+
+    .n-link {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+      padding: 8px 13px;
+      border-radius: 8px;
+      position: relative;
+      transition: color .2s, background .2s;
+      white-space: nowrap
+    }
+
+    .n-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 14px;
+      height: 2px;
+      background: var(--ac);
+      border-radius: 1px;
+      transition: transform .25s cubic-bezier(.34, 1.56, .64, 1)
+    }
+
+    .n-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .n-link.active {
+      color: var(--ac)
+    }
+
+    .n-link:hover::after,
+    .n-link.active::after {
+      transform: translateX(-50%) scaleX(1)
+    }
+
+    .n-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--ac);
+      padding: 10px 22px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .35)
+    }
+
+    .n-cta:hover {
+      background: var(--ac-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .45)
+    }
+
+    .n-tools {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0
+    }
+
+    .n-tool-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .45);
+      font-size: .85rem;
+      position: relative;
+      transition: .2s
+    }
+
+    .n-tool-btn:hover {
+      border-color: var(--ac);
+      color: var(--ac)
+    }
+
+    .tool-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #0a1828;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 14px;
+      padding: 18px;
+      min-width: 220px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+      z-index: 600
+    }
+
+    .tool-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0)
+    }
+
+    .tp-label {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 12px
+    }
+
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px
+    }
+
+    .cp-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2.5px solid transparent;
+      cursor: none;
+      transition: transform .2s, border-color .2s
+    }
+
+    .cp-swatch:hover {
+      transform: scale(1.2)
+    }
+
+    .cp-swatch.active {
+      border-color: #fff
+    }
+
+    .cp-themes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 10px
+    }
+
+    .cp-theme-btn {
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: none;
+      cursor: none;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      transition: .2s;
+      text-align: left
+    }
+
+    .cp-theme-btn:hover,
+    .cp-theme-btn.active {
+      background: rgba(var(--ac-rgb), .12);
+      color: var(--ac);
+      border-color: rgba(var(--ac-rgb), .3)
+    }
+
+    .a11y-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      gap: 8px
+    }
+
+    .a11y-row:last-child {
+      border-bottom: none
+    }
+
+    .a11y-lbl {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-2)
+    }
+
+    .a11y-fs {
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .a11y-fs button {
+      background: rgba(var(--ac-rgb), .1);
+      border: 1px solid rgba(var(--ac-rgb), .2);
+      color: var(--ac);
+      font-size: .72rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s
+    }
+
+    .a11y-fs .fs-val {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      min-width: 22px;
+      text-align: center
+    }
+
+    .a11y-toggle {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex-shrink: 0;
+      cursor: none
+    }
+
+    .a11y-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0
+    }
+
+    .a11y-slider {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      transition: .2s
+    }
+
+    .a11y-slider::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--text-3);
+      transition: .2s
+    }
+
+    .a11y-toggle input:checked+.a11y-slider {
+      background: var(--ac)
+    }
+
+    .a11y-toggle input:checked+.a11y-slider::before {
+      left: 20px;
+      background: #fff
+    }
+
+    .n-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      cursor: none;
+      flex-shrink: 0;
+      transition: .2s
+    }
+
+    .n-ham:hover {
+      border-color: var(--ac)
+    }
+
+    .n-ham span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, .7);
+      transition: .3s;
+      transform-origin: center
+    }
+
+    .n-ham.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg)
+    }
+
+    .n-ham.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .n-ham.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg)
+    }
+
+    /* HERO */
+    .page-hero {
+      position: relative;
+      padding-top: var(--nav-h);
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--bg)
+    }
+
+    .page-hero-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1920&q=85&fit=crop');
+      background-size: cover;
+      background-position: center 35%;
+      filter: brightness(.18) saturate(.4);
+      pointer-events: none
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(170deg, rgba(3, 8, 16, .8) 0%, rgba(3, 8, 16, .4) 45%, rgba(3, 8, 16, .92) 100%)
+    }
+
+    .page-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 200, 232, .018) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 200, 232, .018) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 80px 5vw 88px;
+      text-align: center
+    }
+
+    .ph-breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .3);
+      margin-bottom: 28px
+    }
+
+    .ph-breadcrumb a {
+      color: var(--ac);
+      transition: .2s
+    }
+
+    .ph-breadcrumb a:hover {
+      color: #fff
+    }
+
+    .ph-breadcrumb i {
+      font-size: .44rem;
+      color: rgba(255, 255, 255, .18)
+    }
+
+    .ph-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--ac);
+      border: 1px solid rgba(var(--ac-rgb), .28);
+      padding: 6px 18px;
+      border-radius: 40px;
+      background: rgba(var(--ac-rgb), .07);
+      backdrop-filter: blur(8px);
+      margin-bottom: 24px
+    }
+
+    .ph-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--ac);
+      animation: pdot 2s ease infinite;
+      flex-shrink: 0
+    }
+
+    @keyframes pdot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .1;
+        transform: scale(.2)
+      }
+    }
+
+    .ph-h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(44px, 7vw, 92px);
+      line-height: .9;
+      letter-spacing: -.04em;
+      color: #fff;
+      margin-bottom: 22px
+    }
+
+    .ph-h1 span {
+      background: linear-gradient(120deg, #fff 0%, var(--ac) 55%, rgba(var(--ac-rgb), .6) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .ph-sub {
+      font-size: .95rem;
+      color: rgba(255, 255, 255, .48);
+      line-height: 1.78;
+      max-width: 560px;
+      margin: 0 auto 36px
+    }
+
+    /* platform bubbles in hero */
+    .ph-platforms {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px
+    }
+
+    .ph-platform {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      cursor: none;
+      transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .ph-platform:hover {
+      transform: translateY(-8px) scale(1.1);
+      color: #fff;
+    }
+
+    .ph-platform.fb {
+      background: var(--fb);
+      box-shadow: 0 4px 18px rgba(24, 119, 242, .35)
+    }
+
+    .ph-platform.ig {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      box-shadow: 0 4px 18px rgba(225, 48, 108, .35)
+    }
+
+    .ph-platform.yt {
+      background: var(--yt);
+      box-shadow: 0 4px 18px rgba(255, 0, 0, .35)
+    }
+
+    .ph-platform.li {
+      background: var(--li);
+      box-shadow: 0 4px 18px rgba(10, 102, 194, .35)
+    }
+
+    .ph-platform.tw {
+      background: #222;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .4)
+    }
+
+    .ph-platform.tt {
+      background: #111;
+      border: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .4)
+    }
+
+    .ph-platform.fb:hover {
+      box-shadow: 0 10px 32px rgba(24, 119, 242, .5)
+    }
+
+    .ph-platform.ig:hover {
+      box-shadow: 0 10px 32px rgba(225, 48, 108, .5)
+    }
+
+    .ph-platform.yt:hover {
+      box-shadow: 0 10px 32px rgba(255, 0, 0, .5)
+    }
+
+    .ph-platform.li:hover {
+      box-shadow: 0 10px 32px rgba(10, 102, 194, .5)
+    }
+
+    .ph-platform.tw:hover {
+      box-shadow: 0 10px 32px rgba(0, 0, 0, .6)
+    }
+
+    .ph-platform.tt:hover {
+      box-shadow: 0 10px 32px rgba(0, 0, 0, .6)
+    }
+
+    /* SOCIAL CARDS SECTION */
+    .social-sec {
+      background: var(--bg);
+      padding: 88px 0
+    }
+
+    .social-sec::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(var(--ac-rgb), .15), transparent);
+      margin-top: -88px
+    }
+
+    .social-sec-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .social-header {
+      text-align: center;
+      margin-bottom: 56px
+    }
+
+    .s-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.06;
+      letter-spacing: -.03em;
+      margin-top: 4px
+    }
+
+    .s-title span {
+      color: var(--ac)
+    }
+
+    .s-sub {
+      font-size: .92rem;
+      color: var(--text-2);
+      line-height: 1.72;
+      max-width: 520px;
+      margin: 14px auto 0
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+
+    /* individual social card */
+    .soc-card {
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: none;
+      transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none
+    }
+
+    .soc-card:hover {
+      transform: translateY(-10px)
+    }
+
+    .soc-card-head {
+      padding: 32px 32px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      position: relative
+    }
+
+    .soc-card-head::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 32px;
+      right: 32px;
+      height: 1px;
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .soc-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      flex-shrink: 0;
+      transition: transform .3s
+    }
+
+    .soc-card:hover .soc-icon-wrap {
+      transform: scale(1.1) rotate(-5deg)
+    }
+
+    .soc-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #fff
+    }
+
+    .soc-handle {
+      font-size: .72rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .45);
+      margin-top: 2px
+    }
+
+    .soc-arrow {
+      margin-left: auto;
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .25);
+      transition: transform .3s, color .3s
+    }
+
+    .soc-card:hover .soc-arrow {
+      transform: translate(3px, -3px);
+      color: #fff
+    }
+
+    .soc-card-body {
+      padding: 24px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px
+    }
+
+    .soc-stat-row {
+      display: flex;
+      gap: 0
+    }
+
+    .soc-stat {
+      flex: 1;
+      text-align: center;
+      padding: 14px 0;
+      position: relative
+    }
+
+    .soc-stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .soc-stat-n {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #fff
+    }
+
+    .soc-stat-l {
+      font-size: .55rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .35);
+      margin-top: 3px
+    }
+
+    .soc-desc {
+      font-size: .82rem;
+      color: rgba(255, 255, 255, .48);
+      line-height: 1.65
+    }
+
+    .soc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px
+    }
+
+    .soc-tag {
+      font-size: .58rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(255, 255, 255, .12)
+    }
+
+    .soc-card-foot {
+      padding: 20px 32px 28px
+    }
+
+    .soc-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 0;
+      border-radius: 10px;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+      transition: opacity .2s, transform .2s;
+      width: 100%
+    }
+
+    .soc-btn:hover {
+      opacity: .85;
+      transform: translateY(-1px)
+    }
+
+    /* facebook */
+    .soc-fb {
+      background: linear-gradient(145deg, #0d1829 0%, #0f1f3d 100%);
+      border: 1px solid rgba(24, 119, 242, .2);
+      box-shadow: 0 8px 40px rgba(24, 119, 242, .1)
+    }
+
+    .soc-fb:hover {
+      box-shadow: 0 24px 60px rgba(24, 119, 242, .2)
+    }
+
+    .soc-fb .soc-icon-wrap {
+      background: var(--fb)
+    }
+
+    .soc-fb .soc-tag {
+      border-color: rgba(24, 119, 242, .25);
+      color: rgba(100, 160, 255, .8)
+    }
+
+    .soc-fb .soc-btn {
+      background: var(--fb)
+    }
+
+    /* instagram */
+    .soc-ig {
+      background: linear-gradient(145deg, #180d18 0%, #2d1229 100%);
+      border: 1px solid rgba(225, 48, 108, .2);
+      box-shadow: 0 8px 40px rgba(225, 48, 108, .1)
+    }
+
+    .soc-ig:hover {
+      box-shadow: 0 24px 60px rgba(225, 48, 108, .2)
+    }
+
+    .soc-ig .soc-icon-wrap {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)
+    }
+
+    .soc-ig .soc-tag {
+      border-color: rgba(225, 48, 108, .25);
+      color: rgba(255, 140, 180, .8)
+    }
+
+    .soc-ig .soc-btn {
+      background: linear-gradient(90deg, #f09433, #dc2743, #bc1888)
+    }
+
+    /* youtube */
+    .soc-yt {
+      background: linear-gradient(145deg, #1a0a0a 0%, #2d0f0f 100%);
+      border: 1px solid rgba(255, 0, 0, .2);
+      box-shadow: 0 8px 40px rgba(255, 0, 0, .1)
+    }
+
+    .soc-yt:hover {
+      box-shadow: 0 24px 60px rgba(255, 0, 0, .2)
+    }
+
+    .soc-yt .soc-icon-wrap {
+      background: var(--yt)
+    }
+
+    .soc-yt .soc-tag {
+      border-color: rgba(255, 0, 0, .25);
+      color: rgba(255, 130, 130, .8)
+    }
+
+    .soc-yt .soc-btn {
+      background: #cc0000
+    }
+
+    /* linkedin */
+    .soc-li {
+      background: linear-gradient(145deg, #071422 0%, #0d2238 100%);
+      border: 1px solid rgba(10, 102, 194, .2);
+      box-shadow: 0 8px 40px rgba(10, 102, 194, .1)
+    }
+
+    .soc-li:hover {
+      box-shadow: 0 24px 60px rgba(10, 102, 194, .2)
+    }
+
+    .soc-li .soc-icon-wrap {
+      background: var(--li)
+    }
+
+    .soc-li .soc-tag {
+      border-color: rgba(10, 102, 194, .25);
+      color: rgba(80, 160, 255, .8)
+    }
+
+    .soc-li .soc-btn {
+      background: var(--li)
+    }
+
+    /* x / twitter */
+    .soc-tw {
+      background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 100%);
+      border: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, .3)
+    }
+
+    .soc-tw:hover {
+      box-shadow: 0 24px 60px rgba(255, 255, 255, .08)
+    }
+
+    .soc-tw .soc-icon-wrap {
+      background: #111
+    }
+
+    .soc-tw .soc-tag {
+      border-color: rgba(255, 255, 255, .12);
+      color: rgba(200, 200, 200, .8)
+    }
+
+    .soc-tw .soc-btn {
+      background: #333;
+      border: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    /* tiktok */
+    .soc-tt {
+      background: linear-gradient(145deg, #0a0a0a 0%, #16101a 100%);
+      border: 1px solid rgba(254, 44, 85, .15);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, .35)
+    }
+
+    .soc-tt:hover {
+      box-shadow: 0 24px 60px rgba(254, 44, 85, .15)
+    }
+
+    .soc-tt .soc-icon-wrap {
+      background: linear-gradient(135deg, #010101, #2e1a2e);
+      border: 1px solid rgba(254, 44, 85, .3)
+    }
+
+    .soc-tt .soc-tag {
+      border-color: rgba(254, 44, 85, .2);
+      color: rgba(255, 140, 160, .8)
+    }
+
+    .soc-tt .soc-btn {
+      background: linear-gradient(90deg, #fe2c55, #25f4ee)
+    }
+
+    /* WHY FOLLOW SECTION */
+    .why-sec {
+      background: var(--bg2);
+      padding: 88px 0;
+      position: relative
+    }
+
+    .why-sec::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ac) 30%, var(--ac-dark) 70%, transparent)
+    }
+
+    .why-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .why-header {
+      text-align: center;
+      margin-bottom: 52px
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .why-card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: .3s
+    }
+
+    .why-card:hover {
+      background: rgba(var(--ac-rgb), .07);
+      border-color: rgba(var(--ac-rgb), .2);
+      transform: translateY(-4px)
+    }
+
+    .why-ico {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(var(--ac-rgb), .1);
+      border: 1px solid rgba(var(--ac-rgb), .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: 1.15rem;
+      margin: 0 auto 18px
+    }
+
+    .why-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px
+    }
+
+    .why-desc {
+      font-size: .8rem;
+      color: var(--text-2);
+      line-height: 1.65
+    }
+
+    /* TICKER */
+    .ticker {
+      height: 44px;
+      background: var(--ac);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative
+    }
+
+    .ticker-lbl {
+      flex-shrink: 0;
+      font-size: .55rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding: 0 20px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-right: 1px solid rgba(5, 22, 42, .2)
+    }
+
+    .ticker-wrap {
+      flex: 1;
+      overflow: hidden
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tkr 34s linear infinite
+    }
+
+    @keyframes tkr {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 22px;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      white-space: nowrap
+    }
+
+    .ticker-item i {
+      font-size: .28rem;
+      opacity: .45
+    }
+
+    /* CTA */
+    .cta-sec {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 50%, var(--bg3) 100%);
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .cta-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(var(--ac-rgb), .06) 1px, transparent 1px);
+      background-size: 26px 26px
+    }
+
+    .cta-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      position: relative;
+      z-index: 1
+    }
+
+    .cta-kicker {
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid rgba(var(--ac-rgb), .22);
+      padding: 6px 16px;
+      border-radius: 40px;
+      background: rgba(var(--ac-rgb), .05);
+      display: inline-flex
+    }
+
+    .cta-sec h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin: 20px 0 18px
+    }
+
+    .cta-sec h2 span {
+      color: var(--ac)
+    }
+
+    .cta-sec p {
+      font-size: .92rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 40px
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      border-radius: 10px;
+      cursor: none;
+      transition: .2s;
+      border: none;
+      position: relative;
+      overflow: hidden
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .12), transparent);
+      transform: translateX(-100%);
+      transition: transform .5s
+    }
+
+    .btn:hover::after {
+      transform: translateX(100%)
+    }
+
+    .btn-ac {
+      color: var(--ink);
+      background: var(--ac);
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4)
+    }
+
+    .btn-ac:hover {
+      background: var(--ac-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .btn-outline {
+      color: #fff;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, .2)
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, .08);
+      transform: translateY(-2px)
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg2);
+      position: relative
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ac) 30%, var(--ac-dark) 70%, transparent)
+    }
+
+    .footer-main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 72px 5vw 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px
+    }
+
+    .footer-logo img {
+      height: 34px;
+      object-fit: contain
+    }
+
+    .footer-logo-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.01em;
+      display: none
+    }
+
+    .footer-logo-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .footer-tagline {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ac-dark);
+      margin-bottom: 14px
+    }
+
+    .footer-desc {
+      font-size: .82rem;
+      color: var(--text-3);
+      line-height: 1.74;
+      margin-bottom: 22px
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap
+    }
+
+    .f-soc {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-3);
+      font-size: .8rem;
+      transition: .2s
+    }
+
+    .f-soc:hover {
+      background: rgba(var(--ac-rgb), .12);
+      border-color: rgba(var(--ac-rgb), .28);
+      color: var(--ac);
+      transform: translateY(-2px)
+    }
+
+    .footer-col h4 {
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .footer-col ul a {
+      font-size: .82rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: .2s
+    }
+
+    .footer-col ul a:hover {
+      color: var(--ac);
+      padding-left: 4px
+    }
+
+    .footer-col ul i {
+      font-size: .68rem;
+      color: var(--text-3);
+      width: 13px;
+      flex-shrink: 0
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 18px 5vw;
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .footer-copy {
+      font-size: .75rem;
+      color: var(--text-3)
+    }
+
+    .footer-copy a {
+      color: var(--ac)
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 10px
+    }
+
+    .f-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      border: 1px solid rgba(255, 255, 255, .07);
+      padding: 4px 10px;
+      border-radius: 6px
+    }
+
+    .f-badge i {
+      color: var(--ac);
+      font-size: .6rem
+    }
+
+    /* FLOATING */
+    #btt {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ac);
+      color: var(--ink);
+      font-size: .88rem;
+      border: none;
+      cursor: none;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: .3s;
+      pointer-events: none
+    }
+
+    #btt.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto
+    }
+
+    #btt:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .chat-fab {
+      position: fixed;
+      bottom: 82px;
+      right: 28px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ac);
+      color: var(--ink);
+      font-size: 1.1rem;
+      border: none;
+      cursor: none;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4);
+      transition: .25s
+    }
+
+    .chat-fab:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ff4d4f;
+      border: 2px solid var(--bg2);
+      font-size: .52rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 148px;
+      right: 28px;
+      width: 316px;
+      background: var(--bg3);
+      border: 1px solid var(--border-d);
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, .5);
+      z-index: 400;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px) scale(.97);
+      transition: .25s;
+      overflow: hidden
+    }
+
+    .chat-window.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1)
+    }
+
+    .cw-head {
+      padding: 14px 16px;
+      background: var(--ac);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .cw-head-left {
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .cw-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem
+    }
+
+    .cw-name {
+      font-size: .82rem;
+      font-weight: 800
+    }
+
+    .cw-status {
+      font-size: .64rem;
+      opacity: .65
+    }
+
+    .cw-close {
+      background: none;
+      border: none;
+      cursor: none;
+      color: var(--ink);
+      font-size: .88rem;
+      opacity: .7
+    }
+
+    .cw-msgs {
+      padding: 14px;
+      height: 190px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .cw-msg {
+      max-width: 80%;
+      font-size: .8rem;
+      padding: 9px 13px;
+      border-radius: 11px;
+      line-height: 1.5
+    }
+
+    .cw-msg.bot {
+      background: rgba(255, 255, 255, .06);
+      color: var(--text-1);
+      align-self: flex-start;
+      border-radius: 4px 11px 11px 11px
+    }
+
+    .cw-msg.usr {
+      background: var(--ac);
+      color: var(--ink);
+      align-self: flex-end;
+      border-radius: 11px 4px 11px 11px;
+      font-weight: 700
+    }
+
+    .cw-input-row {
+      padding: 10px 13px;
+      border-top: 1px solid var(--border-d);
+      display: flex;
+      gap: 7px
+    }
+
+    .cw-input {
+      flex: 1;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border-d);
+      border-radius: 7px;
+      padding: 7px 11px;
+      color: #fff;
+      font-size: .8rem;
+      font-family: 'Outfit', sans-serif;
+      outline: none
+    }
+
+    .cw-input::placeholder {
+      color: var(--text-3)
+    }
+
+    .cw-send {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      background: var(--ac);
+      color: var(--ink);
+      border: none;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      flex-shrink: 0
+    }
+
+    body.theme-midnight {
+      --bg: #0d0d1a;
+      --bg2: #12122a;
+      --bg3: #1a1a36;
+      --border-d: rgba(var(--ac-rgb), .18)
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1200px) {
+      .social-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px
+      }
+    }
+
+    @media(max-width:900px) {
+      :root {
+        --nav-h: 72px
+      }
+
+      .n-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        background: rgba(3, 8, 16, .98);
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
+        flex-direction: column;
+        padding: 18px 5vw 22px;
+        gap: 3px;
+        backdrop-filter: blur(28px)
+      }
+
+      .n-links.open {
+        display: flex
+      }
+
+      .n-link {
+        padding: 10px 14px;
+        font-size: .8rem
+      }
+
+      .n-cta {
+        font-size: .78rem;
+        padding: 10px 14px;
+        width: 100%;
+        justify-content: center
+      }
+
+      .n-ham {
+        display: flex
+      }
+
+      .social-grid {
+        grid-template-columns: 1fr
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:600px) {
+      :root {
+        --nav-h: 66px
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 28px
+      }
+
+      .chat-window {
+        right: 10px;
+        left: 10px;
+        width: auto;
+        bottom: 140px
+      }
+
+      .chat-fab,
+      #btt {
+        bottom: 16px
+      }
+
+      #btt {
+        right: 16px
+      }
+
+      .chat-fab {
+        right: 72px
+      }
+
+      .n-tools {
+        gap: 5px
+      }
+
+      .n-tool-btn {
+        width: 34px;
+        height: 34px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <div class="cur" id="cur" aria-hidden="true"></div>
+  <div class="cur-r" id="curR" aria-hidden="true"></div>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-txt">Haf<em>ten</em></div>
+    </div>
+  </div>
+
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="n-logo" aria-label="Haften">
+      <img src="assets/logos/logo-haften.png" alt="Haften"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
+    </a>
+    <ul class="n-links" id="navLinks">
+      <li><a href="index.html" class="n-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="n-link">Nosotros</a></li>
+      <li><a href="marcas.html" class="n-link">Marcas</a></li>
+      <li><a href="catalogos.html" class="n-link">Catálogos</a></li>
+      <li><a href="multimedia.html" class="n-link">Multimedia</a></li>
+      <li><a href="redes.html" class="n-link active">Redes</a></li>
+      <li><a href="contacto.html" class="n-cta"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+    </ul>
+    <div class="n-tools">
+      <div style="position:relative">
+        <button class="n-tool-btn" id="colorBtn" aria-label="Color" aria-expanded="false"><i
+            class="fa-solid fa-palette"></i></button>
+        <div class="tool-panel" id="colorPanel">
+          <div class="tp-label">Color de acento</div>
+          <div class="cp-grid">
+            <div class="cp-swatch active" data-ac="#00c8e8" data-acd="#0099bb" data-rgb="0,200,232"
+              style="background:#00c8e8" role="button" tabindex="0" aria-label="Cian"></div>
+            <div class="cp-swatch" data-ac="#2563EB" data-acd="#1D4ED8" data-rgb="37,99,235" style="background:#2563EB"
+              role="button" tabindex="0" aria-label="Azul"></div>
+            <div class="cp-swatch" data-ac="#059669" data-acd="#047857" data-rgb="5,150,105" style="background:#059669"
+              role="button" tabindex="0" aria-label="Verde"></div>
+            <div class="cp-swatch" data-ac="#7C3AED" data-acd="#6D28D9" data-rgb="124,58,237" style="background:#7C3AED"
+              role="button" tabindex="0" aria-label="Violeta"></div>
+            <div class="cp-swatch" data-ac="#EA580C" data-acd="#C2410C" data-rgb="234,88,12" style="background:#EA580C"
+              role="button" tabindex="0" aria-label="Naranja"></div>
+            <div class="cp-swatch" data-ac="#E11D48" data-acd="#BE123C" data-rgb="225,29,72" style="background:#E11D48"
+              role="button" tabindex="0" aria-label="Rosa"></div>
+          </div>
+          <div class="tp-label" style="margin-top:14px">Tema</div>
+          <div class="cp-themes">
+            <button class="cp-theme-btn active" data-theme="dark"><i class="fa-solid fa-moon"></i> Oscuro</button>
+            <button class="cp-theme-btn" data-theme="midnight"><i class="fa-solid fa-circle-half-stroke"></i>
+              Midnight</button>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <button class="n-tool-btn" id="a11yBtn" aria-label="Accesibilidad" aria-expanded="false"><i
+            class="fa-solid fa-universal-access"></i></button>
+        <div class="tool-panel" id="a11yPanel">
+          <div class="tp-label">Accesibilidad</div>
+          <div class="a11y-row"><span class="a11y-lbl">Tamaño texto</span>
+            <div class="a11y-fs"><button onclick="changeFontScale(-0.1)"><i class="fa-solid fa-minus"></i></button><span
+                class="fs-val" id="fsVal">100%</span><button onclick="changeFontScale(0.1)"><i
+                  class="fa-solid fa-plus"></i></button></div>
+          </div>
+          <div class="a11y-row"><span class="a11y-lbl">Alto contraste</span><label class="a11y-toggle"><input
+                type="checkbox" id="hcToggle" onchange="toggleHC(this.checked)"><span
+                class="a11y-slider"></span></label></div>
+          <div class="a11y-row"><span class="a11y-lbl">Sin animaciones</span><label class="a11y-toggle"><input
+                type="checkbox" id="animToggle" onchange="toggleAnim(this.checked)"><span
+                class="a11y-slider"></span></label></div>
+          <div class="a11y-row" style="border-bottom:none"><span class="a11y-lbl">Cursor custom</span><label
+              class="a11y-toggle"><input type="checkbox" id="curToggle" checked
+                onchange="toggleCursor(this.checked)"><span class="a11y-slider"></span></label></div>
+        </div>
+      </div>
+      <button class="n-ham" id="menuBtn" aria-label="Menú"
+        aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero" aria-label="Redes sociales hero">
+      <div class="page-hero-bg-img" aria-hidden="true"></div>
+      <div class="page-hero-overlay" aria-hidden="true"></div>
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="page-hero-inner">
+
+        <div class="ph-eyebrow rv">
+          <span class="ph-dot" aria-hidden="true"></span>
+          Síguenos en todas partes
+        </div>
+        <h1 class="ph-h1 rv">Haften en <span>Redes Sociales</span></h1>
+        <p class="ph-sub rv">Contenido técnico, novedades de productos, capacitaciones y más. Conéctate con nuestra
+          comunidad HVAC/R en todas las plataformas.</p>
+        <div class="ph-platforms rv">
+          <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="ph-platform fb"
+            aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/Haftenoficial" target="_blank" rel="noopener" class="ph-platform ig"
+            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@Haftenoficial/videos" target="_blank" rel="noopener" class="ph-platform yt"
+            aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener" class="ph-platform li"
+            aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://x.com/haften1" target="_blank" rel="noopener" class="ph-platform tw"
+            aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.tiktok.com/@Haftenoficial/" target="_blank" rel="noopener" class="ph-platform tt"
+            aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-lbl"><i class="fa-solid fa-signal" style="font-size:.5rem"></i> Síguenos</div>
+      <div class="ticker-wrap">
+        <div class="ticker-track" id="tkr"></div>
+      </div>
+    </div>
+
+    <!-- SOCIAL CARDS -->
+    <section class="social-sec" aria-labelledby="social-h">
+      <div class="social-sec-inner">
+        <div class="social-header rv">
+          <div class="eyebrow"><i class="fa-solid fa-satellite-dish"></i> Nuestras plataformas</div>
+          <h2 id="social-h" class="s-title">Conecta con <span>Haften</span></h2>
+          <p class="s-sub">Cada plataforma tiene contenido exclusivo: tutoriales técnicos, lanzamientos de productos,
+            ferias del sector y mucho más.</p>
+        </div>
+        <div class="social-grid">
+
+          <!-- FACEBOOK -->
+          <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="soc-card soc-fb rv d1">
+            <div class="soc-card-head">
+              <div class="soc-icon-wrap"><i class="fa-brands fa-facebook-f"></i></div>
+              <div>
+                <div class="soc-name">Facebook</div>
+                <div class="soc-handle">@HaftenOficial</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </div>
+            <div class="soc-card-body">
+              <div class="soc-stat-row">
+                <div class="soc-stat">
+                  <div class="soc-stat-n">730<span style="color:rgba(255,255,255,.4);font-size:.8em">+</span></div>
+                  <div class="soc-stat-l">Seguidores</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">∞</div>
+                  <div class="soc-stat-l">Videos</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">1999</div>
+                  <div class="soc-stat-l">Desde</div>
+                </div>
+              </div>
+              <p class="soc-desc">Noticias del sector, videos de productos, promociones y novedades de nuestras marcas
+                representadas. El lugar ideal para mantenerte informado.</p>
+              <div class="soc-tags">
+                <span class="soc-tag">Videos</span>
+                <span class="soc-tag">Productos</span>
+                <span class="soc-tag">Noticias</span>
+                <span class="soc-tag">Eventos</span>
+              </div>
+            </div>
+            <div class="soc-card-foot">
+              <div class="soc-btn"><i class="fa-brands fa-facebook-f"></i> Seguir en Facebook</div>
+            </div>
+          </a>
+
+          <!-- INSTAGRAM -->
+          <a href="https://www.instagram.com/Haftenoficial" target="_blank" rel="noopener"
+            class="soc-card soc-ig rv d2">
+            <div class="soc-card-head">
+              <div class="soc-icon-wrap"><i class="fa-brands fa-instagram"></i></div>
+              <div>
+                <div class="soc-name">Instagram</div>
+                <div class="soc-handle">@Haftenoficial</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </div>
+            <div class="soc-card-body">
+              <div class="soc-stat-row">
+                <div class="soc-stat">
+                  <div class="soc-stat-n" style="font-size:1rem">Activo</div>
+                  <div class="soc-stat-l">Estado</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">Reels</div>
+                  <div class="soc-stat-l">Formato</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">MX</div>
+                  <div class="soc-stat-l">País</div>
+                </div>
+              </div>
+              <p class="soc-desc">Contenido visual premium: Reels técnicos, instalaciones reales, detrás de cámaras y
+                showcases de los mejores productos HVAC/R del mercado.</p>
+              <div class="soc-tags">
+                <span class="soc-tag">Reels</span>
+                <span class="soc-tag">HVAC</span>
+                <span class="soc-tag">BMS</span>
+                <span class="soc-tag">Instalaciones</span>
+              </div>
+            </div>
+            <div class="soc-card-foot">
+              <div class="soc-btn"><i class="fa-brands fa-instagram"></i> Seguir en Instagram</div>
+            </div>
+          </a>
+
+          <!-- YOUTUBE -->
+          <a href="https://www.youtube.com/@Haftenoficial/videos" target="_blank" rel="noopener"
+            class="soc-card soc-yt rv d3">
+            <div class="soc-card-head">
+              <div class="soc-icon-wrap"><i class="fa-brands fa-youtube"></i></div>
+              <div>
+                <div class="soc-name">YouTube</div>
+                <div class="soc-handle">@Haftenoficial</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </div>
+            <div class="soc-card-body">
+              <div class="soc-stat-row">
+                <div class="soc-stat">
+                  <div class="soc-stat-n" style="font-size:1rem">Canal</div>
+                  <div class="soc-stat-l">Tipo</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">HD</div>
+                  <div class="soc-stat-l">Calidad</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">ESP</div>
+                  <div class="soc-stat-l">Idioma</div>
+                </div>
+              </div>
+              <p class="soc-desc">Tutoriales técnicos, webinars de capacitación, demos de productos y videos educativos
+                sobre HVAC/R, BMS y medición de energía en español.</p>
+              <div class="soc-tags">
+                <span class="soc-tag">Tutoriales</span>
+                <span class="soc-tag">Webinars</span>
+                <span class="soc-tag">Demos</span>
+                <span class="soc-tag">Capacitación</span>
+              </div>
+            </div>
+            <div class="soc-card-foot">
+              <div class="soc-btn"><i class="fa-brands fa-youtube"></i> Ver canal de YouTube</div>
+            </div>
+          </a>
+
+          <!-- LINKEDIN -->
+          <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener"
+            class="soc-card soc-li rv d4">
+            <div class="soc-card-head">
+              <div class="soc-icon-wrap"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div>
+                <div class="soc-name">LinkedIn</div>
+                <div class="soc-handle">Haften · Empresa</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </div>
+            <div class="soc-card-body">
+              <div class="soc-stat-row">
+                <div class="soc-stat">
+                  <div class="soc-stat-n">362<span style="color:rgba(255,255,255,.4);font-size:.8em">+</span></div>
+                  <div class="soc-stat-l">Seguidores</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">11-50</div>
+                  <div class="soc-stat-l">Empleados</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">B2B</div>
+                  <div class="soc-stat-l">Enfoque</div>
+                </div>
+              </div>
+              <p class="soc-desc">Noticias empresariales, artículos técnicos, oportunidades de negocio y actualizaciones
+                del sector industrial y de edificios inteligentes.</p>
+              <div class="soc-tags">
+                <span class="soc-tag">B2B</span>
+                <span class="soc-tag">Industria</span>
+                <span class="soc-tag">Ingeniería</span>
+                <span class="soc-tag">Networking</span>
+              </div>
+            </div>
+            <div class="soc-card-foot">
+              <div class="soc-btn"><i class="fa-brands fa-linkedin-in"></i> Conectar en LinkedIn</div>
+            </div>
+          </a>
+
+          <!-- X / TWITTER -->
+          <a href="https://x.com/haften1" target="_blank" rel="noopener" class="soc-card soc-tw rv d5">
+            <div class="soc-card-head">
+              <div class="soc-icon-wrap"><i class="fa-brands fa-x-twitter"></i></div>
+              <div>
+                <div class="soc-name">X (Twitter)</div>
+                <div class="soc-handle">@haften1</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </div>
+            <div class="soc-card-body">
+              <div class="soc-stat-row">
+                <div class="soc-stat">
+                  <div class="soc-stat-n" style="font-size:1rem">Tweets</div>
+                  <div class="soc-stat-l">Formato</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">RT</div>
+                  <div class="soc-stat-l">Interacción</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">ESP</div>
+                  <div class="soc-stat-l">Idioma</div>
+                </div>
+              </div>
+              <p class="soc-desc">Actualizaciones rápidas del sector, tendencias HVAC/R, noticias de marcas
+                internacionales y participación en conversaciones técnicas en tiempo real.</p>
+              <div class="soc-tags">
+                <span class="soc-tag">Noticias</span>
+                <span class="soc-tag">Tendencias</span>
+                <span class="soc-tag">Sector</span>
+                <span class="soc-tag">Tiempo real</span>
+              </div>
+            </div>
+            <div class="soc-card-foot">
+              <div class="soc-btn"><i class="fa-brands fa-x-twitter"></i> Seguir en X</div>
+            </div>
+          </a>
+
+          <!-- TIKTOK -->
+          <a href="https://www.tiktok.com/@Haftenoficial/" target="_blank" rel="noopener" class="soc-card soc-tt rv d6">
+            <div class="soc-card-head">
+              <div class="soc-icon-wrap"><i class="fa-brands fa-tiktok"></i></div>
+              <div>
+                <div class="soc-name">TikTok</div>
+                <div class="soc-handle">@Haftenoficial</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square soc-arrow"></i>
+            </div>
+            <div class="soc-card-body">
+              <div class="soc-stat-row">
+                <div class="soc-stat">
+                  <div class="soc-stat-n" style="font-size:1rem">Shorts</div>
+                  <div class="soc-stat-l">Formato</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">60s</div>
+                  <div class="soc-stat-l">Duración</div>
+                </div>
+                <div class="soc-stat">
+                  <div class="soc-stat-n">Gen Z</div>
+                  <div class="soc-stat-l">Alcance</div>
+                </div>
+              </div>
+              <p class="soc-desc">Videos cortos y dinámicos: datos curiosos HVAC, demostraciones rápidas de productos,
+                tips de instalación y contenido entretenido para la comunidad.</p>
+              <div class="soc-tags">
+                <span class="soc-tag">Videos cortos</span>
+                <span class="soc-tag">Tips HVAC</span>
+                <span class="soc-tag">Viral</span>
+                <span class="soc-tag">Demo</span>
+              </div>
+            </div>
+            <div class="soc-card-foot">
+              <div class="soc-btn"><i class="fa-brands fa-tiktok"></i> Seguir en TikTok</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY FOLLOW -->
+    <section class="why-sec" aria-labelledby="why-h">
+      <div class="why-inner">
+        <div class="why-header rv">
+          <div class="eyebrow"><i class="fa-solid fa-star"></i> Beneficios</div>
+          <h2 id="why-h" class="s-title">¿Por qué <span>seguirnos?</span></h2>
+          <p class="s-sub">Más de 20 años de experiencia técnica condensada en contenido digital para profesionales del
+            sector.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card rv d1">
+            <div class="why-ico"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="why-title">Capacitación continua</div>
+            <p class="why-desc">Webinars, tutoriales y cursos técnicos gratuitos sobre HVAC/R, BMS y medición de energía
+              impartidos por ingenieros especialistas.</p>
+          </div>
+          <div class="why-card rv d2">
+            <div class="why-ico"><i class="fa-solid fa-bolt"></i></div>
+            <div class="why-title">Lanzamientos primero</div>
+            <p class="why-desc">Entérate antes que nadie de nuevos productos, actualizaciones de marcas y novedades del
+              sector industrial en México.</p>
+          </div>
+          <div class="why-card rv d3">
+            <div class="why-ico"><i class="fa-solid fa-comments"></i></div>
+            <div class="why-title">Soporte técnico ágil</div>
+            <p class="why-desc">Resolvemos dudas técnicas, consultas de selección y preguntas de aplicación directamente
+              en nuestros comentarios y mensajes.</p>
+          </div>
+          <div class="why-card rv d4">
+            <div class="why-ico"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="why-title">Eventos y ferias</div>
+            <p class="why-desc">Cobertura en vivo de las principales ferias del sector en México y América Latina, con
+              entrevistas y demos en tiempo real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-sec" aria-labelledby="cta-h">
+      <div class="cta-inner rv">
+        <div class="cta-kicker"><i class="fa-solid fa-bolt"></i> Únete a la comunidad</div>
+        <h2 id="cta-h">¿Tienes un proyecto <span>en mente?</span></h2>
+        <p>Nuestros ingenieros están listos para asesorarte. Selección, especificación y distribución del equipo exacto
+          para tu sistema.</p>
+        <div class="cta-btns">
+          <a href="contacto.html" class="btn btn-ac"><i class="fa-solid fa-envelope"></i>Contáctanos ahora</a>
+          <a href="multimedia.html" class="btn btn-outline"><i class="fa-solid fa-circle-play"></i>Ver multimedia</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-main">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/logos/logo-haften.png" alt="Haften"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="footer-logo-txt" style="display:none">Haf<em>ten</em></span>
+          </div>
+          <div class="footer-tagline">HVAC · BMS · Medición de Energía</div>
+          <p class="footer-desc">Distribución especializada de equipos y sistemas de control HVAC/R-BMS en México desde
+            1999. Una solución completa en el mismo lugar.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="f-soc"
+              aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/Haftenoficial" target="_blank" rel="noopener" class="f-soc"
+              aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Haftenoficial/videos" target="_blank" rel="noopener" class="f-soc"
+              aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener" class="f-soc"
+              aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://x.com/haften1" target="_blank" rel="noopener" class="f-soc" aria-label="X"><i
+                class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.tiktok.com/@Haftenoficial/" target="_blank" rel="noopener" class="f-soc"
+              aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a></li>
+            <li><a href="nosotros.html"><i class="fa-solid fa-building"></i>Nosotros</a></li>
+            <li><a href="marcas.html"><i class="fa-solid fa-tag"></i>Marcas</a></li>
+            <li><a href="catalogos.html"><i class="fa-solid fa-file-pdf"></i>Catálogos</a></li>
+            <li><a href="multimedia.html"><i class="fa-solid fa-circle-play"></i>Multimedia</a></li>
+            <li><a href="redes.html"><i class="fa-solid fa-share-nodes"></i>Redes</a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="/cdn-cgi/l/email-protection#462f282029062e27203223286825292b682b3e"><i
+                  class="fa-solid fa-envelope"></i><span class="__cf_email__"
+                  data-cfemail="137a7d757c537b727567767d3d707c7e3d7e6b">[email&#160;protected]</span></a></li>
+            <li><a href="https://haften.com.mx" target="_blank" rel="noopener"><i
+                  class="fa-solid fa-globe"></i>haften.com.mx</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Ciudad de México</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Monterrey, N.L.</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Guadalajara, Jal.</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>León · Cancún</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sectores</h4>
+          <ul>
+            <li><a href="#"><i class="fa-solid fa-industry"></i>Industrial</a></li>
+            <li><a href="#"><i class="fa-solid fa-building-columns"></i>Comercial</a></li>
+            <li><a href="#"><i class="fa-solid fa-hospital"></i>Hospitalario</a></li>
+            <li><a href="#"><i class="fa-solid fa-hotel"></i>Hotelero</a></li>
+            <li><a href="#"><i class="fa-solid fa-flask"></i>Laboratorio</a></li>
+            <li><a href="#"><i class="fa-solid fa-house"></i>Residencial</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Haften · Todos los derechos reservados · <a href="https://haften.com.mx"
+            target="_blank" rel="noopener">haften.com.mx</a></span>
+        <div class="footer-badges">
+          <span class="f-badge"><i class="fa-solid fa-shield-check"></i>Distribuidor Autorizado</span>
+          <span class="f-badge"><i class="fa-solid fa-certificate"></i>+20 Años</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <button id="btt" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+  <button class="chat-fab" id="chatFab" aria-label="Chat de soporte" aria-expanded="false">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span class="chat-badge">1</span>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="cw-head">
+      <div class="cw-head-left">
+        <div class="cw-avatar"><i class="fa-solid fa-headset"></i></div>
+        <div>
+          <div class="cw-name">Soporte Haften</div>
+          <div class="cw-status">● En línea</div>
+        </div>
+      </div>
+      <button class="cw-close" id="chatClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cw-msgs" id="cwMsgs">
+      <div class="cw-msg bot">¡Hola! Soy el asistente de <strong>Haften</strong>. ¿En qué puedo ayudarte?</div>
+      <div class="cw-msg bot">Puedo orientarte sobre productos, marcas o cotizaciones.</div>
+    </div>
+    <div class="cw-input-row">
+      <input type="text" class="cw-input" id="cwInput" placeholder="Escribe tu mensaje...">
+      <button class="cw-send" id="cwSend"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // LOADER
+    (function () {
+      function done() { document.getElementById('loader').classList.add('done') }
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', () => setTimeout(done, 500))
+        : setTimeout(done, 300);
+      setTimeout(done, 2500);
+    })();
+
+    // CURSOR
+    const cur = document.getElementById('cur'), curR = document.getElementById('curR');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
+    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    document.querySelectorAll('a,button,.soc-card,.why-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cur.style.width = '14px'; cur.style.height = '14px' });
+      el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px' });
+    });
+
+    // NAVBAR
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+      document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+    }, { passive: true });
+    document.getElementById('btt').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', e => { e.stopPropagation(); navLinks.classList.toggle('open'); menuBtn.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', navLinks.classList.contains('open')) });
+    document.addEventListener('click', e => { if (!e.target.closest('#navbar')) { navLinks.classList.remove('open'); menuBtn.classList.remove('open') } });
+
+    // COLOR PANEL
+    const colorBtn = document.getElementById('colorBtn'), colorPanel = document.getElementById('colorPanel');
+    colorBtn.addEventListener('click', e => { e.stopPropagation(); colorPanel.classList.toggle('open'); document.getElementById('a11yPanel').classList.remove('open') });
+    document.addEventListener('click', () => colorPanel.classList.remove('open'));
+    colorPanel.addEventListener('click', e => e.stopPropagation());
+    document.querySelectorAll('.cp-swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        const r = document.documentElement;
+        r.style.setProperty('--ac', sw.dataset.ac); r.style.setProperty('--ac-dark', sw.dataset.acd); r.style.setProperty('--ac-rgb', sw.dataset.rgb);
+        document.querySelectorAll('.cp-swatch').forEach(s => s.classList.remove('active')); sw.classList.add('active');
+      });
+    });
+    document.querySelectorAll('.cp-theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cp-theme-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active');
+        document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+        if (btn.dataset.theme !== 'dark') document.body.classList.add('theme-' + btn.dataset.theme);
+      });
+    });
+    const a11yBtn = document.getElementById('a11yBtn'), a11yPanel = document.getElementById('a11yPanel');
+    a11yBtn.addEventListener('click', e => { e.stopPropagation(); a11yPanel.classList.toggle('open'); colorPanel.classList.remove('open') });
+    a11yPanel.addEventListener('click', e => e.stopPropagation());
+    let fontScale = 1;
+    function changeFontScale(d) { fontScale = Math.max(.8, Math.min(1.3, fontScale + d)); document.documentElement.style.setProperty('--font-scale', fontScale); document.getElementById('fsVal').textContent = Math.round(fontScale * 100) + '%' }
+    function toggleHC(on) { document.body.classList.toggle('hc-mode', on) }
+    function toggleAnim(on) { document.body.classList.toggle('no-anim', on) }
+    function toggleCursor(on) { cur.style.display = on ? 'block' : 'none'; curR.style.display = on ? 'block' : 'none'; document.body.style.cursor = on ? 'none' : 'auto' }
+
+    // TICKER
+    const platforms = ['Facebook · @HaftenOficial', 'Instagram · @Haftenoficial', 'YouTube · @Haftenoficial', 'LinkedIn · Haften', 'X · @haften1', 'TikTok · @Haftenoficial'];
+    const tkr = document.getElementById('tkr');
+    [...platforms, ...platforms, ...platforms, ...platforms].forEach(p => { const e = document.createElement('span'); e.className = 'ticker-item'; e.innerHTML = `<i class="fa-solid fa-circle"></i>${p}`; tkr.appendChild(e) });
+
+    // SCROLL REVEAL
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target) } }) }, { threshold: .07 });
+    document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => io.observe(el));
+
+    // CHAT
+    const chatFab = document.getElementById('chatFab'), chatWin = document.getElementById('chatWindow'), cwMsgs = document.getElementById('cwMsgs'), cwInput = document.getElementById('cwInput'), cwSend = document.getElementById('cwSend');
+    chatFab.addEventListener('click', () => { chatWin.classList.toggle('open'); chatFab.setAttribute('aria-expanded', chatWin.classList.contains('open')); if (chatWin.classList.contains('open')) chatFab.querySelector('.chat-badge').style.display = 'none' });
+    document.getElementById('chatClose').addEventListener('click', () => { chatWin.classList.remove('open') });
+    const chatR = ['Claro, con gusto te ayudo. Escríbenos a info@haften.com.mx', 'Tenemos ese producto disponible. Visita Catálogos para más detalles.', 'Para cotizaciones formales, escríbenos a info@haften.com.mx.', 'Nuestros ingenieros pueden asesorarte sobre la marca correcta para tu proyecto.'];
+    let rIdx = 0;
+    function sendMsg() { const txt = cwInput.value.trim(); if (!txt) return; const um = document.createElement('div'); um.className = 'cw-msg usr'; um.textContent = txt; cwMsgs.appendChild(um); cwInput.value = ''; cwMsgs.scrollTop = cwMsgs.scrollHeight; setTimeout(() => { const bm = document.createElement('div'); bm.className = 'cw-msg bot'; bm.textContent = chatR[rIdx % chatR.length]; rIdx++; cwMsgs.appendChild(bm); cwMsgs.scrollTop = cwMsgs.scrollHeight }, 700) }
+    cwSend.addEventListener('click', sendMsg);
+    cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
+  </script>
+</body>
+
+</html>

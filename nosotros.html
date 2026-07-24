@@ -1,0 +1,3552 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logos/logo-haften.png">
+  <title>Nosotros — Haften · HVAC · BMS · Medición de Energía</title>
+  <meta name="description"
+    content="Conoce a Haften: más de 20 años de experiencia en comercialización de equipos HVAC/R, BMS, sensores y automatización industrial en México.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ────────────────────────────────────────────────
+   TOKENS (idénticos al base)
+──────────────────────────────────────────────── */
+    :root {
+      --ac: #E11D48;
+      --ac-dark: #BE123C;
+      --ac-rgb: 225, 29, 72;
+      --bg: #030810;
+      --bg2: #060d1a;
+      --bg3: #0c1828;
+      --lt: #f4f8fb;
+      --lt2: #e9f1f7;
+      --white: #fff;
+      --text-1: #fff;
+      --text-2: #7aafc8;
+      --text-3: #3d7090;
+      --ink: #05162a;
+      --ink2: #183855;
+      --ink3: #2e6080;
+      --border-d: rgba(225, 29, 72, .1);
+      --border-l: rgba(5, 22, 42, .08);
+      --nav-h: 88px;
+      --font-scale: 1;
+    }
+
+    .hc-mode {
+      --text-2: #fff !important;
+      --text-3: #d0e8ff !important;
+      --ink2: #000 !important;
+      --ink3: #111 !important
+    }
+
+    html {
+      font-size: calc(16px*var(--font-scale));
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text-1);
+      overflow-x: hidden;
+      cursor: none
+    }
+
+    body.no-anim * {
+      transition: none !important;
+      animation: none !important
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ul {
+      list-style: none
+    }
+
+    section {
+      padding: 104px 0
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .6rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 14px
+    }
+
+    .s-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      margin-bottom: 16px
+    }
+
+    .s-title span {
+      color: var(--ac-dark)
+    }
+
+    .s-title.dark {
+      color: #fff
+    }
+
+    .s-title.dark span {
+      color: var(--ac)
+    }
+
+    .s-sub {
+      font-size: .96rem;
+      color: var(--text-3);
+      line-height: 1.75;
+      max-width: 560px
+    }
+
+    .s-sub.light {
+      color: var(--ink3)
+    }
+
+    .s-hdr {
+      margin-bottom: 56px
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv-l {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv-r {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv.on,
+    .rv-l.on,
+    .rv-r.on {
+      opacity: 1;
+      transform: none
+    }
+
+    .d1 {
+      transition-delay: .05s
+    }
+
+    .d2 {
+      transition-delay: .12s
+    }
+
+    .d3 {
+      transition-delay: .19s
+    }
+
+    .d4 {
+      transition-delay: .26s
+    }
+
+    .d5 {
+      transition-delay: .33s
+    }
+
+    .d6 {
+      transition-delay: .4s
+    }
+
+    /* ── CURSOR ── */
+    .cur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ac);
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s
+    }
+
+    .cur-r {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9998;
+      pointer-events: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(var(--ac-rgb), .3);
+      transform: translate(-50%, -50%)
+    }
+
+    @media(hover:none) {
+
+      .cur,
+      .cur-r {
+        display: none
+      }
+
+      body {
+        cursor: auto
+      }
+    }
+
+    /* ── SKIP ── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      padding: .5rem 1rem;
+      background: var(--ac);
+      color: var(--ink);
+      font-weight: 700;
+      border-radius: 6px;
+      z-index: 99999;
+      transition: top .2s
+    }
+
+    .skip-link:focus {
+      top: 1rem
+    }
+
+    /* ── LOADER ── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .5s, visibility .5s
+    }
+
+    #loader.done {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    .loader-ring {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(var(--ac-rgb), .12);
+      border-top-color: var(--ac);
+      animation: spin .8s linear infinite
+    }
+
+    .loader-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: .08em;
+      margin-top: 12px
+    }
+
+    .loader-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .loader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px
+    }
+
+    /* ════════════════════════════════════════════════
+   NAVBAR
+════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 24px;
+      background: rgba(3, 8, 16, .7);
+      backdrop-filter: blur(32px) saturate(1.8);
+      -webkit-backdrop-filter: blur(32px) saturate(1.8);
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      transition: background .3s, box-shadow .3s;
+    }
+
+    #navbar.scrolled {
+      background: rgba(3, 8, 16, .95);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
+    }
+
+    .n-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0
+    }
+
+    .n-logo img {
+      height: 36px;
+      object-fit: contain
+    }
+
+    .n-logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.01em
+    }
+
+    .n-logo-text em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .n-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+      justify-content: center
+    }
+
+    .n-link {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+      padding: 8px 13px;
+      border-radius: 8px;
+      position: relative;
+      transition: color .2s, background .2s;
+      white-space: nowrap
+    }
+
+    .n-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 14px;
+      height: 2px;
+      background: var(--ac);
+      border-radius: 1px;
+      transition: transform .25s cubic-bezier(.34, 1.56, .64, 1)
+    }
+
+    .n-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .n-link.active {
+      color: var(--ac)
+    }
+
+    .n-link:hover::after,
+    .n-link.active::after {
+      transform: translateX(-50%) scaleX(1)
+    }
+
+    .n-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--ac);
+      padding: 10px 22px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .35)
+    }
+
+    .n-cta:hover {
+      background: var(--ac-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .45)
+    }
+
+    .n-tools {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0
+    }
+
+    .n-tool-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .45);
+      font-size: .85rem;
+      position: relative;
+      transition: .2s
+    }
+
+    .n-tool-btn:hover {
+      border-color: var(--ac);
+      color: var(--ac)
+    }
+
+    .tool-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #0a1828;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 14px;
+      padding: 18px;
+      min-width: 220px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+      z-index: 600
+    }
+
+    .tool-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0)
+    }
+
+    .tp-label {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 12px
+    }
+
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px
+    }
+
+    .cp-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2.5px solid transparent;
+      cursor: none;
+      transition: transform .2s, border-color .2s
+    }
+
+    .cp-swatch:hover {
+      transform: scale(1.2)
+    }
+
+    .cp-swatch.active {
+      border-color: #fff
+    }
+
+    .cp-themes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 10px
+    }
+
+    .cp-theme-btn {
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: none;
+      cursor: none;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      transition: .2s;
+      text-align: left
+    }
+
+    .cp-theme-btn:hover,
+    .cp-theme-btn.active {
+      background: rgba(var(--ac-rgb), .12);
+      color: var(--ac);
+      border-color: rgba(var(--ac-rgb), .3)
+    }
+
+    .a11y-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      gap: 8px
+    }
+
+    .a11y-row:last-child {
+      border-bottom: none
+    }
+
+    .a11y-lbl {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-2)
+    }
+
+    .a11y-fs {
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .a11y-fs button {
+      background: rgba(var(--ac-rgb), .1);
+      border: 1px solid rgba(var(--ac-rgb), .2);
+      color: var(--ac);
+      font-size: .72rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s
+    }
+
+    .a11y-fs .fs-val {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      min-width: 22px;
+      text-align: center
+    }
+
+    .a11y-toggle {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex-shrink: 0;
+      cursor: none
+    }
+
+    .a11y-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0
+    }
+
+    .a11y-slider {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      transition: .2s
+    }
+
+    .a11y-slider::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--text-3);
+      transition: .2s
+    }
+
+    .a11y-toggle input:checked+.a11y-slider {
+      background: var(--ac)
+    }
+
+    .a11y-toggle input:checked+.a11y-slider::before {
+      left: 20px;
+      background: #fff
+    }
+
+    .n-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      cursor: none;
+      flex-shrink: 0;
+      transition: .2s
+    }
+
+    .n-ham:hover {
+      border-color: var(--ac)
+    }
+
+    .n-ham span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, .7);
+      transition: .3s;
+      transform-origin: center
+    }
+
+    .n-ham.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg)
+    }
+
+    .n-ham.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .n-ham.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg)
+    }
+
+    /* ════════════════════════════════════════════════
+   PAGE HERO — NOSOTROS
+════════════════════════════════════════════════ */
+    .page-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-top: var(--nav-h);
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0
+    }
+
+    .page-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.28) saturate(.6)
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(3, 8, 16, .6) 0%, rgba(3, 8, 16, .3) 40%, rgba(3, 8, 16, .92) 100%)
+    }
+
+    .page-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 200, 232, .018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 232, .018) 1px, transparent 1px);
+      background-size: 72px 72px
+    }
+
+    #phCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: .45
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 10;
+      padding: 0 5vw 72px;
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto
+    }
+
+    .page-hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .3);
+      margin-bottom: 28px
+    }
+
+    .page-hero-breadcrumb a {
+      color: var(--ac);
+      transition: .2s
+    }
+
+    .page-hero-breadcrumb a:hover {
+      color: #fff
+    }
+
+    .page-hero-breadcrumb i {
+      font-size: .44rem;
+      color: rgba(255, 255, 255, .2)
+    }
+
+    .page-hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--ac);
+      border: 1px solid rgba(var(--ac-rgb), .22);
+      padding: 6px 18px;
+      border-radius: 40px;
+      background: rgba(var(--ac-rgb), .06);
+      backdrop-filter: blur(10px);
+      margin-bottom: 28px
+    }
+
+    .page-hero-pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--ac);
+      animation: pdot 2s ease infinite;
+      flex-shrink: 0
+    }
+
+    @keyframes pdot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .1;
+        transform: scale(.2)
+      }
+    }
+
+    .page-hero-h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: .88;
+      letter-spacing: -.04em;
+      color: #fff;
+      margin-bottom: 28px
+    }
+
+    .page-hero-h1 .pre {
+      display: block;
+      color: rgba(255, 255, 255, .55);
+      font-weight: 600;
+      font-size: .42em;
+      letter-spacing: -.01em;
+      margin-bottom: .22em
+    }
+
+    .page-hero-h1 .main {
+      display: block;
+      background: linear-gradient(120deg, #fff 0%, var(--ac) 55%, rgba(var(--ac-rgb), .5) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .page-hero-sub {
+      font-size: .95rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, .4);
+      max-width: 480px;
+      line-height: 1.8;
+      letter-spacing: .01em
+    }
+
+    .page-hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 52px;
+      background: rgba(3, 8, 16, .55);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 16px;
+      overflow: hidden;
+      width: fit-content
+    }
+
+    .ph-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 40px;
+      border-right: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .ph-stat:last-child {
+      border-right: none
+    }
+
+    .ph-stat-n {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1
+    }
+
+    .ph-stat-n em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .ph-stat-l {
+      font-size: .56rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .25);
+      margin-top: 5px;
+      white-space: nowrap
+    }
+
+    /* ════════════════════════════════════════════════
+   TICKER
+════════════════════════════════════════════════ */
+    .ticker {
+      height: 44px;
+      background: var(--ac);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative
+    }
+
+    .ticker-lbl {
+      flex-shrink: 0;
+      font-size: .55rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding: 0 20px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-right: 1px solid rgba(5, 22, 42, .2)
+    }
+
+    .ticker-wrap {
+      flex: 1;
+      overflow: hidden
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tkr 38s linear infinite
+    }
+
+    @keyframes tkr {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 22px;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      white-space: nowrap
+    }
+
+    .ticker-item i {
+      font-size: .28rem;
+      opacity: .45
+    }
+
+    /* ════════════════════════════════════════════════
+   FILOSOFIA — MISIÓN / VISIÓN / VALORES
+════════════════════════════════════════════════ */
+    .filosofia-sec {
+      background: var(--lt);
+      position: relative;
+      overflow: hidden
+    }
+
+    .filosofia-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(var(--ac-rgb), .035) 1px, transparent 1px);
+      background-size: 28px 28px
+    }
+
+    .filosofia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      margin-top: 56px
+    }
+
+    .fil-card {
+      background: #fff;
+      padding: 44px 38px;
+      border: 1px solid var(--border-l);
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      transition: transform .35s, box-shadow .35s, border-color .35s
+    }
+
+    .fil-card:first-child {
+      border-radius: 14px 0 0 14px
+    }
+
+    .fil-card:last-child {
+      border-radius: 0 14px 14px 0
+    }
+
+    .fil-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--ac), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s
+    }
+
+    .fil-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 56px rgba(var(--ac-rgb), .1);
+      border-color: rgba(var(--ac-rgb), .2);
+      z-index: 1
+    }
+
+    .fil-card:hover::before {
+      transform: scaleX(1)
+    }
+
+    .fil-card-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(var(--ac-rgb), .06);
+      line-height: 1;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      letter-spacing: -.04em;
+      transition: color .4s
+    }
+
+    .fil-card:hover .fil-card-num {
+      color: rgba(var(--ac-rgb), .13)
+    }
+
+    .fil-ico {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(var(--ac-rgb), .08);
+      border: 1px solid rgba(var(--ac-rgb), .14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      transition: background .3s, transform .35s, box-shadow .35s
+    }
+
+    .fil-card:hover .fil-ico {
+      background: var(--ac);
+      color: var(--ink);
+      transform: scale(1.05) rotate(-3deg);
+      box-shadow: 0 8px 24px rgba(var(--ac-rgb), .35)
+    }
+
+    .fil-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 14px;
+      position: relative
+    }
+
+    .fil-card h3::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--ac);
+      margin-top: 10px;
+      transition: width .4s;
+      border-radius: 1px
+    }
+
+    .fil-card:hover h3::after {
+      width: 36px
+    }
+
+    .fil-card p {
+      font-size: .88rem;
+      color: var(--ink3);
+      line-height: 1.76
+    }
+
+    /* ════════════════════════════════════════════════
+   HISTORIA — TIMELINE (DARK)
+════════════════════════════════════════════════ */
+    .historia-sec {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 60%, var(--bg3) 100%);
+      position: relative;
+      overflow: hidden
+    }
+
+    .historia-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(0, 200, 232, .02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 232, .02) 1px, transparent 1px);
+      background-size: 56px 56px
+    }
+
+    .historia-sec::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(var(--ac-rgb), .055), transparent 65%)
+    }
+
+    .historia-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      position: relative;
+      z-index: 1
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 64px
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(var(--ac-rgb), .25) 10%, rgba(var(--ac-rgb), .25) 90%, transparent);
+      transform: translateX(-50%)
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr;
+      gap: 0;
+      margin-bottom: 52px;
+      align-items: center
+    }
+
+    .tl-item:nth-child(odd) .tl-content {
+      grid-column: 1;
+      text-align: right;
+      padding-right: 40px
+    }
+
+    .tl-item:nth-child(odd) .tl-dot {
+      grid-column: 2
+    }
+
+    .tl-item:nth-child(odd) .tl-empty {
+      grid-column: 3
+    }
+
+    .tl-item:nth-child(even) .tl-empty {
+      grid-column: 1
+    }
+
+    .tl-item:nth-child(even) .tl-dot {
+      grid-column: 2
+    }
+
+    .tl-item:nth-child(even) .tl-content {
+      grid-column: 3;
+      padding-left: 40px
+    }
+
+    .tl-dot {
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .tl-dot-inner {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--ac);
+      box-shadow: 0 0 0 4px rgba(var(--ac-rgb), .12), 0 0 16px rgba(var(--ac-rgb), .4);
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      z-index: 2
+    }
+
+    .tl-item:hover .tl-dot-inner {
+      transform: scale(1.3);
+      box-shadow: 0 0 0 6px rgba(var(--ac-rgb), .15), 0 0 24px rgba(var(--ac-rgb), .6)
+    }
+
+    .tl-year {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 6px
+    }
+
+    .tl-content h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.2
+    }
+
+    .tl-content p {
+      font-size: .84rem;
+      color: var(--text-2);
+      line-height: 1.7
+    }
+
+    /* ════════════════════════════════════════════════
+   EQUIPO — TEAM CARDS
+════════════════════════════════════════════════ */
+    .equipo-sec {
+      background: var(--lt);
+      position: relative;
+      overflow: hidden
+    }
+
+    .equipo-sec::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 10%, var(--ac) 50%, transparent 90%)
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px
+    }
+
+    .team-card {
+      background: #fff;
+      border: 1px solid var(--border-l);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: none;
+      transition: transform .35s, box-shadow .35s, border-color .35s;
+      position: relative
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 64px rgba(var(--ac-rgb), .12);
+      border-color: rgba(var(--ac-rgb), .25)
+    }
+
+    .team-card-img {
+      height: 240px;
+      overflow: hidden;
+      position: relative
+    }
+
+    .team-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s cubic-bezier(.16, 1, .3, 1), filter .4s
+    }
+
+    .team-card:hover .team-card-img img {
+      transform: scale(1.06);
+      filter: brightness(.88)
+    }
+
+    .team-card-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(5, 22, 42, .7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .35s
+    }
+
+    .team-card:hover .team-card-img-overlay {
+      opacity: 1
+    }
+
+    .team-card-body {
+      padding: 24px 26px 28px
+    }
+
+    .team-card-role {
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 6px
+    }
+
+    .team-card-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px
+    }
+
+    .team-card-desc {
+      font-size: .82rem;
+      color: var(--ink3);
+      line-height: 1.65
+    }
+
+    /* ════════════════════════════════════════════════
+   PORTAFOLIO / PRODUCTOS (bento grid dark)
+════════════════════════════════════════════════ */
+    .portafolio-sec {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 60%, var(--bg3) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 104px 0
+    }
+
+    .portafolio-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(0, 200, 232, .022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 232, .022) 1px, transparent 1px);
+      background-size: 56px 56px
+    }
+
+    .portafolio-sec::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(var(--ac-rgb), .06), transparent 65%)
+    }
+
+    .portafolio-sec .container {
+      position: relative;
+      z-index: 1
+    }
+
+    .port-bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 48px
+    }
+
+    .port-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 24px;
+      cursor: none;
+      transition: background .3s, border-color .3s, transform .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .port-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ac), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s
+    }
+
+    .port-card:hover {
+      background: rgba(var(--ac-rgb), .07);
+      border-color: rgba(var(--ac-rgb), .2);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .25)
+    }
+
+    .port-card:hover::before {
+      transform: scaleX(1)
+    }
+
+    .port-ico {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(var(--ac-rgb), .1);
+      border: 1px solid rgba(var(--ac-rgb), .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: 1rem;
+      margin-bottom: 14px;
+      transition: background .3s, color .3s
+    }
+
+    .port-card:hover .port-ico {
+      background: var(--ac);
+      color: var(--ink)
+    }
+
+    .port-name {
+      font-size: .84rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .8);
+      line-height: 1.45
+    }
+
+    /* ════════════════════════════════════════════════
+   SECTORES — SPLIT PHOTO GRID
+════════════════════════════════════════════════ */
+    .sectores-sec {
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: 0
+    }
+
+    .sectores-header {
+      padding: 80px 5vw 52px;
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center
+    }
+
+    .sectores-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      height: 640px;
+      position: relative;
+      z-index: 1
+    }
+
+    .sector-card {
+      position: relative;
+      overflow: hidden;
+      cursor: none
+    }
+
+    .sector-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s cubic-bezier(.16, 1, .3, 1), filter .5s;
+      filter: brightness(.45) saturate(.65)
+    }
+
+    .sector-card:hover img {
+      transform: scale(1.07);
+      filter: brightness(.25) saturate(.45)
+    }
+
+    .sector-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 36px 32px;
+      transition: padding .4s ease
+    }
+
+    .sector-card:hover .sector-overlay {
+      padding-bottom: 44px
+    }
+
+    .sector-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--ac);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform .45s cubic-bezier(.16, 1, .3, 1);
+      z-index: 3
+    }
+
+    .sector-card:hover::before {
+      transform: scaleY(1)
+    }
+
+    .sector-card:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(255, 255, 255, .08);
+      z-index: 2
+    }
+
+    .sector-tag {
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      z-index: 3;
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      color: var(--ac);
+      border: 1px solid rgba(var(--ac-rgb), .35);
+      padding: 4px 12px;
+      border-radius: 3px;
+      background: rgba(3, 8, 16, .65);
+      backdrop-filter: blur(6px);
+      transform: translateY(-4px);
+      opacity: 0;
+      transition: opacity .35s, transform .35s
+    }
+
+    .sector-card:hover .sector-tag {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .sector-body {
+      position: relative;
+      z-index: 2
+    }
+
+    .sector-ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(var(--ac-rgb), .15);
+      border: 1px solid rgba(var(--ac-rgb), .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      transition: background .35s, transform .35s
+    }
+
+    .sector-card:hover .sector-ico {
+      background: var(--ac);
+      color: var(--ink);
+      transform: scale(1.1)
+    }
+
+    .sector-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px
+    }
+
+    .sector-sub {
+      font-size: .82rem;
+      color: rgba(255, 255, 255, .5);
+      line-height: 1.5;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s, opacity .35s;
+      opacity: 0
+    }
+
+    .sector-card:hover .sector-sub {
+      max-height: 70px;
+      opacity: 1
+    }
+
+    .sector-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-top: 14px;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity .35s .05s, transform .35s .05s
+    }
+
+    .sector-card:hover .sector-link {
+      opacity: 1;
+      transform: translateX(0)
+    }
+
+    /* ════════════════════════════════════════════════
+   MARCAS — SCROLL CAROUSEL (light bg)
+════════════════════════════════════════════════ */
+    .marcas-sec {
+      background: #fff;
+      padding: 88px 0;
+      position: relative
+    }
+
+    .marcas-sec::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 10%, var(--ac) 50%, transparent 90%)
+    }
+
+    .marcas-intro {
+      padding: 0 5vw;
+      margin-bottom: 48px
+    }
+
+    .brands-carousel {
+      overflow: hidden
+    }
+
+    .brands-carousel+.brands-carousel {
+      margin-top: 6px
+    }
+
+    .brands-row {
+      display: flex;
+      width: max-content;
+      animation: bscr 40s linear infinite
+    }
+
+    .brands-row.rev {
+      animation-direction: reverse;
+      animation-duration: 52s
+    }
+
+    .brands-row:hover {
+      animation-play-state: paused
+    }
+
+    @keyframes bscr {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .brand-cell {
+      flex-shrink: 0;
+      width: 190px;
+      height: 70px;
+      background: #fff;
+      border: 1px solid var(--border-l);
+      border-radius: 10px;
+      margin: 0 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      cursor: none;
+      transition: box-shadow .25s, transform .25s, border-color .25s
+    }
+
+    .brand-cell:hover {
+      box-shadow: 0 8px 24px rgba(var(--ac-rgb), .15);
+      transform: translateY(-3px);
+      border-color: rgba(var(--ac-rgb), .28)
+    }
+
+    .brand-cell img {
+      max-width: 136px;
+      max-height: 44px;
+      object-fit: contain;
+      filter: grayscale(20%);
+      transition: .3s
+    }
+
+    .brand-cell:hover img {
+      filter: grayscale(0%)
+    }
+
+    .brand-fallback {
+      font-size: .7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--ink3);
+      text-align: center;
+      display: none
+    }
+
+    /* ════════════════════════════════════════════════
+   OFICINAS (dark)
+════════════════════════════════════════════════ */
+    .oficinas-sec {
+      background: var(--bg2);
+      position: relative;
+      overflow: hidden
+    }
+
+    .oficinas-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(0, 200, 232, .02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 232, .02) 1px, transparent 1px);
+      background-size: 52px 52px
+    }
+
+    .oficinas-sec .container {
+      position: relative;
+      z-index: 1
+    }
+
+    .oficinas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start
+    }
+
+    .map-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3)
+    }
+
+    .map-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      background: rgba(255, 255, 255, .03)
+    }
+
+    .map-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ac);
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(var(--ac-rgb), .6);
+      animation: pdot 2s ease infinite
+    }
+
+    .map-title {
+      font-size: .82rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .8)
+    }
+
+    .gmap-wrap iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      display: block
+    }
+
+    .offices-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .office-card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 12px;
+      padding: 18px 20px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: background .25s, border-color .25s, transform .25s
+    }
+
+    .office-card:hover,
+    .office-card.active-c {
+      background: rgba(var(--ac-rgb), .08);
+      border-color: rgba(var(--ac-rgb), .25);
+      transform: translateX(4px)
+    }
+
+    .off-ico {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(var(--ac-rgb), .1);
+      border: 1px solid rgba(var(--ac-rgb), .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: .9rem;
+      flex-shrink: 0;
+      transition: .25s
+    }
+
+    .office-card:hover .off-ico,
+    .office-card.active-c .off-ico {
+      background: var(--ac);
+      color: var(--ink)
+    }
+
+    .off-city {
+      font-size: .88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px
+    }
+
+    .off-badge {
+      display: inline-block;
+      font-size: .54rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ac);
+      background: rgba(var(--ac-rgb), .12);
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-left: 7px
+    }
+
+    .off-desc {
+      font-size: .76rem;
+      color: var(--text-3);
+      line-height: 1.5
+    }
+
+    /* ════════════════════════════════════════════════
+   CTA (dark)
+════════════════════════════════════════════════ */
+    .cta-sec {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 50%, var(--bg3) 100%);
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .cta-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(var(--ac-rgb), .06) 1px, transparent 1px);
+      background-size: 26px 26px
+    }
+
+    .cta-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      position: relative;
+      z-index: 1
+    }
+
+    .cta-kicker {
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px
+    }
+
+    .cta-sec h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin-bottom: 20px
+    }
+
+    .cta-sec h2 span {
+      color: var(--ac)
+    }
+
+    .cta-sec p {
+      font-size: .96rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 44px
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .cta-dots {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none
+    }
+
+    .cta-dots::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--ac-rgb), .08), transparent 65%);
+      top: -100px;
+      right: -80px
+    }
+
+    .cta-dots::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--ac-rgb), .05), transparent 65%);
+      bottom: -60px;
+      left: -60px
+    }
+
+    /* ════════════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      border-radius: 10px;
+      cursor: none;
+      transition: .2s;
+      border: none;
+      position: relative;
+      overflow: hidden
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .12), transparent);
+      transform: translateX(-100%);
+      transition: transform .5s
+    }
+
+    .btn:hover::after {
+      transform: translateX(100%)
+    }
+
+    .btn-ac {
+      color: var(--ink);
+      background: var(--ac);
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4)
+    }
+
+    .btn-ac:hover {
+      background: var(--ac-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .btn-outline {
+      color: #fff;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, .2)
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, .08);
+      transform: translateY(-2px)
+    }
+
+    .btn-outline-ac {
+      color: var(--ac-dark);
+      background: transparent;
+      border: 1.5px solid rgba(var(--ac-rgb), .3)
+    }
+
+    .btn-outline-ac:hover {
+      background: rgba(var(--ac-rgb), .07);
+      transform: translateY(-2px);
+      border-color: rgba(var(--ac-rgb), .6)
+    }
+
+    /* ════════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════════ */
+    footer {
+      background: var(--ink);
+      padding: 80px 5vw 0
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px
+    }
+
+    .footer-logo img {
+      height: 32px;
+      object-fit: contain
+    }
+
+    .footer-logo-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff
+    }
+
+    .footer-logo-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .footer-tagline {
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 16px
+    }
+
+    .footer-desc {
+      font-size: .83rem;
+      color: rgba(255, 255, 255, .28);
+      line-height: 1.75;
+      margin-bottom: 24px
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .f-soc {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .35);
+      transition: .2s
+    }
+
+    .f-soc:hover {
+      background: var(--ac);
+      border-color: var(--ac);
+      color: var(--ink);
+      transform: translateY(-2px)
+    }
+
+    .footer-col h4 {
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .22);
+      margin-bottom: 20px
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px
+    }
+
+    .footer-col ul li a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: .82rem;
+      color: rgba(255, 255, 255, .38);
+      transition: .2s
+    }
+
+    .footer-col ul li a i {
+      width: 14px;
+      text-align: center;
+      font-size: .72rem;
+      color: var(--ac);
+      opacity: .5
+    }
+
+    .footer-col ul li a:hover {
+      color: rgba(255, 255, 255, .75);
+      padding-left: 3px
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .footer-copy {
+      font-size: .72rem;
+      color: rgba(255, 255, 255, .2)
+    }
+
+    .footer-copy a {
+      color: rgba(255, 255, 255, .35)
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .f-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .22);
+      border: 1px solid rgba(255, 255, 255, .06);
+      padding: 5px 12px;
+      border-radius: 6px
+    }
+
+    .f-badge i {
+      color: var(--ac);
+      opacity: .6
+    }
+
+    /* ════════════════════════════════════════════════
+   FLOATINGS
+════════════════════════════════════════════════ */
+    #btt {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--ac);
+      color: var(--ink);
+      font-size: .82rem;
+      border: none;
+      cursor: none;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: .3s;
+      pointer-events: none
+    }
+
+    #btt.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto
+    }
+
+    #btt:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .chat-fab {
+      position: fixed;
+      bottom: 82px;
+      right: 28px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ac);
+      color: var(--ink);
+      font-size: 1.1rem;
+      border: none;
+      cursor: none;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4);
+      transition: .25s
+    }
+
+    .chat-fab:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ff4d4f;
+      border: 2px solid var(--bg2);
+      font-size: .52rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 148px;
+      right: 28px;
+      width: 316px;
+      background: var(--bg3);
+      border: 1px solid var(--border-d);
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, .5);
+      z-index: 400;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px) scale(.97);
+      transition: .25s;
+      overflow: hidden
+    }
+
+    .chat-window.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1)
+    }
+
+    .cw-head {
+      padding: 14px 16px;
+      background: var(--ac);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .cw-head-left {
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .cw-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem
+    }
+
+    .cw-name {
+      font-size: .82rem;
+      font-weight: 800
+    }
+
+    .cw-status {
+      font-size: .64rem;
+      opacity: .65
+    }
+
+    .cw-close {
+      background: none;
+      border: none;
+      cursor: none;
+      color: var(--ink);
+      font-size: .88rem;
+      opacity: .7
+    }
+
+    .cw-msgs {
+      padding: 14px;
+      height: 190px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .cw-msg {
+      max-width: 80%;
+      font-size: .8rem;
+      padding: 9px 13px;
+      border-radius: 11px;
+      line-height: 1.5
+    }
+
+    .cw-msg.bot {
+      background: rgba(255, 255, 255, .06);
+      color: var(--text-1);
+      align-self: flex-start;
+      border-radius: 4px 11px 11px 11px
+    }
+
+    .cw-msg.usr {
+      background: var(--ac);
+      color: var(--ink);
+      align-self: flex-end;
+      border-radius: 11px 4px 11px 11px;
+      font-weight: 700
+    }
+
+    .cw-input-row {
+      padding: 10px 13px;
+      border-top: 1px solid var(--border-d);
+      display: flex;
+      gap: 7px
+    }
+
+    .cw-input {
+      flex: 1;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border-d);
+      border-radius: 7px;
+      padding: 7px 11px;
+      color: #fff;
+      font-size: .8rem;
+      font-family: 'Outfit', sans-serif;
+      outline: none
+    }
+
+    .cw-input::placeholder {
+      color: var(--text-3)
+    }
+
+    .cw-send {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      background: var(--ac);
+      color: var(--ink);
+      border: none;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      flex-shrink: 0
+    }
+
+    /* ── Theme midnight ── */
+    body.theme-midnight {
+      --bg: #0d0d1a;
+      --bg2: #12122a;
+      --bg3: #1a1a36;
+      --border-d: rgba(var(--ac-rgb), .18)
+    }
+
+    /* ════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════ */
+    @media(max-width:1200px) {
+      .filosofia-grid {
+        grid-template-columns: 1fr
+      }
+
+      .fil-card:first-child {
+        border-radius: 14px 14px 0 0
+      }
+
+      .fil-card:last-child {
+        border-radius: 0 0 14px 14px
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .port-bento {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px
+      }
+
+      .timeline::before {
+        left: 28px
+      }
+
+      .tl-item {
+        grid-template-columns: 28px 1fr;
+        grid-template-rows: auto
+      }
+
+      .tl-item:nth-child(odd) .tl-content,
+      .tl-item:nth-child(even) .tl-content {
+        grid-column: 2;
+        text-align: left;
+        padding-left: 32px;
+        padding-right: 0
+      }
+
+      .tl-item:nth-child(odd) .tl-dot,
+      .tl-item:nth-child(even) .tl-dot {
+        grid-column: 1
+      }
+
+      .tl-item:nth-child(odd) .tl-empty,
+      .tl-item:nth-child(even) .tl-empty {
+        display: none
+      }
+    }
+
+    @media(max-width:900px) {
+      :root {
+        --nav-h: 72px
+      }
+
+      .n-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        background: rgba(3, 8, 16, .98);
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
+        flex-direction: column;
+        padding: 18px 5vw 22px;
+        gap: 3px;
+        backdrop-filter: blur(28px)
+      }
+
+      .n-links.open {
+        display: flex
+      }
+
+      .n-link {
+        padding: 10px 14px;
+        font-size: .8rem
+      }
+
+      .n-cta {
+        font-size: .78rem;
+        padding: 10px 14px;
+        width: 100%;
+        justify-content: center
+      }
+
+      .n-ham {
+        display: flex
+      }
+
+      .sectores-grid {
+        grid-template-columns: 1fr;
+        height: auto
+      }
+
+      .sector-card {
+        height: 360px
+      }
+
+      .oficinas-grid {
+        grid-template-columns: 1fr
+      }
+
+      .page-hero-stats {
+        flex-wrap: wrap
+      }
+
+      .ph-stat {
+        padding: 14px 22px
+      }
+    }
+
+    @media(max-width:600px) {
+      :root {
+        --nav-h: 66px
+      }
+
+      section {
+        padding: 80px 0
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr
+      }
+
+      .port-bento {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 28px
+      }
+
+      .chat-window {
+        right: 10px;
+        left: 10px;
+        width: auto;
+        bottom: 140px
+      }
+
+      .chat-fab,
+      #btt {
+        bottom: 16px
+      }
+
+      #btt {
+        right: 16px
+      }
+
+      .chat-fab {
+        right: 72px
+      }
+
+      .n-tools {
+        gap: 5px
+      }
+
+      .n-tool-btn {
+        width: 34px;
+        height: 34px
+      }
+
+      .page-hero-stats {
+        flex-direction: column;
+        width: 100%;
+        max-width: 260px
+      }
+
+      .ph-stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, .06)
+      }
+
+      .ph-stat:last-child {
+        border-bottom: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#nosotros-main" class="skip-link">Saltar al contenido</a>
+  <div class="cur" id="cur" aria-hidden="true"></div>
+  <div class="cur-r" id="curR" aria-hidden="true"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-txt">Haf<em>ten</em></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="n-logo" aria-label="Haften">
+      <img src="assets/logos/logo-haften.png" alt="Haften"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
+    </a>
+    <ul class="n-links" id="navLinks">
+      <li><a href="index.html" class="n-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="n-link active">Nosotros</a></li>
+      <li><a href="marcas.html" class="n-link">Marcas</a></li>
+      <li><a href="catalogos.html" class="n-link">Catálogos</a></li>
+      <li><a href="multimedia.html" class="n-link">Multimedia</a></li>
+      <li><a href="redes.html" class="n-link">Redes</a></li>
+      <li><a href="contacto.html" class="n-cta"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+    </ul>
+    <div class="n-tools">
+      <div style="position:relative">
+        <button class="n-tool-btn" id="colorBtn" aria-label="Color" aria-expanded="false"><i
+            class="fa-solid fa-palette"></i></button>
+        <div class="tool-panel" id="colorPanel">
+          <div class="tp-label">Color de acento</div>
+          <div class="cp-grid">
+            <div class="cp-swatch active" data-ac="#00c8e8" data-acd="#0099bb" data-rgb="0,200,232"
+              style="background:#00c8e8" role="button" tabindex="0" aria-label="Cian"></div>
+            <div class="cp-swatch" data-ac="#2563EB" data-acd="#1D4ED8" data-rgb="37,99,235" style="background:#2563EB"
+              role="button" tabindex="0" aria-label="Azul"></div>
+            <div class="cp-swatch" data-ac="#059669" data-acd="#047857" data-rgb="5,150,105" style="background:#059669"
+              role="button" tabindex="0" aria-label="Verde"></div>
+            <div class="cp-swatch" data-ac="#7C3AED" data-acd="#6D28D9" data-rgb="124,58,237" style="background:#7C3AED"
+              role="button" tabindex="0" aria-label="Violeta"></div>
+            <div class="cp-swatch" data-ac="#EA580C" data-acd="#C2410C" data-rgb="234,88,12" style="background:#EA580C"
+              role="button" tabindex="0" aria-label="Naranja"></div>
+            <div class="cp-swatch" data-ac="#E11D48" data-acd="#BE123C" data-rgb="225,29,72" style="background:#E11D48"
+              role="button" tabindex="0" aria-label="Rosa"></div>
+          </div>
+          <div class="tp-label" style="margin-top:14px">Tema</div>
+          <div class="cp-themes">
+            <button class="cp-theme-btn active" data-theme="dark"><i class="fa-solid fa-moon"></i> Oscuro</button>
+            <button class="cp-theme-btn" data-theme="midnight"><i class="fa-solid fa-circle-half-stroke"></i>
+              Midnight</button>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <button class="n-tool-btn" id="a11yBtn" aria-label="Accesibilidad" aria-expanded="false"><i
+            class="fa-solid fa-universal-access"></i></button>
+        <div class="tool-panel" id="a11yPanel">
+          <div class="tp-label">Accesibilidad</div>
+          <div class="a11y-row">
+            <span class="a11y-lbl">Tamaño texto</span>
+            <div class="a11y-fs">
+              <button onclick="changeFontScale(-0.1)"><i class="fa-solid fa-minus"></i></button>
+              <span class="fs-val" id="fsVal">100%</span>
+              <button onclick="changeFontScale(0.1)"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+          <div class="a11y-row">
+            <span class="a11y-lbl">Alto contraste</span>
+            <label class="a11y-toggle"><input type="checkbox" id="hcToggle" onchange="toggleHC(this.checked)"><span
+                class="a11y-slider"></span></label>
+          </div>
+          <div class="a11y-row">
+            <span class="a11y-lbl">Sin animaciones</span>
+            <label class="a11y-toggle"><input type="checkbox" id="animToggle" onchange="toggleAnim(this.checked)"><span
+                class="a11y-slider"></span></label>
+          </div>
+          <div class="a11y-row" style="border-bottom:none">
+            <span class="a11y-lbl">Cursor custom</span>
+            <label class="a11y-toggle"><input type="checkbox" id="curToggle" checked
+                onchange="toggleCursor(this.checked)"><span class="a11y-slider"></span></label>
+          </div>
+        </div>
+      </div>
+      <button class="n-ham" id="menuBtn" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="nosotros-main">
+
+    <!-- ██ PAGE HERO ██ -->
+    <section class="page-hero" aria-label="Nosotros hero">
+      <div class="page-hero-bg">
+        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1920&q=85&fit=crop"
+          alt="Equipo Haften">
+      </div>
+      <div class="page-hero-overlay" aria-hidden="true"></div>
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <canvas id="phCanvas" aria-hidden="true"></canvas>
+
+      <div class="page-hero-inner">
+
+        <div class="page-hero-pill">
+          <span class="page-hero-pill-dot" aria-hidden="true"></span>
+          Quiénes somos
+        </div>
+        <h1 class="page-hero-h1">
+          <span class="pre">Conoce a</span>
+          <span class="main">Haften</span>
+        </h1>
+        <p class="page-hero-sub">Más de dos décadas siendo el socio técnico de confianza para ingenieros, proyectistas y
+          empresas en toda la República Mexicana.</p>
+        <div class="page-hero-stats">
+          <div class="ph-stat">
+            <div class="ph-stat-n">1999</div>
+            <div class="ph-stat-l">Fundación</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-n">20<em>+</em></div>
+            <div class="ph-stat-l">Años de experiencia</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-n">25<em>+</em></div>
+            <div class="ph-stat-l">Marcas internacionales</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-n">5</div>
+            <div class="ph-stat-l">Oficinas en México</div>
+          </div>
+          <div class="ph-stat">
+            <div class="ph-stat-n">1K<em>+</em></div>
+            <div class="ph-stat-l">Clientes atendidos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-lbl"><i class="fa-solid fa-star" style="font-size:.45rem"></i> Marcas</div>
+      <div style="flex:1;overflow:hidden">
+        <div class="ticker-track" id="tkr"></div>
+      </div>
+    </div>
+
+    <!-- ██ FILOSOFÍA ██ -->
+    <section class="filosofia-sec" aria-labelledby="fil-h">
+      <div class="container">
+        <div class="s-hdr rv" style="text-align:center">
+          <div class="eyebrow"><i class="fa-solid fa-lightbulb"></i> Nuestra esencia</div>
+          <h2 id="fil-h" class="s-title">Misión, Visión <span>&amp; Valores</span></h2>
+          <p class="s-sub light" style="margin:0 auto">Los principios que guían cada decisión y cada proyecto en Haften.
+          </p>
+        </div>
+        <div class="filosofia-grid">
+          <div class="fil-card rv d1">
+            <div class="fil-card-num">01</div>
+            <div class="fil-ico"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Nuestra Misión</h3>
+            <p>Brindar soluciones técnicas confiables, eficientes y adaptadas a cada proyecto, comercializando equipos
+              de control e instrumentación para sistemas HVAC, humidificadores, deshumidificadores y calefactores
+              eléctricos de las mejores marcas del mundo.</p>
+          </div>
+          <div class="fil-card rv d2">
+            <div class="fil-card-num">02</div>
+            <div class="fil-ico"><i class="fa-solid fa-eye"></i></div>
+            <h3>Nuestra Visión</h3>
+            <p>Ser el distribuidor técnico especializado más reconocido de México, referente en innovación, calidad y
+              servicio en el sector HVAC/R y BMS, expandiendo nuestra presencia nacional y fortaleciendo las alianzas
+              con marcas internacionales líderes.</p>
+          </div>
+          <div class="fil-card rv d3">
+            <div class="fil-card-num">03</div>
+            <div class="fil-ico"><i class="fa-solid fa-gem"></i></div>
+            <h3>Nuestros Valores</h3>
+            <p>Confiabilidad, excelencia técnica, atención personalizada y compromiso total con cada cliente. Trabajamos
+              bajo una filosofía clara: <strong style="color:var(--ac-dark)">"Una solución completa en el mismo
+                lugar."</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ QUIÉNES SOMOS — IMAGEN + CONTENIDO ██ -->
+    <section style="background:var(--bg);padding:0;position:relative;overflow:hidden" aria-labelledby="qs-h">
+      <div style="display:grid;grid-template-columns:1fr 1fr;min-height:680px">
+        <!-- Foto -->
+        <div class="rv-l" style="position:relative;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85&fit=crop"
+            alt="Ingenieros Haften en instalación HVAC"
+            style="width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.7)">
+          <!-- overlay -->
+          <div
+            style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,16,.0) 0%,rgba(3,8,16,.72) 100%)">
+          </div>
+          <!-- stat badge -->
+          <div style="position:absolute;bottom:44px;left:40px;z-index:2">
+            <div
+              style="background:rgba(0,200,232,.12);border:1px solid rgba(0,200,232,.3);border-radius:14px;padding:20px 26px;backdrop-filter:blur(16px)">
+              <div
+                style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;font-weight:900;color:#fff;line-height:1">
+                +25<em style="color:var(--ac);font-style:normal"> marcas</em></div>
+              <div
+                style="font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:5px">
+                Distribuidores autorizados</div>
+            </div>
+          </div>
+          <!-- year tag -->
+          <div
+            style="position:absolute;top:44px;left:40px;z-index:2;background:var(--ac);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:1.1rem;padding:8px 18px;border-radius:8px;letter-spacing:.04em">
+            Desde 1999
+          </div>
+        </div>
+        <!-- Content -->
+        <div class="rv-r"
+          style="background:var(--lt);padding:72px 56px;display:flex;flex-direction:column;justify-content:center">
+          <div class="eyebrow" style="color:var(--ac-dark)"><i class="fa-solid fa-building-columns"></i> Quiénes somos
+          </div>
+          <h2 id="qs-h"
+            style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:900;color:var(--ink);line-height:1.1;letter-spacing:-.025em;margin-bottom:24px">
+            En Haften nos especializamos<br>en <span style="color:var(--ac-dark)">control e instrumentación</span>
+          </h2>
+          <div style="width:40px;height:2px;background:var(--ac);border-radius:1px;margin-bottom:28px"></div>
+          <p style="font-size:.95rem;color:var(--ink3);line-height:1.8;margin-bottom:32px">
+            En Haften nos especializamos en la comercialización de productos de control e instrumentación para sistemas
+            HVAC, así como en humidificadores, deshumidificadores y calefactores eléctricos. Nuestro objetivo es brindar
+            soluciones técnicas confiables, eficientes y adaptadas a las necesidades de cada proyecto.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:36px">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div
+                style="width:38px;height:38px;border-radius:10px;background:rgba(0,200,232,.08);border:1px solid rgba(0,200,232,.15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                <i class="fa-solid fa-boxes-stacked"></i>
+              </div>
+              <div>
+                <strong
+                  style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:2px">Inventario
+                  permanente</strong>
+                <span style="font-size:.8rem;color:var(--ink3);line-height:1.5">Stock disponible para entrega inmediata
+                  en toda la República</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div
+                style="width:38px;height:38px;border-radius:10px;background:rgba(0,200,232,.08);border:1px solid rgba(0,200,232,.15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                <i class="fa-solid fa-helmet-safety"></i>
+              </div>
+              <div>
+                <strong
+                  style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:2px">Ingenieros
+                  especializados</strong>
+                <span style="font-size:.8rem;color:var(--ink3);line-height:1.5">Asesoría técnica sin costo adicional en
+                  selección e integración</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div
+                style="width:38px;height:38px;border-radius:10px;background:rgba(0,200,232,.08);border:1px solid rgba(0,200,232,.15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                <i class="fa-solid fa-certificate"></i>
+              </div>
+              <div>
+                <strong
+                  style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:2px">Distribuidores
+                  autorizados</strong>
+                <span style="font-size:.8rem;color:var(--ink3);line-height:1.5">Representamos con orgullo a las marcas
+                  líderes a nivel internacional</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div
+                style="width:38px;height:38px;border-radius:10px;background:rgba(0,200,232,.08);border:1px solid rgba(0,200,232,.15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div>
+                <strong
+                  style="display:block;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:2px">Cobertura
+                  nacional</strong>
+                <span style="font-size:.8rem;color:var(--ink3);line-height:1.5">CDMX · Monterrey · Guadalajara · León ·
+                  Cancún</span>
+              </div>
+            </div>
+          </div>
+          <a href="contacto.html" class="btn btn-ac" style="align-self:flex-start"><i
+              class="fa-solid fa-envelope"></i>Contáctanos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ HISTORIA — TIMELINE ██ -->
+    <section class="historia-sec" aria-labelledby="hist-h">
+      <div class="historia-inner">
+        <div class="s-hdr rv" style="text-align:center">
+          <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-clock-rotate-left"></i> Trayectoria
+          </div>
+          <h2 id="hist-h" class="s-title dark">Nuestra <span>Historia</span></h2>
+          <p class="s-sub" style="margin:0 auto">Más de dos décadas de crecimiento, aprendizaje y compromiso con México.
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="tl-item rv">
+            <div class="tl-content">
+              <div class="tl-year">1999</div>
+              <h4>Fundación de Haften</h4>
+              <p>Nace Haften en Ciudad de México con la misión de comercializar equipos de control e instrumentación
+                para sistemas HVAC en el mercado nacional.</p>
+            </div>
+            <div class="tl-dot">
+              <div class="tl-dot-inner"></div>
+            </div>
+            <div class="tl-empty"></div>
+          </div>
+          <div class="tl-item rv d1">
+            <div class="tl-empty"></div>
+            <div class="tl-dot">
+              <div class="tl-dot-inner"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">2004</div>
+              <h4>Primeras alianzas internacionales</h4>
+              <p>Se consolidan distribuciones exclusivas con marcas líderes como Belimo, Dwyer y Johnson Controls,
+                ampliando significativamente el portafolio de productos.</p>
+            </div>
+          </div>
+          <div class="tl-item rv d2">
+            <div class="tl-content">
+              <div class="tl-year">2009</div>
+              <h4>Expansión a Monterrey y Guadalajara</h4>
+              <p>Apertura de las primeras oficinas regionales en el norte y occidente del país para atender la creciente
+                demanda industrial y comercial.</p>
+            </div>
+            <div class="tl-dot">
+              <div class="tl-dot-inner"></div>
+            </div>
+            <div class="tl-empty"></div>
+          </div>
+          <div class="tl-item rv d1">
+            <div class="tl-empty"></div>
+            <div class="tl-dot">
+              <div class="tl-dot-inner"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">2014</div>
+              <h4>Integración BMS y automatización</h4>
+              <p>Incorporamos al portafolio sistemas BMS completos con marcas como Loytec y Delta Controls,
+                posicionándonos como solución integral de automatización de edificios.</p>
+            </div>
+          </div>
+          <div class="tl-item rv d2">
+            <div class="tl-content">
+              <div class="tl-year">2018</div>
+              <h4>León y Cancún: cobertura nacional</h4>
+              <p>Con la apertura de León y Cancún completamos los 5 puntos estratégicos, logrando cobertura en los
+                principales corredores industriales, hoteleros y hospitalarios de México.</p>
+            </div>
+            <div class="tl-dot">
+              <div class="tl-dot-inner"></div>
+            </div>
+            <div class="tl-empty"></div>
+          </div>
+          <div class="tl-item rv d1">
+            <div class="tl-empty"></div>
+            <div class="tl-dot">
+              <div class="tl-dot-inner"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">2024+</div>
+              <h4>Más de 25 marcas internacionales</h4>
+              <p>Hoy representamos a más de 25 marcas reconocidas globalmente, con +1,000 clientes atendidos y un equipo
+                de ingenieros especializados en continuo crecimiento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ PORTAFOLIO DE PRODUCTOS ██ -->
+    <section class="portafolio-sec" aria-labelledby="port-h">
+      <div class="container">
+        <div class="s-hdr rv" style="text-align:center">
+          <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-boxes-stacked"></i> Portafolio
+            completo</div>
+          <h2 id="port-h" class="s-title dark">Todo para tu sistema <span>HVAC/R y BMS</span></h2>
+          <p class="s-sub" style="margin:0 auto">Instrumentación · Control · Automatización · Climatización</p>
+        </div>
+        <div class="port-bento">
+          <div class="port-card rv d1">
+            <div class="port-ico"><i class="fa-solid fa-wind"></i></div>
+            <div class="port-name">Medidores de flujo de aire, agua y gas</div>
+          </div>
+          <div class="port-card rv d2">
+            <div class="port-ico"><i class="fa-solid fa-faucet-drip"></i></div>
+            <div class="port-name">Válvulas de control, balanceo y energy valves</div>
+          </div>
+          <div class="port-card rv d3">
+            <div class="port-ico"><i class="fa-solid fa-gear"></i></div>
+            <div class="port-name">Actuadores para damper y válvulas</div>
+          </div>
+          <div class="port-card rv d4">
+            <div class="port-ico"><i class="fa-solid fa-satellite-dish"></i></div>
+            <div class="port-name">Sensores CO2, temperatura, humedad, presión, VOC</div>
+          </div>
+          <div class="port-card rv d1">
+            <div class="port-ico"><i class="fa-solid fa-gauge-high"></i></div>
+            <div class="port-name">Manómetros y termómetros industriales</div>
+          </div>
+          <div class="port-card rv d2">
+            <div class="port-ico"><i class="fa-solid fa-bolt"></i></div>
+            <div class="port-name">Variadores de frecuencia (VFDs)</div>
+          </div>
+          <div class="port-card rv d3">
+            <div class="port-ico"><i class="fa-solid fa-network-wired"></i></div>
+            <div class="port-name">Gateways, routers y controladores BMS</div>
+          </div>
+          <div class="port-card rv d4">
+            <div class="port-ico"><i class="fa-solid fa-microchip"></i></div>
+            <div class="port-name">HMIs, supervisores y power meters</div>
+          </div>
+          <div class="port-card rv d1">
+            <div class="port-ico"><i class="fa-solid fa-temperature-arrow-up"></i></div>
+            <div class="port-name">Humidificadores y deshumidificadores</div>
+          </div>
+          <div class="port-card rv d2">
+            <div class="port-ico"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <div class="port-name">Calefactores eléctricos industriales</div>
+          </div>
+          <div class="port-card rv d3">
+            <div class="port-ico"><i class="fa-solid fa-display"></i></div>
+            <div class="port-name">Termostatos y humidostatos digitales</div>
+          </div>
+          <div class="port-card rv d4">
+            <div class="port-ico"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+            <div class="port-name">Sensores para áreas críticas y laboratorios</div>
+          </div>
+        </div>
+        <div class="rv" style="margin-top:44px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+          <a href="catalogos.html" class="btn btn-ac"><i class="fa-solid fa-file-pdf"></i>Descargar catálogos</a>
+          <a href="contacto.html" class="btn btn-outline"><i class="fa-solid fa-envelope"></i>Solicitar cotización</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ SECTORES QUE ATENDEMOS ██ -->
+    <section class="sectores-sec" aria-labelledby="sec-h">
+      <div class="sectores-header">
+        <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-industry"></i> Dónde operamos</div>
+        <h2 id="sec-h" class="s-title">Sectores que <span>Atendemos</span></h2>
+        <p class="s-sub light" style="margin:0 auto">Desde centros de datos hasta hospitales, tenemos la solución exacta
+          para tu industria.</p>
+      </div>
+      <div class="sectores-grid">
+        <div class="sector-card">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fit=crop" alt="Industrial">
+          <div class="sector-overlay">
+            <div class="sector-tag">Industrial</div>
+            <div class="sector-body">
+              <div class="sector-ico"><i class="fa-solid fa-industry"></i></div>
+              <div class="sector-title">Industrial</div>
+              <div class="sector-sub">Procesos productivos, plantas manufactureras y automatización de planta.</div>
+              <div class="sector-link"><i class="fa-solid fa-arrow-right"></i>Ver soluciones</div>
+            </div>
+          </div>
+        </div>
+        <div class="sector-card">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80&fit=crop"
+            alt="Hospitalario">
+          <div class="sector-overlay">
+            <div class="sector-tag">Hospitalario</div>
+            <div class="sector-body">
+              <div class="sector-ico"><i class="fa-solid fa-hospital"></i></div>
+              <div class="sector-title">Hospitalario</div>
+              <div class="sector-sub">Salas limpias, quirófanos, laboratorios y áreas críticas con control preciso.
+              </div>
+              <div class="sector-link"><i class="fa-solid fa-arrow-right"></i>Ver soluciones</div>
+            </div>
+          </div>
+        </div>
+        <div class="sector-card">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop" alt="Comercial">
+          <div class="sector-overlay">
+            <div class="sector-tag">Comercial</div>
+            <div class="sector-body">
+              <div class="sector-ico"><i class="fa-solid fa-building-columns"></i></div>
+              <div class="sector-title">Comercial</div>
+              <div class="sector-sub">Edificios corporativos, centros comerciales y torres de oficinas inteligentes.
+              </div>
+              <div class="sector-link"><i class="fa-solid fa-arrow-right"></i>Ver soluciones</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fila 2 -->
+      <div class="sectores-grid" style="height:400px;border-top:1px solid rgba(255,255,255,.07)">
+        <div class="sector-card">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80&fit=crop" alt="Data Center">
+          <div class="sector-overlay">
+            <div class="sector-tag">Data Centers</div>
+            <div class="sector-body">
+              <div class="sector-ico"><i class="fa-solid fa-server"></i></div>
+              <div class="sector-title">Data Centers</div>
+              <div class="sector-sub">Climatización de precisión para centros de datos con alta densidad de calor.</div>
+              <div class="sector-link"><i class="fa-solid fa-arrow-right"></i>Ver soluciones</div>
+            </div>
+          </div>
+        </div>
+        <div class="sector-card">
+          <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=800&q=80&fit=crop" alt="Hotelero">
+          <div class="sector-overlay">
+            <div class="sector-tag">Hotelero</div>
+            <div class="sector-body">
+              <div class="sector-ico"><i class="fa-solid fa-hotel"></i></div>
+              <div class="sector-title">Hotelero</div>
+              <div class="sector-sub">Confort y eficiencia energética en grandes complejos turísticos y resorts.</div>
+              <div class="sector-link"><i class="fa-solid fa-arrow-right"></i>Ver soluciones</div>
+            </div>
+          </div>
+        </div>
+        <div class="sector-card">
+          <img src="https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&q=80&fit=crop" alt="Laboratorio">
+          <div class="sector-overlay">
+            <div class="sector-tag">Laboratorio</div>
+            <div class="sector-body">
+              <div class="sector-ico"><i class="fa-solid fa-flask"></i></div>
+              <div class="sector-title">Laboratorio</div>
+              <div class="sector-sub">Control ambiental de alta precisión para laboratorios farmacéuticos y de
+                investigación.</div>
+              <div class="sector-link"><i class="fa-solid fa-arrow-right"></i>Ver soluciones</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ MARCAS QUE REPRESENTAMOS ██ -->
+    <section class="marcas-sec" aria-labelledby="marcas-h">
+      <div class="marcas-intro rv">
+        <div class="eyebrow"><i class="fa-solid fa-star"></i> Distribuidores autorizados</div>
+        <h2 id="marcas-h" class="s-title">Marcas que <span>Representamos</span></h2>
+        <p class="s-sub light">Representamos con orgullo a marcas reconocidas a nivel internacional por su innovación,
+          precisión y calidad.</p>
+      </div>
+      <div class="brands-carousel"
+        style="margin-top:44px;border-top:1px solid var(--border-l);border-bottom:1px solid var(--border-l)">
+        <div class="brands-row" id="br1"></div>
+      </div>
+      <div class="brands-carousel" style="border-bottom:1px solid var(--border-l);margin-top:5px">
+        <div class="brands-row rev" id="br2"></div>
+      </div>
+      <div class="container" style="margin-top:48px;text-align:center">
+        <a href="marcas.html" class="btn btn-outline-ac rv"><i class="fa-solid fa-grid-2"></i>Ver todas las marcas</a>
+      </div>
+    </section>
+
+    <!-- ██ OFICINAS ██ -->
+    <section class="oficinas-sec" aria-labelledby="ofi-h">
+      <div class="container">
+        <div class="s-hdr rv" style="text-align:center;margin-bottom:48px">
+          <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-location-dot"></i> Presencia
+            nacional</div>
+          <h2 id="ofi-h" class="s-title dark">Nuestras <span>Oficinas</span></h2>
+          <p class="s-sub" style="margin:0 auto">Cinco puntos estratégicos en toda la República. Clic para ver
+            ubicación.</p>
+        </div>
+        <div class="oficinas-grid">
+          <div class="rv-l">
+            <div class="map-card">
+              <div class="map-header">
+                <div class="map-dot"></div>
+                <div class="map-title" id="mapTitle">Ciudad de México — Casa Matriz</div>
+              </div>
+              <div class="gmap-wrap">
+                <iframe id="gmapFrame"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx"
+                  width="100%" height="450" style="border:0; transition: opacity 0.3s ease;" allowfullscreen=""
+                  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="offices-list rv-r">
+
+            <div class="office-card active-c" tabindex="0" role="button" data-title="Ciudad de México — Casa Matriz"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-building"></i></div>
+              <div>
+                <div class="off-city">Ciudad de México <span class="off-badge">Casa Matriz</span></div>
+                <div class="off-desc">Oficina central, ingeniería de proyectos y coordinación nacional.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button" data-title="Monterrey, Nuevo León"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">Monterrey, N.L.</div>
+                <div class="off-desc">Cobertura noreste — industria manufacturera y construcción.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button" data-title="Guadalajara, Jalisco"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.818525864304!2d-103.39178882621424!3d20.67696079977153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af317d87697d%3A0xd7f6ba37c4651369!2sHaften%20Gdl!5e0!3m2!1ses-419!2smx!4v1774465294502!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">Guadalajara, Jal.</div>
+                <div class="off-desc">Occidente — sectores industrial, comercial y residencial.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button" data-title="León, Guanajuato"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.2096232313265!2d-101.698419226199!3d21.14405448381149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf5cb3facf33%3A0x1081ef955934ea82!2sEYSH%20Distrib%20Rain%20Bird%20y%20Hunter!5e0!3m2!1ses-419!2smx!4v1774465333509!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">León, Gto.</div>
+                <div class="off-desc">El Bajío — corredores industriales de Guanajuato y Querétaro.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button" data-title="Cancún, Quintana Roo"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.75678285218!2d-86.8541341261971!3d21.20181868181498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2d6eaaf899ed%3A0x2a7405efaaa242f8!2sHAFTEN%20CANCUN%20BELIMO%20FLOWCON%20MEITAVTEC%20DWYER!5e0!3m2!1ses-419!2smx!4v1774465368752!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">Cancún, Q. Roo</div>
+                <div class="off-desc">Sureste — sector hotelero, hospitalario y turístico.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ CTA FINAL ██ -->
+    <section class="cta-sec" aria-labelledby="cta-h">
+      <div class="cta-dots" aria-hidden="true"></div>
+      <div class="cta-inner rv">
+        <div class="cta-kicker"><i class="fa-solid fa-bolt"></i> Tu proyecto empieza aquí</div>
+        <h2 id="cta-h">¿Tienes un proyecto <span>en mente?</span></h2>
+        <p>Nuestros ingenieros están listos para asesorarte. Selección, especificación y distribución del equipo exacto
+          para tu sistema.</p>
+        <div class="cta-btns">
+          <a href="contacto.html" class="btn btn-ac"><i class="fa-solid fa-envelope"></i>Contáctanos ahora</a>
+          <a href="catalogos.html" class="btn btn-outline"><i class="fa-solid fa-file-pdf"></i>Ver catálogos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ FOOTER ██ -->
+    <footer>
+      <div class="footer-main">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/logos/logo-haften.png" alt="Haften"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="footer-logo-txt" style="display:none">Haf<em>ten</em></span>
+          </div>
+          <div class="footer-tagline">HVAC · BMS · Medición de Energía</div>
+          <p class="footer-desc">Distribución especializada de equipos y sistemas de control HVAC/R-BMS en México desde
+            1999. Una solución completa en el mismo lugar.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="f-soc"
+              aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/Haftenoficial" target="_blank" rel="noopener" class="f-soc"
+              aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Haftenoficial/videos" target="_blank" rel="noopener" class="f-soc"
+              aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener" class="f-soc"
+              aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://x.com/haften1" target="_blank" rel="noopener" class="f-soc" aria-label="X"><i
+                class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.tiktok.com/@Haftenoficial/" target="_blank" rel="noopener" class="f-soc"
+              aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a></li>
+            <li><a href="nosotros.html"><i class="fa-solid fa-building"></i>Nosotros</a></li>
+            <li><a href="marcas.html"><i class="fa-solid fa-tag"></i>Marcas</a></li>
+            <li><a href="catalogos.html"><i class="fa-solid fa-file-pdf"></i>Catálogos</a></li>
+            <li><a href="multimedia.html"><i class="fa-solid fa-circle-play"></i>Multimedia</a></li>
+            <li><a href="redes.html"><i class="fa-solid fa-share-nodes"></i>Redes</a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="/cdn-cgi/l/email-protection#1970777f765971787f6d7c77377a7674377461"><i
+                  class="fa-solid fa-envelope"></i><span class="__cf_email__"
+                  data-cfemail="6b02050d042b030a0d1f0e0545080406450613">[email&#160;protected]</span></a></li>
+            <li><a href="https://haften.com.mx" target="_blank" rel="noopener"><i
+                  class="fa-solid fa-globe"></i>haften.com.mx</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Ciudad de México</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Monterrey, N.L.</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Guadalajara, Jal.</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>León · Cancún</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sectores</h4>
+          <ul>
+            <li><a href="#"><i class="fa-solid fa-industry"></i>Industrial</a></li>
+            <li><a href="#"><i class="fa-solid fa-building-columns"></i>Comercial</a></li>
+            <li><a href="#"><i class="fa-solid fa-hospital"></i>Hospitalario</a></li>
+            <li><a href="#"><i class="fa-solid fa-hotel"></i>Hotelero</a></li>
+            <li><a href="#"><i class="fa-solid fa-flask"></i>Laboratorio</a></li>
+            <li><a href="#"><i class="fa-solid fa-server"></i>Data Centers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Haften · Todos los derechos reservados · <a href="https://haften.com.mx"
+            target="_blank" rel="noopener">haften.com.mx</a></span>
+        <div class="footer-badges">
+          <span class="f-badge"><i class="fa-solid fa-shield-check"></i>Distribuidor Autorizado</span>
+          <span class="f-badge"><i class="fa-solid fa-certificate"></i>+20 Años</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <button id="btt" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+  <button class="chat-fab" id="chatFab" aria-label="Chat de soporte" aria-expanded="false">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span class="chat-badge">1</span>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="cw-head">
+      <div class="cw-head-left">
+        <div class="cw-avatar"><i class="fa-solid fa-headset"></i></div>
+        <div>
+          <div class="cw-name">Soporte Haften</div>
+          <div class="cw-status">● En línea</div>
+        </div>
+      </div>
+      <button class="cw-close" id="chatClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cw-msgs" id="cwMsgs">
+      <div class="cw-msg bot">¡Hola! Soy el asistente de <strong>Haften</strong>. ¿En qué puedo ayudarte?</div>
+      <div class="cw-msg bot">Puedo orientarte sobre productos, marcas o cotizaciones.</div>
+    </div>
+    <div class="cw-input-row">
+      <input type="text" class="cw-input" id="cwInput" placeholder="Escribe tu mensaje...">
+      <button class="cw-send" id="cwSend"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    let fontScale = 1;
+
+    // LOADER
+    (function () {
+      function done() { document.getElementById('loader').classList.add('done') }
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', () => setTimeout(done, 500))
+        : setTimeout(done, 300);
+      setTimeout(done, 2500);
+    })();
+
+    // CURSOR
+    const cur = document.getElementById('cur'), curR = document.getElementById('curR');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
+    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    document.querySelectorAll('a,button,.sector-card,.office-card,.fil-card,.port-card,.team-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cur.style.width = '14px'; cur.style.height = '14px' });
+      el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px' });
+    });
+
+    // NAVBAR
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+      document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+    }, { passive: true });
+    document.getElementById('btt').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // HAMBURGER
+    const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', e => { e.stopPropagation(); navLinks.classList.toggle('open'); menuBtn.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', navLinks.classList.contains('open')) });
+    document.addEventListener('click', e => { if (!e.target.closest('#navbar')) { navLinks.classList.remove('open'); menuBtn.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false') } });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); menuBtn.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false') }));
+
+    // COLOR PANEL
+    const colorBtn = document.getElementById('colorBtn'), colorPanel = document.getElementById('colorPanel');
+    colorBtn.addEventListener('click', e => { e.stopPropagation(); colorPanel.classList.toggle('open'); colorBtn.setAttribute('aria-expanded', colorPanel.classList.contains('open')); document.getElementById('a11yPanel').classList.remove('open') });
+    document.addEventListener('click', () => colorPanel.classList.remove('open'));
+    colorPanel.addEventListener('click', e => e.stopPropagation());
+    document.querySelectorAll('.cp-swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        const r = document.documentElement;
+        r.style.setProperty('--ac', sw.dataset.ac);
+        r.style.setProperty('--ac-dark', sw.dataset.acd);
+        r.style.setProperty('--ac-rgb', sw.dataset.rgb);
+        document.querySelectorAll('.cp-swatch').forEach(s => s.classList.remove('active'));
+        sw.classList.add('active');
+      });
+      sw.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') sw.click() });
+    });
+    document.querySelectorAll('.cp-theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cp-theme-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+        if (btn.dataset.theme !== 'dark') document.body.classList.add('theme-' + btn.dataset.theme);
+      });
+    });
+
+    // A11Y PANEL
+    const a11yBtn = document.getElementById('a11yBtn'), a11yPanel = document.getElementById('a11yPanel');
+    a11yBtn.addEventListener('click', e => { e.stopPropagation(); a11yPanel.classList.toggle('open'); a11yBtn.setAttribute('aria-expanded', a11yPanel.classList.contains('open')); colorPanel.classList.remove('open') });
+    a11yPanel.addEventListener('click', e => e.stopPropagation());
+    function changeFontScale(d) { fontScale = Math.max(.8, Math.min(1.3, fontScale + d)); document.documentElement.style.setProperty('--font-scale', fontScale); document.getElementById('fsVal').textContent = Math.round(fontScale * 100) + '%' }
+    function toggleHC(on) { document.body.classList.toggle('hc-mode', on) }
+    function toggleAnim(on) { document.body.classList.toggle('no-anim', on) }
+    function toggleCursor(on) { cur.style.display = on ? 'block' : 'none'; curR.style.display = on ? 'block' : 'none'; document.body.style.cursor = on ? 'none' : 'auto' }
+
+    // PAGE HERO CANVAS
+    (function () {
+      const canvas = document.getElementById('phCanvas'), ctx = canvas.getContext('2d');
+      let W, H, pts = [];
+      function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
+      function mkP() { return { x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0, age: 0, maxAge: Math.random() * 200 + 70, spd: Math.random() * 1.1 + 0.3, sz: Math.random() * 1.2 + 0.2, warm: Math.random() < .12 } }
+      for (let i = 0; i < 360; i++) { const p = mkP(); p.age = Math.random() * p.maxAge; pts.push(p) }
+      let t = 0;
+      function draw() {
+        t += .0034; ctx.fillStyle = 'rgba(3,8,16,0.14)'; ctx.fillRect(0, 0, W, H);
+        pts.forEach((p, i) => {
+          const nx = p.x / W * 5.5, ny = p.y / H * 5.5;
+          const angle = (Math.sin(nx + t) * Math.cos(ny * .8 + t * .5) + Math.sin(nx * .4 + t * .3) * 1.5) * Math.PI;
+          p.vx = p.vx * .96 + Math.cos(angle) * p.spd * .12; p.vy = p.vy * .96 + Math.sin(angle) * p.spd * .12;
+          p.x += p.vx; p.y += p.vy; p.age++;
+          const lp = p.age / p.maxAge, a = (lp < .1 ? lp * 10 : lp > .72 ? (1 - lp) / .28 : 1) * .48;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
+          ctx.fillStyle = p.warm ? `rgba(234,88,12,${a * .7})` : `rgba(0,200,232,${a})`; ctx.fill();
+          if (p.age >= p.maxAge || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) pts[i] = mkP();
+        });
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize', resize); resize(); draw();
+    })();
+
+    // TICKER
+    const bnames = ['Air Monitor', 'Badger Meter', 'Belimo', 'Bry-Air', 'Contemporary Controls', 'Control Techniques', 'CoolAutomation', 'Delta Electronics', 'Dwyer Omega', 'FlowCon', 'GPI', 'Greystone Energy', 'Johnson Controls', 'LOYTEC', 'Meitav Tec', 'Neptronic', 'ONICON', 'Senva', 'Vaisala'];
+    const tkr = document.getElementById('tkr');
+    [...bnames, ...bnames].forEach(b => { const e = document.createElement('span'); e.className = 'ticker-item'; e.innerHTML = `<i class="fa-solid fa-circle"></i>${b}`; tkr.appendChild(e) });
+
+    // BRANDS CAROUSEL
+    // BRANDS CAROUSEL CON IMÁGENES
+    const brands = [
+      { n: 'Air Monitor', f: 'air-monitor.png' },
+      { n: 'Belimo', f: 'belimo.png' },
+      { n: 'Bry-Air', f: 'bry-air.png' },
+      { n: 'Cont. Controls', f: 'contemporary-controls.png' },
+      { n: 'Ctrl Techniques', f: 'control-techniques.png' },
+      { n: 'CoolAutomation', f: 'cool-automation.png' },
+      { n: 'Delta', f: 'delta-electronics.png' },
+      { n: 'Dwyer Omega', f: 'dwyer-omega.png' },
+      { n: 'FlowCon', f: 'flowcon.png' },
+      { n: 'GPI', f: 'gpi.png' },
+      { n: 'Greystone', f: 'greystone.png' },
+      { n: 'Johnson Controls', f: 'johnson-controls.png' },
+      { n: 'LOYTEC', f: 'loytec.png' },
+      { n: 'Meitav Tec', f: 'meitav-tec.png' },
+      { n: 'Neptronic', f: 'neptronic.png' },
+      { n: 'ONICON', f: 'onicon.png' },
+      { n: 'Senva', f: 'senva.png' },
+      { n: 'Setra', f: 'setra-systems.png' },
+      { n: 'Vaisala', f: 'vaisala.png' },
+      { n: 'Badger Meter', f: 'badger-meter.jpg' }
+    ];
+
+    function mkCell(b) {
+      const c = document.createElement('div');
+      c.className = 'brand-cell';
+      const img = document.createElement('img');
+      img.src = 'assets/logos/' + b.f;
+      img.alt = b.n;
+      img.loading = 'lazy';
+      // Si la imagen falla en cargar, muestra el texto por defecto
+      img.onerror = function () { this.style.display = 'none'; c.querySelector('.brand-fallback').style.display = 'block' };
+
+      const fb = document.createElement('div');
+      fb.className = 'brand-fallback';
+      fb.textContent = b.n;
+
+      c.appendChild(img);
+      c.appendChild(fb);
+      return c;
+    }
+
+    const br1 = document.getElementById('br1'), br2 = document.getElementById('br2');
+    [...brands, ...brands].forEach(b => br1.appendChild(mkCell(b)));
+    [...brands.slice(10), ...brands.slice(0, 10), ...brands.slice(10), ...brands.slice(0, 10)].forEach(b => br2.appendChild(mkCell(b)));
+
+
+
+
+    // OFFICES MAP
+    // OFFICES MAP (CORREGIDO)
+    (function () {
+      // Seleccionamos las tarjetas, el iframe del mapa y el título
+      const cards = document.querySelectorAll('.office-card');
+      const frame = document.getElementById('gmapFrame');
+      const title = document.getElementById('mapTitle');
+
+      // Si no existe el iframe o el título, detenemos el script para evitar errores
+      if (!frame || !title) return;
+
+      cards.forEach(card => {
+        const act = () => {
+          // 1. Quitamos la clase 'active-c' de todas las tarjetas y se la ponemos a la seleccionada
+          cards.forEach(c => c.classList.remove('active-c'));
+          card.classList.add('active-c');
+
+          // 2. Si la tarjeta tiene una ruta de mapa (data-src)
+          if (card.dataset.src) {
+            frame.style.opacity = '0'; // Desvanecemos el mapa actual
+            setTimeout(() => {
+              frame.src = card.dataset.src; // Cambiamos la URL del mapa
+              frame.style.opacity = '1'; // Hacemos aparecer el nuevo mapa
+            }, 300); // 300ms de espera para la animación
+          }
+
+          // 3. Actualizamos el título del mapa
+          if (card.dataset.title) {
+            title.textContent = card.dataset.title;
+          }
+
+          // 4. En dispositivos móviles, hacemos scroll automático hacia arriba para ver el mapa
+          if (window.innerWidth <= 900) {
+            document.querySelector('.map-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+
+        // Escuchamos el clic o la tecla Enter/Espacio para accesibilidad
+        card.addEventListener('click', act);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') act() });
+      });
+    })();
+    // SCROLL REVEAL
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target) } }) }, { threshold: .07 });
+    document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => io.observe(el));
+
+    // COUNTER animation on stat numbers
+    function animCount(el) { const target = +el.dataset.count; let c = 0; const step = Math.max(1, Math.ceil(target / 60)); const t = setInterval(() => { c = Math.min(c + step, target); el.textContent = c.toLocaleString('es-MX'); if (c >= target) clearInterval(t) }, 22) }
+    const cio = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('[data-count]').forEach(animCount); cio.unobserve(e.target) } }) }, { threshold: .3 });
+    document.querySelectorAll('.page-hero-stats').forEach(el => cio.observe(el));
+
+    // CHAT
+    const chatFab = document.getElementById('chatFab'), chatWin = document.getElementById('chatWindow'),
+      cwMsgs = document.getElementById('cwMsgs'), cwInput = document.getElementById('cwInput'), cwSend = document.getElementById('cwSend');
+    chatFab.addEventListener('click', () => { chatWin.classList.toggle('open'); chatFab.setAttribute('aria-expanded', chatWin.classList.contains('open')); if (chatWin.classList.contains('open')) chatFab.querySelector('.chat-badge').style.display = 'none' });
+    document.getElementById('chatClose').addEventListener('click', () => { chatWin.classList.remove('open'); chatFab.setAttribute('aria-expanded', 'false') });
+    const chatR = ['Claro, con gusto te ayudo. Escríbenos a info@haften.com.mx', 'Tenemos ese producto disponible. Visita la sección de Marcas o Catálogos para más detalles.', 'Nuestro equipo puede asesorarte. ¿Quieres que te conectemos con un especialista?', 'Para cotizaciones formales, escríbenos a info@haften.com.mx o visita Contacto.', 'Tenemos oficinas en CDMX, Monterrey, Guadalajara, León y Cancún. ¿Dónde estás?'];
+    let rIdx = 0;
+    function sendMsg() { const txt = cwInput.value.trim(); if (!txt) return; const um = document.createElement('div'); um.className = 'cw-msg usr'; um.textContent = txt; cwMsgs.appendChild(um); cwInput.value = ''; cwMsgs.scrollTop = cwMsgs.scrollHeight; setTimeout(() => { const bm = document.createElement('div'); bm.className = 'cw-msg bot'; bm.textContent = chatR[rIdx % chatR.length]; rIdx++; cwMsgs.appendChild(bm); cwMsgs.scrollTop = cwMsgs.scrollHeight }, 700) }
+    cwSend.addEventListener('click', sendMsg);
+    cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
+  </script>
+</body>
+
+</html>

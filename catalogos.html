@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logos/logo-haften.png">
+  <title>Catálogos — Haften · HVAC · BMS · Medición de Energía</title>
+  <meta name="description"
+    content="Descarga los catálogos técnicos de Haften y sus marcas colaboradoras: HVAC, BMS, sensores, actuadores, variadores y más.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ── TOKENS — LIGHT THEME ── */
+    :root {
+      --ac: #E11D48;
+      --ac-dark: #BE123C;
+      --ac-rgb: 225, 29, 72;
+      --bg: #f0f4f8;
+      --bg2: #ffffff;
+      --bg3: #e6edf5;
+      --lt: #f0f4f8;
+      --lt2: #e0eaf3;
+      --white: #fff;
+      --text-1: #0d1f2d;
+      --text-2: #3d6680;
+      --text-3: #7a9eb5;
+      --ink: #ffffff;
+      --ink2: #e6f2f8;
+      --ink3: #cce4f0;
+      --border-d: rgba(225, 29, 72, .15);
+      --border-l: rgba(13, 31, 45, .1);
+      --nav-h: 88px;
+      --r: 14px;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text-1);
+      overflow-x: hidden;
+      cursor: none
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ul {
+      list-style: none
+    }
+
+    /* ── CURSOR ── */
+    .cur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ac);
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s
+    }
+
+    .cur-r {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9998;
+      pointer-events: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(var(--ac-rgb), .3);
+      transform: translate(-50%, -50%);
+      transition: left .08s, top .08s
+    }
+
+    @media(hover:none) {
+
+      .cur,
+      .cur-r {
+        display: none
+      }
+
+      body {
+        cursor: auto
+      }
+    }
+
+    /* ── LOADER ── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .5s, visibility .5s
+    }
+
+    #loader.done {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    .loader-ring {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(var(--ac-rgb), .15);
+      border-top-color: var(--ac);
+      animation: spin .8s linear infinite
+    }
+
+    .loader-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--text-1);
+      letter-spacing: .08em;
+      margin-top: 12px
+    }
+
+    .loader-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .loader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* ════════════ NAVBAR ════════════ */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 24px;
+      background: rgba(3, 8, 16, .7);
+      backdrop-filter: blur(32px) saturate(1.8);
+      -webkit-backdrop-filter: blur(32px) saturate(1.8);
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      transition: background .3s, box-shadow .3s;
+    }
+
+    #navbar.scrolled {
+      background: rgba(3, 8, 16, .95);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
+    }
+
+    .n-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0
+    }
+
+    .n-logo img {
+      height: 36px;
+      object-fit: contain
+    }
+
+    .n-logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.01em
+    }
+
+    .n-logo-text em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .n-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+      justify-content: center
+    }
+
+    .n-link {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+      padding: 8px 13px;
+      border-radius: 8px;
+      position: relative;
+      transition: color .2s, background .2s;
+      white-space: nowrap
+    }
+
+    .n-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 14px;
+      height: 2px;
+      background: var(--ac);
+      border-radius: 1px;
+      transition: transform .25s cubic-bezier(.34, 1.56, .64, 1)
+    }
+
+    .n-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .n-link.active {
+      color: var(--ac)
+    }
+
+    .n-link:hover::after,
+    .n-link.active::after {
+      transform: translateX(-50%) scaleX(1)
+    }
+
+    .n-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--ac);
+      padding: 10px 22px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .35)
+    }
+
+    .n-cta:hover {
+      background: var(--ac-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .45)
+    }
+
+    .n-tools {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0
+    }
+
+    .n-tool-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .45);
+      font-size: .85rem;
+      position: relative;
+      transition: .2s
+    }
+
+    .n-tool-btn:hover {
+      border-color: var(--ac);
+      color: var(--ac)
+    }
+
+    /* panels */
+    .tool-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #0a1828;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 14px;
+      padding: 18px;
+      min-width: 220px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+      z-index: 600
+    }
+
+    .tool-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0)
+    }
+
+    .tp-label {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 12px
+    }
+
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px
+    }
+
+    .cp-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2.5px solid transparent;
+      cursor: none;
+      transition: transform .2s, border-color .2s
+    }
+
+    .cp-swatch:hover {
+      transform: scale(1.2)
+    }
+
+    .cp-swatch.active {
+      border-color: #fff
+    }
+
+    .cp-themes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 10px
+    }
+
+    .cp-theme-btn {
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: none;
+      cursor: none;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      transition: .2s;
+      text-align: left
+    }
+
+    .cp-theme-btn:hover,
+    .cp-theme-btn.active {
+      background: rgba(var(--ac-rgb), .12);
+      color: var(--ac);
+      border-color: rgba(var(--ac-rgb), .3)
+    }
+
+    .a11y-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      gap: 8px
+    }
+
+    .a11y-row:last-child {
+      border-bottom: none
+    }
+
+    .a11y-lbl {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-2)
+    }
+
+    .a11y-fs {
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .a11y-fs button {
+      background: rgba(var(--ac-rgb), .1);
+      border: 1px solid rgba(var(--ac-rgb), .2);
+      color: var(--ac);
+      font-size: .72rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s
+    }
+
+    .a11y-fs .fs-val {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      min-width: 22px;
+      text-align: center
+    }
+
+    .a11y-toggle {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex-shrink: 0;
+      cursor: none
+    }
+
+    .a11y-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0
+    }
+
+    .a11y-slider {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      transition: .2s
+    }
+
+    .a11y-slider::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--text-3);
+      transition: .2s
+    }
+
+    .a11y-toggle input:checked+.a11y-slider {
+      background: var(--ac)
+    }
+
+    .a11y-toggle input:checked+.a11y-slider::before {
+      left: 20px;
+      background: #fff
+    }
+
+    /* hamburger */
+    .n-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      cursor: none;
+      flex-shrink: 0;
+      transition: .2s
+    }
+
+    .n-ham:hover {
+      border-color: var(--ac)
+    }
+
+    .n-ham span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, .7);
+      transition: .3s;
+      transform-origin: center
+    }
+
+    .n-ham.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg)
+    }
+
+    .n-ham.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .n-ham.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg)
+    }
+
+    /* ════════════ HERO PAGE ════════════ */
+    .page-hero {
+      position: relative;
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 80px;
+      overflow: hidden;
+      text-align: center;
+      background: #030810;
+    }
+
+    .page-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 200, 232, .018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 232, .018) 1px, transparent 1px);
+      background-size: 72px 72px
+    }
+
+    .page-hero-glow {
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(0, 200, 232, .07) 0%, transparent 70%);
+      pointer-events: none
+    }
+
+    #phCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: .4
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 5;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .page-hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: var(--ac);
+      /* ← Actualizado */
+      border: 1px solid rgba(var(--ac-rgb), .2);
+      /* ← Actualizado */
+      padding: 7px 20px;
+      border-radius: 40px;
+      margin-bottom: 36px;
+      background: rgba(var(--ac-rgb), .05);
+      /* ← Actualizado */
+      backdrop-filter: blur(10px);
+    }
+
+    .ph-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--ac);
+      /* ← Actualizado */
+      animation: pdot 2s ease infinite;
+    }
+
+
+
+    .page-hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      line-height: .9;
+      letter-spacing: -.04em;
+      color: #fff;
+      margin-bottom: 24px
+    }
+
+    .page-hero h1 span {
+      /* Sustituimos el #00c8e8 por var(--ac) y el rgba estático por rgba(var(--ac-rgb)) */
+      background: linear-gradient(120deg, #fff 0%, var(--ac) 55%, rgba(var(--ac-rgb), .5) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+
+    .page-hero p {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, .42);
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 40px
+    }
+
+    .page-hero-rule {
+      width: 44px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ac), transparent);
+      /* ← Actualizado */
+      border-radius: 1px;
+      margin: 0 auto 36px;
+    }
+
+    /* ════════════ FILTER BAR ════════════ */
+    .filter-bar {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 200;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(13, 31, 45, .08);
+      padding: 14px 5vw;
+    }
+
+    .filter-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .filter-search {
+      flex: 1;
+      min-width: 200px;
+      max-width: 340px;
+      position: relative
+    }
+
+    .filter-search i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-3);
+      font-size: .85rem
+    }
+
+    .filter-search input {
+      width: 100%;
+      background: #f4f8fb;
+      border: 1px solid rgba(13, 31, 45, .12);
+      border-radius: 10px;
+      padding: 9px 14px 9px 38px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--text-1);
+      outline: none;
+      transition: .2s;
+      cursor: none
+    }
+
+    .filter-search input::placeholder {
+      color: var(--text-3)
+    }
+
+    .filter-search input:focus {
+      border-color: rgba(var(--ac-rgb), .4);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(var(--ac-rgb), .08)
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    .f-tab {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(13, 31, 45, .12);
+      color: rgba(13, 31, 45, .4);
+      background: none;
+      cursor: none;
+      transition: .2s;
+      white-space: nowrap
+    }
+
+    .f-tab:hover {
+      color: var(--text-1);
+      border-color: rgba(13, 31, 45, .25);
+      background: rgba(13, 31, 45, .04)
+    }
+
+    .f-tab.active {
+      color: var(--ac);
+      border-color: rgba(var(--ac-rgb), .35);
+      background: rgba(var(--ac-rgb), .07)
+    }
+
+    .filter-count {
+      margin-left: auto;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--text-3);
+      white-space: nowrap
+    }
+
+    /* ════════════ CATALOG SECTION ════════════ */
+    .catalog-sec {
+      padding: 72px 0 104px
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    /* HAFTEN FEATURED */
+    .haften-feature {
+      position: relative;
+      background: linear-gradient(135deg, #fff 0%, #f0f7fb 100%);
+      border: 1px solid rgba(var(--ac-rgb), .18);
+      border-radius: 20px;
+      padding: 52px 56px;
+      margin-bottom: 72px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0, 153, 187, .08);
+    }
+
+    .haften-feature::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(var(--ac-rgb), .06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .haften-feature-badge {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      background: linear-gradient(135deg, var(--ac), var(--ac-dark));
+      color: #fff;
+      font-size: .6rem;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 40px;
+    }
+
+    .haften-feature-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ac);
+      margin-bottom: 10px
+    }
+
+    .haften-feature-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      color: var(--text-1);
+      line-height: 1.05;
+      letter-spacing: -.025em;
+      margin-bottom: 12px
+    }
+
+    .haften-feature-title span {
+      color: var(--ac)
+    }
+
+    .haften-feature-desc {
+      font-size: .92rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 32px
+    }
+
+    .haften-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px
+    }
+
+    .haf-card {
+      background: #fff;
+      border: 1px solid rgba(var(--ac-rgb), .12);
+      border-radius: 14px;
+      padding: 22px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color .25s, background .25s, transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+    }
+
+    .haf-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(var(--ac-rgb), .04), transparent);
+      opacity: 0;
+      transition: opacity .3s
+    }
+
+    .haf-card:hover {
+      border-color: rgba(var(--ac-rgb), .35);
+      background: #f5fbfd;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .12)
+    }
+
+    .haf-card:hover::after {
+      opacity: 1
+    }
+
+    .haf-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(var(--ac-rgb), .12), rgba(var(--ac-rgb), .06));
+      border: 1px solid rgba(var(--ac-rgb), .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: 1rem;
+      flex-shrink: 0
+    }
+
+    .haf-card-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .9rem;
+      font-weight: 800;
+      color: var(--text-1);
+      letter-spacing: -.01em;
+      line-height: 1.2
+    }
+
+    .haf-card-size {
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--text-3);
+      margin-top: 2px
+    }
+
+    .haf-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ac);
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(var(--ac-rgb), .08);
+      border: 1px solid rgba(var(--ac-rgb), .18);
+      transition: .2s;
+      align-self: flex-start
+    }
+
+    .haf-card-btn:hover {
+      background: rgba(var(--ac-rgb), .18);
+      border-color: rgba(var(--ac-rgb), .35)
+    }
+
+    /* SECTION DIVIDER */
+    .sec-divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      margin-top: 8px
+    }
+
+    .sec-divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(13, 31, 45, .1)
+    }
+
+    .sec-divider-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      white-space: nowrap
+    }
+
+    .sec-divider-label i {
+      color: var(--text-3);
+      font-size: .55rem
+    }
+
+    /* COLLABORATORS GRID */
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px
+    }
+
+    .cat-card {
+      background: #fff;
+      border: 1px solid rgba(13, 31, 45, .09);
+      border-radius: 16px;
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color .25s, background .25s, transform .25s, box-shadow .25s;
+      cursor: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .05);
+    }
+
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ac), transparent);
+      opacity: 0;
+      transition: opacity .3s
+    }
+
+    .cat-card:hover {
+      border-color: rgba(var(--ac-rgb), .25);
+      background: #f8fbfd;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 153, 187, .1)
+    }
+
+    .cat-card:hover::before {
+      opacity: .8
+    }
+
+    .cat-card.hidden {
+      display: none
+    }
+
+    /* brand logo area */
+    .cat-logo-area {
+      background: #f4f8fb;
+      border: 1px solid rgba(13, 31, 45, .08);
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+    }
+
+    .cat-logo-area img {
+      max-height: 44px;
+      max-width: 100%;
+      object-fit: contain;
+      filter: none;
+      opacity: .8;
+      transition: opacity .2s
+    }
+
+    .cat-card:hover .cat-logo-area img {
+      opacity: 1
+    }
+
+    .cat-fallback-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: rgba(13, 31, 45, .4);
+      letter-spacing: -.01em;
+      text-align: center
+    }
+
+    /* card body */
+    .cat-body {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1
+    }
+
+    .cat-brand-label {
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--text-3)
+    }
+
+    .cat-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-1);
+      line-height: 1.2;
+      letter-spacing: -.01em
+    }
+
+    .cat-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 4px
+    }
+
+    .cat-tag {
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: rgba(13, 31, 45, .05);
+      border: 1px solid rgba(13, 31, 45, .1);
+      color: var(--text-3)
+    }
+
+    .cat-tag.hi {
+      background: rgba(var(--ac-rgb), .08);
+      border-color: rgba(var(--ac-rgb), .2);
+      color: var(--ac)
+    }
+
+    /* card footer */
+    .cat-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(13, 31, 45, .07)
+    }
+
+    .cat-size {
+      font-size: .67rem;
+      font-weight: 600;
+      color: var(--text-3)
+    }
+
+    .cat-dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--ac);
+      padding: 9px 18px;
+      border-radius: 9px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(var(--ac-rgb), .3);
+      flex-shrink: 0
+    }
+
+    .cat-dl-btn:hover {
+      background: var(--ac-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 7px 20px rgba(var(--ac-rgb), .35)
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      display: none
+    }
+
+    .empty-state.show {
+      display: block
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      color: var(--text-3);
+      margin-bottom: 16px;
+      opacity: .4
+    }
+
+    .empty-state p {
+      color: var(--text-2);
+      font-size: .95rem
+    }
+
+    /* REVEAL ANIM */
+    .rv {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s, transform .7s
+    }
+
+    .rv.on {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .d1 {
+      transition-delay: .06s
+    }
+
+    .d2 {
+      transition-delay: .12s
+    }
+
+    .d3 {
+      transition-delay: .18s
+    }
+
+    .d4 {
+      transition-delay: .24s
+    }
+
+    .d5 {
+      transition-delay: .30s
+    }
+
+    /* ════════════ FOOTER ════════════ */
+    footer {
+      background: #060d1a;
+      position: relative
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ac) 30%, var(--ac-dark) 70%, transparent)
+    }
+
+    .footer-main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 72px 5vw 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px
+    }
+
+    .footer-logo img {
+      height: 34px;
+      object-fit: contain
+    }
+
+    .footer-logo-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.01em;
+      display: none
+    }
+
+    .footer-logo-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .footer-tagline {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ac-dark);
+      margin-bottom: 14px
+    }
+
+    .footer-desc {
+      font-size: .82rem;
+      color: var(--text-3);
+      line-height: 1.74;
+      margin-bottom: 22px
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap
+    }
+
+    .f-soc {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-3);
+      font-size: .8rem;
+      transition: .2s
+    }
+
+    .f-soc:hover {
+      background: rgba(var(--ac-rgb), .12);
+      border-color: rgba(var(--ac-rgb), .28);
+      color: var(--ac);
+      transform: translateY(-2px)
+    }
+
+    .footer-col h4 {
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .footer-col ul a {
+      font-size: .82rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: .2s
+    }
+
+    .footer-col ul a:hover {
+      color: var(--ac);
+      padding-left: 4px
+    }
+
+    .footer-col ul i {
+      font-size: .68rem;
+      color: var(--text-3);
+      width: 13px;
+      flex-shrink: 0
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 18px 5vw;
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .footer-copy {
+      font-size: .75rem;
+      color: var(--text-3)
+    }
+
+    .footer-copy a {
+      color: var(--ac)
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 10px
+    }
+
+    .f-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      border: 1px solid rgba(255, 255, 255, .07);
+      padding: 4px 10px;
+      border-radius: 6px
+    }
+
+    .f-badge i {
+      color: var(--ac);
+      font-size: .6rem
+    }
+
+    /* ════════════ RESPONSIVE ════════════ */
+    @media(max-width:900px) {
+      :root {
+        --nav-h: 72px
+      }
+
+      .n-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        background: rgba(3, 8, 16, .98);
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
+        flex-direction: column;
+        padding: 18px 5vw 22px;
+        gap: 3px;
+        backdrop-filter: blur(28px)
+      }
+
+      .n-links.open {
+        display: flex
+      }
+
+      .n-link {
+        padding: 10px 14px;
+        font-size: .8rem
+      }
+
+      .n-cta {
+        font-size: .78rem;
+        padding: 10px 14px;
+        width: 100%;
+        justify-content: center
+      }
+
+      .n-ham {
+        display: flex
+      }
+
+      .haften-feature {
+        padding: 36px 28px
+      }
+
+      .haften-feature-badge {
+        display: none
+      }
+
+      .haf-card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 10px
+      }
+
+      .collab-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px
+      }
+    }
+
+    @media(max-width:600px) {
+      :root {
+        --nav-h: 66px
+      }
+
+      .collab-grid {
+        grid-template-columns: 1fr
+      }
+
+      .filter-inner {
+        flex-wrap: wrap
+      }
+
+      .filter-search {
+        max-width: 100%;
+        width: 100%
+      }
+
+      .filter-count {
+        width: 100%;
+        text-align: right
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 28px
+      }
+
+      .n-tools {
+        gap: 5px
+      }
+
+      .n-tool-btn {
+        width: 34px;
+        height: 34px
+      }
+    }
+
+    body.theme-midnight {
+      --bg: #0d0d1a;
+      --bg2: #12122a;
+      --bg3: #1a1a36;
+      --border-d: rgba(var(--ac-rgb), .18)
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cur" id="cur"></div>
+  <div class="cur-r" id="curR"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-txt">Haf<em>ten</em></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="n-logo" aria-label="Haften">
+      <img src="assets/logos/logo-haften.png" alt="Haften"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
+    </a>
+    <ul class="n-links" id="navLinks">
+      <li><a href="index.html" class="n-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="n-link">Nosotros</a></li>
+      <li><a href="marcas.html" class="n-link">Marcas</a></li>
+      <li><a href="catalogos.html" class="n-link active">Catálogos</a></li>
+      <li><a href="multimedia.html" class="n-link">Multimedia</a></li>
+      <li><a href="redes.html" class="n-link">Redes</a></li>
+      <li><a href="contacto.html" class="n-cta"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+    </ul>
+    <div class="n-tools">
+      <div style="position:relative">
+        <button class="n-tool-btn" id="colorBtn" aria-label="Color" aria-expanded="false"><i
+            class="fa-solid fa-palette"></i></button>
+        <div class="tool-panel" id="colorPanel">
+          <div class="tp-label">Color de acento</div>
+          <div class="cp-grid">
+            <div class="cp-swatch active" data-ac="#00c8e8" data-acd="#0099bb" data-rgb="0,200,232"
+              style="background:#00c8e8" role="button" tabindex="0" aria-label="Cian"></div>
+            <div class="cp-swatch" data-ac="#2563EB" data-acd="#1D4ED8" data-rgb="37,99,235" style="background:#2563EB"
+              role="button" tabindex="0" aria-label="Azul"></div>
+            <div class="cp-swatch" data-ac="#059669" data-acd="#047857" data-rgb="5,150,105" style="background:#059669"
+              role="button" tabindex="0" aria-label="Verde"></div>
+            <div class="cp-swatch" data-ac="#7C3AED" data-acd="#6D28D9" data-rgb="124,58,237" style="background:#7C3AED"
+              role="button" tabindex="0" aria-label="Violeta"></div>
+            <div class="cp-swatch" data-ac="#EA580C" data-acd="#C2410C" data-rgb="234,88,12" style="background:#EA580C"
+              role="button" tabindex="0" aria-label="Naranja"></div>
+            <div class="cp-swatch" data-ac="#E11D48" data-acd="#BE123C" data-rgb="225,29,72" style="background:#E11D48"
+              role="button" tabindex="0" aria-label="Rosa"></div>
+          </div>
+          <div class="tp-label" style="margin-top:14px">Tema</div>
+          <div class="cp-themes">
+            <button class="cp-theme-btn active" data-theme="dark"><i class="fa-solid fa-moon"></i> Oscuro</button>
+            <button class="cp-theme-btn" data-theme="midnight"><i class="fa-solid fa-circle-half-stroke"></i>
+              Midnight</button>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <button class="n-tool-btn" id="a11yBtn" aria-label="Accesibilidad" aria-expanded="false"><i
+            class="fa-solid fa-universal-access"></i></button>
+        <div class="tool-panel" id="a11yPanel">
+          <div class="tp-label">Accesibilidad</div>
+          <div class="a11y-row">
+            <span class="a11y-lbl">Tamaño texto</span>
+            <div class="a11y-fs">
+              <button onclick="changeFontScale(-0.1)"><i class="fa-solid fa-minus"></i></button>
+              <span class="fs-val" id="fsVal">100%</span>
+              <button onclick="changeFontScale(0.1)"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+          <div class="a11y-row">
+            <span class="a11y-lbl">Alto contraste</span>
+            <label class="a11y-toggle"><input type="checkbox" id="hcToggle" onchange="toggleHC(this.checked)"><span
+                class="a11y-slider"></span></label>
+          </div>
+          <div class="a11y-row">
+            <span class="a11y-lbl">Sin animaciones</span>
+            <label class="a11y-toggle"><input type="checkbox" id="animToggle" onchange="toggleAnim(this.checked)"><span
+                class="a11y-slider"></span></label>
+          </div>
+          <div class="a11y-row" style="border-bottom:none">
+            <span class="a11y-lbl">Cursor custom</span>
+            <label class="a11y-toggle"><input type="checkbox" id="curToggle" checked
+                onchange="toggleCursor(this.checked)"><span class="a11y-slider"></span></label>
+          </div>
+        </div>
+      </div>
+      <button class="n-ham" id="menuBtn" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-label="Encabezado catálogos">
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-glow"></div>
+    <canvas id="phCanvas"></canvas>
+    <div class="page-hero-inner">
+      <div class="page-hero-pill">
+        <span class="ph-dot"></span>
+        Biblioteca de Documentación Técnica
+      </div>
+      <h1>Catálogos<br><span>Técnicos</span></h1>
+      <div class="page-hero-rule"></div>
+      <p>Descarga la documentación técnica oficial de Haften y todas nuestras marcas colaboradoras. Todo lo que
+        necesitas para especificar, cotizar e instalar.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" id="filterBar">
+    <div class="filter-inner">
+      <div class="filter-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Buscar catálogo o marca…" autocomplete="off">
+      </div>
+      <div class="filter-tabs" role="group" aria-label="Filtros por categoría">
+        <button class="f-tab active" data-cat="all">Todos</button>
+        <button class="f-tab" data-cat="haften">Haften</button>
+        <button class="f-tab" data-cat="hvac">HVAC / R</button>
+        <button class="f-tab" data-cat="bms">BMS / Control</button>
+        <button class="f-tab" data-cat="medicion">Medición</button>
+        <button class="f-tab" data-cat="variadores">Variadores</button>
+      </div>
+      <span class="filter-count" id="filterCount">21 catálogos</span>
+    </div>
+  </div>
+
+  <!-- CATALOG SECTION -->
+  <main class="catalog-sec" id="main">
+    <div class="container">
+
+      <!-- ── HAFTEN PRINCIPAL ── -->
+      <div class="haften-feature rv">
+        <span class="haften-feature-badge"><i class="fa-solid fa-star"></i> Distribuidor Principal</span>
+        <div class="haften-feature-eyebrow"><i class="fa-solid fa-building-columns"></i> Haften — Catálogos Propios
+        </div>
+        <h2 class="haften-feature-title">El estándar de<br><span>excelencia Haften</span></h2>
+        <p class="haften-feature-desc">Haften es el distribuidor líder en HVAC/R, BMS, sensores y automatización en
+          México. Nuestros catálogos propios reúnen la solución completa para tus proyectos.</p>
+        <div class="haften-card-grid" id="haftenGrid">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- ── COLABORADORES ── -->
+      <div class="sec-divider rv">
+        <div class="sec-divider-line"></div>
+        <div class="sec-divider-label"><i class="fa-solid fa-circle"></i> Marcas Colaboradoras <i
+            class="fa-solid fa-circle"></i></div>
+        <div class="sec-divider-line"></div>
+      </div>
+
+      <div class="collab-grid" id="collabGrid">
+        <!-- populated by JS -->
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon"><i class="fa-solid fa-folder-open"></i></div>
+        <p>No se encontraron catálogos para tu búsqueda.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logos/logo-haften.png" alt="Haften"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="footer-logo-txt" style="display:none">Haf<em>ten</em></span>
+        </div>
+        <div class="footer-tagline">HVAC · BMS · Medición de Energía</div>
+        <p class="footer-desc">Distribución especializada de equipos y sistemas de control HVAC/R-BMS en México desde
+          1999. Una solución completa en el mismo lugar.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="f-soc"
+            aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/Haftenoficial" target="_blank" rel="noopener" class="f-soc"
+            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@Haftenoficial/videos" target="_blank" rel="noopener" class="f-soc"
+            aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener" class="f-soc"
+            aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://x.com/haften1" target="_blank" rel="noopener" class="f-soc" aria-label="X"><i
+              class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.tiktok.com/@Haftenoficial/" target="_blank" rel="noopener" class="f-soc"
+            aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a></li>
+          <li><a href="nosotros.html"><i class="fa-solid fa-building"></i>Nosotros</a></li>
+          <li><a href="marcas.html"><i class="fa-solid fa-tag"></i>Marcas</a></li>
+          <li><a href="catalogos.html"><i class="fa-solid fa-file-pdf"></i>Catálogos</a></li>
+          <li><a href="multimedia.html"><i class="fa-solid fa-circle-play"></i>Multimedia</a></li>
+          <li><a href="redes.html"><i class="fa-solid fa-share-nodes"></i>Redes</a></li>
+          <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="/cdn-cgi/l/email-protection#89eae6e7fde8eafde6c9e1e8effdece7a7eae6e4a7e4f1"><i
+                class="fa-solid fa-envelope"></i><span class="__cf_email__"
+                data-cfemail="7a1915140e1b190e153a121b1c0e1f1454191517541702">[email&#160;protected]</span></a></li>
+          <li><a href="https://haften.com.mx" target="_blank" rel="noopener"><i
+                class="fa-solid fa-globe"></i>haften.com.mx</a></li>
+          <li><a href="#"><i class="fa-solid fa-map-pin"></i>Ciudad de México</a></li>
+          <li><a href="#"><i class="fa-solid fa-map-pin"></i>Monterrey, N.L.</a></li>
+          <li><a href="#"><i class="fa-solid fa-map-pin"></i>Guadalajara, Jal.</a></li>
+          <li><a href="#"><i class="fa-solid fa-map-pin"></i>León · Cancún</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sectores</h4>
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-industry"></i>Industrial</a></li>
+          <li><a href="#"><i class="fa-solid fa-building-columns"></i>Comercial</a></li>
+          <li><a href="#"><i class="fa-solid fa-hospital"></i>Hospitalario</a></li>
+          <li><a href="#"><i class="fa-solid fa-hotel"></i>Hotelero</a></li>
+          <li><a href="#"><i class="fa-solid fa-flask"></i>Laboratorio</a></li>
+          <li><a href="#"><i class="fa-solid fa-house"></i>Residencial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2025 Haften · Todos los derechos reservados · <a href="https://haften.com.mx"
+          target="_blank" rel="noopener">haften.com.mx</a></span>
+      <div class="footer-badges">
+        <span class="f-badge"><i class="fa-solid fa-shield-check"></i>Distribuidor Autorizado</span>
+        <span class="f-badge"><i class="fa-solid fa-certificate"></i>+20 Años</span>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    let fontScale = 1;
+
+    // LOADER
+    (function () {
+      function done() { document.getElementById('loader').classList.add('done') }
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', () => setTimeout(done, 500))
+        : setTimeout(done, 300);
+      setTimeout(done, 2500);
+    })();
+
+    // CURSOR
+    const cur = document.getElementById('cur'), curR = document.getElementById('curR');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
+    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    document.querySelectorAll('a,button,input,.cat-card,.haf-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cur.style.width = '14px'; cur.style.height = '14px' });
+      el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px' });
+    });
+
+    // NAVBAR SCROLL
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // HAMBURGER
+    const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', e => { e.stopPropagation(); navLinks.classList.toggle('open'); menuBtn.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', navLinks.classList.contains('open')) });
+    document.addEventListener('click', e => { if (!e.target.closest('#navbar')) { navLinks.classList.remove('open'); menuBtn.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false') } });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); menuBtn.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false') }));
+
+    // COLOR PANEL
+    const colorBtn = document.getElementById('colorBtn'), colorPanel = document.getElementById('colorPanel');
+    colorBtn.addEventListener('click', e => { e.stopPropagation(); colorPanel.classList.toggle('open'); colorBtn.setAttribute('aria-expanded', colorPanel.classList.contains('open')); document.getElementById('a11yPanel').classList.remove('open') });
+    document.addEventListener('click', () => colorPanel.classList.remove('open'));
+    colorPanel.addEventListener('click', e => e.stopPropagation());
+    document.querySelectorAll('.cp-swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        const r = document.documentElement;
+        r.style.setProperty('--ac', sw.dataset.ac);
+        r.style.setProperty('--ac-dark', sw.dataset.acd);
+        r.style.setProperty('--ac-rgb', sw.dataset.rgb);
+        document.querySelectorAll('.cp-swatch').forEach(s => s.classList.remove('active'));
+        sw.classList.add('active');
+      });
+      sw.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') sw.click() });
+    });
+    document.querySelectorAll('.cp-theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cp-theme-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+        if (btn.dataset.theme !== 'dark') document.body.classList.add('theme-' + btn.dataset.theme);
+      });
+    });
+
+    // A11Y PANEL
+    const a11yBtn = document.getElementById('a11yBtn'), a11yPanel = document.getElementById('a11yPanel');
+    a11yBtn.addEventListener('click', e => { e.stopPropagation(); a11yPanel.classList.toggle('open'); a11yBtn.setAttribute('aria-expanded', a11yPanel.classList.contains('open')); colorPanel.classList.remove('open') });
+    a11yPanel.addEventListener('click', e => e.stopPropagation());
+    function changeFontScale(d) { fontScale = Math.max(.8, Math.min(1.3, fontScale + d)); document.documentElement.style.setProperty('--font-scale', fontScale); document.getElementById('fsVal').textContent = Math.round(fontScale * 100) + '%' }
+    function toggleHC(on) { document.body.classList.toggle('hc-mode', on) }
+    function toggleAnim(on) { document.body.classList.toggle('no-anim', on) }
+    function toggleCursor(on) { cur.style.display = on ? 'block' : 'none'; curR.style.display = on ? 'block' : 'none'; document.body.style.cursor = on ? 'none' : 'auto' }
+
+    // ── HERO PARTICLE CANVAS ──
+    (function () {
+      const c = document.getElementById('phCanvas'), ctx = c.getContext('2d');
+      let W, H, pts = [];
+      function resize() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight }
+      function mkP() { return { x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0, age: 0, maxAge: Math.random() * 180 + 60, spd: Math.random() * 1 + 0.3, sz: Math.random() * 1.1 + 0.2, warm: Math.random() < .1 } }
+      for (let i = 0; i < 300; i++) { const p = mkP(); p.age = Math.random() * p.maxAge; pts.push(p) }
+      let t = 0;
+      function draw() {
+        t += .003; ctx.fillStyle = 'rgba(3,8,16,0.18)'; ctx.fillRect(0, 0, W, H);
+        pts.forEach((p, i) => {
+          const nx = p.x / W * 5, ny = p.y / H * 5;
+          const angle = (Math.sin(nx + t) * Math.cos(ny * .8 + t * .4) + Math.sin(nx * .4 + t * .3) * 1.5) * Math.PI;
+          p.vx = p.vx * .96 + Math.cos(angle) * p.spd * .1; p.vy = p.vy * .96 + Math.sin(angle) * p.spd * .1;
+          p.x += p.vx; p.y += p.vy; p.age++;
+          const lp = p.age / p.maxAge, a = (lp < .1 ? lp * 10 : lp > .72 ? (1 - lp) / .28 : 1) * .4;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
+          ctx.fillStyle = p.warm ? `rgba(234,88,12,${a * .6})` : `rgba(0,200,232,${a})`; ctx.fill();
+          if (p.age >= p.maxAge || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) pts[i] = mkP();
+        });
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize', resize); resize(); draw();
+    })();
+
+    // ── CATALOG DATA ──
+    const haftenCatalogs = [
+      {
+        id: 'haften-main',
+        name: 'Catálogo HAFTEN 2025',
+        file: "assets/catalogos/catalogo-haften-2025.pdf",
+        size: '9.2 MB',
+        icon: 'fa-solid fa-book-open',
+      },
+      {
+        id: 'haften-cat',
+        name: 'Catalog — Soluciones',
+        file: "assets/catalogos/catalog.pdf",
+        size: '8.2 MB',
+        icon: 'fa-solid fa-layer-group',
+      },
+      {
+        id: 'haften-dl',
+        name: 'DownloadFile Catalog',
+        file: "assets/catalogos/download-file-catalog.pdf",
+        size: '12.8 MB',
+        icon: 'fa-solid fa-file-arrow-down',
+      },
+    ];
+
+    const collabCatalogs = [
+      {
+        id: 'airmonitor', name: 'Air Monitor',
+        file: "assets/catalogos/air-monitor.pdf",
+        logo: 'assets/logos/air-monitor.png',
+        size: '32.2 MB', cats: ['medicion', 'hvac'],
+        tags: ['Monitoreo', 'Calidad Aire'],
+        desc: 'Instrumentos y sistemas de monitoreo de calidad del aire para aplicaciones industriales y comerciales.'
+      },
+      {
+        id: 'belimo', name: 'Belimo',
+        file: "assets/catalogos/belimo.pdf",
+        logo: 'assets/logos/belimo.png',
+        size: '6.9 MB', cats: ['hvac', 'bms'],
+        tags: ['Actuadores', 'Válvulas', 'BACnet'],
+        desc: 'Actuadores y válvulas de control para sistemas HVAC con comunicación BACnet y Modbus.'
+      },
+      {
+        id: 'bryair', name: 'Bry-Air',
+        file: "assets/catalogos/bry-air.pdf",
+        logo: 'assets/logos/bry-air.png',
+        size: '10.1 MB', cats: ['hvac'],
+        tags: ['Desecantes', 'Humidificación'],
+        desc: 'Sistemas desecantes y de control de humedad para procesos industriales exigentes.'
+      },
+      {
+        id: 'controltech', name: 'Control Techniques',
+        file: "assets/catalogos/control-techniques.pdf",
+        logo: 'assets/logos/control-techniques.png',
+        size: '12.4 MB', cats: ['variadores', 'bms'],
+        tags: ['Variadores', 'Drives', 'VFD'],
+        desc: 'Variadores de frecuencia y servodrives de alto rendimiento para motores industriales.'
+      },
+      {
+        id: 'ecl', name: 'Controls ECL-60Hz',
+        file: "assets/catalogos/ecl-60hz-catalog.pdf",
+        logo: '',
+        size: '6.4 MB', cats: ['bms'],
+        tags: ['Controladores', '60Hz'],
+        desc: 'Controladores electrónicos ECL para sistemas de regulación de temperatura en HVAC.'
+      },
+      {
+        id: 'coolautomation', name: 'CoolAutomation',
+        file: "assets/catalogos/cool-automation.pdf",
+        logo: 'assets/logos/cool-automation.png',
+        size: '4.2 MB', cats: ['bms', 'hvac'],
+        tags: ['IoT', 'Gateway', 'VRF'],
+        desc: 'Gateways de integración para sistemas VRF y mini-splits hacia plataformas BMS/IoT.'
+      },
+      {
+        id: 'delta', name: 'Delta Electronics',
+        file: "assets/catalogos/delta.pdf",
+        logo: 'assets/logos/delta-electronics.png',
+        size: '5.2 MB', cats: ['variadores', 'bms'],
+        tags: ['Variadores', 'PLC', 'HMI'],
+        desc: 'Variadores de frecuencia, PLCs e HMIs para automatización industrial y edificios inteligentes.'
+      },
+      {
+        id: 'dwyer', name: 'Dwyer Omega',
+        file: "assets/catalogos/dwyer.pdf",
+        logo: 'assets/logos/dwyer-omega.png',
+        size: '146.5 MB', cats: ['medicion', 'hvac'],
+        tags: ['Instrumentación', 'Presión', 'Flujo'],
+        desc: 'Catálogo completo de instrumentación: presión, flujo, temperatura y sensores para HVAC.'
+      },
+      {
+        id: 'flowcon', name: 'FlowCon',
+        file: "assets/catalogos/flowcon.pdf",
+        logo: 'assets/logos/flowcon.png',
+        size: '25.8 MB', cats: ['hvac', 'medicion'],
+        tags: ['Válvulas', 'Balanceo', 'Hidrónica'],
+        desc: 'Válvulas de balanceo y control de caudal para sistemas hidránicos de HVAC.'
+      },
+      {
+        id: 'gpi', name: 'GPI — Flow Products',
+        file: "assets/catalogos/gpi-catalog.pdf",
+        logo: 'assets/logos/gpi.png',
+        size: '9.0 MB', cats: ['medicion'],
+        tags: ['Medición Flujo', 'BTU'],
+        desc: 'Medidores de flujo y medición energética BTU para instalaciones comerciales e industriales.'
+      },
+      {
+        id: 'jci', name: 'Johnson Controls',
+        file: "assets/catalogos/jci-overview-brochure.pdf",
+        logo: 'assets/logos/johnson-controls.png',
+        size: '843 KB', cats: ['bms', 'hvac'],
+        tags: ['BMS', 'Metasys', 'Edificios'],
+        desc: 'Descripción general de los sistemas BMS Metasys y soluciones de edificios inteligentes.'
+      },
+      {
+        id: 'loytec', name: 'LOYTEC',
+        file: "assets/catalogos/loytec.pdf",
+        logo: 'assets/logos/loytec.png',
+        size: '121.4 MB', cats: ['bms'],
+        tags: ['BACnet', 'KNX', 'Modbus', 'BMS'],
+        desc: 'Catálogo completo de dispositivos BMS: controladores, gateways y displays para protocolos BACnet, KNX y Modbus.'
+      },
+      {
+        id: 'meitav', name: 'Meitav Tec',
+        file: "assets/catalogos/meitav.pdf",
+        logo: 'assets/logos/meitav-tec.png',
+        size: '6.0 MB', cats: ['hvac', 'medicion'],
+        tags: ['Sensores', 'Habitaciones'],
+        desc: 'Sensores de ambiente para control de habitaciones: temperatura, CO₂, ocupación y calidad del aire.'
+      },
+      {
+        id: 'onicon', name: 'ONICON',
+        file: "assets/catalogos/onicon.pdf",
+        logo: 'assets/logos/onicon.png',
+        size: '1.6 MB', cats: ['medicion'],
+        tags: ['Medición Energía', 'BTU', 'Flujo'],
+        desc: 'Sistemas de medición energética y calorimétrica de alta precisión para edificios y plantas.'
+      },
+      {
+        id: 'prodcat', name: 'Product Category Brochure',
+        file: "assets/catalogos/product-category-brochure.pdf",
+        logo: '',
+        size: '5.3 MB', cats: ['hvac', 'bms', 'medicion'],
+        tags: ['General', 'Multiproducto'],
+        desc: 'Brochure general de categorías de producto: resumen de soluciones HVAC, BMS y medición.'
+      },
+      {
+        id: 'setra', name: 'Setra Systems',
+        file: "assets/catalogos/setra.pdf",
+        logo: 'assets/logos/setra-systems.png',
+        size: '35.8 MB', cats: ['medicion', 'hvac'],
+        tags: ['Presión', 'Transmisores', 'Cuartos Limpios'],
+        desc: 'Transmisores de presión diferencial para cuartos limpios, VAV y aplicaciones críticas de HVAC.'
+      },
+      {
+        id: 'vaisala', name: 'Vaisala',
+        file: "assets/catalogos/vaisala.pdf",
+        logo: 'assets/logos/vaisala.png',
+        size: '11.8 MB', cats: ['medicion'],
+        tags: ['Humedad', 'T°', 'CO₂', 'Precisión'],
+        desc: 'Instrumentos de medición de alta precisión: humedad, temperatura y CO₂ con certificación ISO.'
+      },
+    ];
+
+    // ── BUILD HAFTEN GRID ──
+    const haftenGrid = document.getElementById('haftenGrid');
+    haftenCatalogs.forEach(c => {
+      const el = document.createElement('a');
+      el.className = 'haf-card';
+      el.href = c.file;
+      el.target = '_blank';
+      el.setAttribute('aria-label', 'Descargar ' + c.name);
+      el.innerHTML = `
+    <div class="haf-card-icon"><i class="${c.icon}"></i></div>
+    <div>
+      <div class="haf-card-name">${c.name}</div>
+      <div class="haf-card-size">${c.size}</div>
+    </div>
+    <div class="haf-card-btn">
+      <i class="fa-solid fa-download"></i> Descargar
+    </div>`;
+      haftenGrid.appendChild(el);
+    });
+
+    // ── BUILD COLLAB GRID ──
+    const collabGrid = document.getElementById('collabGrid');
+    function buildCollab(list) {
+      collabGrid.innerHTML = '';
+      list.forEach((c, i) => {
+        const el = document.createElement('div');
+        el.className = `cat-card rv d${(i % 5) + 1}`;
+        el.dataset.id = c.id;
+        el.dataset.cats = c.cats.join(' ');
+        el.dataset.name = c.name.toLowerCase();
+        const logoHtml = c.logo
+          ? `<img src="${c.logo}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="cat-fallback-name" style="display:none">${c.name}</div>`
+          : `<div class="cat-fallback-name">${c.name}</div>`;
+        el.innerHTML = `
+      <div class="cat-logo-area">${logoHtml}</div>
+      <div class="cat-body">
+        <div class="cat-brand-label">Marca Colaboradora</div>
+        <div class="cat-title">${c.name}</div>
+        <p style="font-size:.82rem;color:var(--text-2);line-height:1.65;margin-top:4px">${c.desc}</p>
+        <div class="cat-tags">${c.tags.map((t, idx) => `<span class="cat-tag${idx < 2 ? ' hi' : ''}">${t}</span>`).join('')}</div>
+      </div>
+      <div class="cat-footer">
+        <span class="cat-size"><i class="fa-solid fa-file-pdf" style="color:var(--text-3);margin-right:5px"></i>${c.size}</span>
+        <a href="${c.file}" target="_blank" class="cat-dl-btn" aria-label="Descargar catálogo ${c.name}">
+          <i class="fa-solid fa-download"></i> Descargar
+        </a>
+      </div>`;
+        collabGrid.appendChild(el);
+      });
+      document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    }
+    // ── SCROLL REVEAL (must be defined BEFORE buildCollab) ──
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target) } }) }, { threshold: .06 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    buildCollab(collabCatalogs);
+
+    // ── FILTER & SEARCH ──
+    const searchInput = document.getElementById('searchInput');
+    const filterTabs = document.querySelectorAll('.f-tab');
+    const filterCount = document.getElementById('filterCount');
+    const emptyState = document.getElementById('emptyState');
+    let currentCat = 'all';
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+      document.querySelectorAll('.cat-card').forEach(card => {
+        const name = card.dataset.name || '';
+        const cats = (card.dataset.cats || '').split(' ');
+        const matchCat = currentCat === 'all' || cats.includes(currentCat);
+        const matchQ = !q || name.includes(q);
+        const show = matchCat && matchQ;
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      filterCount.textContent = `${visible + haftenCatalogs.length} catálogos`;
+      emptyState.classList.toggle('show', visible === 0);
+    }
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentCat = tab.dataset.cat;
+        // show/hide haften feature
+        const hf = document.querySelector('.haften-feature');
+        if (hf) hf.style.display = currentCat === 'all' ? 'block' : 'none';
+        filterCatalogs();
+      });
+    });
+
+    // CHAT
+    const chatFab = document.getElementById('chatFab'), chatWin = document.getElementById('chatWindow'),
+      cwMsgs = document.getElementById('cwMsgs'), cwInput = document.getElementById('cwInput'), cwSend = document.getElementById('cwSend');
+    chatFab.addEventListener('click', () => { chatWin.classList.toggle('open'); chatFab.setAttribute('aria-expanded', chatWin.classList.contains('open')); if (chatWin.classList.contains('open')) chatFab.querySelector('.chat-badge').style.display = 'none' });
+    document.getElementById('chatClose').addEventListener('click', () => { chatWin.classList.remove('open'); chatFab.setAttribute('aria-expanded', 'false') });
+    const chatR = ['Claro, con gusto te ayudo. Escríbenos a info@haften.com.mx', 'Tenemos ese catálogo disponible. Busca por nombre o marca.', 'Para cotizaciones formales, escríbenos a info@haften.com.mx.', 'Nuestros ingenieros pueden asesorarte sobre la solución correcta.'];
+    let rIdx = 0;
+    function sendMsg() { const txt = cwInput.value.trim(); if (!txt) return; const um = document.createElement('div'); um.className = 'cw-msg usr'; um.textContent = txt; cwMsgs.appendChild(um); cwInput.value = ''; cwMsgs.scrollTop = cwMsgs.scrollHeight; setTimeout(() => { const bm = document.createElement('div'); bm.className = 'cw-msg bot'; bm.textContent = chatR[rIdx % chatR.length]; rIdx++; cwMsgs.appendChild(bm); cwMsgs.scrollTop = cwMsgs.scrollHeight }, 700) }
+    cwSend.addEventListener('click', sendMsg);
+    cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
+
+    // INIT
+    filterCatalogs();
+  </script>
+</body>
+
+</html>

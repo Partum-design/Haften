@@ -1,0 +1,2898 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logos/logo-haften.png">
+  <title>Contacto — Haften · HVAC · BMS · Medición de Energía</title>
+  <meta name="description"
+    content="Contáctanos para cotizaciones, soporte técnico o información sobre nuestras marcas. Oficinas en CDMX, Monterrey, Guadalajara, León y Cancún.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --ac: #E11D48;
+      --ac-dark: #BE123C;
+      --ac-rgb: 225, 29, 72;
+      --bg: #030810;
+      --bg2: #060d1a;
+      --bg3: #0c1828;
+      --lt: #f4f8fb;
+      --lt2: #e9f1f7;
+      --white: #fff;
+      --text-1: #fff;
+      --text-2: #7aafc8;
+      --text-3: #3d7090;
+      --ink: #05162a;
+      --ink2: #183855;
+      --ink3: #2e6080;
+      --border-d: rgba(225, 29, 72, .1);
+      --border-l: rgba(5, 22, 42, .08);
+      --nav-h: 88px;
+      --font-scale: 1;
+    }
+
+
+    html {
+      font-size: calc(16px*var(--font-scale));
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      cursor: none
+    }
+
+    body.no-anim * {
+      transition: none !important;
+      animation: none !important
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ul {
+      list-style: none
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .6rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ac-dark);
+      margin-bottom: 14px
+    }
+
+    .eyebrow.light {
+      color: var(--ac)
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv-l {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv-r {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .rv.on,
+    .rv-l.on,
+    .rv-r.on {
+      opacity: 1;
+      transform: none
+    }
+
+    .d1 {
+      transition-delay: .05s
+    }
+
+    .d2 {
+      transition-delay: .1s
+    }
+
+    .d3 {
+      transition-delay: .15s
+    }
+
+    .d4 {
+      transition-delay: .2s
+    }
+
+    .d5 {
+      transition-delay: .25s
+    }
+
+    /* ── SKIP ── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      padding: .5rem 1rem;
+      background: var(--ac);
+      color: var(--ink);
+      font-weight: 700;
+      border-radius: 6px;
+      z-index: 99999;
+      transition: top .2s
+    }
+
+    .skip-link:focus {
+      top: 1rem
+    }
+
+    /* ── CURSOR ── */
+    .cur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      pointer-events: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ac);
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s
+    }
+
+    .cur-r {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9998;
+      pointer-events: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(var(--ac-rgb), .35);
+      transform: translate(-50%, -50%)
+    }
+
+    @media(hover:none) {
+
+      .cur,
+      .cur-r {
+        display: none
+      }
+
+      body {
+        cursor: auto
+      }
+    }
+
+    /* ── LOADER ── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .5s, visibility .5s
+    }
+
+    #loader.done {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    .loader-ring {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(var(--ac-rgb), .12);
+      border-top-color: var(--ac);
+      animation: spin .8s linear infinite
+    }
+
+    .loader-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: .08em;
+      margin-top: 12px
+    }
+
+    .loader-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .loader-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px
+    }
+
+    /* ════════════════════════════════════════
+   NAVBAR — mismo de todas las páginas
+════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 24px;
+      background: rgba(3, 8, 16, .7);
+      backdrop-filter: blur(32px) saturate(1.8);
+      -webkit-backdrop-filter: blur(32px) saturate(1.8);
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      transition: background .3s, box-shadow .3s
+    }
+
+    #navbar.scrolled {
+      background: rgba(3, 8, 16, .95);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
+    }
+
+    .n-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0
+    }
+
+    .n-logo img {
+      height: 36px;
+      object-fit: contain
+    }
+
+    .n-logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.01em
+    }
+
+    .n-logo-text em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .n-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+      justify-content: center
+    }
+
+    .n-link {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+      padding: 8px 13px;
+      border-radius: 8px;
+      position: relative;
+      transition: color .2s, background .2s;
+      white-space: nowrap
+    }
+
+    .n-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 14px;
+      height: 2px;
+      background: var(--ac);
+      border-radius: 1px;
+      transition: transform .25s cubic-bezier(.34, 1.56, .64, 1)
+    }
+
+    .n-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .n-link.active {
+      color: var(--ac)
+    }
+
+    .n-link:hover::after,
+    .n-link.active::after {
+      transform: translateX(-50%) scaleX(1)
+    }
+
+    .n-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--ac);
+      padding: 10px 22px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .35)
+    }
+
+    .n-cta:hover {
+      background: var(--ac-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .45)
+    }
+
+    .n-tools {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0
+    }
+
+    .n-tool-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, .45);
+      font-size: .85rem;
+      position: relative;
+      transition: .2s
+    }
+
+    .n-tool-btn:hover {
+      border-color: var(--ac);
+      color: var(--ac)
+    }
+
+    .tool-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #0a1828;
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 14px;
+      padding: 18px;
+      min-width: 220px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+      z-index: 600
+    }
+
+    .tool-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0)
+    }
+
+    .tp-label {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 12px
+    }
+
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px
+    }
+
+    .cp-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2.5px solid transparent;
+      cursor: none;
+      transition: transform .2s, border-color .2s
+    }
+
+    .cp-swatch:hover {
+      transform: scale(1.2)
+    }
+
+    .cp-swatch.active {
+      border-color: #fff
+    }
+
+    .cp-themes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 10px
+    }
+
+    .cp-theme-btn {
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: none;
+      cursor: none;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      transition: .2s;
+      text-align: left
+    }
+
+    .cp-theme-btn:hover,
+    .cp-theme-btn.active {
+      background: rgba(var(--ac-rgb), .12);
+      color: var(--ac);
+      border-color: rgba(var(--ac-rgb), .3)
+    }
+
+    .a11y-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      gap: 8px
+    }
+
+    .a11y-row:last-child {
+      border-bottom: none
+    }
+
+    .a11y-lbl {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--text-2)
+    }
+
+    .a11y-fs {
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .a11y-fs button {
+      background: rgba(var(--ac-rgb), .1);
+      border: 1px solid rgba(var(--ac-rgb), .2);
+      color: var(--ac);
+      font-size: .72rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s
+    }
+
+    .a11y-fs .fs-val {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-2);
+      min-width: 22px;
+      text-align: center
+    }
+
+    .a11y-toggle {
+      position: relative;
+      width: 38px;
+      height: 20px;
+      flex-shrink: 0;
+      cursor: none
+    }
+
+    .a11y-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0
+    }
+
+    .a11y-slider {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      transition: .2s
+    }
+
+    .a11y-slider::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--text-3);
+      transition: .2s
+    }
+
+    .a11y-toggle input:checked+.a11y-slider {
+      background: var(--ac)
+    }
+
+    .a11y-toggle input:checked+.a11y-slider::before {
+      left: 20px;
+      background: #fff
+    }
+
+    .n-ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      cursor: none;
+      flex-shrink: 0;
+      transition: .2s
+    }
+
+    .n-ham:hover {
+      border-color: var(--ac)
+    }
+
+    .n-ham span {
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, .7);
+      transition: .3s;
+      transform-origin: center
+    }
+
+    .n-ham.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg)
+    }
+
+    .n-ham.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .n-ham.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg)
+    }
+
+    /* ════════════════════════════════════════
+   HERO — oscuro (consistente con el sitio)
+════════════════════════════════════════ */
+    .page-hero {
+      position: relative;
+      padding-top: var(--nav-h);
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85&fit=crop');
+      background-size: cover;
+      background-position: center 60%;
+      filter: brightness(.15) saturate(.4);
+      pointer-events: none
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(160deg, rgba(3, 8, 16, .9) 0%, rgba(3, 8, 16, .5) 55%, rgba(3, 8, 16, .85) 100%)
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 200, 232, .015) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 200, 232, .015) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none
+    }
+
+    /* wave de transición hacia la sección blanca */
+    .hero-wave {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      z-index: 2
+    }
+
+    .hero-wave svg {
+      display: block;
+      width: 100%;
+      height: 80px
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 56px 5vw 100px;
+      width: 100%
+    }
+
+    .hero-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .3);
+      margin-bottom: 20px
+    }
+
+    .hero-breadcrumb a {
+      color: var(--ac);
+      transition: .2s
+    }
+
+    .hero-breadcrumb a:hover {
+      color: #fff
+    }
+
+    .hero-breadcrumb i {
+      font-size: .4rem;
+      color: rgba(255, 255, 255, .18)
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ac);
+      border: 1px solid rgba(var(--ac-rgb), .28);
+      padding: 6px 16px;
+      border-radius: 40px;
+      background: rgba(var(--ac-rgb), .07);
+      backdrop-filter: blur(8px);
+      margin-bottom: 20px
+    }
+
+    .hero-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--ac);
+      animation: pdot 2s ease infinite
+    }
+
+    @keyframes pdot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .1;
+        transform: scale(.2)
+      }
+    }
+
+    .hero-h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 6vw, 80px);
+      line-height: .92;
+      letter-spacing: -.04em;
+      color: #fff;
+      margin-bottom: 16px
+    }
+
+    .hero-h1 span {
+      background: linear-gradient(120deg, #fff 0%, var(--ac) 60%, rgba(var(--ac-rgb), .5) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-sub {
+      font-size: .92rem;
+      color: rgba(255, 255, 255, .45);
+      line-height: 1.76;
+      max-width: 480px
+    }
+
+    /* ════════════════════════════════════════
+   MAIN CONTACT — BLANCO/CLARO
+   Formulario + Info lado a lado
+════════════════════════════════════════ */
+    .contact-main {
+      background: var(--white);
+      padding: 0 0 96px;
+      position: relative;
+      z-index: 1
+    }
+
+    .contact-grid {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-top: -48px
+    }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--border-l);
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(5, 22, 42, .10), 0 4px 16px rgba(5, 22, 42, .06);
+      padding: 52px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--ac) 0%, var(--ac-dark) 100%)
+    }
+
+    .form-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -.025em;
+      margin-bottom: 6px
+    }
+
+    .form-sub {
+      font-size: .85rem;
+      color: var(--ink3);
+      margin-bottom: 32px;
+      line-height: 1.6
+    }
+
+    /* form fields */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    .field {
+      margin-bottom: 18px
+    }
+
+    .field label {
+      display: block;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink2);
+      margin-bottom: 7px
+    }
+
+    .field label span {
+      color: var(--ac-dark);
+      margin-left: 2px
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 13px 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .9rem;
+      color: var(--ink);
+      background: #fff;
+      border: 1.5px solid rgba(5, 22, 42, .14);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      cursor: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(var(--ac-rgb), .6);
+      box-shadow: 0 0 0 3px rgba(var(--ac-rgb), .1)
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(5, 22, 42, .28)
+    }
+
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%233d7090' d='M5 7l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 18px;
+      padding-right: 40px
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.55
+    }
+
+    .field-hint {
+      font-size: .68rem;
+      color: var(--ink3);
+      margin-top: 5px
+    }
+
+    /* subject toggle chips */
+    .subject-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px
+    }
+
+    .s-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(5, 22, 42, .12);
+      background: #fff;
+      color: var(--ink3);
+      cursor: none;
+      transition: .2s
+    }
+
+    .s-chip:hover {
+      border-color: rgba(var(--ac-rgb), .4);
+      color: var(--ac-dark)
+    }
+
+    .s-chip.active {
+      background: rgba(var(--ac-rgb), .08);
+      border-color: rgba(var(--ac-rgb), .4);
+      color: var(--ac-dark)
+    }
+
+    .s-chip i {
+      font-size: .65rem
+    }
+
+    /* privacy */
+    .privacy-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 20px 0 24px
+    }
+
+    .privacy-check {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid rgba(5, 22, 42, .2);
+      border-radius: 4px;
+      flex-shrink: 0;
+      cursor: none;
+      margin-top: 2px;
+      appearance: none;
+      transition: .2s
+    }
+
+    .privacy-check:checked {
+      background: var(--ac);
+      border-color: var(--ac);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M2 6l3 3 5-5' stroke='%23fff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-size: 11px;
+      background-repeat: no-repeat;
+      background-position: center
+    }
+
+    .privacy-txt {
+      font-size: .75rem;
+      color: var(--ink3);
+      line-height: 1.55
+    }
+
+    .privacy-txt a {
+      color: var(--ac-dark);
+      font-weight: 700
+    }
+
+    .btn-submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--ac);
+      border: none;
+      border-radius: 12px;
+      padding: 15px 28px;
+      cursor: none;
+      box-shadow: 0 6px 24px rgba(var(--ac-rgb), .38);
+      transition: background .2s, transform .2s, box-shadow .2s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .btn-submit::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .15), transparent);
+      transform: translateX(-100%);
+      transition: transform .55s
+    }
+
+    .btn-submit:hover::after {
+      transform: translateX(100%)
+    }
+
+    .btn-submit:hover {
+      background: var(--ac-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(var(--ac-rgb), .48)
+    }
+
+    /* success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px 20px
+    }
+
+    .form-success.show {
+      display: block
+    }
+
+    .success-ico {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(var(--ac-rgb), .1);
+      border: 2px solid rgba(var(--ac-rgb), .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: 1.6rem;
+      margin: 0 auto 20px
+    }
+
+    .success-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 10px
+    }
+
+    .success-desc {
+      font-size: .88rem;
+      color: var(--ink3);
+      line-height: 1.65
+    }
+
+    /* ── INFO PANEL ── */
+    .info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-top: 24px
+    }
+
+    .info-greeting {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+      margin-bottom: 12px
+    }
+
+    .info-greeting span {
+      color: var(--ac-dark)
+    }
+
+    .info-body {
+      font-size: .9rem;
+      color: var(--ink3);
+      line-height: 1.75
+    }
+
+    /* contact method cards */
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .cm-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1.5px solid var(--border-l);
+      border-radius: 14px;
+      background: #fff;
+      transition: .25s;
+      cursor: none;
+      text-decoration: none;
+      color: inherit
+    }
+
+    .cm-card:hover {
+      border-color: rgba(var(--ac-rgb), .35);
+      background: rgba(var(--ac-rgb), .04);
+      transform: translateX(4px)
+    }
+
+    .cm-ico {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(var(--ac-rgb), .08);
+      border: 1px solid rgba(var(--ac-rgb), .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: .95rem;
+      flex-shrink: 0;
+      transition: .25s
+    }
+
+    .cm-card:hover .cm-ico {
+      background: var(--ac);
+      color: var(--ink)
+    }
+
+    .cm-label {
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 3px
+    }
+
+    .cm-value {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--ink)
+    }
+
+    .cm-arrow {
+      margin-left: auto;
+      color: rgba(5, 22, 42, .2);
+      font-size: .8rem;
+      transition: .25s
+    }
+
+    .cm-card:hover .cm-arrow {
+      color: var(--ac);
+      transform: translateX(3px)
+    }
+
+    /* hours card */
+    .hours-card {
+      background: var(--lt);
+      border: 1px solid var(--border-l);
+      border-radius: 14px;
+      padding: 24px 24px 20px
+    }
+
+    .hours-title {
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .hours-title i {
+      color: var(--ac);
+      font-size: .72rem
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(5, 22, 42, .06);
+      font-size: .82rem
+    }
+
+    .hours-row:last-child {
+      border-bottom: none
+    }
+
+    .hours-day {
+      font-weight: 600;
+      color: var(--ink2)
+    }
+
+    .hours-time {
+      color: var(--ink3)
+    }
+
+    .hours-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .56rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: rgba(34, 197, 94, .1);
+      color: #16a34a;
+      border: 1px solid rgba(34, 197, 94, .2);
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 8px
+    }
+
+    /* ════════════════════════════════════════
+   OFFICES — SECCIÓN CLARA CON MAPA
+════════════════════════════════════════ */
+    .offices-sec {
+      background: var(--lt);
+      padding: 88px 0;
+      position: relative;
+      overflow: hidden
+    }
+
+    .offices-sec::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(var(--ac-rgb), .2), transparent)
+    }
+
+    .offices-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .offices-header {
+      text-align: center;
+      margin-bottom: 52px
+    }
+
+    .sec-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.06;
+      letter-spacing: -.03em;
+      margin-top: 4px
+    }
+
+    .sec-title span {
+      color: var(--ac-dark)
+    }
+
+    .sec-sub {
+      font-size: .92rem;
+      color: var(--ink3);
+      line-height: 1.72;
+      max-width: 480px;
+      margin: 14px auto 0
+    }
+
+    .offices-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: start
+    }
+
+    .map-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-l);
+      box-shadow: 0 16px 56px rgba(5, 22, 42, .1);
+      aspect-ratio: 4/3;
+      background: var(--lt2)
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block
+    }
+
+    .offices-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .office-card {
+      background: #fff;
+      border: 1.5px solid var(--border-l);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 14px;
+      cursor: none;
+      transition: .25s;
+      box-shadow: 0 2px 8px rgba(5, 22, 42, .05)
+    }
+
+    .office-card:hover,
+    .office-card.active-c {
+      border-color: rgba(var(--ac-rgb), .35);
+      background: rgba(var(--ac-rgb), .04);
+      box-shadow: 0 8px 24px rgba(var(--ac-rgb), .1);
+      transform: translateX(4px)
+    }
+
+    .off-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: rgba(var(--ac-rgb), .08);
+      border: 1px solid rgba(var(--ac-rgb), .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      flex-shrink: 0;
+      font-size: .88rem;
+      transition: .25s
+    }
+
+    .office-card:hover .off-ico,
+    .office-card.active-c .off-ico {
+      background: var(--ac);
+      color: var(--ink)
+    }
+
+    .off-city {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 3px
+    }
+
+    .off-badge {
+      font-size: .52rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: var(--ac);
+      color: var(--ink);
+      padding: 2px 8px;
+      border-radius: 3px
+    }
+
+    .off-desc {
+      font-size: .75rem;
+      color: var(--ink3);
+      line-height: 1.45
+    }
+
+    /* ════════════════════════════════════════
+   FAQ — BLANCO
+════════════════════════════════════════ */
+    .faq-sec {
+      background: #fff;
+      padding: 88px 0
+    }
+
+    .faq-sec::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(5, 22, 42, .08), transparent);
+      margin-bottom: 0
+    }
+
+    .faq-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 5vw
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 72px;
+      align-items: start
+    }
+
+    .faq-left {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px)
+    }
+
+    .faq-title-big {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 16px
+    }
+
+    .faq-title-big span {
+      color: var(--ac-dark)
+    }
+
+    .faq-desc {
+      font-size: .88rem;
+      color: var(--ink3);
+      line-height: 1.75;
+      margin-bottom: 28px
+    }
+
+    .faq-direct {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .faq-dir-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border-l);
+      background: #fff;
+      color: var(--ink2);
+      font-size: .8rem;
+      font-weight: 700;
+      cursor: none;
+      transition: .2s;
+      text-decoration: none
+    }
+
+    .faq-dir-btn i {
+      width: 18px;
+      text-align: center;
+      color: var(--ac);
+      font-size: .82rem
+    }
+
+    .faq-dir-btn:hover {
+      border-color: rgba(var(--ac-rgb), .35);
+      background: rgba(var(--ac-rgb), .04);
+      color: var(--ac-dark)
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .faq-item {
+      border: 1.5px solid var(--border-l);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      transition: border-color .25s
+    }
+
+    .faq-item.open {
+      border-color: rgba(var(--ac-rgb), .3)
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 20px 22px;
+      cursor: none;
+      user-select: none
+    }
+
+    .faq-q-text {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4
+    }
+
+    .faq-q-ico {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(5, 22, 42, .1);
+      background: rgba(var(--ac-rgb), .06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ac);
+      font-size: .7rem;
+      flex-shrink: 0;
+      transition: transform .3s, background .25s
+    }
+
+    .faq-item.open .faq-q-ico {
+      transform: rotate(45deg);
+      background: var(--ac);
+      color: var(--ink);
+      border-color: var(--ac)
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .38s cubic-bezier(.16, 1, .3, 1), padding .3s
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 400px
+    }
+
+    .faq-a-inner {
+      padding: 0 22px 20px;
+      font-size: .84rem;
+      color: var(--ink3);
+      line-height: 1.72;
+      border-top: 1px solid rgba(5, 22, 42, .06)
+    }
+
+    /* ════════════════════════════════════════
+   DARK CTA STRIP
+════════════════════════════════════════ */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg2) 55%, var(--bg3) 100%);
+      padding: 96px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(var(--ac-rgb), .07) 1px, transparent 1px);
+      background-size: 28px 28px
+    }
+
+    .cta-strip::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ac), transparent)
+    }
+
+    .cta-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      position: relative;
+      z-index: 1
+    }
+
+    .cta-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .6rem;
+      font-weight: 900;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ac);
+      border: 1px solid rgba(var(--ac-rgb), .22);
+      padding: 6px 16px;
+      border-radius: 40px;
+      background: rgba(var(--ac-rgb), .06);
+      margin-bottom: 24px
+    }
+
+    .cta-strip h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin-bottom: 16px
+    }
+
+    .cta-strip h2 span {
+      color: var(--ac)
+    }
+
+    .cta-strip p {
+      font-size: .92rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 36px
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      border-radius: 10px;
+      cursor: none;
+      transition: .2s;
+      border: none;
+      position: relative;
+      overflow: hidden
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .12), transparent);
+      transform: translateX(-100%);
+      transition: transform .5s
+    }
+
+    .btn:hover::after {
+      transform: translateX(100%)
+    }
+
+    .btn-ac {
+      color: var(--ink);
+      background: var(--ac);
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4)
+    }
+
+    .btn-ac:hover {
+      background: var(--ac-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .btn-outline {
+      color: #fff;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, .2)
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, .08);
+      transform: translateY(-2px)
+    }
+
+    /* ════════════════════════════════════════
+   FOOTER — IGUAL QUE EL RESTO
+════════════════════════════════════════ */
+    footer {
+      background: var(--bg2);
+      position: relative
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ac) 30%, var(--ac-dark) 70%, transparent)
+    }
+
+    .footer-main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 72px 5vw 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px
+    }
+
+    .footer-logo img {
+      height: 34px;
+      object-fit: contain
+    }
+
+    .footer-logo-txt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.01em;
+      display: none
+    }
+
+    .footer-logo-txt em {
+      color: var(--ac);
+      font-style: normal
+    }
+
+    .footer-tagline {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ac-dark);
+      margin-bottom: 14px
+    }
+
+    .footer-desc {
+      font-size: .82rem;
+      color: var(--text-3);
+      line-height: 1.74;
+      margin-bottom: 22px
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap
+    }
+
+    .f-soc {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-3);
+      font-size: .8rem;
+      transition: .2s
+    }
+
+    .f-soc:hover {
+      background: rgba(var(--ac-rgb), .12);
+      border-color: rgba(var(--ac-rgb), .28);
+      color: var(--ac);
+      transform: translateY(-2px)
+    }
+
+    .footer-col h4 {
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .footer-col ul a {
+      font-size: .82rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: .2s
+    }
+
+    .footer-col ul a:hover {
+      color: var(--ac);
+      padding-left: 4px
+    }
+
+    .footer-col ul i {
+      font-size: .68rem;
+      color: var(--text-3);
+      width: 13px;
+      flex-shrink: 0
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 18px 5vw;
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .footer-copy {
+      font-size: .75rem;
+      color: var(--text-3)
+    }
+
+    .footer-copy a {
+      color: var(--ac)
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 10px
+    }
+
+    .f-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      border: 1px solid rgba(255, 255, 255, .07);
+      padding: 4px 10px;
+      border-radius: 6px
+    }
+
+    .f-badge i {
+      color: var(--ac);
+      font-size: .6rem
+    }
+
+    /* FLOATING */
+    #btt {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ac);
+      color: var(--ink);
+      font-size: .88rem;
+      border: none;
+      cursor: none;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: .3s;
+      pointer-events: none
+    }
+
+    #btt.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto
+    }
+
+    #btt:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .chat-fab {
+      position: fixed;
+      bottom: 82px;
+      right: 28px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--ac);
+      color: var(--ink);
+      font-size: 1.1rem;
+      border: none;
+      cursor: none;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4);
+      transition: .25s
+    }
+
+    .chat-fab:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(var(--ac-rgb), .5)
+    }
+
+    .chat-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ff4d4f;
+      border: 2px solid var(--bg2);
+      font-size: .52rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 148px;
+      right: 28px;
+      width: 316px;
+      background: var(--bg3);
+      border: 1px solid var(--border-d);
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, .5);
+      z-index: 400;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px) scale(.97);
+      transition: .25s;
+      overflow: hidden
+    }
+
+    .chat-window.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1)
+    }
+
+    .cw-head {
+      padding: 14px 16px;
+      background: var(--ac);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .cw-head-left {
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .cw-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem
+    }
+
+    .cw-name {
+      font-size: .82rem;
+      font-weight: 800
+    }
+
+    .cw-status {
+      font-size: .64rem;
+      opacity: .65
+    }
+
+    .cw-close {
+      background: none;
+      border: none;
+      cursor: none;
+      color: var(--ink);
+      font-size: .88rem;
+      opacity: .7
+    }
+
+    .cw-msgs {
+      padding: 14px;
+      height: 190px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .cw-msg {
+      max-width: 80%;
+      font-size: .8rem;
+      padding: 9px 13px;
+      border-radius: 11px;
+      line-height: 1.5
+    }
+
+    .cw-msg.bot {
+      background: rgba(255, 255, 255, .06);
+      color: var(--text-1);
+      align-self: flex-start;
+      border-radius: 4px 11px 11px 11px
+    }
+
+    .cw-msg.usr {
+      background: var(--ac);
+      color: var(--ink);
+      align-self: flex-end;
+      border-radius: 11px 4px 11px 11px;
+      font-weight: 700
+    }
+
+    .cw-input-row {
+      padding: 10px 13px;
+      border-top: 1px solid var(--border-d);
+      display: flex;
+      gap: 7px
+    }
+
+    .cw-input {
+      flex: 1;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border-d);
+      border-radius: 7px;
+      padding: 7px 11px;
+      color: #fff;
+      font-size: .8rem;
+      font-family: 'Outfit', sans-serif;
+      outline: none
+    }
+
+    .cw-input::placeholder {
+      color: var(--text-3)
+    }
+
+    .cw-send {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      background: var(--ac);
+      color: var(--ink);
+      border: none;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      flex-shrink: 0
+    }
+
+    body.theme-midnight {
+      --bg: #0d0d1a;
+      --bg2: #12122a;
+      --bg3: #1a1a36;
+      --border-d: rgba(var(--ac-rgb), .18)
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1200px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .form-card {
+        padding: 40px 36px
+      }
+
+      .offices-layout {
+        grid-template-columns: 1fr
+      }
+
+      .faq-layout {
+        grid-template-columns: 1fr
+      }
+
+      .faq-left {
+        position: static
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px
+      }
+    }
+
+    @media(max-width:900px) {
+      :root {
+        --nav-h: 72px
+      }
+
+      .n-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        background: rgba(3, 8, 16, .98);
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
+        flex-direction: column;
+        padding: 18px 5vw 22px;
+        gap: 3px;
+        backdrop-filter: blur(28px)
+      }
+
+      .n-links.open {
+        display: flex
+      }
+
+      .n-link {
+        padding: 10px 14px;
+        font-size: .8rem
+      }
+
+      .n-cta {
+        font-size: .78rem;
+        padding: 10px 14px;
+        width: 100%;
+        justify-content: center
+      }
+
+      .n-ham {
+        display: flex
+      }
+
+      .form-row {
+        grid-template-columns: 1fr
+      }
+
+      .contact-grid {
+        margin-top: 32px
+      }
+    }
+
+    @media(max-width:600px) {
+      :root {
+        --nav-h: 66px
+      }
+
+      .form-card {
+        padding: 28px 22px
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 28px
+      }
+
+      .chat-window {
+        right: 10px;
+        left: 10px;
+        width: auto;
+        bottom: 140px
+      }
+
+      .chat-fab,
+      #btt {
+        bottom: 16px
+      }
+
+      #btt {
+        right: 16px
+      }
+
+      .chat-fab {
+        right: 72px
+      }
+
+      .n-tools {
+        gap: 5px
+      }
+
+      .n-tool-btn {
+        width: 34px;
+        height: 34px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <div class="cur" id="cur" aria-hidden="true"></div>
+  <div class="cur-r" id="curR" aria-hidden="true"></div>
+
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-txt">Haf<em>ten</em></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="n-logo" aria-label="Haften">
+      <img src="assets/logos/logo-haften.png" alt="Haften"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
+    </a>
+    <ul class="n-links" id="navLinks">
+      <li><a href="index.html" class="n-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="n-link">Nosotros</a></li>
+      <li><a href="marcas.html" class="n-link">Marcas</a></li>
+      <li><a href="catalogos.html" class="n-link">Catálogos</a></li>
+      <li><a href="multimedia.html" class="n-link">Multimedia</a></li>
+      <li><a href="redes.html" class="n-link">Redes</a></li>
+      <li><a href="contacto.html" class="n-cta active"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+    </ul>
+    <div class="n-tools">
+      <div style="position:relative">
+        <button class="n-tool-btn" id="colorBtn" aria-label="Color" aria-expanded="false"><i
+            class="fa-solid fa-palette"></i></button>
+        <div class="tool-panel" id="colorPanel">
+          <div class="tp-label">Color de acento</div>
+          <div class="cp-grid">
+            <div class="cp-swatch active" data-ac="#00c8e8" data-acd="#0099bb" data-rgb="0,200,232"
+              style="background:#00c8e8" role="button" tabindex="0" aria-label="Cian"></div>
+            <div class="cp-swatch" data-ac="#2563EB" data-acd="#1D4ED8" data-rgb="37,99,235" style="background:#2563EB"
+              role="button" tabindex="0" aria-label="Azul"></div>
+            <div class="cp-swatch" data-ac="#059669" data-acd="#047857" data-rgb="5,150,105" style="background:#059669"
+              role="button" tabindex="0" aria-label="Verde"></div>
+            <div class="cp-swatch" data-ac="#7C3AED" data-acd="#6D28D9" data-rgb="124,58,237" style="background:#7C3AED"
+              role="button" tabindex="0" aria-label="Violeta"></div>
+            <div class="cp-swatch" data-ac="#EA580C" data-acd="#C2410C" data-rgb="234,88,12" style="background:#EA580C"
+              role="button" tabindex="0" aria-label="Naranja"></div>
+            <div class="cp-swatch" data-ac="#E11D48" data-acd="#BE123C" data-rgb="225,29,72" style="background:#E11D48"
+              role="button" tabindex="0" aria-label="Rosa"></div>
+          </div>
+          <div class="tp-label" style="margin-top:14px">Tema</div>
+          <div class="cp-themes">
+            <button class="cp-theme-btn active" data-theme="dark"><i class="fa-solid fa-moon"></i> Oscuro</button>
+            <button class="cp-theme-btn" data-theme="midnight"><i class="fa-solid fa-circle-half-stroke"></i>
+              Midnight</button>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative">
+        <button class="n-tool-btn" id="a11yBtn" aria-label="Accesibilidad" aria-expanded="false"><i
+            class="fa-solid fa-universal-access"></i></button>
+        <div class="tool-panel" id="a11yPanel">
+          <div class="tp-label">Accesibilidad</div>
+          <div class="a11y-row"><span class="a11y-lbl">Tamaño texto</span>
+            <div class="a11y-fs"><button onclick="changeFontScale(-0.1)"><i class="fa-solid fa-minus"></i></button><span
+                class="fs-val" id="fsVal">100%</span><button onclick="changeFontScale(0.1)"><i
+                  class="fa-solid fa-plus"></i></button></div>
+          </div>
+          <div class="a11y-row"><span class="a11y-lbl">Alto contraste</span><label class="a11y-toggle"><input
+                type="checkbox" id="hcToggle" onchange="toggleHC(this.checked)"><span
+                class="a11y-slider"></span></label></div>
+          <div class="a11y-row"><span class="a11y-lbl">Sin animaciones</span><label class="a11y-toggle"><input
+                type="checkbox" id="animToggle" onchange="toggleAnim(this.checked)"><span
+                class="a11y-slider"></span></label></div>
+          <div class="a11y-row" style="border-bottom:none"><span class="a11y-lbl">Cursor custom</span><label
+              class="a11y-toggle"><input type="checkbox" id="curToggle" checked
+                onchange="toggleCursor(this.checked)"><span class="a11y-slider"></span></label></div>
+        </div>
+      </div>
+      <button class="n-ham" id="menuBtn" aria-label="Menú"
+        aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ██ HERO — OSCURO ██ -->
+    <section class="page-hero" aria-label="Contacto hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-inner">
+
+        <div class="hero-eyebrow rv"><span class="hero-dot"></span> Estamos para ayudarte</div>
+        <h1 class="hero-h1 rv">Hablemos de<br><span>tu Proyecto</span></h1>
+        <p class="hero-sub rv">Cotizaciones, soporte técnico, selección de productos o simplemente una consulta.
+          Nuestros ingenieros responden en menos de 24 h.</p>
+      </div>
+      <!-- ola de transición al blanco -->
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ██ CONTACTO PRINCIPAL — CLARO ██ -->
+    <section class="contact-main" aria-labelledby="contact-form-h">
+      <div class="contact-grid">
+
+        <!-- FORMULARIO -->
+        <div class="form-card rv-l">
+          <div id="formContent">
+            <div class="eyebrow"><i class="fa-solid fa-paper-plane"></i> Escríbenos</div>
+            <h2 id="contact-form-h" class="form-title">Envíanos un mensaje</h2>
+            <p class="form-sub">Completa el formulario y un especialista se pondrá en contacto contigo lo antes posible.
+            </p>
+
+            <!-- Asunto rápido -->
+            <div class="field">
+              <label>Motivo del contacto <span>*</span></label>
+              <div class="subject-chips" id="chipGroup" role="group" aria-label="Selecciona el motivo">
+                <button class="s-chip active" data-val="cotizacion"><i class="fa-solid fa-file-invoice-dollar"></i>
+                  Cotización</button>
+                <button class="s-chip" data-val="soporte"><i class="fa-solid fa-headset"></i> Soporte técnico</button>
+                <button class="s-chip" data-val="info"><i class="fa-solid fa-circle-info"></i> Información</button>
+                <button class="s-chip" data-val="capacitacion"><i class="fa-solid fa-graduation-cap"></i>
+                  Capacitación</button>
+                <button class="s-chip" data-val="otro"><i class="fa-solid fa-ellipsis"></i> Otro</button>
+              </div>
+              <input type="hidden" id="subject" value="cotizacion">
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="fname">Nombre <span>*</span></label>
+                <input type="text" id="fname" placeholder="Tu nombre" autocomplete="given-name">
+              </div>
+              <div class="field">
+                <label for="lname">Apellido <span>*</span></label>
+                <input type="text" id="lname" placeholder="Tu apellido" autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Correo electrónico <span>*</span></label>
+                <input type="email" id="email" placeholder="correo@empresa.com" autocomplete="email">
+              </div>
+              <div class="field">
+                <label for="phone">Teléfono</label>
+                <input type="tel" id="phone" placeholder="+52 55 0000 0000" autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="company">Empresa</label>
+                <input type="text" id="company" placeholder="Nombre de tu empresa" autocomplete="organization">
+              </div>
+              <div class="field">
+                <label for="city">Ciudad</label>
+                <select id="city">
+                  <option value="">Selecciona tu ciudad…</option>
+                  <option>Ciudad de México</option>
+                  <option>Monterrey, N.L.</option>
+                  <option>Guadalajara, Jal.</option>
+                  <option>León, Gto.</option>
+                  <option>Cancún, Q. Roo</option>
+                  <option>Puebla</option>
+                  <option>Querétaro</option>
+                  <option>Otra ciudad</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="brand">Marca o producto de interés</label>
+              <select id="brand">
+                <option value="">¿Qué marca o producto te interesa?</option>
+                <option>Belimo — Actuadores y válvulas HVAC</option>
+                <option>Vaisala — Sensores de humedad y temperatura</option>
+                <option>Johnson Controls — BMS / Metasys</option>
+                <option>LOYTEC — Controladores BACnet / KNX</option>
+                <option>Neptronic — Humidificadores</option>
+                <option>Greystone Energy — Sensores CO₂ / Energía</option>
+                <option>Delta Electronics — Variadores VFD</option>
+                <option>Dwyer Omega — Instrumentación</option>
+                <option>Bry-Air — Deshumidificación</option>
+                <option>FlowCon — Válvulas de balanceo</option>
+                <option>ONICON — Medición de flujo / BTU</option>
+                <option>Senva — Sensores de calidad de aire</option>
+                <option>Otra marca / No sé</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Mensaje <span>*</span></label>
+              <textarea id="message"
+                placeholder="Cuéntanos sobre tu proyecto o consulta. Mientras más detalle nos des, mejor podremos ayudarte…"></textarea>
+              <div class="field-hint"><i class="fa-solid fa-info-circle" style="color:var(--ac-dark)"></i> Tiempo de
+                respuesta promedio: menos de 4 horas hábiles.</div>
+            </div>
+
+            <div class="privacy-row">
+              <input type="checkbox" class="privacy-check" id="privacy">
+              <label class="privacy-txt" for="privacy">
+                Acepto el <a href="#">aviso de privacidad</a> de Haften y autorizo el uso de mis datos para dar
+                seguimiento a mi consulta. No compartimos tu información con terceros.
+              </label>
+            </div>
+
+            <button class="btn-submit" id="submitBtn" type="button">
+              <i class="fa-solid fa-paper-plane"></i>
+              Enviar mensaje
+            </button>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-ico"><i class="fa-solid fa-check"></i></div>
+            <div class="success-title">¡Mensaje recibido!</div>
+            <p class="success-desc">Gracias por contactar a Haften. Un especialista revisará tu solicitud y se pondrá en
+              contacto contigo en menos de 24 horas hábiles.<br><br>Si tienes urgencia, escríbenos directamente a
+              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                  data-cfemail="771e191118371f16110312195914181a591a0f">[email&#160;protected]</a></strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- PANEL INFORMATIVO -->
+        <div class="info-panel rv-r">
+          <div>
+            <div class="eyebrow"><i class="fa-solid fa-headset"></i> Atención directa</div>
+            <h2 class="info-greeting">¿Prefieres <span>contacto directo?</span></h2>
+            <p class="info-body">Además del formulario puedes comunicarte con nosotros por cualquiera de estos medios.
+              Nuestro equipo de ingenieros y ventas está disponible para atenderte.</p>
+          </div>
+
+          <div class="contact-methods">
+            <a href="/cdn-cgi/l/email-protection#b7ded9d1d8f7dfd6d1c3d2d999d4d8da99dacf" class="cm-card rv d1">
+              <div class="cm-ico"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="cm-label">Correo electrónico</div>
+                <div class="cm-value"><span class="__cf_email__"
+                    data-cfemail="7d14131b123d151c1b091813531e1210531005">[email&#160;protected]</span></div>
+              </div>
+              <i class="fa-solid fa-arrow-right cm-arrow"></i>
+            </a>
+            <a href="https://haften.com.mx" target="_blank" rel="noopener" class="cm-card rv d2">
+              <div class="cm-ico"><i class="fa-solid fa-globe"></i></div>
+              <div>
+                <div class="cm-label">Sitio web oficial</div>
+                <div class="cm-value">haften.com.mx</div>
+              </div>
+              <i class="fa-solid fa-arrow-right cm-arrow"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener" class="cm-card rv d3">
+              <div class="cm-ico" style="background:rgba(10,102,194,.1);border-color:rgba(10,102,194,.2);color:#0A66C2">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div>
+                <div class="cm-label">LinkedIn</div>
+                <div class="cm-value">linkedin.com/company/haften</div>
+              </div>
+              <i class="fa-solid fa-arrow-right cm-arrow"></i>
+            </a>
+            <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="cm-card rv d4">
+              <div class="cm-ico" style="background:rgba(24,119,242,.1);border-color:rgba(24,119,242,.2);color:#1877F2">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <div>
+                <div class="cm-label">Facebook</div>
+                <div class="cm-value">@HaftenOficial</div>
+              </div>
+              <i class="fa-solid fa-arrow-right cm-arrow"></i>
+            </a>
+          </div>
+
+          <!-- Horarios -->
+          <div class="hours-card rv d5">
+            <div class="hours-title"><i class="fa-solid fa-clock"></i> Horarios de atención</div>
+            <div class="hours-row">
+              <span class="hours-day">Lunes — Viernes<span class="hours-badge"><i class="fa-solid fa-circle"
+                    style="font-size:.4rem"></i> Abierto</span></span>
+              <span class="hours-time">8:00 — 18:00</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Sábados</span>
+              <span class="hours-time">9:00 — 14:00</span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day">Domingos y festivos</span>
+              <span class="hours-time" style="color:rgba(5,22,42,.35)">Cerrado</span>
+            </div>
+            <div
+              style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(5,22,42,.06);font-size:.72rem;color:var(--ink3)">
+              <i class="fa-solid fa-circle-info" style="color:var(--ac-dark);margin-right:5px"></i>
+              Respondemos correos fuera de horario al siguiente día hábil.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="offices-sec" aria-labelledby="offices-h">
+      <div class="offices-inner">
+        <div class="offices-header rv">
+          <div class="eyebrow"><i class="fa-solid fa-location-dot"></i> Presencia nacional</div>
+          <h2 id="offices-h" class="sec-title">Nuestras <span>Oficinas</span></h2>
+          <p class="sec-sub">5 puntos de atención estratégicos para cubrir todo México. Haz clic en una oficina para ver
+            su ubicación.</p>
+        </div>
+        <div class="offices-layout">
+          <div class="map-wrap rv-l">
+            <iframe id="gmapFrame" loading="lazy"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx"
+              title="Mapa de oficina Haften" aria-label="Mapa de ubicación"
+              style="transition:opacity .3s; width: 100%; height: 100%; min-height: 450px; border: 0;"
+              allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <div class="offices-list rv-r">
+
+            <div class="office-card active-c" tabindex="0" role="button"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-building"></i></div>
+              <div>
+                <div class="off-city">Ciudad de México <span class="off-badge">Casa Matriz</span></div>
+                <div class="off-desc">Oficina central, ingeniería de proyectos y coordinación nacional.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">Monterrey, N.L.</div>
+                <div class="off-desc">Cobertura noreste — industria manufacturera y construcción.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.818525864304!2d-103.39178882621424!3d20.67696079977153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af317d87697d%3A0xd7f6ba37c4651369!2sHaften%20Gdl!5e0!3m2!1ses-419!2smx!4v1774465294502!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">Guadalajara, Jal.</div>
+                <div class="off-desc">Occidente — sectores industrial, comercial y residencial.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.2096232313265!2d-101.698419226199!3d21.14405448381149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf5cb3facf33%3A0x1081ef955934ea82!2sEYSH%20Distrib%20Rain%20Bird%20y%20Hunter!5e0!3m2!1ses-419!2smx!4v1774465333509!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">León, Gto.</div>
+                <div class="off-desc">El Bajío — corredores industriales de Guanajuato y Querétaro.</div>
+              </div>
+            </div>
+
+            <div class="office-card" tabindex="0" role="button"
+              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.75678285218!2d-86.8541341261971!3d21.20181868181498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2d6eaaf899ed%3A0x2a7405efaaa242f8!2sHAFTEN%20CANCUN%20BELIMO%20FLOWCON%20MEITAVTEC%20DWYER!5e0!3m2!1ses-419!2smx!4v1774465368752!5m2!1ses-419!2smx">
+              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="off-city">Cancún, Q. Roo</div>
+                <div class="off-desc">Sureste — sector hotelero, hospitalario y turístico.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ██ FAQ — BLANCO ██ -->
+    <section class="faq-sec" aria-labelledby="faq-h">
+      <div class="faq-inner">
+        <div class="faq-layout">
+          <div class="faq-left rv-l">
+            <div class="eyebrow"><i class="fa-solid fa-circle-question"></i> Preguntas frecuentes</div>
+            <h2 id="faq-h" class="faq-title-big">¿Tienes <span>dudas?</span></h2>
+            <p class="faq-desc">Aquí encontrarás respuesta a las preguntas más comunes. Si no encuentras lo que buscas,
+              escríbenos directamente.</p>
+            <div class="faq-direct">
+              <a href="/cdn-cgi/l/email-protection#432a2d252c032b222537262d6d202c2e6d2e3b" class="faq-dir-btn"><i
+                  class="fa-solid fa-envelope"></i> <span class="__cf_email__"
+                  data-cfemail="244d4a424b644c454250414a0a474b490a495c">[email&#160;protected]</span></a>
+              <a href="marcas.html" class="faq-dir-btn"><i class="fa-solid fa-tag"></i> Ver todas las marcas</a>
+              <a href="catalogos.html" class="faq-dir-btn"><i class="fa-solid fa-file-pdf"></i> Descargar catálogos</a>
+            </div>
+          </div>
+          <div class="faq-list rv-r" id="faqList">
+            <!-- populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ CTA STRIP — OSCURO ██ -->
+    <section class="cta-strip" aria-labelledby="cta-h">
+      <div class="cta-inner rv">
+        <div class="cta-kicker"><i class="fa-solid fa-bolt"></i> ¿Listo para empezar?</div>
+        <h2 id="cta-h">Tu proyecto en <span>las mejores manos</span></h2>
+        <p>Más de 20 años seleccionando el equipo exacto para cada aplicación. Sin intermediarios, con soporte técnico
+          especializado y stock inmediato.</p>
+        <div class="cta-btns">
+          <a href="marcas.html" class="btn btn-ac"><i class="fa-solid fa-tag"></i>Ver nuestras marcas</a>
+          <a href="catalogos.html" class="btn btn-outline"><i class="fa-solid fa-file-pdf"></i>Descargar catálogos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-main">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/logos/logo-haften.png" alt="Haften"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="footer-logo-txt" style="display:none">Haf<em>ten</em></span>
+          </div>
+          <div class="footer-tagline">HVAC · BMS · Medición de Energía</div>
+          <p class="footer-desc">Distribución especializada de equipos y sistemas de control HVAC/R-BMS en México desde
+            1999. Una solución completa en el mismo lugar.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="f-soc"
+              aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/Haftenoficial" target="_blank" rel="noopener" class="f-soc"
+              aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Haftenoficial/videos" target="_blank" rel="noopener" class="f-soc"
+              aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener" class="f-soc"
+              aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://x.com/haften1" target="_blank" rel="noopener" class="f-soc" aria-label="X"><i
+                class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.tiktok.com/@Haftenoficial/" target="_blank" rel="noopener" class="f-soc"
+              aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a></li>
+            <li><a href="nosotros.html"><i class="fa-solid fa-building"></i>Nosotros</a></li>
+            <li><a href="marcas.html"><i class="fa-solid fa-tag"></i>Marcas</a></li>
+            <li><a href="catalogos.html"><i class="fa-solid fa-file-pdf"></i>Catálogos</a></li>
+            <li><a href="multimedia.html"><i class="fa-solid fa-circle-play"></i>Multimedia</a></li>
+            <li><a href="redes.html"><i class="fa-solid fa-share-nodes"></i>Redes</a></li>
+            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="/cdn-cgi/l/email-protection#bcd5d2dad3fcd4dddac8d9d292dfd3d192d1c4"><i
+                  class="fa-solid fa-envelope"></i><span class="__cf_email__"
+                  data-cfemail="5c35323a331c343d3a283932723f3331723124">[email&#160;protected]</span></a></li>
+            <li><a href="https://haften.com.mx" target="_blank" rel="noopener"><i
+                  class="fa-solid fa-globe"></i>haften.com.mx</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Ciudad de México</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Monterrey, N.L.</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>Guadalajara, Jal.</a></li>
+            <li><a href="#"><i class="fa-solid fa-map-pin"></i>León · Cancún</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sectores</h4>
+          <ul>
+            <li><a href="#"><i class="fa-solid fa-industry"></i>Industrial</a></li>
+            <li><a href="#"><i class="fa-solid fa-building-columns"></i>Comercial</a></li>
+            <li><a href="#"><i class="fa-solid fa-hospital"></i>Hospitalario</a></li>
+            <li><a href="#"><i class="fa-solid fa-hotel"></i>Hotelero</a></li>
+            <li><a href="#"><i class="fa-solid fa-flask"></i>Laboratorio</a></li>
+            <li><a href="#"><i class="fa-solid fa-house"></i>Residencial</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Haften · Todos los derechos reservados · <a href="https://haften.com.mx"
+            target="_blank" rel="noopener">haften.com.mx</a></span>
+        <div class="footer-badges">
+          <span class="f-badge"><i class="fa-solid fa-shield-check"></i>Distribuidor Autorizado</span>
+          <span class="f-badge"><i class="fa-solid fa-certificate"></i>+20 Años</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <button id="btt" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+  <button class="chat-fab" id="chatFab" aria-label="Chat de soporte" aria-expanded="false">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span class="chat-badge">1</span>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="cw-head">
+      <div class="cw-head-left">
+        <div class="cw-avatar"><i class="fa-solid fa-headset"></i></div>
+        <div>
+          <div class="cw-name">Soporte Haften</div>
+          <div class="cw-status">● En línea</div>
+        </div>
+      </div>
+      <button class="cw-close" id="chatClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cw-msgs" id="cwMsgs">
+      <div class="cw-msg bot">¡Hola! Soy el asistente de <strong>Haften</strong>. ¿En qué puedo ayudarte?</div>
+      <div class="cw-msg bot">Puedo orientarte sobre productos, marcas o cotizaciones.</div>
+    </div>
+    <div class="cw-input-row">
+      <input type="text" class="cw-input" id="cwInput" placeholder="Escribe tu mensaje...">
+      <button class="cw-send" id="cwSend"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    /* ── LOADER ───────────────────────────────── */
+    (function () {
+      function done() { document.getElementById('loader').classList.add('done') }
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', () => setTimeout(done, 500))
+        : setTimeout(done, 300);
+      setTimeout(done, 2500);
+    })();
+
+    /* ── CURSOR ───────────────────────────────── */
+    const cur = document.getElementById('cur'), curR = document.getElementById('curR');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
+    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    document.querySelectorAll('a,button,.cm-card,.office-card,.faq-q,.s-chip').forEach(el => {
+      el.addEventListener('mouseenter', () => { cur.style.width = '14px'; cur.style.height = '14px' });
+      el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px' });
+    });
+
+    /* ── NAVBAR ───────────────────────────────── */
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+      document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+    }, { passive: true });
+    document.getElementById('btt').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', e => { e.stopPropagation(); navLinks.classList.toggle('open'); menuBtn.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', navLinks.classList.contains('open')) });
+    document.addEventListener('click', e => { if (!e.target.closest('#navbar')) { navLinks.classList.remove('open'); menuBtn.classList.remove('open') } });
+
+    /* ── COLOR / A11Y ─────────────────────────── */
+    const colorBtn = document.getElementById('colorBtn'), colorPanel = document.getElementById('colorPanel');
+    colorBtn.addEventListener('click', e => { e.stopPropagation(); colorPanel.classList.toggle('open'); document.getElementById('a11yPanel').classList.remove('open') });
+    document.addEventListener('click', () => colorPanel.classList.remove('open'));
+    colorPanel.addEventListener('click', e => e.stopPropagation());
+    document.querySelectorAll('.cp-swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        const r = document.documentElement;
+        r.style.setProperty('--ac', sw.dataset.ac); r.style.setProperty('--ac-dark', sw.dataset.acd); r.style.setProperty('--ac-rgb', sw.dataset.rgb);
+        document.querySelectorAll('.cp-swatch').forEach(s => s.classList.remove('active')); sw.classList.add('active');
+      });
+    });
+    document.querySelectorAll('.cp-theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cp-theme-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active');
+        document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+        if (btn.dataset.theme !== 'dark') document.body.classList.add('theme-' + btn.dataset.theme);
+      });
+    });
+    const a11yBtn = document.getElementById('a11yBtn'), a11yPanel = document.getElementById('a11yPanel');
+    a11yBtn.addEventListener('click', e => { e.stopPropagation(); a11yPanel.classList.toggle('open'); colorPanel.classList.remove('open') });
+    a11yPanel.addEventListener('click', e => e.stopPropagation());
+    let fontScale = 1;
+    function changeFontScale(d) { fontScale = Math.max(.8, Math.min(1.3, fontScale + d)); document.documentElement.style.setProperty('--font-scale', fontScale); document.getElementById('fsVal').textContent = Math.round(fontScale * 100) + '%' }
+    function toggleHC(on) { document.body.classList.toggle('hc-mode', on) }
+    function toggleAnim(on) { document.body.classList.toggle('no-anim', on) }
+    function toggleCursor(on) { cur.style.display = on ? 'block' : 'none'; curR.style.display = on ? 'block' : 'none'; document.body.style.cursor = on ? 'none' : 'auto' }
+
+    /* ── SUBJECT CHIPS ────────────────────────── */
+    document.querySelectorAll('.s-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.s-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        document.getElementById('subject').value = chip.dataset.val;
+      });
+    });
+
+    /* ── FORM SUBMIT ──────────────────────────── */
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const fname = document.getElementById('fname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const privacy = document.getElementById('privacy').checked;
+      if (!fname || !email || !message) {
+        alert('Por favor completa los campos obligatorios: nombre, correo y mensaje.');
+        return;
+      }
+      if (!privacy) {
+        alert('Debes aceptar el aviso de privacidad para continuar.');
+        return;
+      }
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    });
+
+    /* ── MAP / OFFICES ────────────────────────── */
+    const officeCards = document.querySelectorAll('.office-card');
+    const gmapFrame = document.getElementById('gmapFrame');
+    officeCards.forEach(card => {
+      const activate = () => {
+        officeCards.forEach(c => c.classList.remove('active-c'));
+        card.classList.add('active-c');
+        if (card.dataset.src) {
+          gmapFrame.style.opacity = '0';
+          setTimeout(() => { gmapFrame.src = card.dataset.src; gmapFrame.style.opacity = '1' }, 220);
+        }
+        if (window.innerWidth <= 1200) document.querySelector('.map-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+      card.addEventListener('click', activate);
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') activate() });
+    });
+
+    /* ── FAQ ──────────────────────────────────── */
+    const FAQS = [
+      {
+        q: '¿Cuánto tiempo tardan en responder una cotización?',
+        a: 'Nuestro equipo de ventas responde cotizaciones en menos de 4 horas hábiles. Para proyectos complejos que requieren especificación técnica, el tiempo puede extenderse hasta 24 horas.'
+      },
+      {
+        q: '¿Tienen stock disponible o trabajan bajo pedido?',
+        a: 'Contamos con inventario disponible de los productos más demandados de nuestras marcas principales. Algunos modelos especiales o de baja rotación pueden requerir tiempo de entrega de 2 a 6 semanas dependiendo del fabricante.'
+      },
+      {
+        q: '¿Ofrecen soporte técnico post-venta?',
+        a: 'Sí. Todos nuestros clientes tienen acceso a soporte técnico de nuestros ingenieros especializados. Ofrecemos asesoría de instalación, puesta en marcha y resolución de problemas directamente con el fabricante.'
+      },
+      {
+        q: '¿Trabajan con todo tipo de empresas o solo grandes proyectos?',
+        a: 'Atendemos desde pequeñas instalaciones hasta grandes proyectos de infraestructura. Tenemos soluciones para todos los segmentos: industrial, comercial, hospitalario, hotelero y residencial.'
+      },
+      {
+        q: '¿Pueden hacer envíos a toda la República Mexicana?',
+        a: 'Sí. Desde nuestras 5 oficinas cubrimos toda la República. Realizamos envíos con empresas de paquetería certificadas y también contamos con entrega local en CDMX, Monterrey, Guadalajara, León y Cancún.'
+      },
+      {
+        q: '¿Ofrecen capacitaciones sobre los productos que distribuyen?',
+        a: 'Sí. Organizamos webinars, cursos técnicos y capacitaciones en nuestras instalaciones de forma periódica. También coordinamos capacitaciones directamente con los fabricantes para proyectos específicos.'
+      },
+      {
+        q: '¿Cómo puedo solicitar una demostración de producto?',
+        a: 'Puedes solicitarla a través de este formulario indicando el producto de interés o escribiéndonos directamente a info@haften.com.mx. Coordinamos demostraciones en nuestras oficinas o en tus instalaciones.'
+      },
+    ];
+
+    const faqList = document.getElementById('faqList');
+    FAQS.forEach((faq, i) => {
+      const item = document.createElement('div');
+      item.className = 'faq-item rv';
+      item.style.transitionDelay = (i * 0.05) + 's';
+      item.innerHTML = `
+    <div class="faq-q" tabindex="0" role="button" aria-expanded="false">
+      <span class="faq-q-text">${faq.q}</span>
+      <span class="faq-q-ico"><i class="fa-solid fa-plus"></i></span>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">${faq.a}</div></div>`;
+      const q = item.querySelector('.faq-q');
+      const toggle = () => {
+        const open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', open);
+      };
+      q.addEventListener('click', toggle);
+      q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') toggle() });
+      faqList.appendChild(item);
+    });
+
+    /* ── SCROLL REVEAL ────────────────────────── */
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target) } }) }, { threshold: .06 });
+    document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => io.observe(el));
+    // re-observe FAQ items after injection
+    setTimeout(() => { document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => { if (!el.classList.contains('on')) io.observe(el) }) }, 50);
+
+    /* ── CHAT ─────────────────────────────────── */
+    const chatFab = document.getElementById('chatFab'), chatWin = document.getElementById('chatWindow'), cwMsgs = document.getElementById('cwMsgs'), cwInput = document.getElementById('cwInput'), cwSend = document.getElementById('cwSend');
+    chatFab.addEventListener('click', () => { chatWin.classList.toggle('open'); chatFab.setAttribute('aria-expanded', chatWin.classList.contains('open')); if (chatWin.classList.contains('open')) chatFab.querySelector('.chat-badge').style.display = 'none' });
+    document.getElementById('chatClose').addEventListener('click', () => { chatWin.classList.remove('open') });
+    cwSend.addEventListener('click', sendMsg);
+    cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
+  </script>
+</body>
+
+</html>
