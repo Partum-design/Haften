@@ -1,0 +1,263 @@
+/* ════════════════════════════════════════════════
+   HAFTEN — capa compartida (todas las páginas)
+   Pulido visual, logotipos uniformes y accesibilidad.
+   Se carga después del <style> de cada página.
+════════════════════════════════════════════════ */
+
+:root { --focus: #ffd166; }
+/* texto terciario con contraste AA */
+html:not([data-theme="light"]) { --text-3: #5d8fb0; }
+html[data-theme="light"] { --text-2: #335a72; --text-3: #4f7790; }
+
+/* ── BASE ── */
+html, body { overflow-x: clip; }
+.ticker-wrap { overflow: hidden; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .s-title, .hero-h1 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgba(var(--ac-rgb), .35);
+  color: #fff;
+}
+
+/* scrollbar discreta acorde al tema */
+html { scrollbar-color: rgba(var(--ac-rgb), .45) #050b15; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #050b15; }
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--ac-rgb), .4);
+  border-radius: 10px;
+  border: 2px solid #050b15;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(var(--ac-rgb), .65); }
+
+/* ── FOCO VISIBLE (teclado) ── */
+:focus { outline: none; }
+:focus-visible {
+  outline: 3px solid var(--focus) !important;
+  outline-offset: 3px !important;
+  border-radius: 6px;
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, .55);
+}
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline-offset: 1px !important; }
+
+/* enlace "saltar al contenido" en todas las páginas */
+.skip-link {
+  position: fixed !important;
+  top: -120px;
+  left: 1rem;
+  z-index: 100000 !important;
+  padding: .7rem 1.1rem;
+  background: var(--ac);
+  color: #fff !important;
+  font-weight: 800;
+  border-radius: 8px;
+  transition: top .2s;
+}
+.skip-link:focus, .skip-link:focus-visible { top: 1rem; }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* ── LOGOTIPO HAFTEN (blanco sobre fondos oscuros) ── */
+.n-logo img {
+  height: 30px !important;
+  width: auto;
+  object-fit: contain;
+  transition: opacity .2s, transform .3s;
+}
+.n-logo:hover img { opacity: .85; }
+.footer-logo img {
+  height: 32px !important;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── LOGOTIPOS DE MARCAS — mismo tamaño visual ──
+   Todos los archivos comparten lienzo 3:1 normalizado por área,
+   así que basta con fijar la caja. */
+.brand-cell img,
+.feat-logo-wrap img,
+.bc-logo img,
+.cat-logo-area img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 156px !important;
+  max-height: 52px !important;
+  object-fit: contain !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+.brand-cell { padding: 8px 14px !important; }
+.cat-logo-area {
+  height: 96px;
+  background: #fff !important;
+}
+.cat-logo-area img { max-width: 210px !important; max-height: 70px !important; }
+.feat-logo-wrap img { max-width: 180px !important; max-height: 60px !important; }
+.bc-logo img { max-width: 190px !important; max-height: 64px !important; }
+.brand-cell:hover img,
+.cat-card:hover .cat-logo-area img { transform: scale(1.04); }
+
+/* ── PANEL DE ACCESIBILIDAD ── */
+.a11y-wrap { position: relative; }
+.n-tool-btn { color: rgba(255, 255, 255, .75) !important; }
+.n-tool-btn[aria-expanded="true"] {
+  border-color: var(--ac) !important;
+  color: var(--ac) !important;
+}
+#a11yPanel { min-width: 270px; }
+#a11yPanel .tp-label { color: #9fc3da; }
+.a11y-switch {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.a11y-switch .a11y-lbl { color: #cfe3f0; }
+.a11y-switch .a11y-slider {
+  position: relative;
+  inset: auto;
+  display: block;
+  flex-shrink: 0;
+  width: 38px;
+  height: 20px;
+}
+.a11y-switch[aria-checked="true"] .a11y-slider { background: var(--ac); border-color: var(--ac); }
+.a11y-switch[aria-checked="true"] .a11y-slider::before { left: 20px; background: #fff; }
+#a11yPanel .a11y-row .a11y-lbl { color: #cfe3f0; }
+#a11yPanel .a11y-fs button { width: 30px; height: 30px; cursor: pointer; }
+#a11yPanel .a11y-fs .fs-val { min-width: 40px; color: #fff; }
+.a11y-reset {
+  margin-top: 12px;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .04);
+  color: #cfe3f0;
+  font: inherit;
+  font-size: .75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+.a11y-reset:hover { border-color: var(--ac); color: #fff; }
+
+/* sin cursor personalizado: cursor nativo en todo */
+body.a11y-native-cursor,
+body.a11y-native-cursor * { cursor: auto !important; }
+body.a11y-native-cursor a,
+body.a11y-native-cursor button,
+body.a11y-native-cursor [role="button"],
+body.a11y-native-cursor label,
+body.a11y-native-cursor summary { cursor: pointer !important; }
+body.a11y-native-cursor input,
+body.a11y-native-cursor textarea { cursor: text !important; }
+body.a11y-native-cursor .cur,
+body.a11y-native-cursor .cur-r { display: none !important; }
+
+/* ── ALTO CONTRASTE ── */
+html[data-theme="light"] body.hc-mode {
+  --text-1: #000 !important;
+  --text-2: #000 !important;
+  --text-3: #1a1a1a !important;
+  --border-l: rgba(0, 0, 0, .55) !important;
+}
+html:not([data-theme="light"]) body.hc-mode {
+  --text-1: #fff !important;
+  --text-2: #fff !important;
+  --text-3: #e6f2ff !important;
+  --ink: #000 !important;
+  --ink2: #000 !important;
+  --ink3: #111 !important;
+  --border-l: rgba(0, 0, 0, .55) !important;
+  --border-d: rgba(255, 255, 255, .5) !important;
+}
+body.hc-mode p,
+body.hc-mode li,
+body.hc-mode span,
+body.hc-mode label { text-shadow: none !important; }
+body.hc-mode a:not(.btn):not(.n-cta):not(.f-soc):not([class*="card"]):not([class*="btn"]) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+body.hc-mode .hero-overlay,
+body.hc-mode .page-hero-glow { background: rgba(0, 0, 0, .78) !important; }
+body.hc-mode .btn,
+body.hc-mode .n-cta { outline: 2px solid #fff; outline-offset: 0; }
+body.hc-mode img { filter: none !important; }
+body.hc-mode :focus-visible { outline-color: #ffeb3b !important; }
+
+/* ── SUBRAYAR ENLACES ── */
+body.a11y-underline a:not(.btn):not(.n-cta):not(.f-soc):not(.skip-link) {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* ── ESPACIADO DE LECTURA ── */
+body.a11y-spacing p,
+body.a11y-spacing li,
+body.a11y-spacing .s-sub,
+body.a11y-spacing [class*="desc"] {
+  line-height: 1.9 !important;
+  letter-spacing: .03em !important;
+  word-spacing: .12em !important;
+}
+
+/* ── SIN ANIMACIONES (también si el sistema lo pide) ── */
+body.no-anim *,
+body.no-anim *::before,
+body.no-anim *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+html:has(body.no-anim) { scroll-behavior: auto; }
+body.no-anim canvas { display: none !important; }
+body.no-anim .rv,
+body.no-anim .rv-l,
+body.no-anim .rv-r {
+  opacity: 1 !important;
+  transform: none !important;
+}
+body.no-anim .ticker-track,
+body.no-anim .brands-row { transform: none !important; }
+body.no-anim .brands-carousel,
+body.no-anim .ticker-wrap { overflow-x: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ── objetivos táctiles cómodos en móvil ── */
+@media (hover: none) {
+  .n-tool-btn, .n-ham { min-width: 44px; min-height: 44px; }
+}

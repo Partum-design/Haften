@@ -440,55 +440,12 @@
       margin-bottom: 12px
     }
 
-    .cp-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 7px
-    }
 
-    .cp-swatch {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 2.5px solid transparent;
-      cursor: none;
-      transition: transform .2s, border-color .2s
-    }
 
-    .cp-swatch:hover {
-      transform: scale(1.2)
-    }
 
-    .cp-swatch.active {
-      border-color: #fff
-    }
 
-    .cp-themes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-top: 10px
-    }
 
-    .cp-theme-btn {
-      padding: 7px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, .08);
-      background: none;
-      cursor: none;
-      font-size: .72rem;
-      font-weight: 700;
-      color: var(--text-2);
-      transition: .2s;
-      text-align: left
-    }
 
-    .cp-theme-btn:hover,
-    .cp-theme-btn.active {
-      background: rgba(var(--ac-rgb), .12);
-      color: var(--ac);
-      border-color: rgba(var(--ac-rgb), .3)
-    }
 
     .a11y-row {
       display: flex;
@@ -2080,12 +2037,6 @@
       flex-shrink: 0
     }
 
-    body.theme-midnight {
-      --bg: #0d0d1a;
-      --bg2: #12122a;
-      --bg3: #1a1a36;
-      --border-d: rgba(var(--ac-rgb), .18)
-    }
 
     /* RESPONSIVE */
     @media(max-width:1200px) {
@@ -2208,6 +2159,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body>
@@ -2226,7 +2178,7 @@
   <!-- NAVBAR -->
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <a href="index.html" class="n-logo" aria-label="Haften">
-      <img src="assets/logos/logo-haften.png" alt="Haften"
+      <img src="assets/logos/logo-haften-white.png" alt="Haften"
         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
     </a>
@@ -2240,52 +2192,25 @@
       <li><a href="contacto.html" class="n-cta active"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
     </ul>
     <div class="n-tools">
-      <div style="position:relative">
-        <button class="n-tool-btn" id="colorBtn" aria-label="Color" aria-expanded="false"><i
-            class="fa-solid fa-palette"></i></button>
-        <div class="tool-panel" id="colorPanel">
-          <div class="tp-label">Color de acento</div>
-          <div class="cp-grid">
-            <div class="cp-swatch active" data-ac="#00c8e8" data-acd="#0099bb" data-rgb="0,200,232"
-              style="background:#00c8e8" role="button" tabindex="0" aria-label="Cian"></div>
-            <div class="cp-swatch" data-ac="#2563EB" data-acd="#1D4ED8" data-rgb="37,99,235" style="background:#2563EB"
-              role="button" tabindex="0" aria-label="Azul"></div>
-            <div class="cp-swatch" data-ac="#059669" data-acd="#047857" data-rgb="5,150,105" style="background:#059669"
-              role="button" tabindex="0" aria-label="Verde"></div>
-            <div class="cp-swatch" data-ac="#7C3AED" data-acd="#6D28D9" data-rgb="124,58,237" style="background:#7C3AED"
-              role="button" tabindex="0" aria-label="Violeta"></div>
-            <div class="cp-swatch" data-ac="#EA580C" data-acd="#C2410C" data-rgb="234,88,12" style="background:#EA580C"
-              role="button" tabindex="0" aria-label="Naranja"></div>
-            <div class="cp-swatch" data-ac="#E11D48" data-acd="#BE123C" data-rgb="225,29,72" style="background:#E11D48"
-              role="button" tabindex="0" aria-label="Rosa"></div>
+      <div class="a11y-wrap">
+        <button type="button" class="n-tool-btn" id="a11yBtn" aria-label="Opciones de accesibilidad" aria-expanded="false"
+          aria-controls="a11yPanel"><i class="fa-solid fa-universal-access" aria-hidden="true"></i></button>
+        <div class="tool-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yTitle">
+          <div class="tp-label" id="a11yTitle">Accesibilidad</div>
+          <div class="a11y-row">
+            <span class="a11y-lbl" id="fsLbl">Tamaño de texto</span>
+            <div class="a11y-fs" role="group" aria-labelledby="fsLbl">
+              <button type="button" data-a11y-font="-1" aria-label="Reducir tamaño de texto"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+              <span class="fs-val" id="fsVal">100%</span>
+              <button type="button" data-a11y-font="1" aria-label="Aumentar tamaño de texto"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            </div>
           </div>
-          <div class="tp-label" style="margin-top:14px">Tema</div>
-          <div class="cp-themes">
-            <button class="cp-theme-btn active" data-theme="dark"><i class="fa-solid fa-moon"></i> Oscuro</button>
-            <button class="cp-theme-btn" data-theme="midnight"><i class="fa-solid fa-circle-half-stroke"></i>
-              Midnight</button>
-          </div>
-        </div>
-      </div>
-      <div style="position:relative">
-        <button class="n-tool-btn" id="a11yBtn" aria-label="Accesibilidad" aria-expanded="false"><i
-            class="fa-solid fa-universal-access"></i></button>
-        <div class="tool-panel" id="a11yPanel">
-          <div class="tp-label">Accesibilidad</div>
-          <div class="a11y-row"><span class="a11y-lbl">Tamaño texto</span>
-            <div class="a11y-fs"><button onclick="changeFontScale(-0.1)"><i class="fa-solid fa-minus"></i></button><span
-                class="fs-val" id="fsVal">100%</span><button onclick="changeFontScale(0.1)"><i
-                  class="fa-solid fa-plus"></i></button></div>
-          </div>
-          <div class="a11y-row"><span class="a11y-lbl">Alto contraste</span><label class="a11y-toggle"><input
-                type="checkbox" id="hcToggle" onchange="toggleHC(this.checked)"><span
-                class="a11y-slider"></span></label></div>
-          <div class="a11y-row"><span class="a11y-lbl">Sin animaciones</span><label class="a11y-toggle"><input
-                type="checkbox" id="animToggle" onchange="toggleAnim(this.checked)"><span
-                class="a11y-slider"></span></label></div>
-          <div class="a11y-row" style="border-bottom:none"><span class="a11y-lbl">Cursor custom</span><label
-              class="a11y-toggle"><input type="checkbox" id="curToggle" checked
-                onchange="toggleCursor(this.checked)"><span class="a11y-slider"></span></label></div>
+          <button type="button" class="a11y-switch" role="switch" aria-checked="false" data-a11y="hc"><span class="a11y-lbl">Alto contraste</span><span class="a11y-slider" aria-hidden="true"></span></button>
+          <button type="button" class="a11y-switch" role="switch" aria-checked="false" data-a11y="motion"><span class="a11y-lbl">Sin animaciones</span><span class="a11y-slider" aria-hidden="true"></span></button>
+          <button type="button" class="a11y-switch" role="switch" aria-checked="false" data-a11y="underline"><span class="a11y-lbl">Subrayar enlaces</span><span class="a11y-slider" aria-hidden="true"></span></button>
+          <button type="button" class="a11y-switch" role="switch" aria-checked="false" data-a11y="spacing"><span class="a11y-lbl">Espaciado de lectura</span><span class="a11y-slider" aria-hidden="true"></span></button>
+          <button type="button" class="a11y-switch" role="switch" aria-checked="true" data-a11y="cursor"><span class="a11y-lbl">Cursor personalizado</span><span class="a11y-slider" aria-hidden="true"></span></button>
+          <button type="button" class="a11y-reset" data-a11y-reset><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Restablecer</button>
         </div>
       </div>
       <button class="n-ham" id="menuBtn" aria-label="Menú"
@@ -2433,8 +2358,7 @@
             <div class="success-title">¡Mensaje recibido!</div>
             <p class="success-desc">Gracias por contactar a Haften. Un especialista revisará tu solicitud y se pondrá en
               contacto contigo en menos de 24 horas hábiles.<br><br>Si tienes urgencia, escríbenos directamente a
-              <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                  data-cfemail="771e191118371f16110312195914181a591a0f">[email&#160;protected]</a></strong>.
+              <strong><a href="mailto:info@haften.com.mx">info@haften.com.mx</a></strong>.
             </p>
           </div>
         </div>
@@ -2449,12 +2373,11 @@
           </div>
 
           <div class="contact-methods">
-            <a href="/cdn-cgi/l/email-protection#b7ded9d1d8f7dfd6d1c3d2d999d4d8da99dacf" class="cm-card rv d1">
+            <a href="mailto:info@haften.com.mx" class="cm-card rv d1">
               <div class="cm-ico"><i class="fa-solid fa-envelope"></i></div>
               <div>
                 <div class="cm-label">Correo electrónico</div>
-                <div class="cm-value"><span class="__cf_email__"
-                    data-cfemail="7d14131b123d151c1b091813531e1210531005">[email&#160;protected]</span></div>
+                <div class="cm-value">info@haften.com.mx</div>
               </div>
               <i class="fa-solid fa-arrow-right cm-arrow"></i>
             </a>
@@ -2593,9 +2516,8 @@
             <p class="faq-desc">Aquí encontrarás respuesta a las preguntas más comunes. Si no encuentras lo que buscas,
               escríbenos directamente.</p>
             <div class="faq-direct">
-              <a href="/cdn-cgi/l/email-protection#432a2d252c032b222537262d6d202c2e6d2e3b" class="faq-dir-btn"><i
-                  class="fa-solid fa-envelope"></i> <span class="__cf_email__"
-                  data-cfemail="244d4a424b644c454250414a0a474b490a495c">[email&#160;protected]</span></a>
+              <a href="mailto:info@haften.com.mx" class="faq-dir-btn"><i
+                  class="fa-solid fa-envelope"></i> info@haften.com.mx</a>
               <a href="marcas.html" class="faq-dir-btn"><i class="fa-solid fa-tag"></i> Ver todas las marcas</a>
               <a href="catalogos.html" class="faq-dir-btn"><i class="fa-solid fa-file-pdf"></i> Descargar catálogos</a>
             </div>
@@ -2626,7 +2548,7 @@
       <div class="footer-main">
         <div>
           <div class="footer-logo">
-            <img src="assets/logos/logo-haften.png" alt="Haften"
+            <img src="assets/logos/logo-haften-white.png" alt="Haften"
               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
             <span class="footer-logo-txt" style="display:none">Haf<em>ten</em></span>
           </div>
@@ -2663,9 +2585,8 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <ul>
-            <li><a href="/cdn-cgi/l/email-protection#bcd5d2dad3fcd4dddac8d9d292dfd3d192d1c4"><i
-                  class="fa-solid fa-envelope"></i><span class="__cf_email__"
-                  data-cfemail="5c35323a331c343d3a283932723f3331723124">[email&#160;protected]</span></a></li>
+            <li><a href="mailto:info@haften.com.mx"><i
+                  class="fa-solid fa-envelope"></i>info@haften.com.mx</a></li>
             <li><a href="https://haften.com.mx" target="_blank" rel="noopener"><i
                   class="fa-solid fa-globe"></i>haften.com.mx</a></li>
             <li><a href="#"><i class="fa-solid fa-map-pin"></i>Ciudad de México</a></li>
@@ -2723,8 +2644,6 @@
       <button class="cw-send" id="cwSend"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
   </div>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
     /* ── LOADER ───────────────────────────────── */
     (function () {
@@ -2755,33 +2674,6 @@
     menuBtn.addEventListener('click', e => { e.stopPropagation(); navLinks.classList.toggle('open'); menuBtn.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', navLinks.classList.contains('open')) });
     document.addEventListener('click', e => { if (!e.target.closest('#navbar')) { navLinks.classList.remove('open'); menuBtn.classList.remove('open') } });
 
-    /* ── COLOR / A11Y ─────────────────────────── */
-    const colorBtn = document.getElementById('colorBtn'), colorPanel = document.getElementById('colorPanel');
-    colorBtn.addEventListener('click', e => { e.stopPropagation(); colorPanel.classList.toggle('open'); document.getElementById('a11yPanel').classList.remove('open') });
-    document.addEventListener('click', () => colorPanel.classList.remove('open'));
-    colorPanel.addEventListener('click', e => e.stopPropagation());
-    document.querySelectorAll('.cp-swatch').forEach(sw => {
-      sw.addEventListener('click', () => {
-        const r = document.documentElement;
-        r.style.setProperty('--ac', sw.dataset.ac); r.style.setProperty('--ac-dark', sw.dataset.acd); r.style.setProperty('--ac-rgb', sw.dataset.rgb);
-        document.querySelectorAll('.cp-swatch').forEach(s => s.classList.remove('active')); sw.classList.add('active');
-      });
-    });
-    document.querySelectorAll('.cp-theme-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.cp-theme-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active');
-        document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
-        if (btn.dataset.theme !== 'dark') document.body.classList.add('theme-' + btn.dataset.theme);
-      });
-    });
-    const a11yBtn = document.getElementById('a11yBtn'), a11yPanel = document.getElementById('a11yPanel');
-    a11yBtn.addEventListener('click', e => { e.stopPropagation(); a11yPanel.classList.toggle('open'); colorPanel.classList.remove('open') });
-    a11yPanel.addEventListener('click', e => e.stopPropagation());
-    let fontScale = 1;
-    function changeFontScale(d) { fontScale = Math.max(.8, Math.min(1.3, fontScale + d)); document.documentElement.style.setProperty('--font-scale', fontScale); document.getElementById('fsVal').textContent = Math.round(fontScale * 100) + '%' }
-    function toggleHC(on) { document.body.classList.toggle('hc-mode', on) }
-    function toggleAnim(on) { document.body.classList.toggle('no-anim', on) }
-    function toggleCursor(on) { cur.style.display = on ? 'block' : 'none'; curR.style.display = on ? 'block' : 'none'; document.body.style.cursor = on ? 'none' : 'auto' }
 
     /* ── SUBJECT CHIPS ────────────────────────── */
     document.querySelectorAll('.s-chip').forEach(chip => {
@@ -2890,9 +2782,13 @@
     const chatFab = document.getElementById('chatFab'), chatWin = document.getElementById('chatWindow'), cwMsgs = document.getElementById('cwMsgs'), cwInput = document.getElementById('cwInput'), cwSend = document.getElementById('cwSend');
     chatFab.addEventListener('click', () => { chatWin.classList.toggle('open'); chatFab.setAttribute('aria-expanded', chatWin.classList.contains('open')); if (chatWin.classList.contains('open')) chatFab.querySelector('.chat-badge').style.display = 'none' });
     document.getElementById('chatClose').addEventListener('click', () => { chatWin.classList.remove('open') });
+    const chatR = ['Claro, con gusto te ayudo. Escríbenos a info@haften.com.mx', 'Para cotizaciones formales, llena el formulario de esta página o escríbenos a info@haften.com.mx.', 'Nuestro equipo puede asesorarte. ¿Quieres que te conectemos con un especialista?', 'Tenemos oficinas en CDMX, Monterrey, Guadalajara, León y Cancún. ¿Dónde estás?'];
+    let rIdx = 0;
+    function sendMsg() { const txt = cwInput.value.trim(); if (!txt) return; const um = document.createElement('div'); um.className = 'cw-msg usr'; um.textContent = txt; cwMsgs.appendChild(um); cwInput.value = ''; cwMsgs.scrollTop = cwMsgs.scrollHeight; setTimeout(() => { const bm = document.createElement('div'); bm.className = 'cw-msg bot'; bm.textContent = chatR[rIdx % chatR.length]; rIdx++; cwMsgs.appendChild(bm); cwMsgs.scrollTop = cwMsgs.scrollHeight }, 700) }
     cwSend.addEventListener('click', sendMsg);
     cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
   </script>
+  <script src="assets/js/site.js"></script>
 </body>
 
 </html>
