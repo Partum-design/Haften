@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --ac: #E11D48;
-      --ac-dark: #BE123C;
-      --ac-rgb: 225, 29, 72;
+      --ac: #7B241B;
+      --ac-dark: #5F1B14;
+      --ac-rgb: 123, 36, 27;
       --bg: #030810;
       --bg2: #060d1a;
       --bg3: #0c1828;
@@ -30,7 +30,7 @@
       --ink: #05162a;
       --ink2: #183855;
       --ink3: #2e6080;
-      --border-d: rgba(225, 29, 72, .1);
+      --border-d: rgba(var(--ac-rgb), .1);
       --border-l: rgba(5, 22, 42, .08);
       --nav-h: 88px;
       --font-scale: 1;
@@ -604,7 +604,7 @@
     .page-hero-grid {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(0, 200, 232, .018) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 200, 232, .018) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(255, 255, 255, .018) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .018) 1px, transparent 1px);
       background-size: 72px 72px;
       pointer-events: none
     }
@@ -1786,7 +1786,7 @@
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background: #ff4d4f;
+      background: var(--brand-300);
       border: 2px solid var(--bg2);
       font-size: .52rem;
       font-weight: 800;
@@ -2056,6 +2056,7 @@
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/social.css">
+  <link rel="stylesheet" href="assets/css/ui.css">
 </head>
 
 <body>
@@ -2341,30 +2342,6 @@
   </main>
 
   <button id="btt" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
-  <button class="chat-fab" id="chatFab" aria-label="Chat de soporte" aria-expanded="false">
-    <i class="fa-solid fa-comment-dots"></i>
-    <span class="chat-badge">1</span>
-  </button>
-  <div class="chat-window" id="chatWindow">
-    <div class="cw-head">
-      <div class="cw-head-left">
-        <div class="cw-avatar"><i class="fa-solid fa-headset"></i></div>
-        <div>
-          <div class="cw-name">Soporte Haften</div>
-          <div class="cw-status">● En línea</div>
-        </div>
-      </div>
-      <button class="cw-close" id="chatClose"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="cw-msgs" id="cwMsgs">
-      <div class="cw-msg bot">¡Hola! Soy el asistente de <strong>Haften</strong>. ¿En qué puedo ayudarte?</div>
-      <div class="cw-msg bot">Puedo orientarte sobre productos, marcas o cotizaciones.</div>
-    </div>
-    <div class="cw-input-row">
-      <input type="text" class="cw-input" id="cwInput" placeholder="Escribe tu mensaje...">
-      <button class="cw-send" id="cwSend"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-  </div>
   <script>
     // ── VIDEO DATA ────────────────────────────────────────────────────────────
     // SOCIAL:BEGIN
@@ -2565,14 +2542,6 @@
     document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
     // ── CHAT ──────────────────────────────────────────────────────────────────
-    const chatFab = document.getElementById('chatFab'), chatWin = document.getElementById('chatWindow'), cwMsgs = document.getElementById('cwMsgs'), cwInput = document.getElementById('cwInput'), cwSend = document.getElementById('cwSend');
-    chatFab.addEventListener('click', () => { chatWin.classList.toggle('open'); chatFab.setAttribute('aria-expanded', chatWin.classList.contains('open')); if (chatWin.classList.contains('open')) chatFab.querySelector('.chat-badge').style.display = 'none' });
-    document.getElementById('chatClose').addEventListener('click', () => { chatWin.classList.remove('open') });
-    const chatR = ['Claro, con gusto te ayudo. Escríbenos a info@haften.com.mx', 'Tenemos ese producto disponible. Visita Catálogos para más detalles.', 'Para cotizaciones formales, escríbenos a info@haften.com.mx.', 'Nuestros ingenieros pueden asesorarte sobre la marca correcta para tu proyecto.'];
-    let rIdx = 0;
-    function sendMsg() { const txt = cwInput.value.trim(); if (!txt) return; const um = document.createElement('div'); um.className = 'cw-msg usr'; um.textContent = txt; cwMsgs.appendChild(um); cwInput.value = ''; cwMsgs.scrollTop = cwMsgs.scrollHeight; setTimeout(() => { const bm = document.createElement('div'); bm.className = 'cw-msg bot'; bm.textContent = chatR[rIdx % chatR.length]; rIdx++; cwMsgs.appendChild(bm); cwMsgs.scrollTop = cwMsgs.scrollHeight }, 700) }
-    cwSend.addEventListener('click', sendMsg);
-    cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
 
     // ── INIT ──────────────────────────────────────────────────────────────────
     initMedia();
@@ -2599,7 +2568,7 @@
           p.x += p.vx; p.y += p.vy; p.age++;
           const lp = p.age / p.maxAge, a = (lp < .1 ? lp * 10 : lp > .72 ? (1 - lp) / .28 : 1) * .4;
           ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
-          ctx.fillStyle = p.warm ? `rgba(225,29,72,${a * .6})` : `rgba(0,200,232,${a})`; ctx.fill();
+          ctx.fillStyle = p.warm ? `rgba(226,114,95,${a * .6})` : `rgba(214,226,238,${a * .75})`; ctx.fill();
           if (p.age >= p.maxAge || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) pts[i] = mkP();
         });
         requestAnimationFrame(draw);
@@ -2611,6 +2580,7 @@
 
   </script>
   <script src="assets/js/site.js"></script>
+  <script src="assets/js/ui.js"></script>
 </body>
 
 </html>

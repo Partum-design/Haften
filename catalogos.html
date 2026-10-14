@@ -16,9 +16,9 @@
   <style>
     /* ── TOKENS — LIGHT THEME ── */
     :root {
-      --ac: #E11D48;
-      --ac-dark: #BE123C;
-      --ac-rgb: 225, 29, 72;
+      --ac: #7B241B;
+      --ac-dark: #5F1B14;
+      --ac-rgb: 123, 36, 27;
       --bg: #f0f4f8;
       --bg2: #ffffff;
       --bg3: #e6edf5;
@@ -31,7 +31,7 @@
       --ink: #ffffff;
       --ink2: #e6f2f8;
       --ink3: #cce4f0;
-      --border-d: rgba(225, 29, 72, .15);
+      --border-d: rgba(var(--ac-rgb), .15);
       --border-l: rgba(13, 31, 45, .1);
       --nav-h: 88px;
       --r: 14px;
@@ -505,8 +505,8 @@
     .page-hero-grid {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(0, 200, 232, .018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 200, 232, .018) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(255, 255, 255, .018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .018) 1px, transparent 1px);
       background-size: 72px 72px
     }
 
@@ -518,7 +518,7 @@
       width: 800px;
       height: 800px;
       border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(0, 200, 232, .07) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(226, 114, 95, .07) 0%, transparent 70%);
       pointer-events: none
     }
 
@@ -1505,6 +1505,8 @@
     .ficha-link:hover .ficha-go { color: var(--ac); transform: translateY(2px) }
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/ui.css">
+  <link rel="stylesheet" href="assets/css/catalogos.css">
 </head>
 
 <body>
@@ -1586,18 +1588,20 @@
   <div class="filter-bar" id="filterBar">
     <div class="filter-inner">
       <div class="filter-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
         <label for="searchInput" class="sr-only">Buscar catálogo, marca o modelo</label>
-        <input type="search" id="searchInput" placeholder="Buscar catálogo, marca o modelo…" autocomplete="off">
+        <input type="search" id="searchInput" placeholder="Buscar marca o modelo…" autocomplete="off" spellcheck="false">
+        <button type="button" class="fs-clear" id="searchClear" aria-label="Borrar búsqueda" hidden><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <kbd class="fs-kbd" aria-hidden="true">/</kbd>
       </div>
       <div class="filter-tabs" role="group" aria-label="Filtros por categoría">
-        <button type="button" class="f-tab active" data-cat="all" aria-pressed="true">Todos</button>
-        <button type="button" class="f-tab" data-cat="haften" aria-pressed="false">Haften</button>
-        <button type="button" class="f-tab" data-cat="hvac" aria-pressed="false">HVAC / R</button>
-        <button type="button" class="f-tab" data-cat="bms" aria-pressed="false">BMS / Control</button>
-        <button type="button" class="f-tab" data-cat="medicion" aria-pressed="false">Medición</button>
-        <button type="button" class="f-tab" data-cat="variadores" aria-pressed="false">Variadores</button>
-        <button type="button" class="f-tab" data-cat="fichas" aria-pressed="false">Fichas técnicas</button>
+        <button type="button" class="f-tab active" data-cat="all" aria-pressed="true"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Todos<span class="f-n"></span></button>
+        <button type="button" class="f-tab" data-cat="haften" aria-pressed="false"><i class="fa-solid fa-star" aria-hidden="true"></i>Haften<span class="f-n"></span></button>
+        <button type="button" class="f-tab" data-cat="hvac" aria-pressed="false"><i class="fa-solid fa-fan" aria-hidden="true"></i>HVAC / R<span class="f-n"></span></button>
+        <button type="button" class="f-tab" data-cat="bms" aria-pressed="false"><i class="fa-solid fa-network-wired" aria-hidden="true"></i>BMS / Control<span class="f-n"></span></button>
+        <button type="button" class="f-tab" data-cat="medicion" aria-pressed="false"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Medición<span class="f-n"></span></button>
+        <button type="button" class="f-tab" data-cat="variadores" aria-pressed="false"><i class="fa-solid fa-bolt" aria-hidden="true"></i>Variadores<span class="f-n"></span></button>
+        <button type="button" class="f-tab" data-cat="fichas" aria-pressed="false"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Fichas técnicas<span class="f-n"></span></button>
       </div>
       <span class="filter-count" id="filterCount" role="status" aria-live="polite"></span>
     </div>
@@ -1608,49 +1612,61 @@
     <div class="container">
 
       <!-- ── HAFTEN PRINCIPAL ── -->
-      <div class="haften-feature rv">
-        <span class="haften-feature-badge"><i class="fa-solid fa-star"></i> Distribuidor Principal</span>
-        <div class="haften-feature-eyebrow"><i class="fa-solid fa-building-columns"></i> Haften — Catálogos Propios
+      <section class="haften-feature rv" aria-labelledby="hx-h">
+        <div class="hx-copy">
+          <div class="haften-feature-eyebrow"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> Haften — Documentación propia</div>
+          <h2 id="hx-h" class="haften-feature-title">El estándar de<br><span>excelencia Haften</span></h2>
+          <p class="haften-feature-desc">Nuestro catálogo general reúne la solución completa para HVAC/R, BMS, sensores y medición de energía. Complétalo con las fichas técnicas de cada serie.</p>
+          <div class="haften-card-grid" id="haftenGrid"></div>
         </div>
-        <h2 class="haften-feature-title">El estándar de<br><span>excelencia Haften</span></h2>
-        <p class="haften-feature-desc">Haften es el distribuidor líder en HVAC/R, BMS, sensores y automatización en
-          México. Nuestros catálogos propios reúnen la solución completa para tus proyectos.</p>
-        <div class="haften-card-grid" id="haftenGrid">
-          <!-- populated by JS -->
+        <div class="hx-visual" aria-hidden="true">
+          <div class="hx-doc hx-doc-back">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>Fichas técnicas</span>
+            <b id="hxFichas">39</b>
+          </div>
+          <div class="hx-doc hx-doc-front">
+            <img src="assets/logos/logo-haften-white.png" alt="">
+            <div class="hx-doc-t">Catálogo<b>2025</b></div>
+            <div class="hx-doc-lines"><i></i><i></i><i></i><i></i></div>
+            <div class="hx-doc-foot">HVAC · BMS · Medición de energía</div>
+          </div>
+          <span class="hx-spark s1"></span><span class="hx-spark s2"></span><span class="hx-spark s3"></span>
         </div>
-      </div>
+      </section>
 
       <!-- ── COLABORADORES ── -->
-      <div class="sec-divider rv" id="collabDivider">
-        <div class="sec-divider-line"></div>
-        <div class="sec-divider-label"><i class="fa-solid fa-circle"></i> Marcas Colaboradoras <i
-            class="fa-solid fa-circle"></i></div>
-        <div class="sec-divider-line"></div>
+      <div class="cx-head rv" id="collabDivider">
+        <div>
+          <div class="cx-eyebrow"><i class="fa-solid fa-handshake" aria-hidden="true"></i> Marcas colaboradoras</div>
+          <h2 class="cx-title-sec">Catálogos de <span>nuestras marcas</span></h2>
+        </div>
+        <p class="cx-sub">Documentación oficial de los fabricantes que representamos. Abre el PDF o descárgalo para especificar tu proyecto.</p>
       </div>
 
-      <div class="collab-grid" id="collabGrid">
-        <!-- populated by JS -->
-      </div>
+      <div class="collab-grid" id="collabGrid"></div>
 
       <!-- ── FICHAS TÉCNICAS ── -->
       <section class="fichas-sec" id="fichas" aria-labelledby="fichas-h">
-        <div class="sec-divider rv">
-          <div class="sec-divider-line"></div>
-          <div class="sec-divider-label"><i class="fa-solid fa-circle"></i> Fichas Técnicas <i
-              class="fa-solid fa-circle"></i></div>
-          <div class="sec-divider-line"></div>
+        <div class="cx-head rv">
+          <div>
+            <div class="cx-eyebrow"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Fichas técnicas</div>
+            <h2 id="fichas-h" class="cx-title-sec">Fichas por <span>modelo y serie</span></h2>
+          </div>
+          <p class="cx-sub">Termostatos, controladores, válvulas, medidores y folletos de producto. Escribe el modelo en el buscador para encontrarlo al instante.</p>
         </div>
-        <div class="fichas-head rv">
-          <h2 id="fichas-h" class="haften-feature-title">Fichas <span>técnicas</span></h2>
-          <p class="haften-feature-desc">Termostatos, controladores, válvulas y medidores. Abre la ficha en PDF del
-            modelo que necesitas.</p>
-        </div>
+        <nav class="fx-jump" id="fxJump" aria-label="Grupos de fichas"></nav>
         <div id="fichasGroups"></div>
       </section>
 
-      <div class="empty-state" id="emptyState">
-        <div class="empty-icon"><i class="fa-solid fa-folder-open"></i></div>
-        <p>No se encontraron catálogos para tu búsqueda.</p>
+      <div class="empty-state" id="emptyState" role="status">
+        <div class="empty-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+        <p class="empty-t">No encontramos documentos para “<span id="emptyQ"></span>”.</p>
+        <p class="empty-s">Revisa la ortografía, prueba con el nombre de la marca o pregúntale a nuestro asistente.</p>
+        <div class="empty-actions">
+          <button type="button" class="empty-btn" id="emptyReset"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Ver todos</button>
+          <button type="button" class="empty-btn is-pri" id="emptyChat"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Preguntar al asistente</button>
+        </div>
       </div>
 
     </div>
@@ -1780,7 +1796,7 @@
           p.x += p.vx; p.y += p.vy; p.age++;
           const lp = p.age / p.maxAge, a = (lp < .1 ? lp * 10 : lp > .72 ? (1 - lp) / .28 : 1) * .4;
           ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
-          ctx.fillStyle = p.warm ? `rgba(234,88,12,${a * .6})` : `rgba(0,200,232,${a})`; ctx.fill();
+          ctx.fillStyle = p.warm ? `rgba(226,114,95,${a * .6})` : `rgba(214,226,238,${a * .75})`; ctx.fill();
           if (p.age >= p.maxAge || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) pts[i] = mkP();
         });
         requestAnimationFrame(draw);
@@ -1803,7 +1819,7 @@
   {
     "id": "airmonitor",
     "name": "Air Monitor",
-    "file": "assets/catalogos/air-monitor.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=8",
     "logo": "assets/logos/air-monitor.png",
     "size": "1.5 MB",
     "cats": [
@@ -1819,7 +1835,7 @@
   {
     "id": "belimo",
     "name": "Belimo",
-    "file": "assets/catalogos/belimo.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=9",
     "logo": "assets/logos/belimo.png",
     "size": "6.7 MB",
     "cats": [
@@ -1836,7 +1852,7 @@
   {
     "id": "bryair",
     "name": "Bry-Air",
-    "file": "assets/catalogos/bry-air.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=10",
     "logo": "assets/logos/bry-air.png",
     "size": "9.9 MB",
     "cats": [
@@ -1851,7 +1867,7 @@
   {
     "id": "contemporary",
     "name": "Contemporary Controls",
-    "file": "assets/catalogos/contemporary-controls.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=11",
     "logo": "assets/logos/contemporary-controls.png",
     "size": "12.5 MB",
     "cats": [
@@ -1867,7 +1883,7 @@
   {
     "id": "controltech",
     "name": "Control Techniques",
-    "file": "assets/catalogos/control-techniques.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=12",
     "logo": "assets/logos/control-techniques.png",
     "size": "12.2 MB",
     "cats": [
@@ -1884,7 +1900,7 @@
   {
     "id": "coolautomation",
     "name": "CoolAutomation",
-    "file": "assets/catalogos/cool-automation.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=13",
     "logo": "assets/logos/cool-automation.png",
     "size": "4.1 MB",
     "cats": [
@@ -1901,7 +1917,7 @@
   {
     "id": "delta",
     "name": "Delta",
-    "file": "assets/catalogos/delta.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=14",
     "logo": "assets/logos/delta-electronics.png",
     "size": "5.1 MB",
     "cats": [
@@ -1918,7 +1934,7 @@
   {
     "id": "dwyer",
     "name": "Dwyer Omega",
-    "file": "assets/catalogos/dwyer.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=15",
     "logo": "assets/logos/dwyer-omega.png",
     "size": "68.6 MB",
     "cats": [
@@ -1935,7 +1951,7 @@
   {
     "id": "flowcon",
     "name": "FlowCon",
-    "file": "assets/catalogos/flowcon.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=16",
     "logo": "assets/logos/flowcon.png",
     "size": "25.2 MB",
     "cats": [
@@ -1952,7 +1968,7 @@
   {
     "id": "gpi",
     "name": "GPI",
-    "file": "assets/catalogos/gpi.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=17",
     "logo": "assets/logos/gpi.png",
     "size": "8.8 MB",
     "cats": [
@@ -1967,7 +1983,7 @@
   {
     "id": "greystone",
     "name": "Greystone",
-    "file": "assets/catalogos/greystone.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=18",
     "logo": "assets/logos/greystone.png",
     "size": "5.1 MB",
     "cats": [
@@ -1984,7 +2000,7 @@
   {
     "id": "jci",
     "name": "Johnson Controls — Facility Explorer",
-    "file": "assets/catalogos/johnson-controls.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=19",
     "logo": "assets/logos/johnson-controls.png",
     "size": "842 KB",
     "cats": [
@@ -2000,7 +2016,7 @@
   {
     "id": "loytec",
     "name": "LOYTEC",
-    "file": "assets/catalogos/loytec.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=20",
     "logo": "assets/logos/loytec.png",
     "size": "29.2 MB",
     "cats": [
@@ -2017,7 +2033,7 @@
   {
     "id": "onicon",
     "name": "ONICON",
-    "file": "assets/catalogos/onicon.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=21",
     "logo": "assets/logos/onicon.png",
     "size": "2.4 MB",
     "cats": [
@@ -2033,7 +2049,7 @@
   {
     "id": "meitav",
     "name": "Meitav-tec",
-    "file": "assets/catalogos/meitav.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=22",
     "logo": "assets/logos/meitav-tec.png",
     "size": "5.9 MB",
     "cats": [
@@ -2049,7 +2065,7 @@
   {
     "id": "neptronic",
     "name": "Neptronic HVAC",
-    "file": "assets/catalogos/neptronic.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=23",
     "logo": "assets/logos/neptronic.png",
     "size": "6.3 MB",
     "cats": [
@@ -2065,7 +2081,7 @@
   {
     "id": "senva",
     "name": "Senva",
-    "file": "assets/catalogos/senva.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=24",
     "logo": "assets/logos/senva.png",
     "size": "8.0 MB",
     "cats": [
@@ -2082,7 +2098,7 @@
   {
     "id": "vaisala",
     "name": "Vaisala",
-    "file": "assets/catalogos/vaisala.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=25",
     "logo": "assets/logos/vaisala.svg",
     "size": "9.8 MB",
     "cats": [
@@ -2099,7 +2115,7 @@
   {
     "id": "setra",
     "name": "Setra Systems",
-    "file": "assets/catalogos/setra.pdf",
+    "file": "/WebSite/DownloadFileCatalog?fileID=27",
     "logo": "assets/logos/setra-systems.png",
     "size": "9.1 MB",
     "cats": [
@@ -2124,196 +2140,196 @@
         "name": "Serie AC223-A2",
         "code": "AC223-A2",
         "kw": "",
-        "file": "assets/fichas/AC223-A2.pdf",
+        "file": "/Documentos/AC223-A2.pdf",
         "size": "425 KB"
       },
       {
         "name": "Serie AC223-E1",
         "code": "AC223-E1",
         "kw": "AC223 E1 1S LP 24",
-        "file": "assets/fichas/AC223-E1.pdf",
+        "file": "/Documentos/AC223-E1.pdf",
         "size": "205 KB"
       },
       {
         "name": "Modelo AC223 M2 1S LP 24",
         "code": "AC223-M2",
         "kw": "AC223-M2",
-        "file": "assets/fichas/AC223-M2.pdf",
+        "file": "/Documentos/AC223-M2.pdf",
         "size": "225 KB"
       },
       {
         "name": "Serie ALT",
         "code": "ALT",
         "kw": "",
-        "file": "assets/fichas/ALT.pdf",
+        "file": "/Documentos/ALT.pdf",
         "size": "276 KB"
       },
       {
         "name": "Serie ALT-CPH-1S",
         "code": "ALT-CPH-1S",
         "kw": "ALT24-CPH-1S",
-        "file": "assets/fichas/ALT-CPH-1S.pdf",
+        "file": "/Documentos/ALT-CPH-1S.pdf",
         "size": "255 KB"
       },
       {
         "name": "Serie BAST-221-321",
         "code": "BAST-221-321",
         "kw": "BAST",
-        "file": "assets/fichas/BAST-221-321.pdf",
+        "file": "/Documentos/BAST-221-321.pdf",
         "size": "2.1 MB"
       },
       {
         "name": "Serie BAST-421",
         "code": "BAST-421",
         "kw": "BAST",
-        "file": "assets/fichas/BAST-421.pdf",
+        "file": "/Documentos/BAST-421.pdf",
         "size": "989 KB"
       },
       {
         "name": "Serie EXT-CF24",
         "code": "EXT-CF24",
         "kw": "Serie1 CF",
-        "file": "assets/fichas/EXT-CF24.pdf",
+        "file": "/Documentos/EXT-CF24.pdf",
         "size": "570 KB"
       },
       {
         "name": "Serie EXT-CF230",
         "code": "EXT-CF230",
         "kw": "Serie2 CF",
-        "file": "assets/fichas/EXT-CF230.pdf",
+        "file": "/Documentos/EXT-CF230.pdf",
         "size": "463 KB"
       },
       {
         "name": "Serie EXT-RCF/RCPB",
         "code": "EXT-RCx",
         "kw": "EXT-RC-PB-24",
-        "file": "assets/fichas/EXT-RCx.pdf",
+        "file": "/Documentos/EXT-RCx.pdf",
         "size": "1000 KB"
       },
       {
         "name": "Serie GA-B",
         "code": "GA-B",
         "kw": "",
-        "file": "assets/fichas/GA-B.pdf",
+        "file": "/Documentos/GA-B.pdf",
         "size": "541 KB"
       },
       {
         "name": "Serie HRO",
         "code": "HRO",
         "kw": "",
-        "file": "assets/fichas/HRO.pdf",
+        "file": "/Documentos/HRO.pdf",
         "size": "1.7 MB"
       },
       {
         "name": "Serie HT1000",
         "code": "HT1000",
         "kw": "",
-        "file": "assets/fichas/HT1000.pdf",
+        "file": "/Documentos/HT1000.pdf",
         "size": "284 KB"
       },
       {
         "name": "Serie HT5000HC11",
         "code": "HT5000HC11",
         "kw": "HT500",
-        "file": "assets/fichas/HT5000HC11.pdf",
+        "file": "/Documentos/HT5000HC11.pdf",
         "size": "168 KB"
       },
       {
         "name": "Serie HTW-WF06-FC",
         "code": "HTW-WF06-FC",
         "kw": "HTW-WF06-FC-2W",
-        "file": "assets/fichas/HTW-WF06-FC.pdf",
+        "file": "/Documentos/HTW-WF06-FC.pdf",
         "size": "1.1 MB"
       },
       {
         "name": "Serie MTS",
         "code": "MTS",
         "kw": "",
-        "file": "assets/fichas/MTS.pdf",
+        "file": "/Documentos/MTS.pdf",
         "size": "283 KB"
       },
       {
         "name": "Serie Nest 3a generación",
         "code": "NEST-3A",
         "kw": "Nest Learning",
-        "file": "assets/fichas/NEST-3A.pdf",
+        "file": "/Documentos/NEST%203A.pdf",
         "size": "584 KB"
       },
       {
         "name": "Serie Nest 4a generación",
         "code": "NEST-4TA",
         "kw": "Nest Learning 4 generación con sensor",
-        "file": "assets/fichas/NEST-4TA.pdf",
+        "file": "/Documentos/NEST%204TA.pdf",
         "size": "3.0 MB"
       },
       {
         "name": "Serie P722U",
         "code": "P722U",
         "kw": "PT22U P722U-010",
-        "file": "assets/fichas/P722U.pdf",
+        "file": "/Documentos/P722U.pdf",
         "size": "555 KB"
       },
       {
         "name": "Serie TAS24",
         "code": "TAS24",
         "kw": "TAS241A",
-        "file": "assets/fichas/TAS24.pdf",
+        "file": "/Documentos/TAS24.pdf",
         "size": "234 KB"
       },
       {
         "name": "Serie TAS400",
         "code": "TAS400",
         "kw": "Serie TAS",
-        "file": "assets/fichas/TAS400.pdf",
+        "file": "/Documentos/TAS400.pdf",
         "size": "1008 KB"
       },
       {
         "name": "Serie TAT-SUPER",
         "code": "TAT-SUPER",
         "kw": "",
-        "file": "assets/fichas/TAT-SUPER.pdf",
+        "file": "/Documentos/TAT-SUPER.pdf",
         "size": "168 KB"
       },
       {
         "name": "Serie TBS24",
         "code": "TBS24",
         "kw": "Serie TBS",
-        "file": "assets/fichas/TBS24.pdf",
+        "file": "/Documentos/TBS24.pdf",
         "size": "917 KB"
       },
       {
         "name": "Serie TEC3000",
         "code": "TEC3000",
         "kw": "",
-        "file": "assets/fichas/TEC3000.pdf",
+        "file": "/Documentos/TEC3000.pdf",
         "size": "497 KB"
       },
       {
         "name": "TEC 4000S",
         "code": "TEC4000S",
         "kw": "TEC4000S",
-        "file": "assets/fichas/TEC4000S.pdf",
+        "file": "/catalogs/TEC4000S.PDF",
         "size": "559 KB"
       },
       {
         "name": "Serie TRS-HT4-01",
         "code": "TRS-HT4-01",
         "kw": "TRS-HT4/01",
-        "file": "assets/fichas/TRS-HT4-01.pdf",
+        "file": "/Documentos/TRS-HT4-01.pdf",
         "size": "188 KB"
       },
       {
         "name": "Serie TUCB-TUHB",
         "code": "TUCB-TUHB",
         "kw": "Serie TU",
-        "file": "assets/fichas/TUCB-TUHB.pdf",
+        "file": "/Documentos/TUCB-TUHB.pdf",
         "size": "1.4 MB"
       },
       {
         "name": "Serie TUUB",
         "code": "TUUB",
         "kw": "",
-        "file": "assets/fichas/TUUB.pdf",
+        "file": "/Documentos/TUUB.pdf",
         "size": "176 KB"
       }
     ]
@@ -2327,35 +2343,35 @@
         "name": "Válvulas EXT-SW",
         "code": "EXT_SW_VALVES",
         "kw": "válvulas EXTS",
-        "file": "assets/fichas/EXT_SW_VALVES.pdf",
+        "file": "/catalogs/EXT_SW_VALVES.pdf",
         "size": "530 KB"
       },
       {
         "name": "Ficha técnica AL40MET3",
         "code": "AL40MET3",
         "kw": "",
-        "file": "assets/fichas/AL40MET3.pdf",
+        "file": "/catalogs/Ficha%20tecnica%20AL40MET3.pdf",
         "size": "207 KB"
       },
       {
         "name": "Ficha técnica AL50MET3",
         "code": "AL50MET3",
         "kw": "",
-        "file": "assets/fichas/AL50MET3.pdf",
+        "file": "/catalogs/Ficha%20tecnica%20AL50MET3.pdf",
         "size": "204 KB"
       },
       {
         "name": "Ficha técnica AL75MET3",
         "code": "AL75MET3",
         "kw": "",
-        "file": "assets/fichas/AL75MET3.pdf",
+        "file": "/catalogs/Ficha%20tecnica%20AL75MET3.pdf",
         "size": "207 KB"
       },
       {
         "name": "Ficha técnica AL100MET3",
         "code": "AL100MET3",
         "kw": "",
-        "file": "assets/fichas/AL100MET3.pdf",
+        "file": "/catalogs/Ficha%20tecnica%20AL100MET3.pdf",
         "size": "199 KB"
       }
     ]
@@ -2385,7 +2401,7 @@
         "name": "Sistema de ahorro de energía independiente de la presión",
         "code": "FlowCon",
         "kw": "FlowCon",
-        "file": "assets/catalogos/flowcon.pdf",
+        "file": "/documentos/flowcon.pdf",
         "ext": false,
         "size": "25.2 MB"
       },
@@ -2393,7 +2409,7 @@
         "name": "Serie CDT-S",
         "code": "Dwyer",
         "kw": "Dwyer",
-        "file": "assets/catalogos/dwyer.pdf",
+        "file": "/documentos/dwyer.pdf",
         "ext": false,
         "size": "68.6 MB"
       },
@@ -2401,7 +2417,7 @@
         "name": "Air Monitor",
         "code": "Air Monitor",
         "kw": "Air Monitor",
-        "file": "assets/catalogos/air-monitor.pdf",
+        "file": "/documentos/air%20monitor.pdf",
         "ext": false,
         "size": "1.5 MB"
       },
@@ -2409,7 +2425,7 @@
         "name": "CoolAutomation",
         "code": "CoolAutomation",
         "kw": "CoolAutomation",
-        "file": "assets/catalogos/cool-automation.pdf",
+        "file": "/WebSite/DownloadFileCatalog?fileID=13",
         "ext": false,
         "size": "4.1 MB"
       }
@@ -2418,136 +2434,158 @@
 ];
     // CATALOG:END
 
-    // ── BUILD HAFTEN GRID ──
+    // ── EXPLORADOR DE CATÁLOGOS ──
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    const CAT_LABEL = { hvac: 'HVAC / R', bms: 'BMS / Control', medicion: 'Medición', variadores: 'Variadores' };
+    const fichaTotal = fichaGroups.reduce((n, g) => n + g.items.length, 0);
+    document.getElementById('hxFichas').textContent = fichaTotal;
+
+    // resalta coincidencias sin romper acentos
+    function mark(text, q) {
+      if (!q) return esc(text);
+      const n = norm(text); let out = '', i = 0, k;
+      while ((k = n.indexOf(q, i)) >= 0) { out += esc(text.slice(i, k)) + '<mark>' + esc(text.slice(k, k + q.length)) + '</mark>'; i = k + q.length; }
+      return out + esc(text.slice(i));
+    }
+
+    // ── HAFTEN ──
     const haftenGrid = document.getElementById('haftenGrid');
     haftenCatalogs.forEach(c => {
-      const el = document.createElement('a');
-      el.className = 'haf-card';
-      el.href = c.file;
-      el.target = '_blank';
-      el.rel = 'noopener';
-      el.innerHTML = `
-    <div class="haf-card-icon"><i class="${c.icon}" aria-hidden="true"></i></div>
-    <div>
-      <div class="haf-card-name">${esc(c.name)}</div>
-      <div class="haf-card-size">PDF · ${c.size}</div>
-    </div>
-    <div class="haf-card-btn">
-      <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar
-    </div>`;
-      haftenGrid.appendChild(el);
+      haftenGrid.insertAdjacentHTML('beforeend', `
+      <a class="haf-card" href="${c.file}" target="_blank" rel="noopener">
+        <span class="haf-card-icon"><i class="${c.icon}" aria-hidden="true"></i></span>
+        <span class="haf-card-txt"><span class="haf-card-name">${esc(c.name)}</span><span class="haf-card-size">PDF · ${c.size}</span></span>
+        <span class="haf-card-btn"><i class="fa-solid fa-download" aria-hidden="true"></i> Descargar</span>
+      </a>`);
     });
-    // acceso directo a fichas técnicas dentro de la tarjeta Haften
-    (function () {
-      const total = fichaGroups.reduce((n, g) => n + g.items.length, 0);
-      const el = document.createElement('a');
-      el.className = 'haf-card';
-      el.href = '#fichas';
-      el.innerHTML = `
-    <div class="haf-card-icon"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
-    <div>
-      <div class="haf-card-name">Fichas técnicas</div>
-      <div class="haf-card-size">${total} documentos · Termostatos, válvulas y más</div>
-    </div>
-    <div class="haf-card-btn">
-      <i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Ver fichas
-    </div>`;
-      haftenGrid.appendChild(el);
-    })();
+    haftenGrid.insertAdjacentHTML('beforeend', `
+      <a class="haf-card is-alt" href="#fichas">
+        <span class="haf-card-icon"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+        <span class="haf-card-txt"><span class="haf-card-name">Fichas técnicas</span><span class="haf-card-size">${fichaTotal} documentos · termostatos, válvulas y más</span></span>
+        <span class="haf-card-btn"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Ver fichas</span>
+      </a>`);
 
-    // ── SCROLL REVEAL ──
-    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target) } }) }, { threshold: .06 });
-
-    // ── BUILD COLLAB GRID ──
+    // ── MARCAS ──
     const collabGrid = document.getElementById('collabGrid');
     collabCatalogs.forEach((c, i) => {
       const el = document.createElement('article');
-      el.className = `cat-card rv d${(i % 5) + 1}`;
+      el.className = 'cat-card';
+      el.style.setProperty('--i', i % 8);
       el.dataset.cats = c.cats.join(' ');
-      el.dataset.search = [c.name, c.tags.join(' '), c.desc].join(' ').toLowerCase();
+      el.dataset.search = norm([c.name, c.tags.join(' '), c.desc, c.cats.map(k => CAT_LABEL[k]).join(' ')].join(' '));
       el.innerHTML = `
       <div class="cat-logo-area"><img src="${c.logo}" alt="${esc(c.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="cat-fallback-name" style="display:none">${esc(c.name)}</div></div>
       <div class="cat-body">
-        <div class="cat-brand-label">Marca Colaboradora</div>
-        <h3 class="cat-title">${esc(c.name)}</h3>
-        <p style="font-size:.82rem;color:var(--text-2);line-height:1.65;margin-top:4px">${esc(c.desc)}</p>
-        <div class="cat-tags">${c.tags.map((t, idx) => `<span class="cat-tag${idx < 2 ? ' hi' : ''}">${esc(t)}</span>`).join('')}</div>
+        <div class="cat-brand-label">${c.cats.map(k => CAT_LABEL[k]).join(' · ')}</div>
+        <h3 class="cat-title" data-t="${esc(c.name)}">${esc(c.name)}</h3>
+        <p class="cat-desc">${esc(c.desc)}</p>
+        <div class="cat-tags">${c.tags.map(t => `<span class="cat-tag">${esc(t)}</span>`).join('')}</div>
       </div>
       <div class="cat-footer">
-        <span class="cat-size"><i class="fa-solid fa-file-pdf" style="color:var(--text-3);margin-right:5px" aria-hidden="true"></i>PDF · ${c.size}</span>
-        <a href="${c.file}" target="_blank" rel="noopener" class="cat-dl-btn" aria-label="Descargar catálogo ${esc(c.name)} (PDF, ${c.size})">
-          <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar
+        <span class="cat-size"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>PDF · ${c.size}</span>
+        <a href="${c.file}" target="_blank" rel="noopener" class="cat-dl-btn" aria-label="Abrir catálogo ${esc(c.name)} (PDF, ${c.size})">
+          Abrir <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </a>
       </div>`;
       collabGrid.appendChild(el);
     });
 
-    // ── BUILD FICHAS ──
+    // ── FICHAS ──
     const fichasWrap = document.getElementById('fichasGroups');
+    const jump = document.getElementById('fxJump');
     fichaGroups.forEach(g => {
+      const isBro = g.id === 'folletos';
+      jump.insertAdjacentHTML('beforeend', `<a href="#fx-${g.id}" class="fx-jump-a" data-group="${g.id}"><i class="${g.icon}" aria-hidden="true"></i>${esc(g.title)}<span>${g.items.length}</span></a>`);
       const sec = document.createElement('div');
       sec.className = 'ficha-group rv';
+      sec.id = 'fx-' + g.id;
       sec.dataset.group = g.id;
       sec.innerHTML = `
-      <h3 class="ficha-group-title"><i class="${g.icon}" aria-hidden="true"></i> ${esc(g.title)} <span class="ficha-group-count">${g.items.length}</span></h3>
-      <ul class="ficha-grid">${g.items.map(f => `
-        <li class="ficha" data-search="${esc([f.name, f.code, f.kw, g.title].join(' ').toLowerCase())}">
-          <a href="${f.file}" target="_blank" rel="noopener" class="ficha-link">
-            <span class="ficha-ico"><i class="fa-solid ${f.ext ? 'fa-arrow-up-right-from-square' : 'fa-file-pdf'}" aria-hidden="true"></i></span>
-            <span class="ficha-txt"><span class="ficha-name">${esc(f.name)}</span><span class="ficha-meta">${esc(f.code)} · ${f.size}</span></span>
-            <span class="ficha-go" aria-hidden="true"><i class="fa-solid fa-download"></i></span>
+      <h3 class="ficha-group-title"><span class="fg-ico"><i class="${g.icon}" aria-hidden="true"></i></span>${esc(g.title)}<span class="ficha-group-count">${g.items.length}</span></h3>
+      <ul class="ficha-grid">${g.items.map(f => {
+        const main = isBro ? f.name : f.code;
+        const sub = isBro ? f.code : (norm(f.name).includes(norm(f.code)) ? (f.name.startsWith('Serie') ? 'Serie · ficha técnica' : 'Ficha técnica') : f.name);
+        return `
+        <li class="ficha" data-search="${esc(norm([f.name, f.code, f.kw, g.title].join(' ')))}">
+          <a href="${f.file}" target="_blank" rel="noopener" class="ficha-link" aria-label="${esc(f.name)} (${f.ext ? 'sitio externo' : 'PDF, ' + f.size})">
+            <span class="ficha-ico ${f.ext ? 'is-ext' : ''}">${f.ext ? '<i class="fa-solid fa-globe" aria-hidden="true"></i>' : 'PDF'}</span>
+            <span class="ficha-txt"><span class="ficha-name" data-t="${esc(main)}">${esc(main)}</span><span class="ficha-meta" data-t="${esc(sub)}">${esc(sub)}</span></span>
+            <span class="ficha-size">${f.ext ? 'Web' : f.size}</span>
+            <span class="ficha-go" aria-hidden="true"><i class="fa-solid ${f.ext ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'}"></i></span>
           </a>
-        </li>`).join('')}
+        </li>`;
+      }).join('')}
       </ul>`;
       fichasWrap.appendChild(sec);
     });
 
-    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    // ── APARICIÓN AL HACER SCROLL ──
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target) } }) }, { threshold: .06 });
+    document.querySelectorAll('.rv, .cat-card').forEach(el => io.observe(el));
 
-    // ── FILTER & SEARCH ──
+    // ── FILTRO Y BÚSQUEDA ──
     const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('searchClear');
     const filterTabs = document.querySelectorAll('.f-tab');
     const filterCount = document.getElementById('filterCount');
     const emptyState = document.getElementById('emptyState');
     const haftenFeature = document.querySelector('.haften-feature');
     const collabDivider = document.getElementById('collabDivider');
     const fichasSec = document.getElementById('fichas');
+    const cards = [...document.querySelectorAll('.cat-card')];
+    const fichas = [...document.querySelectorAll('.ficha')];
     let currentCat = 'all';
-    const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+    function matches(q) {
+      const haften = !q || norm('haften catalogo 2025 general').includes(q);
+      const byCat = { all: 0, haften: haften ? 1 : 0, hvac: 0, bms: 0, medicion: 0, variadores: 0, fichas: 0 };
+      cards.forEach(c => { if (!q || c.dataset.search.includes(q)) { byCat.all++; c.dataset.cats.split(' ').forEach(k => byCat[k]++); } });
+      fichas.forEach(f => { if (!q || f.dataset.search.includes(q)) { byCat.fichas++; byCat.all++; } });
+      byCat.all += byCat.haften;
+      return byCat;
+    }
 
     function filterCatalogs() {
-      const q = norm(searchInput.value.trim());
+      const raw = searchInput.value.trim(), q = norm(raw);
+      clearBtn.hidden = !raw;
       const showCollab = !['haften', 'fichas'].includes(currentCat);
       const showFichas = currentCat === 'all' || currentCat === 'fichas';
       let nCollab = 0, nFichas = 0;
 
-      document.querySelectorAll('.cat-card').forEach(card => {
-        const show = showCollab && (currentCat === 'all' || card.dataset.cats.split(' ').includes(currentCat)) && (!q || norm(card.dataset.search).includes(q));
+      cards.forEach(card => {
+        const show = showCollab && (currentCat === 'all' || card.dataset.cats.split(' ').includes(currentCat)) && (!q || card.dataset.search.includes(q));
         card.classList.toggle('hidden', !show);
-        if (show) nCollab++;
+        if (show) { nCollab++; const t = card.querySelector('.cat-title'); t.innerHTML = mark(t.dataset.t, q); }
       });
       document.querySelectorAll('.ficha-group').forEach(g => {
         let n = 0;
         g.querySelectorAll('.ficha').forEach(f => {
-          const show = showFichas && (!q || norm(f.dataset.search).includes(q));
+          const show = showFichas && (!q || f.dataset.search.includes(q));
           f.hidden = !show;
-          if (show) n++;
+          if (show) { n++; f.querySelectorAll('[data-t]').forEach(s => s.innerHTML = mark(s.dataset.t, q)); }
         });
         g.hidden = n === 0;
+        const j = jump.querySelector(`[data-group="${g.dataset.group}"]`);
+        j.hidden = n === 0; j.querySelector('span').textContent = n;
         nFichas += n;
       });
 
-      const showHaften = (currentCat === 'all' || currentCat === 'haften') && (!q || 'haften catalogo 2025'.includes(q));
+      const showHaften = (currentCat === 'all' || currentCat === 'haften') && (!q || norm('haften catalogo 2025 general').includes(q));
       haftenFeature.hidden = !showHaften;
       collabDivider.hidden = nCollab === 0;
+      collabGrid.hidden = nCollab === 0;
       fichasSec.hidden = nFichas === 0;
 
+      const counts = matches(q);
+      filterTabs.forEach(t => { const n = counts[t.dataset.cat]; t.querySelector('.f-n').textContent = n; t.classList.toggle('is-zero', !n); });
       const total = nCollab + nFichas + (showHaften ? haftenCatalogs.length : 0);
-      filterCount.textContent = `${total} documento${total === 1 ? '' : 's'}`;
+      filterCount.innerHTML = `<b>${total}</b> documento${total === 1 ? '' : 's'}`;
+      document.getElementById('emptyQ').textContent = raw || CAT_LABEL[currentCat] || '';
       emptyState.classList.toggle('show', total === 0);
     }
 
+    let tm;
     filterTabs.forEach(tab => {
       tab.addEventListener('click', () => {
         filterTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false') });
@@ -2555,14 +2593,32 @@
         tab.setAttribute('aria-pressed', 'true');
         currentCat = tab.dataset.cat;
         filterCatalogs();
+        const box = tab.parentNode; if (box.scrollWidth > box.clientWidth) box.scrollTo({ left: tab.offsetLeft - 16, behavior: 'smooth' });
       });
     });
-    searchInput.addEventListener('input', filterCatalogs);
+    searchInput.addEventListener('input', () => {
+      clearTimeout(tm); tm = setTimeout(filterCatalogs, 90);
+      try { const u = new URL(location); searchInput.value ? u.searchParams.set('q', searchInput.value) : u.searchParams.delete('q'); history.replaceState(null, '', u); } catch (e) { }
+    });
+    searchInput.addEventListener('keydown', e => { if (e.key === 'Escape' && searchInput.value) { e.stopPropagation(); searchInput.value = ''; filterCatalogs(); } });
+    clearBtn.addEventListener('click', () => { searchInput.value = ''; filterCatalogs(); searchInput.focus(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && !/input|textarea|select/i.test(document.activeElement.tagName)) { e.preventDefault(); searchInput.focus(); }
+    });
+    document.getElementById('emptyReset').addEventListener('click', () => { searchInput.value = ''; filterTabs[0].click(); searchInput.focus(); });
+    document.getElementById('emptyChat').addEventListener('click', () => { window.HaftenChat ? window.HaftenChat.ask(searchInput.value || 'Busco un catálogo') : location.href = '/contacto'; });
+    jump.addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 
-    // INIT
+    // barra fija: sombra al despegarse
+    const bar = document.getElementById('filterBar');
+    new IntersectionObserver(([e]) => bar.classList.toggle('is-stuck', e.intersectionRatio < 1), { threshold: 1, rootMargin: '-1px 0px 0px 0px' }).observe(bar);
+
+    // INIT (admite ?q= para enlazar búsquedas)
+    try { const q0 = new URLSearchParams(location.search).get('q'); if (q0) searchInput.value = q0; } catch (e) { }
     filterCatalogs();
   </script>
   <script src="assets/js/site.js"></script>
+  <script src="assets/js/ui.js"></script>
 </body>
 
 </html>

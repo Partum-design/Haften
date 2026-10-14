@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      --ac: #E11D48;
-      --ac-dark: #BE123C;
-      --ac-rgb: 225, 29, 72;
+      --ac: #7B241B;
+      --ac-dark: #5F1B14;
+      --ac-rgb: 123, 36, 27;
       --bg: #030810;
       --bg2: #060d1a;
       --bg3: #0c1828;
@@ -30,7 +30,7 @@
       --ink: #05162a;
       --ink2: #183855;
       --ink3: #2e6080;
-      --border-d: rgba(225, 29, 72, .1);
+      --border-d: rgba(var(--ac-rgb), .1);
       --border-l: rgba(5, 22, 42, .08);
       --nav-h: 88px;
       --font-scale: 1;
@@ -614,7 +614,7 @@
     .hero-grid {
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(0, 200, 232, .015) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 200, 232, .015) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(255, 255, 255, .015) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .015) 1px, transparent 1px);
       background-size: 72px 72px;
       pointer-events: none
     }
@@ -1889,7 +1889,7 @@
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background: #ff4d4f;
+      background: var(--brand-300);
       border: 2px solid var(--bg2);
       font-size: .52rem;
       font-weight: 800;
@@ -2160,6 +2160,8 @@
     }
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/ui.css">
+  <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
 <body>
@@ -2438,74 +2440,57 @@
       </div>
     </section>
 
-    <section class="offices-sec" aria-labelledby="offices-h">
-      <div class="offices-inner">
-        <div class="offices-header rv">
-          <div class="eyebrow"><i class="fa-solid fa-location-dot"></i> Presencia nacional</div>
-          <h2 id="offices-h" class="sec-title">Nuestras <span>Oficinas</span></h2>
-          <p class="sec-sub">5 puntos de atención estratégicos para cubrir todo México. Haz clic en una oficina para ver
-            su ubicación.</p>
-        </div>
-        <div class="offices-layout">
-          <div class="map-wrap rv-l">
-            <iframe id="gmapFrame" loading="lazy"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx"
-              title="Mapa de oficina Haften" aria-label="Mapa de ubicación"
-              style="transition:opacity .3s; width: 100%; height: 100%; min-height: 450px; border: 0;"
-              allowfullscreen="" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+    <!-- ██ SUCURSALES ██ -->
+    <section class="suc" id="sucursales" aria-labelledby="suc-h">
+      <div class="suc-in">
+        <header class="suc-head">
+          <div class="suc-eyebrow"><span class="suc-eyebrow-dot" aria-hidden="true"></span>Presencia nacional</div>
+          <h2 id="suc-h" class="suc-title">Nuestras <em>sucursales</em></h2>
+          <p class="suc-sub">Casa matriz en la Ciudad de México y oficinas regionales en Monterrey, Guadalajara, León y Cancún para atender proyectos en todo el país.</p>
+          <ul class="suc-stats" aria-label="Cobertura">
+            <li><b data-count="5">5</b><span>sucursales</span></li>
+            <li><b data-count="32">32</b><span>estados atendidos</span></li>
+            <li><b data-count="1999">1999</b><span>año de fundación</span></li>
+          </ul>
+        </header>
+        <div class="suc-grid">
+          <div class="suc-stage" data-dark>
+            <div class="suc-modes" role="group" aria-label="Tipo de mapa">
+              <button type="button" class="suc-mode" data-mode="net" aria-pressed="true"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Red nacional</button>
+              <button type="button" class="suc-mode" data-mode="gmap" aria-pressed="false"><i class="fa-solid fa-map" aria-hidden="true"></i>Google Maps</button>
+            </div>
+            <div class="suc-net">
+              <svg class="suc-map" viewBox="0 0 1000 624" role="img" aria-labelledby="suc-map-t">
+                <title id="suc-map-t">Mapa de México con las cinco sucursales de Haften</title>
+                <defs>
+                  <pattern id="sucDots" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="5.5" cy="5.5" r="1.25" fill="#fff"/></pattern>
+                  <path id="sucMx" d="M45.0,12.2L118.5,6.1L115.1,13.0L231.2,52.5L317.6,52.3L317.7,37.4L371.7,37.8L380.8,48.4L384.6,50.1L400.1,64.0L418.4,77.2L425.7,92.2L427.4,101.6L434.3,110.9L446.8,119.3L469.2,130.0L474.3,128.6L480.4,122.9L485.2,108.6L488.9,105.0L495.8,103.2L497.1,101.2L507.9,103.5L521.5,103.1L526.6,105.3L529.0,108.9L537.0,114.7L545.7,124.0L558.7,146.6L559.8,152.5L565.4,157.6L576.3,172.4L583.9,178.5L585.4,194.9L592.4,204.7L596.1,215.2L606.6,218.7L608.8,220.9L618.5,224.0L621.5,226.4L636.1,228.7L649.1,234.4L651.9,232.0L656.1,231.4L653.7,243.9L645.0,262.9L640.1,283.8L637.8,304.7L637.7,332.1L634.3,342.7L634.8,346.5L637.2,360.0L642.7,369.9L650.9,378.0L648.1,387.8L647.5,381.3L648.8,377.9L642.5,371.4L637.5,362.6L641.0,376.7L644.8,380.9L656.9,409.6L677.1,434.5L682.3,452.1L691.6,461.7L693.8,467.0L697.9,470.0L693.3,468.5L693.5,469.6L702.6,473.8L704.0,473.8L700.4,471.0L704.6,472.9L716.1,473.5L721.3,477.8L727.9,479.7L735.6,491.0L746.5,490.3L766.0,482.5L779.0,482.8L786.4,481.3L790.0,479.4L791.7,476.4L800.0,474.4L814.2,473.0L817.1,475.6L815.2,478.1L816.1,479.2L819.5,481.2L827.7,481.7L835.7,476.0L835.6,472.9L832.8,470.0L833.6,466.8L830.4,469.1L830.7,467.2L845.4,458.4L852.0,451.8L853.4,439.2L859.6,431.9L859.8,411.6L863.9,396.5L880.1,387.6L908.9,383.0L921.5,377.9L935.5,376.7L958.6,381.9L960.6,380.9L960.6,378.6L957.3,379.3L954.6,378.4L955.1,377.7L962.4,376.1L965.3,377.1L971.7,382.8L973.3,391.8L968.7,404.0L959.6,413.2L953.5,422.4L952.0,426.8L953.1,433.6L952.2,436.0L948.4,437.5L945.3,442.3L946.6,445.1L953.4,444.1L951.6,448.7L946.2,451.8L946.3,454.9L949.5,452.8L951.0,453.9L940.3,487.9L937.1,482.2L934.5,480.7L935.4,472.6L934.8,468.9L933.5,469.0L929.8,472.9L929.8,475.5L926.7,481.1L919.8,482.0L911.1,498.0L908.3,499.7L903.7,496.9L901.1,497.9L900.3,503.0L844.4,503.0L844.3,521.8L831.5,521.7L844.8,534.6L852.8,540.0L855.3,546.6L861.9,550.5L861.0,561.1L821.5,561.2L807.2,587.7L811.1,594.4L808.6,598.1L808.6,607.2L806.3,612.1L785.4,589.0L754.9,561.8L740.9,554.1L739.8,554.0L739.2,556.0L746.4,558.7L752.2,562.9L737.9,557.3L732.1,556.8L731.4,555.9L734.4,553.0L733.4,552.0L728.1,554.0L728.0,551.4L724.8,549.6L721.1,554.3L727.9,556.6L717.7,557.7L707.5,564.4L698.1,567.3L684.6,573.8L675.5,575.2L666.5,572.7L654.9,566.6L637.5,564.7L625.7,556.7L614.1,553.4L606.7,545.7L578.3,539.5L568.0,532.9L542.9,523.5L526.4,513.1L523.3,509.7L519.8,508.5L510.1,498.2L501.0,498.3L486.2,494.8L463.6,486.0L449.1,469.2L434.1,460.5L417.8,453.2L401.1,430.9L395.4,417.3L399.3,413.6L404.3,413.1L408.0,410.9L408.2,407.9L405.9,405.1L400.3,403.2L408.6,392.9L409.5,380.5L402.7,376.2L396.1,363.9L396.2,352.6L391.7,342.5L373.1,323.6L356.7,300.8L331.3,281.1L338.6,284.8L339.8,282.6L339.0,280.5L329.8,278.8L325.6,276.3L323.7,270.6L315.6,260.7L319.9,262.8L323.1,262.3L322.6,261.2L312.7,257.0L302.8,250.7L300.1,245.5L292.7,247.4L291.5,245.1L294.5,243.8L297.1,239.0L291.0,242.9L287.5,243.7L284.2,242.3L281.8,239.2L280.6,229.0L287.5,219.9L290.1,221.7L287.0,218.3L285.1,212.3L278.8,206.4L270.5,206.7L266.4,200.7L264.7,194.1L254.5,191.3L248.4,186.0L244.1,175.0L246.8,168.0L239.7,166.2L234.8,167.1L228.7,164.5L217.9,150.6L211.7,147.7L203.6,135.9L196.9,129.4L195.0,121.1L190.3,118.5L189.2,112.1L179.3,97.2L176.7,86.7L167.8,70.2L167.6,61.8L169.9,60.4L169.8,57.4L152.2,51.8L151.9,47.8L148.0,44.8L142.3,42.4L140.5,45.9L136.1,46.4L112.1,33.3L115.0,36.7L116.5,41.8L114.8,45.4L113.7,58.1L117.4,64.7L121.3,79.8L121.4,91.5L129.3,102.4L135.2,105.5L148.1,117.8L154.5,126.6L156.0,132.5L159.6,131.8L161.5,136.3L165.0,136.7L168.4,146.4L175.2,149.3L175.2,153.7L177.5,156.5L177.1,160.3L179.0,163.6L179.4,169.2L191.7,179.3L196.0,190.5L201.8,194.1L201.5,197.8L205.4,202.0L206.1,207.5L209.4,211.0L211.0,210.7L207.5,204.9L208.1,200.8L215.0,206.5L222.2,225.9L223.4,237.1L227.8,244.4L231.4,245.9L235.7,258.6L241.9,267.9L240.5,277.1L242.8,285.4L246.2,289.6L250.7,291.3L251.7,293.5L253.9,290.3L253.1,286.6L254.9,285.3L262.3,291.0L268.8,298.8L271.9,303.4L272.9,308.0L277.9,310.2L280.7,314.1L278.4,324.8L268.4,332.7L262.9,333.7L260.3,329.9L257.5,318.8L252.0,310.0L243.7,305.6L231.3,293.3L219.6,285.8L211.6,278.2L207.9,278.7L206.5,274.5L199.7,268.8L197.9,262.0L199.7,244.3L196.5,233.0L190.3,222.9L181.7,219.5L170.6,210.6L167.6,206.2L166.5,198.5L162.9,203.7L158.3,203.6L153.0,206.0L145.5,197.9L140.8,197.1L137.4,193.2L127.0,189.5L124.1,182.4L110.3,172.2L108.9,168.6L123.3,170.6L131.5,167.7L131.4,170.9L136.5,174.4L138.6,174.2L135.3,169.1L135.8,166.1L132.5,165.6L135.0,163.0L139.2,149.2L136.3,143.2L112.0,118.3L105.0,115.8L89.5,104.9L87.2,98.8L85.4,98.0L85.2,86.6L79.7,82.9L77.6,69.9L70.4,64.3L69.3,56.6L59.3,44.5L59.1,40.1L57.4,38.9L60.4,38.1L60.5,35.0L53.6,30.1L51.6,23.4L47.0,18.5ZM968.2,420.1L966.6,421.1L965.8,417.4L967.0,413.9L968.6,411.8L971.6,411.6L973.8,411.8ZM166.5,128.3L163.1,126.8L153.5,116.3L153.3,110.9L155.7,111.4L159.8,116.1L159.8,118.7L165.1,120.0ZM104.9,161.1L104.4,162.2L99.3,159.9L102.1,156.0L101.7,152.0L103.0,151.1L104.1,152.4L105.5,157.6ZM195.6,129.9L193.3,137.7L186.1,135.1L187.4,124.5L193.2,122.0ZM200.1,278.6L196.8,275.1L196.5,272.4L192.7,270.5L195.0,265.1L196.9,253.9L197.8,255.9L195.9,268.7Z"/>
+                  <clipPath id="sucClip"><use href="#sucMx"/></clipPath>
+
+                </defs>
+
+                <use class="suc-land" href="#sucMx"/>
+                <rect class="suc-dots" width="1000" height="624" fill="url(#sucDots)" clip-path="url(#sucClip)"/>
+                <use class="suc-coast" href="#sucMx"/>
+                <g class="suc-arcs"><path class="suc-arc" data-to="mty" pathLength="1" d="M594.4,450.0Q635.4,335.4 559.1,240.5"/><path class="suc-arc" data-to="gdl" pathLength="1" d="M594.4,450.0Q541.6,392.6 465.1,407.6"/><path class="suc-arc" data-to="leon" pathLength="1" d="M594.4,450.0Q571.9,399.8 517.4,392.7"/><path class="suc-arc" data-to="cun" pathLength="1" d="M594.4,450.0Q765.8,314.7 970.8,390.1"/></g>
+                <g class="suc-pins"><g class="suc-pin is-hq" data-id="cdmx" transform="translate(594.4 450.0)" role="button" tabindex="-1" aria-label="Ciudad de México"><circle class="suc-hit" r="26"/><circle class="suc-pulse" r="16"/><circle class="suc-halo" r="11"/><circle class="suc-dot" r="6"/><text x="16" y="26" text-anchor="start">CDMX</text></g><g class="suc-pin" data-id="mty" transform="translate(559.1 240.5)" role="button" tabindex="-1" aria-label="Monterrey"><circle class="suc-hit" r="26"/><circle class="suc-pulse" r="13"/><circle class="suc-halo" r="8.5"/><circle class="suc-dot" r="4.6"/><text x="18" y="6" text-anchor="start">Monterrey</text></g><g class="suc-pin" data-id="gdl" transform="translate(465.1 407.6)" role="button" tabindex="-1" aria-label="Guadalajara"><circle class="suc-hit" r="26"/><circle class="suc-pulse" r="13"/><circle class="suc-halo" r="8.5"/><circle class="suc-dot" r="4.6"/><text x="-16" y="22" text-anchor="end">Guadalajara</text></g><g class="suc-pin" data-id="leon" transform="translate(517.4 392.7)" role="button" tabindex="-1" aria-label="León"><circle class="suc-hit" r="26"/><circle class="suc-pulse" r="13"/><circle class="suc-halo" r="8.5"/><circle class="suc-dot" r="4.6"/><text x="0" y="-20" text-anchor="middle">León</text></g><g class="suc-pin" data-id="cun" transform="translate(970.8 390.1)" role="button" tabindex="-1" aria-label="Cancún"><circle class="suc-hit" r="26"/><circle class="suc-pulse" r="13"/><circle class="suc-halo" r="8.5"/><circle class="suc-dot" r="4.6"/><text x="-16" y="-16" text-anchor="end">Cancún</text></g></g>
+              </svg>
+            </div>
+            <div class="suc-gmap" hidden><iframe title="Ubicación de la sucursal en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+            <div class="suc-legend" aria-hidden="true"><span><i class="lg-hq"></i>Casa matriz</span><span><i class="lg-reg"></i>Oficina regional</span></div>
           </div>
-          <div class="offices-list rv-r">
-
-            <div class="office-card active-c" tabindex="0" role="button"
-              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx">
-              <div class="off-ico"><i class="fa-solid fa-building"></i></div>
-              <div>
-                <div class="off-city">Ciudad de México <span class="off-badge">Casa Matriz</span></div>
-                <div class="off-desc">Oficina central, ingeniería de proyectos y coordinación nacional.</div>
-              </div>
+          <div class="suc-side">
+            <div class="suc-tabs" role="tablist" aria-label="Sucursales" aria-orientation="vertical">
+              <button type="button" role="tab" class="suc-tab" id="suc-t-cdmx" data-id="cdmx" aria-selected="true" aria-controls="suc-p-cdmx"><span class="suc-tab-ico"><i class="fa-solid fa-building" aria-hidden="true"></i></span><span class="suc-tab-txt"><b>Ciudad de México</b><small>Casa matriz · Centro</small></span><i class="fa-solid fa-arrow-right suc-tab-go" aria-hidden="true"></i></button><button type="button" role="tab" class="suc-tab" id="suc-t-mty" data-id="mty" aria-selected="false" aria-controls="suc-p-mty" tabindex="-1"><span class="suc-tab-ico"><i class="fa-solid fa-industry" aria-hidden="true"></i></span><span class="suc-tab-txt"><b>Monterrey</b><small>Nuevo León · Noreste</small></span><i class="fa-solid fa-arrow-right suc-tab-go" aria-hidden="true"></i></button><button type="button" role="tab" class="suc-tab" id="suc-t-gdl" data-id="gdl" aria-selected="false" aria-controls="suc-p-gdl" tabindex="-1"><span class="suc-tab-ico"><i class="fa-solid fa-city" aria-hidden="true"></i></span><span class="suc-tab-txt"><b>Guadalajara</b><small>Jalisco · Occidente</small></span><i class="fa-solid fa-arrow-right suc-tab-go" aria-hidden="true"></i></button><button type="button" role="tab" class="suc-tab" id="suc-t-leon" data-id="leon" aria-selected="false" aria-controls="suc-p-leon" tabindex="-1"><span class="suc-tab-ico"><i class="fa-solid fa-gears" aria-hidden="true"></i></span><span class="suc-tab-txt"><b>León</b><small>Guanajuato · Bajío</small></span><i class="fa-solid fa-arrow-right suc-tab-go" aria-hidden="true"></i></button><button type="button" role="tab" class="suc-tab" id="suc-t-cun" data-id="cun" aria-selected="false" aria-controls="suc-p-cun" tabindex="-1"><span class="suc-tab-ico"><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i></span><span class="suc-tab-txt"><b>Cancún</b><small>Quintana Roo · Sureste</small></span><i class="fa-solid fa-arrow-right suc-tab-go" aria-hidden="true"></i></button>
             </div>
-
-            <div class="office-card" tabindex="0" role="button"
-              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx">
-              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
-              <div>
-                <div class="off-city">Monterrey, N.L.</div>
-                <div class="off-desc">Cobertura noreste — industria manufacturera y construcción.</div>
-              </div>
+            <div class="suc-card">
+              <div class="suc-panel" id="suc-p-cdmx" role="tabpanel" aria-labelledby="suc-t-cdmx" data-id="cdmx" data-embed="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.16631934737!2d-99.16444252625372!3d19.40521854155764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef4155e83af%3A0xf1d3c22db1f7644c!2sHaften!5e0!3m2!1ses-419!2smx!4v1774465190334!5m2!1ses-419!2smx"><div class="suc-panel-top"><span class="suc-badge is-hq">Casa matriz</span><span class="suc-region"><i class="fa-solid fa-compass" aria-hidden="true"></i>Región Centro</span></div><h3 class="suc-city">Ciudad de México</h3><p class="suc-desc">Oficina central: ventas, ingeniería de proyectos, soporte técnico y coordinación nacional.</p><dl class="suc-info"><div class="suc-row"><dt><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Dirección</dt><dd>Tehuantepec 125, Col. Roma Sur<br>Alc. Cuauhtémoc, C.P. 06760, CDMX</dd></div><div class="suc-row"><dt><i class="fa-solid fa-phone" aria-hidden="true"></i>Teléfono</dt><dd><a href="tel:+525556381224">+52 55 5638 1224</a></dd></div><div class="suc-row"><dt><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</dt><dd><a href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20de%20la%20sucursal%20Ciudad%20de%20M%C3%A9xico." target="_blank" rel="noopener">+52 55 8007 0413</a></dd></div><div class="suc-row"><dt><i class="fa-solid fa-envelope" aria-hidden="true"></i>Correo</dt><dd><a href="mailto:ventas@haften.com.mx">ventas@haften.com.mx</a><br><a href="mailto:ingenieria@haften.com.mx">ingenieria@haften.com.mx</a></dd></div><div class="suc-row"><dt><i class="fa-regular fa-clock" aria-hidden="true"></i>Horario</dt><dd>Lun – Vie 8:00 – 18:00 · Sáb 9:00 – 14:00</dd></div></dl><div class="suc-zone"><span class="suc-zone-lbl">Zona de cobertura</span><ul><li>CDMX</li><li>Estado de México</li><li>Hidalgo</li><li>Morelos</li><li>Puebla</li><li>Tlaxcala</li><li>Guerrero</li></ul></div><div class="suc-actions"><a class="suc-btn is-pri" href="https://www.google.com/maps/dir/?api=1&amp;destination=Haften%2C%20Tehuantepec%20125%2C%20Roma%20Sur%2C%2006760%20Ciudad%20de%20M%C3%A9xico" target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i>Cómo llegar</a><a class="suc-btn" href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20de%20la%20sucursal%20Ciudad%20de%20M%C3%A9xico." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</a><button type="button" class="suc-btn" data-suc-map><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>Ver mapa</button></div></div><div class="suc-panel" id="suc-p-mty" role="tabpanel" aria-labelledby="suc-t-mty" data-id="mty" data-embed="https://www.google.com/maps?q=Monterrey%2C%20Nuevo%20Le%C3%B3n&amp;z=11&amp;output=embed" hidden><div class="suc-panel-top"><span class="suc-badge">Oficina regional</span><span class="suc-region"><i class="fa-solid fa-compass" aria-hidden="true"></i>Región Noreste</span></div><h3 class="suc-city">Monterrey</h3><p class="suc-desc">Cobertura noreste: industria manufacturera, naves industriales y construcción.</p><dl class="suc-info"><div class="suc-row"><dt><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Visitas</dt><dd>Atención con cita: agenda tu visita y un ingeniero de la zona te atiende.</dd></div><div class="suc-row"><dt><i class="fa-solid fa-phone" aria-hidden="true"></i>Teléfono</dt><dd><a href="tel:+525556381224">+52 55 5638 1224</a></dd></div><div class="suc-row"><dt><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</dt><dd><a href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20en%20Monterrey." target="_blank" rel="noopener">+52 55 8007 0413</a></dd></div><div class="suc-row"><dt><i class="fa-solid fa-envelope" aria-hidden="true"></i>Correo</dt><dd><a href="mailto:ventas@haften.com.mx">ventas@haften.com.mx</a></dd></div><div class="suc-row"><dt><i class="fa-regular fa-clock" aria-hidden="true"></i>Horario</dt><dd>Lun – Vie 8:00 – 18:00 · Sáb 9:00 – 14:00</dd></div></dl><div class="suc-zone"><span class="suc-zone-lbl">Zona de cobertura</span><ul><li>Nuevo León</li><li>Coahuila</li><li>Tamaulipas</li><li>San Luis Potosí</li></ul></div><div class="suc-actions"><a class="suc-btn is-pri" href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20en%20Monterrey." target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i>Agendar visita</a><a class="suc-btn" href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20en%20Monterrey." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</a><button type="button" class="suc-btn" data-suc-map><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>Ver mapa</button></div></div><div class="suc-panel" id="suc-p-gdl" role="tabpanel" aria-labelledby="suc-t-gdl" data-id="gdl" data-embed="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.818525864304!2d-103.39178882621424!3d20.67696079977153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af317d87697d%3A0xd7f6ba37c4651369!2sHaften%20Gdl!5e0!3m2!1ses-419!2smx!4v1774465294502!5m2!1ses-419!2smx" hidden><div class="suc-panel-top"><span class="suc-badge">Oficina regional</span><span class="suc-region"><i class="fa-solid fa-compass" aria-hidden="true"></i>Región Occidente</span></div><h3 class="suc-city">Guadalajara</h3><p class="suc-desc">Occidente: proyectos industriales, comerciales y residenciales.</p><dl class="suc-info"><div class="suc-row"><dt><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Dirección</dt><dd>Av. Miguel Hidalgo y Costilla 2430, Vallarta Nte.<br>C.P. 44690, Zapopan, Jal.</dd></div><div class="suc-row"><dt><i class="fa-solid fa-phone" aria-hidden="true"></i>Teléfono</dt><dd><a href="tel:+525556381224">+52 55 5638 1224</a></dd></div><div class="suc-row"><dt><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</dt><dd><a href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20de%20la%20sucursal%20Guadalajara." target="_blank" rel="noopener">+52 55 8007 0413</a></dd></div><div class="suc-row"><dt><i class="fa-solid fa-envelope" aria-hidden="true"></i>Correo</dt><dd><a href="mailto:ventas@haften.com.mx">ventas@haften.com.mx</a></dd></div><div class="suc-row"><dt><i class="fa-regular fa-clock" aria-hidden="true"></i>Horario</dt><dd>Lun – Vie 8:00 – 18:00 · Sáb 9:00 – 14:00</dd></div></dl><div class="suc-zone"><span class="suc-zone-lbl">Zona de cobertura</span><ul><li>Jalisco</li><li>Colima</li><li>Nayarit</li><li>Michoacán</li><li>Sinaloa</li></ul></div><div class="suc-actions"><a class="suc-btn is-pri" href="https://www.google.com/maps/dir/?api=1&amp;destination=Haften%20Gdl%2C%20Av.%20Miguel%20Hidalgo%20y%20Costilla%202430%2C%20Vallarta%20Nte.%2C%2044690%20Zapopan%2C%20Jal." target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i>Cómo llegar</a><a class="suc-btn" href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20de%20la%20sucursal%20Guadalajara." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</a><button type="button" class="suc-btn" data-suc-map><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>Ver mapa</button></div></div><div class="suc-panel" id="suc-p-leon" role="tabpanel" aria-labelledby="suc-t-leon" data-id="leon" data-embed="https://www.google.com/maps?q=Le%C3%B3n%2C%20Guanajuato&amp;z=11&amp;output=embed" hidden><div class="suc-panel-top"><span class="suc-badge">Oficina regional</span><span class="suc-region"><i class="fa-solid fa-compass" aria-hidden="true"></i>Región Bajío</span></div><h3 class="suc-city">León</h3><p class="suc-desc">El Bajío: corredores industriales de Guanajuato, Querétaro y Aguascalientes.</p><dl class="suc-info"><div class="suc-row"><dt><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Visitas</dt><dd>Atención con cita: agenda tu visita y un ingeniero de la zona te atiende.</dd></div><div class="suc-row"><dt><i class="fa-solid fa-phone" aria-hidden="true"></i>Teléfono</dt><dd><a href="tel:+525556381224">+52 55 5638 1224</a></dd></div><div class="suc-row"><dt><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</dt><dd><a href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20en%20Le%C3%B3n." target="_blank" rel="noopener">+52 55 8007 0413</a></dd></div><div class="suc-row"><dt><i class="fa-solid fa-envelope" aria-hidden="true"></i>Correo</dt><dd><a href="mailto:ventas@haften.com.mx">ventas@haften.com.mx</a></dd></div><div class="suc-row"><dt><i class="fa-regular fa-clock" aria-hidden="true"></i>Horario</dt><dd>Lun – Vie 8:00 – 18:00 · Sáb 9:00 – 14:00</dd></div></dl><div class="suc-zone"><span class="suc-zone-lbl">Zona de cobertura</span><ul><li>Guanajuato</li><li>Querétaro</li><li>Aguascalientes</li><li>Zacatecas</li></ul></div><div class="suc-actions"><a class="suc-btn is-pri" href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20en%20Le%C3%B3n." target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i>Agendar visita</a><a class="suc-btn" href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20en%20Le%C3%B3n." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</a><button type="button" class="suc-btn" data-suc-map><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>Ver mapa</button></div></div><div class="suc-panel" id="suc-p-cun" role="tabpanel" aria-labelledby="suc-t-cun" data-id="cun" data-embed="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.75678285218!2d-86.8541341261971!3d21.20181868181498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2d6eaaf899ed%3A0x2a7405efaaa242f8!2sHAFTEN%20CANCUN%20BELIMO%20FLOWCON%20MEITAVTEC%20DWYER!5e0!3m2!1ses-419!2smx!4v1774465368752!5m2!1ses-419!2smx" hidden><div class="suc-panel-top"><span class="suc-badge">Oficina regional</span><span class="suc-region"><i class="fa-solid fa-compass" aria-hidden="true"></i>Región Sureste</span></div><h3 class="suc-city">Cancún</h3><p class="suc-desc">Sureste: sector hotelero, hospitalario y turístico de la península.</p><dl class="suc-info"><div class="suc-row"><dt><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Dirección</dt><dd>Av. Muyil 39, Villas del Carmen<br>C.P. 77516, Cancún, Q. Roo</dd></div><div class="suc-row"><dt><i class="fa-solid fa-phone" aria-hidden="true"></i>Teléfono</dt><dd><a href="tel:+525556381224">+52 55 5638 1224</a></dd></div><div class="suc-row"><dt><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</dt><dd><a href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20de%20la%20sucursal%20Canc%C3%BAn." target="_blank" rel="noopener">+52 55 8007 0413</a></dd></div><div class="suc-row"><dt><i class="fa-solid fa-envelope" aria-hidden="true"></i>Correo</dt><dd><a href="mailto:ventas@haften.com.mx">ventas@haften.com.mx</a></dd></div><div class="suc-row"><dt><i class="fa-regular fa-clock" aria-hidden="true"></i>Horario</dt><dd>Lun – Vie 8:00 – 18:00 · Sáb 9:00 – 14:00</dd></div></dl><div class="suc-zone"><span class="suc-zone-lbl">Zona de cobertura</span><ul><li>Quintana Roo</li><li>Yucatán</li><li>Campeche</li><li>Tabasco</li><li>Chiapas</li></ul></div><div class="suc-actions"><a class="suc-btn is-pri" href="https://www.google.com/maps/dir/?api=1&amp;destination=HAFTEN%20CANCUN%2C%20Av.%20Muyil%2039%2C%20Villas%20del%20Carmen%2C%2077516%20Canc%C3%BAn%2C%20Q.R." target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i>Cómo llegar</a><a class="suc-btn" href="https://wa.me/5215580070413?text=Hola%20Haften%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20de%20la%20sucursal%20Canc%C3%BAn." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</a><button type="button" class="suc-btn" data-suc-map><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>Ver mapa</button></div></div>
             </div>
-
-            <div class="office-card" tabindex="0" role="button"
-              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.818525864304!2d-103.39178882621424!3d20.67696079977153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af317d87697d%3A0xd7f6ba37c4651369!2sHaften%20Gdl!5e0!3m2!1ses-419!2smx!4v1774465294502!5m2!1ses-419!2smx">
-              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
-              <div>
-                <div class="off-city">Guadalajara, Jal.</div>
-                <div class="off-desc">Occidente — sectores industrial, comercial y residencial.</div>
-              </div>
-            </div>
-
-            <div class="office-card" tabindex="0" role="button"
-              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.2096232313265!2d-101.698419226199!3d21.14405448381149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf5cb3facf33%3A0x1081ef955934ea82!2sEYSH%20Distrib%20Rain%20Bird%20y%20Hunter!5e0!3m2!1ses-419!2smx!4v1774465333509!5m2!1ses-419!2smx">
-              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
-              <div>
-                <div class="off-city">León, Gto.</div>
-                <div class="off-desc">El Bajío — corredores industriales de Guanajuato y Querétaro.</div>
-              </div>
-            </div>
-
-            <div class="office-card" tabindex="0" role="button"
-              data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.75678285218!2d-86.8541341261971!3d21.20181868181498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2d6eaaf899ed%3A0x2a7405efaaa242f8!2sHAFTEN%20CANCUN%20BELIMO%20FLOWCON%20MEITAVTEC%20DWYER!5e0!3m2!1ses-419!2smx!4v1774465368752!5m2!1ses-419!2smx">
-              <div class="off-ico"><i class="fa-solid fa-location-dot"></i></div>
-              <div>
-                <div class="off-city">Cancún, Q. Roo</div>
-                <div class="off-desc">Sureste — sector hotelero, hospitalario y turístico.</div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
     </section>
+
     <!-- ██ FAQ — BLANCO ██ -->
     <section class="faq-sec" aria-labelledby="faq-h">
       <div class="faq-inner">
@@ -2620,30 +2605,6 @@
   </main>
 
   <button id="btt" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
-  <button class="chat-fab" id="chatFab" aria-label="Chat de soporte" aria-expanded="false">
-    <i class="fa-solid fa-comment-dots"></i>
-    <span class="chat-badge">1</span>
-  </button>
-  <div class="chat-window" id="chatWindow">
-    <div class="cw-head">
-      <div class="cw-head-left">
-        <div class="cw-avatar"><i class="fa-solid fa-headset"></i></div>
-        <div>
-          <div class="cw-name">Soporte Haften</div>
-          <div class="cw-status">● En línea</div>
-        </div>
-      </div>
-      <button class="cw-close" id="chatClose"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="cw-msgs" id="cwMsgs">
-      <div class="cw-msg bot">¡Hola! Soy el asistente de <strong>Haften</strong>. ¿En qué puedo ayudarte?</div>
-      <div class="cw-msg bot">Puedo orientarte sobre productos, marcas o cotizaciones.</div>
-    </div>
-    <div class="cw-input-row">
-      <input type="text" class="cw-input" id="cwInput" placeholder="Escribe tu mensaje...">
-      <button class="cw-send" id="cwSend"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-  </div>
   <script>
     /* ── LOADER ───────────────────────────────── */
     (function () {
@@ -2779,16 +2740,10 @@
     setTimeout(() => { document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => { if (!el.classList.contains('on')) io.observe(el) }) }, 50);
 
     /* ── CHAT ─────────────────────────────────── */
-    const chatFab = document.getElementById('chatFab'), chatWin = document.getElementById('chatWindow'), cwMsgs = document.getElementById('cwMsgs'), cwInput = document.getElementById('cwInput'), cwSend = document.getElementById('cwSend');
-    chatFab.addEventListener('click', () => { chatWin.classList.toggle('open'); chatFab.setAttribute('aria-expanded', chatWin.classList.contains('open')); if (chatWin.classList.contains('open')) chatFab.querySelector('.chat-badge').style.display = 'none' });
-    document.getElementById('chatClose').addEventListener('click', () => { chatWin.classList.remove('open') });
-    const chatR = ['Claro, con gusto te ayudo. Escríbenos a info@haften.com.mx', 'Para cotizaciones formales, llena el formulario de esta página o escríbenos a info@haften.com.mx.', 'Nuestro equipo puede asesorarte. ¿Quieres que te conectemos con un especialista?', 'Tenemos oficinas en CDMX, Monterrey, Guadalajara, León y Cancún. ¿Dónde estás?'];
-    let rIdx = 0;
-    function sendMsg() { const txt = cwInput.value.trim(); if (!txt) return; const um = document.createElement('div'); um.className = 'cw-msg usr'; um.textContent = txt; cwMsgs.appendChild(um); cwInput.value = ''; cwMsgs.scrollTop = cwMsgs.scrollHeight; setTimeout(() => { const bm = document.createElement('div'); bm.className = 'cw-msg bot'; bm.textContent = chatR[rIdx % chatR.length]; rIdx++; cwMsgs.appendChild(bm); cwMsgs.scrollTop = cwMsgs.scrollHeight }, 700) }
-    cwSend.addEventListener('click', sendMsg);
-    cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
   </script>
   <script src="assets/js/site.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/sucursales.js"></script>
 </body>
 
 </html>

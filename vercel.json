@@ -2,6 +2,233 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/index", "destination": "/", "permanent": true }
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "8"
+        }
+      ],
+      "destination": "/assets/catalogos/air-monitor.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "9"
+        }
+      ],
+      "destination": "/assets/catalogos/belimo.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "10"
+        }
+      ],
+      "destination": "/assets/catalogos/bry-air.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "11"
+        }
+      ],
+      "destination": "/assets/catalogos/contemporary-controls.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "12"
+        }
+      ],
+      "destination": "/assets/catalogos/control-techniques.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "13"
+        }
+      ],
+      "destination": "/assets/catalogos/cool-automation.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "14"
+        }
+      ],
+      "destination": "/assets/catalogos/delta.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "15"
+        }
+      ],
+      "destination": "/assets/catalogos/dwyer.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "16"
+        }
+      ],
+      "destination": "/assets/catalogos/flowcon.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "17"
+        }
+      ],
+      "destination": "/assets/catalogos/gpi.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "18"
+        }
+      ],
+      "destination": "/assets/catalogos/greystone.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "19"
+        }
+      ],
+      "destination": "/assets/catalogos/johnson-controls.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "20"
+        }
+      ],
+      "destination": "/assets/catalogos/loytec.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "21"
+        }
+      ],
+      "destination": "/assets/catalogos/onicon.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "22"
+        }
+      ],
+      "destination": "/assets/catalogos/meitav.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "23"
+        }
+      ],
+      "destination": "/assets/catalogos/neptronic.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "24"
+        }
+      ],
+      "destination": "/assets/catalogos/senva.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "25"
+        }
+      ],
+      "destination": "/assets/catalogos/vaisala.pdf"
+    },
+    {
+      "source": "/WebSite/DownloadFileCatalog",
+      "has": [
+        {
+          "type": "query",
+          "key": "fileID",
+          "value": "27"
+        }
+      ],
+      "destination": "/assets/catalogos/setra.pdf"
+    },
+    {
+      "source": "/documentos/flowcon.pdf",
+      "destination": "/assets/catalogos/flowcon.pdf"
+    },
+    {
+      "source": "/documentos/dwyer.pdf",
+      "destination": "/assets/catalogos/dwyer.pdf"
+    },
+    {
+      "source": "/documentos/air(.*)monitor.pdf",
+      "destination": "/assets/catalogos/air-monitor.pdf"
+    }
   ]
 }
