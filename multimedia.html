@@ -2055,6 +2055,7 @@
     }
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/social.css">
 </head>
 
 <body>
@@ -2071,19 +2072,19 @@
   </div>
 
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
-    <a href="index.html" class="n-logo" aria-label="Haften">
+    <a href="/" class="n-logo" aria-label="Haften">
       <img src="assets/logos/logo-haften-white.png" alt="Haften"
         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
     </a>
     <ul class="n-links" id="navLinks">
-      <li><a href="index.html" class="n-link">Inicio</a></li>
-      <li><a href="nosotros.html" class="n-link">Nosotros</a></li>
-      <li><a href="marcas.html" class="n-link">Marcas</a></li>
-      <li><a href="catalogos.html" class="n-link">Catálogos</a></li>
-      <li><a href="multimedia.html" class="n-link active">Multimedia</a></li>
-      <li><a href="redes.html" class="n-link">Redes</a></li>
-      <li><a href="contacto.html" class="n-cta"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+      <li><a href="/" class="n-link">Inicio</a></li>
+      <li><a href="/nosotros" class="n-link">Nosotros</a></li>
+      <li><a href="/marcas" class="n-link">Marcas</a></li>
+      <li><a href="/catalogos" class="n-link">Catálogos</a></li>
+      <li><a href="/multimedia" class="n-link active">Multimedia</a></li>
+      <li><a href="/redes" class="n-link">Redes</a></li>
+      <li><a href="/contacto" class="n-cta"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
     </ul>
     <div class="n-tools">
       <div class="a11y-wrap">
@@ -2126,20 +2127,20 @@
           Videos técnicos · Demos · Capacitación
         </div>
         <h1 class="ph-h1 rv">Centro de <span>Multimedia</span></h1>
-        <p class="ph-sub rv">Tutoriales, demos de productos, webinars y contenido técnico de HVAC/R, BMS e
-          instrumentación. Aprende de los expertos.</p>
+        <p class="ph-sub rv">Webinars técnicos, demos de producto y eventos publicados por Haften en su canal oficial de
+          YouTube. Aprende de los especialistas en HVAC/R, BMS e instrumentación.</p>
         <div class="ph-stats rv">
           <div class="ph-stat">
-            <div class="ph-stat-n">20<em>+</em></div>
-            <div class="ph-stat-l">Videos disponibles</div>
+            <div class="ph-stat-n" data-stat="webinars">10</div>
+            <div class="ph-stat-l">Webinars técnicos</div>
           </div>
           <div class="ph-stat">
-            <div class="ph-stat-n">6</div>
-            <div class="ph-stat-l">Plataformas</div>
+            <div class="ph-stat-n" data-stat="videos">28</div>
+            <div class="ph-stat-l">Videos</div>
           </div>
           <div class="ph-stat">
-            <div class="ph-stat-n">ESP</div>
-            <div class="ph-stat-l">Idioma</div>
+            <div class="ph-stat-n" data-stat="shorts">47</div>
+            <div class="ph-stat-l">Shorts</div>
           </div>
         </div>
       </div>
@@ -2160,18 +2161,27 @@
     </div>
 
     <!-- FILTER BAR -->
-    <div class="filter-bar" role="navigation" aria-label="Filtro por plataforma">
+    <div class="filter-bar" role="region" aria-label="Filtrar videos">
       <div class="filter-bar-inner">
-        <button class="filter-btn active" data-plat="all"><i class="fa-solid fa-th-large"></i> Todos <span
-            class="filter-count" id="cnt-all">0</span></button>
-        <button class="filter-btn" data-plat="yt"><i class="fa-brands fa-youtube" style="color:#ff4444"></i> YouTube
-          <span class="filter-count" id="cnt-yt">0</span></button>
-        <button class="filter-btn" data-plat="fb"><i class="fa-brands fa-facebook-f" style="color:#4e8ef7"></i> Facebook
-          <span class="filter-count" id="cnt-fb">0</span></button>
-        <button class="filter-btn" data-plat="ig"><i class="fa-brands fa-instagram" style="color:#e1306c"></i> Instagram
-          <span class="filter-count" id="cnt-ig">0</span></button>
-        <button class="filter-btn" data-plat="tt"><i class="fa-brands fa-tiktok"></i> TikTok <span class="filter-count"
-            id="cnt-tt">0</span></button>
+        <div class="filter-tabs" role="group" aria-label="Categoría de video">
+          <button type="button" class="filter-btn active" data-cat="all" aria-pressed="true"><i
+              class="fa-solid fa-table-cells-large"></i> Todos <span class="filter-count" data-count="all">0</span></button>
+          <button type="button" class="filter-btn" data-cat="webinars" aria-pressed="false"><i
+              class="fa-solid fa-chalkboard-user"></i> Webinars <span class="filter-count" data-count="webinars">0</span></button>
+          <button type="button" class="filter-btn" data-cat="productos" aria-pressed="false"><i
+              class="fa-solid fa-microchip"></i> Productos <span class="filter-count" data-count="productos">0</span></button>
+          <button type="button" class="filter-btn" data-cat="eventos" aria-pressed="false"><i
+              class="fa-solid fa-calendar-days"></i> Eventos <span class="filter-count" data-count="eventos">0</span></button>
+          <button type="button" class="filter-btn" data-cat="institucional" aria-pressed="false"><i
+              class="fa-solid fa-building"></i> Haften <span class="filter-count" data-count="institucional">0</span></button>
+          <button type="button" class="filter-btn" data-cat="shorts" aria-pressed="false"><i
+              class="fa-solid fa-mobile-screen"></i> Shorts <span class="filter-count" data-count="shorts">0</span></button>
+        </div>
+        <label class="mm-search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <span class="sr-only">Buscar videos por marca o tema</span>
+          <input type="search" id="mmSearch" placeholder="Buscar marca o tema…" autocomplete="off">
+        </label>
       </div>
     </div>
 
@@ -2179,43 +2189,25 @@
     <section class="featured-vid-sec" aria-labelledby="feat-vid-h">
       <div class="featured-inner">
         <div class="featured-header rv">
-          <div class="eyebrow"><i class="fa-solid fa-crown"></i> Video destacado</div>
-          <h2 id="feat-vid-h" class="s-title">Conoce a <span>Haften</span></h2>
+          <div class="eyebrow"><i class="fa-brands fa-youtube"></i> Canal oficial de YouTube</div>
+          <h2 id="feat-vid-h" class="s-title">Video <span>destacado</span></h2>
         </div>
         <div class="featured-layout">
-          <div class="featured-player rv">
-            <!-- Facebook video embed: Haften "Una solución completa en el mismo lugar" -->
-            <iframe
-              src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FHaftenOficial%2Fvideos%2F2430254403936658%2F&show_text=0&width=880"
-              width="880" height="495" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-              allowfullscreen="true" allow="autoplay;clipboard-write;encrypted-media;picture-in-picture;web-share"
-              loading="lazy" title="Haften — Una solución completa en el mismo lugar">
-            </iframe>
-          </div>
+          <div class="featured-player rv" id="featPlayer"></div>
           <div class="featured-info rv">
-            <div class="feat-badge"><i class="fa-brands fa-facebook-f"></i> Facebook · Video Oficial</div>
-            <h3 class="feat-title">"Una solución completa en el mismo lugar"</h3>
-            <p class="feat-desc">Conoce a Haften: más de 20 años distribuyendo las mejores marcas internacionales de
-              HVAC/R, BMS e instrumentación en México. Soluciones integrales para cada proyecto.</p>
-            <div class="feat-tags">
-              <span class="feat-tag">Haften</span>
-              <span class="feat-tag">HVAC/R</span>
-              <span class="feat-tag">BMS</span>
-              <span class="feat-tag">México</span>
-              <span class="feat-tag">Institucional</span>
-            </div>
+            <div class="feat-badge yt"><i class="fa-brands fa-youtube"></i> <span id="featKicker">YouTube</span></div>
+            <h3 class="feat-title" id="featTitle"></h3>
+            <p class="feat-desc" id="featDesc"></p>
+            <div class="feat-tags" id="featTags"></div>
             <div class="feat-links">
-              <a href="https://www.facebook.com/HaftenOficial/videos/2430254403936658/" target="_blank" rel="noopener"
-                class="feat-link-btn yt-btn"><i class="fa-brands fa-facebook-f"></i> Ver en Facebook</a>
-              <a href="redes.html" class="feat-link-btn sec-btn"><i class="fa-solid fa-share-nodes"></i> Todas las
-                redes</a>
+              <a id="featLink" href="https://www.youtube.com/@Haftenoficial" target="_blank" rel="noopener"
+                class="feat-link-btn yt-btn"><i class="fa-brands fa-youtube"></i> Ver en YouTube</a>
+              <a href="https://www.youtube.com/@Haftenoficial?sub_confirmation=1" target="_blank" rel="noopener"
+                class="feat-link-btn sec-btn"><i class="fa-solid fa-bell"></i> Suscribirme</a>
             </div>
-            <!-- mini playlist -->
-            <div style="margin-top:8px">
-              <div
-                style="font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px">
-                Más videos de Haften</div>
-              <div class="feat-playlist" id="miniPlaylist"></div>
+            <div>
+              <h4 class="pl-head" id="plHead">Webinars recientes</h4>
+              <ul class="feat-playlist" id="miniPlaylist" aria-labelledby="plHead"></ul>
             </div>
           </div>
         </div>
@@ -2223,19 +2215,40 @@
     </section>
 
     <!-- VIDEOS GRID -->
-    <section class="videos-sec" aria-labelledby="videos-h">
+    <section class="videos-sec" id="videos" aria-labelledby="videos-h">
       <div class="videos-inner">
         <div class="videos-header rv">
           <div>
             <div class="eyebrow"><i class="fa-solid fa-film"></i> Biblioteca de videos</div>
-            <h2 id="videos-h" class="s-title" style="font-size:clamp(1.4rem,2.5vw,2rem)">Todos los <span>Videos</span>
-            </h2>
+            <h2 id="videos-h" class="s-title" style="font-size:clamp(1.4rem,2.5vw,2rem)">Webinars, productos y <span>eventos</span></h2>
           </div>
-          <div class="videos-count"><strong id="vidCount">0</strong> videos disponibles</div>
+          <div class="videos-count" aria-live="polite"><strong id="vidCount">0</strong> videos</div>
         </div>
         <div class="videos-grid" id="videosGrid"></div>
+        <div class="mm-more-wrap"><button type="button" class="mm-more" id="vidMore"><i class="fa-solid fa-plus"></i> Ver más videos</button></div>
       </div>
     </section>
+
+    <!-- SHORTS -->
+    <section class="shorts-sec" id="shorts" aria-labelledby="shorts-h">
+      <div class="videos-inner">
+        <div class="videos-header rv">
+          <div>
+            <div class="eyebrow"><i class="fa-solid fa-mobile-screen"></i> Videos cortos</div>
+            <h2 id="shorts-h" class="s-title" style="font-size:clamp(1.4rem,2.5vw,2rem)">Shorts de <span>producto</span></h2>
+          </div>
+          <div class="videos-count" aria-live="polite"><strong id="shortCount">0</strong> shorts</div>
+        </div>
+        <div class="shorts-grid" id="shortsGrid"></div>
+        <div class="mm-more-wrap"><button type="button" class="mm-more" id="shortMore"><i class="fa-solid fa-plus"></i> Ver más shorts</button></div>
+      </div>
+    </section>
+
+    <div class="mm-empty" id="mmEmpty" hidden>
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <p>No encontramos videos con esa búsqueda.</p>
+      <button type="button" class="mm-more" id="mmReset">Ver todos los videos</button>
+    </div>
 
     <!-- CTA -->
     <section class="cta-sec" aria-labelledby="cta-h">
@@ -2245,8 +2258,8 @@
         <p>Nuestros ingenieros ofrecen webinars y capacitaciones técnicas sobre las marcas y sistemas que distribuimos.
           Sin costo para clientes registrados.</p>
         <div class="cta-btns">
-          <a href="contacto.html" class="btn btn-ac"><i class="fa-solid fa-envelope"></i>Solicitar capacitación</a>
-          <a href="redes.html" class="btn btn-outline"><i class="fa-solid fa-share-nodes"></i>Nuestras redes</a>
+          <a href="/contacto" class="btn btn-ac"><i class="fa-solid fa-envelope"></i>Solicitar capacitación</a>
+          <a href="/redes" class="btn btn-outline"><i class="fa-solid fa-share-nodes"></i>Nuestras redes</a>
         </div>
       </div>
     </section>
@@ -2281,13 +2294,13 @@
         <div class="footer-col">
           <h4>Navegación</h4>
           <ul>
-            <li><a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a></li>
-            <li><a href="nosotros.html"><i class="fa-solid fa-building"></i>Nosotros</a></li>
-            <li><a href="marcas.html"><i class="fa-solid fa-tag"></i>Marcas</a></li>
-            <li><a href="catalogos.html"><i class="fa-solid fa-file-pdf"></i>Catálogos</a></li>
-            <li><a href="multimedia.html"><i class="fa-solid fa-circle-play"></i>Multimedia</a></li>
-            <li><a href="redes.html"><i class="fa-solid fa-share-nodes"></i>Redes</a></li>
-            <li><a href="contacto.html"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
+            <li><a href="/"><i class="fa-solid fa-house"></i>Inicio</a></li>
+            <li><a href="/nosotros"><i class="fa-solid fa-building"></i>Nosotros</a></li>
+            <li><a href="/marcas"><i class="fa-solid fa-tag"></i>Marcas</a></li>
+            <li><a href="/catalogos"><i class="fa-solid fa-file-pdf"></i>Catálogos</a></li>
+            <li><a href="/multimedia"><i class="fa-solid fa-circle-play"></i>Multimedia</a></li>
+            <li><a href="/redes"><i class="fa-solid fa-share-nodes"></i>Redes</a></li>
+            <li><a href="/contacto"><i class="fa-solid fa-envelope"></i>Contacto</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -2354,245 +2367,166 @@
   </div>
   <script>
     // ── VIDEO DATA ────────────────────────────────────────────────────────────
-    // plat: 'yt' | 'fb' | 'ig' | 'tt'
-    // embed: URL del iframe src
-    // thumb: URL de la imagen de preview
-    // link: URL para abrir en la plataforma
-    const VIDEOS = [
-      {
-        id: 1, plat: 'fb', cat: 'Institucional',
-        title: 'Haften — Una solución completa en el mismo lugar',
-        desc: 'Presentación oficial de Haften: 20+ años distribuyendo las mejores marcas internacionales de HVAC/R y BMS en México.',
-        brand: 'Haften', date: '2023', dur: '1:20',
-        thumb: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=640&q=80&fit=crop',
-        embed: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FHaftenOficial%2Fvideos%2F2430254403936658%2F&show_text=0&width=640',
-        link: 'https://www.facebook.com/HaftenOficial/videos/2430254403936658/'
-      },
-      {
-        id: 2, plat: 'fb', cat: 'Marcas',
-        title: 'Conoce la línea completa de Belimo en Haften — Platinum Distributor',
-        desc: 'Actuadores, válvulas de mariposa, válvulas de globo y más. Belimo es el referente mundial en soluciones para control HVAC.',
-        brand: 'Belimo', date: '2023', dur: '2:15',
-        thumb: 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=640&q=80&fit=crop',
-        embed: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FHaftenOficial%2Fvideos%2F566768426190282%2F&show_text=0&width=640',
-        link: 'https://www.facebook.com/HaftenOficial/videos/566768426190282/'
-      },
-      {
-        id: 3, plat: 'fb', cat: 'Marcas',
-        title: 'Haften te ofrece las mejores marcas para la industria HVAC/BAS',
-        desc: 'Portafolio completo de marcas internacionales: sensores, actuadores, BMS, variadores de frecuencia y más. Todo en un mismo lugar.',
-        brand: 'Haften', date: '2022', dur: '1:45',
-        // Opción A: Usar una imagen de tu carpeta (asegúrate que el nombre sea exacto)
-        thumb: 'assets/logos/logo-haften.png',
-        // Opción B (Si quieres una foto): 
-        // thumb:'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=640&q=80&fit=crop',
-        embed: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FHaftenOficial%2Fvideos%2F715143589065096%2F&show_text=0&width=640',
-        link: 'https://www.facebook.com/HaftenOficial/videos/715143589065096/'
-      },
-      {
-        id: 4, plat: 'yt', cat: 'Capacitación',
-        title: 'Introducción a los sistemas BMS — BACnet y Modbus explicados',
-        desc: '¿Qué es un Building Management System? Aprende los fundamentos de BACnet, Modbus y los controladores DDC que integran edificios inteligentes.',
-        brand: 'Haften Técnico', date: '2024', dur: '8:32',
-        thumb: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=80&fit=crop',
-        embed: 'https://www.youtube.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4&autoplay=1',
-        link: 'https://www.youtube.com/@Haftenoficial/videos'
-      },
-      {
-        id: 5, plat: 'yt', cat: 'Productos',
-        title: 'Actuadores Belimo: selección, instalación y configuración',
-        desc: 'Guía completa para seleccionar el actuador Belimo correcto para tu proyecto de HVAC. Tipos de actuadores, torques y señales de control.',
-        brand: 'Belimo', date: '2024', dur: '12:08',
-        thumb: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=640&q=80&fit=crop',
-        embed: 'https://www.youtube.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4',
-        link: 'https://www.youtube.com/@Haftenoficial/videos'
-      },
-      {
-        id: 6, plat: 'yt', cat: 'Productos',
-        title: 'Sensores Vaisala: medición de humedad y temperatura de precisión',
-        desc: 'Conoce la instrumentación Vaisala para medición ambiental con trazabilidad certificada. Ideales para hospitales, laboratorios y data centers.',
-        brand: 'Vaisala', date: '2024', dur: '6:45',
-        thumb: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=640&q=80&fit=crop',
-        embed: 'https://www.youtube.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4',
-        link: 'https://www.youtube.com/@Haftenoficial/videos'
-      },
-      {
-        id: 7, plat: 'yt', cat: 'Capacitación',
-        title: 'LOYTEC: Configuración de gateways BACnet/IP para edificios',
-        desc: 'Webinar técnico sobre la configuración de controladores y gateways LOYTEC para integración de sistemas BMS en edificios corporativos.',
-        brand: 'LOYTEC', date: '2023', dur: '45:20',
-        thumb: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=640&q=80&fit=crop',
-        embed: 'https://www.youtube.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4',
-        link: 'https://www.youtube.com/@Haftenoficial/videos'
-      },
-      {
-        id: 8, plat: 'yt', cat: 'Productos',
-        title: 'Variadores de Frecuencia Delta — Aplicaciones HVAC',
-        desc: 'Los variadores Delta Drive optimizan el consumo energético en motores de ventiladores, bombas y compresores. Descubre cómo seleccionarlos.',
-        brand: 'Delta Electronics', date: '2024', dur: '9:55',
-        thumb: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=640&q=80&fit=crop',
-        embed: 'https://www.youtube.com/embed/videoseries?list=PLrAXtmErZgOdP_8GztsuKi9nrraNbKKp4',
-        link: 'https://www.youtube.com/@Haftenoficial/videos'
-      },
-      {
-        id: 9, plat: 'ig', cat: 'Marcas',
-        title: 'Belimo presenta su Válvula de Mariposa Motorizada con Actuador GR',
-        desc: 'Eficiencia, control y compatibilidad en un solo sistema. La nueva válvula de mariposa Belimo con actuador GR integrado.',
-        brand: 'Belimo', date: 'Mar 2025', dur: '0:45',
-        thumb: 'https://images.unsplash.com/photo-1586528116493-da5807982f12?w=640&q=80&fit=crop',
-        embed: 'https://www.instagram.com/p/placeholder/embed',
-        link: 'https://www.instagram.com/Haftenoficial'
-      },
-      {
-        id: 10, plat: 'ig', cat: 'Tips HVAC',
-        title: '5 razones para elegir sensores CO₂ en tu sistema HVAC',
-        desc: 'Calidad del aire, eficiencia energética, cumplimiento normativo. Descubre por qué los sensores CO₂ son indispensables en edificios modernos.',
-        brand: 'Greystone / Senva', date: 'Feb 2025', dur: '0:30',
-        thumb: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=640&q=80&fit=crop',
-        embed: 'https://www.instagram.com/p/placeholder2/embed',
-        link: 'https://www.instagram.com/Haftenoficial'
-      },
-      {
-        id: 11, plat: 'tt', cat: 'Tips HVAC',
-        title: '¿Sabes qué es BACnet? Te explicamos en 60 segundos',
-        desc: 'El protocolo de comunicación estándar para edificios inteligentes explicado de forma simple y visual. ¡Sin tecnicismos!',
-        brand: 'Haften', date: 'Ene 2025', dur: '0:58',
-        thumb: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&q=80&fit=crop',
-        embed: 'https://www.tiktok.com/embed/placeholder',
-        link: 'https://www.tiktok.com/@Haftenoficial'
-      },
-      {
-        id: 12, plat: 'tt', cat: 'Curiosidades',
-        title: 'La diferencia entre un actuador on/off y proporcional — rápido',
-        desc: '¿On/off o 0-10V? En menos de un minuto te explicamos cuándo usar cada tipo de actuador en tu instalación HVAC.',
-        brand: 'Belimo', date: 'Feb 2025', dur: '0:52',
-        thumb: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=640&q=80&fit=crop',
-        embed: 'https://www.tiktok.com/embed/placeholder2',
-        link: 'https://www.tiktok.com/@Haftenoficial'
-      }
-    ];
+    // SOCIAL:BEGIN
+    // Datos reales del canal youtube.com/@Haftenoficial (actualizado 14 oct 2026)
+    const YT_VIDEOS = [{"id":"yRfPeD6GgA0","t":"Bry-Air: deshumidificación en aplicaciones industriales","d":"La deshumidificación industrial permite controlar la humedad y el punto de rocío en procesos donde las condiciones ambientales son críticas. Estas soluciones ayudan a proteger productos y…","b":"Bry-Air","c":"webinars","dur":"1:11:53","date":"2026-10-09","f":"9 oct 2026","s":false},{"id":"xmOOheSA7Rs","t":"Senva: transformando y mejorando los sensores para la automatización de edificios","d":"Sensor de calidad de aire Total Sense el cual ha sido ganador del premio a la innovación AHR, también del sensor de corriente ECM con bajo umbral de activación, así como de la gama de…","b":"Senva","c":"webinars","dur":"32:20","date":"2026-10-09","f":"9 oct 2026","s":false},{"id":"3POohjX3UJ0","t":"Medición efectiva en sistemas HVAC: eficiencia energética y reducción de costos con ONICON","d":"Mostrar cómo una medición efectiva y correctamente aplicada puede ayudar a mejorar la eficiencia energética de los sistemas HVAC, reducir costos de instalación e integración y proporcionar…","b":"ONICON","c":"webinars","dur":"47:33","date":"2026-08-27","f":"27 ago 2026","s":false},{"id":"f9a6wVnkfk4","t":"Integración VRF sin límites: Conectividad y control centralizado con Intesis","d":"Durante esta sesión conoceremos cómo las soluciones de Intesis permiten integrar equipos VRF con sistemas de automatización de edificios (BMS/BAS), facilitando un control centralizado, una…","b":"Intesis","c":"webinars","dur":"49:57","date":"2026-08-14","f":"14 ago 2026","s":false},{"id":"-P6Qxh8G9lc","t":"CoolAutomation para la integración de equipos HVAC con sistemas BMS/BAS y domótica","d":"Productos y soluciones de Coolautomation para integrar equipos HVAC a sistemas de BMS/BAS y domótica residencial. ¡Conoce las últimas tecnologías para la integración inteligente de sistemas…","b":"CoolAutomation","c":"webinars","dur":"55:32","date":"2026-07-09","f":"9 jul 2026","s":false},{"id":"xEWnOxTs8Qo","t":"Neptronic: humidificación isotérmica y adiabática en la industria","d":"Temario: ¿Por qué es importante humidificar? · Sistema típico de humidificación · ¿Como calcular y seleccionar un humidificador? · Humidificador eléctrico SKE4 · Humidificador vapor vapor…","b":"Neptronic","c":"webinars","dur":"1:39:18","date":"2026-06-26","f":"26 jun 2026","s":false},{"id":"8tkesh7w9qM","t":"Instrumentos de medición e inteligencia para la acción climática","d":"Instrumentos de medición para humedad, temperatura y CO2 Aplicaciones Linea de productos “Tu solución integral en sistemas HVAC/R”","b":"Haften","c":"webinars","dur":"34:22","date":"2026-05-27","f":"27 may 2026","s":false},{"id":"qWaLkyUWiPw","t":"Válvulas de control, tipos y selección","d":"Introducción a las válvulas Belimo Válvulas de control dependientes de la presión Métodos de balanceo de sistemas hidrónicos Válvulas de control independientes de la presión Energy valve","b":"Belimo","c":"webinars","dur":"1:51:06","date":"2026-04-21","f":"21 abr 2026","s":false},{"id":"vWmQ9W_FiM4","t":"Actuadores Belimo para compuertas, tipos y selección","d":"Introducción a los actuadores Belimo Nomenclatura de actuadores Tipos de actuadores Selección de actuadores y aplicaciones","b":"Belimo","c":"webinars","dur":"1:02:40","date":"2026-04-21","f":"21 abr 2026","s":false},{"id":"5fEO06kjPmI","t":"Contemporary Controls BASview3: interfaz gráfica de supervisión","d":"INTRODUCCIÓN A BASview3 Interfaz gráfica de supervisión para sistemas de control Contemporary Controls presenta una descripción general de la interfaz gráfica web BASview3. Este dispositivo…","b":"Contemporary Controls","c":"productos","dur":"2:01","date":"2025-11-14","f":"14 nov 2025","s":false},{"id":"kKOpDyE7fDo","t":"Senva ECMset Pro: detección de encendido ultrabaja","d":"ECMset Pro cambia las reglas del juego con su detección de encendido ultrabaja.","b":"Senva","c":"productos","dur":"0:51","date":"2025-11-12","f":"12 nov 2025","s":false},{"id":"VpEsChiX3UY","t":"Taller de Paneles L-VIS de LOYTEC mayo 2025","d":"Este taller constó de dos sesiones que abarcaron desde conceptos básicos hasta avanzados, guiando a los participantes en la configuración e integración de soluciones IoT y en el acceso…","b":"LOYTEC","c":"eventos","dur":"3:33","date":"2025-05-26","f":"26 may 2025","s":false},{"id":"FtxXgP2VvNY","t":"Hotowell: funciones y características del termostato HT5000HC11","d":"¿Ya conoces las funciones y características del termostato HT5000HC11 de HOTOWELL? En el siguiente video te las mostramos en detalle.\" Haften","b":"Hotowell","c":"productos","dur":"3:14","date":"2025-05-15","f":"15 may 2025","s":false},{"id":"SbxEZpgpvd0","t":"Haften: innovación y soluciones para un mundo más eficiente","d":"En Haften, estamos comprometidos a ofrecer productos innovadores, un alto inventario y un servicio excepcional, respaldados por un equipo de profesionales altamente capacitados. Aspiramos a…","b":"Haften","c":"institucional","dur":"1:56","date":"2025-04-09","f":"9 abr 2025","s":false},{"id":"135PfPvso00","t":"Belimo Customer Experience","d":"Tuvimos la oportunidad de visitar junto con clientes y amigos el Belimo Customer Experience Center ubicado en Danbury, Connecticut. Fue una gran experiencia ya que pudimos conocer a…","b":"Belimo","c":"eventos","dur":"1:29","date":"2024-12-19","f":"19 dic 2024","s":false},{"id":"tumTC1vpeiQ","t":"Haften y Control Techniques: Innovación en VFDs para la Industria HVAC","d":"Haften y Control Techniques: Innovación en VFDs para la Industria HVAC Presentamos nuestra más reciente línea de VFDs durante un evento exclusivo realizado del 22 al 24 de octubre del 2024…","b":"Control Techniques","c":"eventos","dur":"1:37","date":"2024-10-30","f":"30 oct 2024","s":false},{"id":"PK1FBTwFVwo","t":"Sensores Belimo","d":"Averigua de la mano de un experto de Haften sobre los productos de BELIMO.","b":"Belimo","c":"productos","dur":"0:51","date":"2024-10-17","f":"17 oct 2024","s":false},{"id":"lS_BclAdIag","t":"Belimo: requisitos básicos de los sistemas HVAC para una calidad del aire interior saludable","d":"\"Requisitos básicos de los sistemas HVAC para una calidad del aire interior saludable\" Conoce la línea de productos \"BELIMO\" en Haften, DISTRIBUIDOR Platinum.","b":"Belimo","c":"productos","dur":"2:02","date":"2024-09-18","f":"18 sep 2024","s":false},{"id":"l07Ad4ljlPc","t":"Conoce las válvulas de control de mariposa recientemente lanzadas","d":"","b":"Belimo","c":"productos","dur":"1:57","date":"2024-07-03","f":"3 jul 2024","s":false},{"id":"XTYY5By-Xf8","t":"Belimo Assistant APP","d":"Con la aplicación Belimo Assistant puedes poner en marcha fácilmente actuadores PR. Para válvulas de control de mariposa","b":"Belimo","c":"productos","dur":"0:36","date":"2024-05-22","f":"22 may 2024","s":false},{"id":"wENyQkPWS7o","t":"Belimo: válvulas de mariposa","d":"","b":"Belimo","c":"productos","dur":"1:04","date":"2024-04-15","f":"15 abr 2024","s":false},{"id":"oMAyvgkMYsU","t":"Haften, presente en ExpoFarma 2024","d":"Los invitamos a que nos acompañes a ExpoFarma.net los días 17-19 de abril 2024, donde estaremos mostrando nuestra línea de Humidificadores, Deshumidificadores, Calefactores eléctricos… ¡No…","b":"Haften","c":"eventos","dur":"0:29","date":"2024-04-15","f":"15 abr 2024","s":false},{"id":"pIgnb2CSxQk","t":"Belimo: la válvula de mariposa más inteligente del mercado","d":"¡Libere todo el potencial de sus sistemas HVAC con nuestro último innovation! Presentamos nuestras válvulas de control de mariposa recientemente lanzadas: Flexibilidad de aplicación Control…","b":"Belimo","c":"productos","dur":"1:04","date":"2024-04-03","f":"3 abr 2024","s":false},{"id":"--2zP1n58no","t":"Actuadores de compuertas contrafuegos y de control de humos","d":"Belimo: líder en protección contra incendios desde 1978. Acerca de Belimo: Durante más de 40 años, Belimo se enfoca con éxito en los mercados de calefacción, ventilación y aire…","b":"Belimo","c":"productos","dur":"0:32","date":"2024-03-13","f":"13 mar 2024","s":false},{"id":"TDPZRf9nm4k","t":"Belimo: productos compatibles","d":"Descubre todos los productos compatibles y","b":"Belimo","c":"productos","dur":"1:19","date":"2024-01-25","f":"25 ene 2024","s":false},{"id":"0ghMIuFYpEU","t":"Haften cuenta con las marcas más representativas","d":"Haften cuenta con las marcas más representativas de la industria Periféricos HVAC/R-BMS Medición y ahorro de energía Humidicación Deshumidicación Calefactores eléctricos.","b":"Haften","c":"institucional","dur":"1:49","date":"2024-01-23","f":"23 ene 2024","s":false},{"id":"OcuQ5n2FRAc","t":"LPAD 7 Los paneles táctiles programables cobran vida (Español)","d":"","b":"LOYTEC","c":"productos","dur":"2:07","date":"2023-10-06","f":"6 oct 2023","s":false},{"id":"7rlIo6T09ds","t":"Soluciones de control para VRF / Alberto Juárez CoolAutomation & Haften","d":"Lleva la eficiencia Energética al siguiente Nivel / COOLAUTOMATION","b":"CoolAutomation","c":"webinars","dur":"1:05:41","date":"2022-12-07","f":"7 dic 2022","s":false}];
+    const YT_SHORTS = [{"id":"KcPDaIk-SOA","t":"Belimo / Monitoreo de gases tóxicos y detección de fugas de refrigerantes","d":"Descubre las soluciones Belimo para el monitoreo de gases tóxicos y detección de fugas de refrigerantes. Participa en nuestro próximo seminario Belimo y conoce soluciones aplicadas al…","b":"Belimo","c":"eventos","dur":"","date":"2026-10-08","f":"8 oct 2026","s":true},{"id":"FDWRYLpScc4","t":"Haften conectando tecnología y automatización con los ingenieros del futuro. ECA, ISA, IPN","d":"","b":"Haften","c":"eventos","dur":"","date":"2026-09-10","f":"10 sep 2026","s":true},{"id":"lEkwUjxyu3I","t":"¿Integras sistemas de aire acondicionado VRF?","d":"¿Integras sistemas de aire acondicionado VRF? Este webinar GRATUITO es para ti. Martes 21 de julio ⏰ 10:00 a.m. (Hora de México) ⏳ Duración: 45 minutos","b":"Intesis","c":"eventos","dur":"","date":"2026-07-16","f":"16 jul 2026","s":true},{"id":"9GCXuoZhb_c","t":"Senva ECMset PRO Interruptor de corriente ECM con tecnología ECTune","d":"No más cables enrollados Descubre el interruptor de corriente ECM que integra la innovadora tecnología ECTune™, diseñada para ofrecer el menor consumo energético de la industria sin…","b":"Senva","c":"productos","dur":"","date":"2026-01-22","f":"22 ene 2026","s":true},{"id":"uMGepTQXN7Y","t":"Sensores para pared Belimo","d":"Con los sensores de habitación Belimo, el equilibrio deja de ser un reto y se convierte en un estándar. Tecnología inteligente que optimiza cada espacio, cuida a las personas y reduce el…","b":"Belimo","c":"productos","dur":"","date":"2025-12-18","f":"18 dic 2025","s":true},{"id":"VwOG6WDJD3Q","t":"Nuevo DCAS – Data Center Aisle Sentry de Air Monitor","d":"DCAS – Data Center Aisle Sentry de Air Monitor, una solución de medición diferencial de presión de ultra alta precisión para centros de datos críticos. Gracias a su tecnología de doble…","b":"Air Monitor","c":"productos","dur":"","date":"2025-12-18","f":"18 dic 2025","s":true},{"id":"N1NNZKEn-48","t":"Medidores de flujo ultrasónicos ONICON con abrazadera para sistemas HVAC","d":"","b":"ONICON","c":"productos","dur":"","date":"2025-12-16","f":"16 dic 2025","s":true},{"id":"CPdhDrYMkXg","t":"Termostatos de fan & coil","d":"En Haften encontrarás la línea más completa de termostatos para fan & coil, con las marcas más reconocidas de la industria HVAC. ¡Tecnología que eleva el confort, optimiza la eficiencia y…","b":"Haften","c":"productos","dur":"","date":"2025-12-08","f":"8 dic 2025","s":true},{"id":"ot7BJDqsr2E","t":"LOYTEC, La nueva serie LVISxx-32Gx","d":"","b":"LOYTEC","c":"productos","dur":"","date":"2025-12-03","f":"3 dic 2025","s":true},{"id":"IdagknD5eV8","t":"Belimo: nueva generación digital","d":"Belimo presenta una nueva generación de dispositivos de campo diseñados para facilitar la gestión de sistemas HVAC cada vez más conectados. ¿Listo para preparar tu sistema HVAC para el…","b":"Belimo","c":"productos","dur":"","date":"2025-11-25","f":"25 nov 2025","s":true},{"id":"NbnBOclgXBU","t":"Sensores Belimo","d":"Los sensores de Belimo ofrecen mayor confiabilidad, fácil instalación y una integración sin fisuras con los Sistemas de Automatización para Edificios (BAS). Descubre más sobre Belimo a…","b":"Belimo","c":"productos","dur":"","date":"2025-11-20","f":"20 nov 2025","s":true},{"id":"sYt2U9HQVO8","t":"Belimo: nueva generación de dispositivos de campo HVAC","d":"Se acerca una nueva generación de dispositivos de campo HVAC. Preparado para el futuro Intuitivo Diseñado para sus necesidades Algo grande se avecina, y está más cerca de lo que piensas. 20…","b":"Belimo","c":"productos","dur":"","date":"2025-11-12","f":"12 nov 2025","s":true},{"id":"rW-SeO4G4a4","t":"Transmisores HMT120 y HMT130 de Vaisala","d":"Los transmisores HMT120 y HMT130 son ideales para Cuartos limpios, Laboratorios farmacéuticos, Museos, Data centers y HVAC. Cuentan con sondas inteligentes intercambiables que facilitan el…","b":"Vaisala","c":"productos","dur":"","date":"2025-11-03","f":"3 nov 2025","s":true},{"id":"-cCUikcOMzE","t":"Neptronic Modelo HRO20","d":"Controla tus humidificadores y deshumidificadores con el HRO20","b":"Neptronic","c":"productos","dur":"","date":"2025-10-15","f":"15 oct 2025","s":true},{"id":"00PWPOZAAxc","t":"Nuevo Monitor de Gas Refrigerante de Belimo","d":"Descubre el nuevo Monitor de Gas Refrigerante de Belimo Calibrado de fábrica y diseñado para detectar fugas de refrigerante, cumpliendo con las normas ASHRAE 15 y CSA B52. Puede funcionar…","b":"Belimo","c":"productos","dur":"","date":"2025-10-08","f":"8 oct 2025","s":true},{"id":"5iVQRNK9ykc","t":"Descubre toda la línea de productos Greystone con Haften","d":"","b":"Greystone","c":"productos","dur":"","date":"2025-09-25","f":"25 sep 2025","s":true},{"id":"Kgw01yR30fM","t":"Haften cuenta con la mejor solución en Humidificación de la marca Neptronic","d":"","b":"Neptronic","c":"productos","dur":"","date":"2025-09-25","f":"25 sep 2025","s":true},{"id":"TYZ_vt8NGBQ","t":"Conoce todo lo que la marca LOYTEC tiene preparado para ti en Haften","d":"","b":"LOYTEC","c":"productos","dur":"","date":"2025-09-24","f":"24 sep 2025","s":true},{"id":"4DYfvJ2HyBs","t":"Descubre mas de esta tecnología de Dwyer Omega en Haften","d":"","b":"Dwyer","c":"productos","dur":"","date":"2025-09-24","f":"24 sep 2025","s":true},{"id":"qBfJ5ke66JI","t":"Haften en AHR Expo Monterrey 2025","d":"Haften en AHR EXPO Monterrey | 23 al 25 de septiembre en Cintermex, Monterrey, N.L. Visítanos en el stand 1409 y conoce nuestras soluciones más innovadoras, creadas para dar respuesta a las…","b":"Haften","c":"eventos","dur":"","date":"2025-08-26","f":"26 ago 2025","s":true},{"id":"U-caIPwRAn0","t":"Belimo Energy Valve con medidor de energía térmica","d":"","b":"Belimo","c":"productos","dur":"","date":"2025-08-19","f":"19 ago 2025","s":true},{"id":"NT9Y8u5DQpw","t":"Conoce más de Belimo con uno de nuestros especialistas","d":"","b":"Belimo","c":"productos","dur":"","date":"2025-08-13","f":"13 ago 2025","s":true},{"id":"t6Y0QOxrU2M","t":"Humidificadores con protección para intemperie","d":"Los humidificadores neptronic están diseñados para condiciones climáticas diversas, ofreciendo soluciones para mejorar la calidad del aire interior, la comodidad y la eficiencia energética.…","b":"Neptronic","c":"productos","dur":"","date":"2025-07-25","f":"25 jul 2025","s":true},{"id":"NHcYbFcOAhM","t":"Termostato universal Ga-B","d":"Conoce el termostato universal Ga-B de Meitav-tec Inteligente, elegante y súper fácil de usar, GaB te da control total sobre tu clima con una pantalla nítida y colorida, y horarios…","b":"Meitav-tec","c":"productos","dur":"","date":"2025-06-10","f":"10 jun 2025","s":true},{"id":"3MhKbvOp4oA","t":"Nueva Válvula de control de 6 vías independiente de la presión de Belimo","d":"","b":"Belimo","c":"productos","dur":"","date":"2025-06-05","f":"5 jun 2025","s":true},{"id":"0OsrpiF5g_8","t":"Belimo: seguridad y cumplimiento con monitores de gases certificados por UL","d":"","b":"Belimo","c":"productos","dur":"","date":"2025-05-29","f":"29 may 2025","s":true},{"id":"5n6wpG3UGCk","t":"Neptronic SKRO","d":"El sistema de ósmosis inversa Neptronic SKRO es su mejor defensa contra la acumulación de sarro y los altos costos de mantenimiento. Menos limpieza, más rendimiento: simplemente control de…","b":"Neptronic","c":"productos","dur":"","date":"2025-05-20","f":"20 may 2025","s":true},{"id":"bPDAwTUmbsE","t":"Air Monitor: el DCAS es un transmisor","d":"","b":"Air Monitor","c":"productos","dur":"","date":"2025-05-13","f":"13 may 2025","s":true},{"id":"NESRU1ohlf4","t":"¿Óxido en el panel de control? Es más peligroso de lo que parece","d":"Aparecen pequeñas manchas de óxido en las superficies metálicas, pero nadie se da cuenta. Pasan las semanas. Ese óxido ahora está debilitando los equipos eléctricos. ¡La humedad acelera la…","b":"Haften","c":"productos","dur":"","date":"2025-04-23","f":"23 abr 2025","s":true},{"id":"bpAv2WeN5Yk","t":"Belimo: innovación en confort","d":"","b":"Belimo","c":"productos","dur":"","date":"2025-02-12","f":"12 feb 2025","s":true},{"id":"uFmZB7owIGo","t":"Termostato Touch Screen de Meitav-tec","d":"El termostato Touch Screen de Meitav-tec, Es la unión perfecta entre Diseño y control.","b":"Meitav-tec","c":"productos","dur":"","date":"2025-02-12","f":"12 feb 2025","s":true},{"id":"-GCXX-KMOCg","t":"La nueva generación de humidificadores Neptronic está en Haften","d":"La nueva generación de HUMIDIFICADORES Neptronic está en Haften Conoce más de esta tecnología con uno de nuestros especialistas","b":"Neptronic","c":"productos","dur":"","date":"2025-01-29","f":"29 ene 2025","s":true},{"id":"VEZMG6BikGY","t":"Termostato ALT24-CPH-1S de Meitav-tec","d":"Conoce el TERMOSTATO ALT24-CPH-1S de meitav-tec en HAFTEN","b":"Meitav-tec","c":"productos","dur":"","date":"2025-01-21","f":"21 ene 2025","s":true},{"id":"BHLL_KQINBU","t":"Humidificador residencial SKR Neptronic","d":"Conoce la línea de humidificadores Neptronic en Haften","b":"Neptronic","c":"productos","dur":"","date":"2025-01-15","f":"15 ene 2025","s":true},{"id":"7FMoYNDGR-8","t":"Manómetro de presión diferencial Magnehelic® Serie 2000","d":"","b":"Dwyer","c":"productos","dur":"","date":"2024-06-21","f":"21 jun 2024","s":true},{"id":"VHLYdjgo_Yw","t":"Conoce la línea de productos Belimo en Haften","d":"","b":"Belimo","c":"productos","dur":"","date":"2024-05-21","f":"21 may 2024","s":true},{"id":"3SD5T-p60-o","t":"Conoce los sensores y transmisores para pared de Belimo en Haften","d":"","b":"Belimo","c":"productos","dur":"","date":"2024-05-14","f":"14 may 2024","s":true},{"id":"yO1aRbPo8sM","t":"Razones para elegir Válvulas de mariposa Belimo","d":"","b":"Belimo","c":"productos","dur":"","date":"2024-04-25","f":"25 abr 2024","s":true},{"id":"4W6Mjoa1RB0","t":"Belimo: válvulas de mariposa","d":"","b":"Belimo","c":"productos","dur":"","date":"2024-04-15","f":"15 abr 2024","s":true},{"id":"tLYx5rYD7BM","t":"Válvulas de mariposa próxima generación","d":"","b":"Haften","c":"productos","dur":"","date":"2024-02-14","f":"14 feb 2024","s":true},{"id":"DYfRORDPZaE","t":"La Energy Valve de Belimo","d":"La Energy Valve de BELIMO proporciona toda la información importante que Loxone necesita para el monitoreo y la gestión de energía... Conoce la línea de productos \"BELIMO\" en Haften…","b":"Belimo","c":"productos","dur":"","date":"2024-02-06","f":"6 feb 2024","s":true},{"id":"QZVaVGz0kMU","t":"Belimo & Haften, distribuidor Platinum","d":"","b":"Belimo","c":"productos","dur":"","date":"2024-02-06","f":"6 feb 2024","s":true},{"id":"sHpgidmHI_A","t":"Conoce la línea de productos Control Techniques en Haften","d":"","b":"Control Techniques","c":"productos","dur":"","date":"2024-01-29","f":"29 ene 2024","s":true},{"id":"xPbMfAZUIFA","t":"Conoce la línea de Belimo en Haften","d":"","b":"Belimo","c":"productos","dur":"","date":"2023-02-27","f":"27 feb 2023","s":true},{"id":"PBoVKEhWrfQ","t":"Conoce la línea de Belimo en Haften, distribuidor autorizado","d":"Conoce la línea de productos BELIMO en Haften, DISTRIBUIDOR Autorizado.","b":"Belimo","c":"productos","dur":"","date":"2023-02-23","f":"23 feb 2023","s":true},{"id":"nlOv1Hu5roA","t":"Dwyer Monitor CO₂","d":"Conoce la línea de productos DWYER en Haften, DISTRIBUIDOR Autorizado.","b":"Dwyer","c":"productos","dur":"","date":"2023-02-03","f":"3 feb 2023","s":true},{"id":"nQEmTX8mxlM","t":"Haften cuenta con las mejores marcas de HVAC/R-BMS","d":"Haften cuenta con las mejores marcas de Periféricos HVAC/R- BMS, Medición y ahorro de energía Humidificación","b":"Haften","c":"institucional","dur":"","date":"2023-01-19","f":"19 ene 2023","s":true}];
+    // SOCIAL:END
 
-    const PLAT_ICONS = {
-      yt: '<i class="fa-brands fa-youtube"></i>',
-      fb: '<i class="fa-brands fa-facebook-f"></i>',
-      ig: '<i class="fa-brands fa-instagram"></i>',
-      tt: '<i class="fa-brands fa-tiktok"></i>'
-    };
-    const PLAT_LABELS = { yt: 'YouTube', fb: 'Facebook', ig: 'Instagram', tt: 'TikTok' };
+    const CAT_LABEL = { webinars: 'Webinar', productos: 'Producto', eventos: 'Evento', institucional: 'Haften' };
+    const FEATURED_ID = 'SbxEZpgpvd0';
+    const PAGE = { videos: 9, shorts: 10 };
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const norm = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    const thumb = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+    const watch = v => v.s ? `https://www.youtube.com/shorts/${v.id}` : `https://www.youtube.com/watch?v=${v.id}`;
+    const embed = id => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+    function playIn(el, v) {
+      el.innerHTML = `<iframe src="${embed(v.id)}" title="${esc(v.t)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+      const f = el.querySelector('iframe'); if (f) f.focus();
+    }
 
-    // Is this a "real" embeddable video? FB vids and YT channel can embed.
-    // For IG and TT we show poster + external link.
-    const EMBEDDABLE = { yt: true, fb: true, ig: false, tt: false };
-
-    // ── BUILD VIDEO CARD ──────────────────────────────────────────────────────
-    function buildCard(v, idx) {
-      const div = document.createElement('div');
-      div.className = 'vid-card rv';
-      div.dataset.plat = v.plat;
-      div.style.transitionDelay = (idx % 6 * 0.06) + 's';
-
-      const canEmbed = EMBEDDABLE[v.plat];
-
-      div.innerHTML = `
-    <div class="vid-thumb" id="vt${v.id}">
-      <img src="${v.thumb}" alt="${v.title}" loading="lazy">
-      <div class="vid-platform ${v.plat}">${PLAT_ICONS[v.plat]} ${PLAT_LABELS[v.plat]}</div>
-      <div class="vid-dur">${v.dur}</div>
-      <div class="vid-play-btn">
-        <div class="play-circle"><i class="fa-solid fa-play" style="margin-left:3px"></i></div>
-      </div>
-      <div class="vid-iframe-wrap" id="vi${v.id}"></div>
+    // ── TARJETAS ──────────────────────────────────────────────────────────────
+    function videoCard(v) {
+      const a = document.createElement('article');
+      a.className = 'vid-card';
+      a.innerHTML = `
+    <div class="vid-thumb">
+      <button type="button" class="vid-play" aria-label="Reproducir: ${esc(v.t)}">
+        <img src="${thumb(v.id)}" alt="" loading="lazy" width="480" height="360">
+        <span class="vid-platform yt">${CAT_LABEL[v.c]}</span>
+        <span class="vid-dur">${v.dur}</span>
+        <span class="vid-play-btn" aria-hidden="true"><span class="play-circle"><i class="fa-solid fa-play" style="margin-left:3px"></i></span></span>
+      </button>
     </div>
     <div class="vid-body">
-      <div class="vid-meta">
-        <span class="vid-cat">${v.cat}</span>
-        <span class="vid-date">${v.date}</span>
-      </div>
-      <div class="vid-title">${v.title}</div>
-      <div class="vid-desc">${v.desc}</div>
+      <div class="vid-meta"><span class="vid-cat">${esc(v.b)}</span><time class="vid-date" datetime="${v.date}">${v.f}</time></div>
+      <h3 class="vid-title">${esc(v.t)}</h3>
+      ${v.d ? `<p class="vid-desc">${esc(v.d)}</p>` : ''}
     </div>
     <div class="vid-footer">
-      <div class="vid-brand"><i class="fa-solid fa-circle-dot"></i>${v.brand}</div>
-      <a href="${v.link}" target="_blank" rel="noopener" class="vid-share"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a>
+      <span class="vid-brand"><i class="fa-brands fa-youtube"></i>YouTube · ${v.dur}</span>
+      <a href="${watch(v)}" target="_blank" rel="noopener" class="vid-share"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir</a>
     </div>`;
-
-      // Click to play
-      const thumb = div.querySelector('#vt' + v.id);
-      const iframeWrap = div.querySelector('#vi' + v.id);
-      thumb.addEventListener('click', () => {
-        if (canEmbed) {
-          iframeWrap.innerHTML = `<iframe src="${v.embed}" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy" title="${v.title}"></iframe>`;
-          iframeWrap.classList.add('active');
-        } else {
-          window.open(v.link, '_blank', 'noopener,noreferrer');
-        }
-      });
-
-      return div;
+      a.querySelector('.vid-play').addEventListener('click', () => playIn(a.querySelector('.vid-thumb'), v));
+      return a;
     }
 
-    // ── BUILD MINI PLAYLIST ───────────────────────────────────────────────────
+    function shortCard(v) {
+      const a = document.createElement('article');
+      a.className = 'short-card';
+      a.innerHTML = `
+    <div class="short-thumb">
+      <button type="button" class="vid-play" aria-label="Reproducir short: ${esc(v.t)}">
+        <img src="${thumb(v.id)}" alt="" loading="lazy" width="480" height="360">
+        <span class="short-badge"><i class="fa-brands fa-youtube"></i> Short</span>
+        <span class="vid-play-btn" aria-hidden="true"><span class="play-circle"><i class="fa-solid fa-play" style="margin-left:3px"></i></span></span>
+      </button>
+    </div>
+    <div class="short-body">
+      <div class="short-meta">${esc(v.b)} · <time datetime="${v.date}">${v.f}</time></div>
+      <h3 class="short-title"><a href="${watch(v)}" target="_blank" rel="noopener">${esc(v.t)}</a></h3>
+    </div>`;
+      a.querySelector('.vid-play').addEventListener('click', () => playIn(a.querySelector('.short-thumb'), v));
+      return a;
+    }
+
+    // ── DESTACADO + LISTA ─────────────────────────────────────────────────────
+    function setFeatured(v, autoplay) {
+      const p = document.getElementById('featPlayer');
+      document.getElementById('featKicker').textContent = 'YouTube · ' + (CAT_LABEL[v.c] || 'Video') + ' · ' + v.dur;
+      document.getElementById('featTitle').textContent = v.t;
+      document.getElementById('featDesc').textContent = v.d || '';
+      document.getElementById('featLink').href = watch(v);
+      document.getElementById('featTags').innerHTML = [...new Set([v.b, CAT_LABEL[v.c], v.f])].map(t => `<span class="feat-tag">${esc(t)}</span>`).join('');
+      if (autoplay) { playIn(p, v); return; }
+      p.innerHTML = `<button type="button" class="vid-play feat-facade" aria-label="Reproducir: ${esc(v.t)}">
+        <img src="https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg" alt="" onerror="this.src='${thumb(v.id)}'">
+        <span class="vid-play-btn" aria-hidden="true"><span class="play-circle"><i class="fa-solid fa-play" style="margin-left:3px"></i></span></span>
+      </button>`;
+      p.querySelector('button').addEventListener('click', () => playIn(p, v));
+    }
+
     function buildMiniPlaylist() {
       const pl = document.getElementById('miniPlaylist');
-      const items = VIDEOS.filter(v => v.plat === 'fb').slice(0, 3);
+      const feat = YT_VIDEOS.find(v => v.id === FEATURED_ID) || YT_VIDEOS[0];
+      const items = [feat, ...YT_VIDEOS.filter(v => v.c === 'webinars').slice(0, 4)];
       items.forEach((v, i) => {
-        const div = document.createElement('div');
-        div.className = 'pl-item' + (i === 0 ? ' active' : '');
-        div.innerHTML = `
-      <img class="pl-thumb" src="${v.thumb}" alt="${v.title}" loading="lazy">
-      <div class="pl-info">
-        <div class="pl-title">${v.title}</div>
-        <div class="pl-meta">${PLAT_LABELS[v.plat]} · ${v.cat}</div>
-      </div>
-      <div class="pl-dur">${v.dur}</div>`;
-        div.addEventListener('click', () => {
-          document.querySelectorAll('.pl-item').forEach(p => p.classList.remove('active'));
-          div.classList.add('active');
-          window.open(v.link, '_blank', 'noopener,noreferrer');
+        const li = document.createElement('li');
+        li.innerHTML = `<button type="button" class="pl-item${i === 0 ? ' active' : ''}" aria-current="${i === 0}">
+      <img class="pl-thumb" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg" alt="" loading="lazy">
+      <span class="pl-info"><span class="pl-title">${esc(v.t)}</span><span class="pl-meta">${esc(v.b)} · ${v.f}</span></span>
+      <span class="pl-dur">${v.dur}</span></button>`;
+        const b = li.firstElementChild;
+        b.addEventListener('click', () => {
+          pl.querySelectorAll('.pl-item').forEach(x => { x.classList.remove('active'); x.setAttribute('aria-current', 'false'); });
+          b.classList.add('active'); b.setAttribute('aria-current', 'true');
+          setFeatured(v, true);
+          if (window.innerWidth < 1200) document.getElementById('featPlayer').scrollIntoView({ block: 'center' });
         });
-        pl.appendChild(div);
+        pl.appendChild(li);
       });
+      setFeatured(feat, false);
     }
 
-    // ── RENDER GRID ───────────────────────────────────────────────────────────
-    function renderGrid() {
-      const grid = document.getElementById('videosGrid');
-      VIDEOS.forEach((v, i) => {
-        grid.appendChild(buildCard(v, i));
-      });
-      // update counts
-      document.getElementById('cnt-all').textContent = VIDEOS.length;
-      document.getElementById('vidCount').textContent = VIDEOS.length;
-      ['yt', 'fb', 'ig', 'tt'].forEach(p => {
-        const el = document.getElementById('cnt-' + p);
-        if (el) el.textContent = VIDEOS.filter(v => v.plat === p).length;
-      });
+    // ── FILTRO, BÚSQUEDA Y PAGINACIÓN ─────────────────────────────────────────
+    const state = { cat: 'all', q: '', vShown: PAGE.videos, sShown: PAGE.shorts };
+    const matches = v => {
+      if (state.cat !== 'all' && state.cat !== 'shorts' && v.c !== state.cat) return false;
+      if (!state.q) return true;
+      return norm(v.t + ' ' + v.b + ' ' + v.d + ' ' + CAT_LABEL[v.c]).includes(state.q);
+    };
+    function render() {
+      const vids = state.cat === 'shorts' ? [] : YT_VIDEOS.filter(matches);
+      const shorts = YT_SHORTS.filter(matches);
+      const vg = document.getElementById('videosGrid'), sg = document.getElementById('shortsGrid');
+      vg.replaceChildren(...vids.slice(0, state.vShown).map(videoCard));
+      sg.replaceChildren(...shorts.slice(0, state.sShown).map(shortCard));
+      document.getElementById('vidCount').textContent = vids.length;
+      document.getElementById('shortCount').textContent = shorts.length;
+      document.getElementById('videos').hidden = !vids.length;
+      document.getElementById('shorts').hidden = !shorts.length;
+      document.getElementById('vidMore').hidden = vids.length <= state.vShown;
+      document.getElementById('shortMore').hidden = shorts.length <= state.sShown;
+      document.getElementById('mmEmpty').hidden = !!(vids.length || shorts.length);
     }
-
-    // ── FILTER ────────────────────────────────────────────────────────────────
-    let activePlat = 'all';
-    function applyFilter() {
-      const cards = document.querySelectorAll('.vid-card');
-      let visible = 0;
-      cards.forEach(c => {
-        const show = activePlat === 'all' || c.dataset.plat === activePlat;
-        c.classList.toggle('hidden', !show);
-        if (show) visible++;
+    function setCat(cat) {
+      state.cat = cat; state.vShown = PAGE.videos; state.sShown = PAGE.shorts;
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        const on = b.dataset.cat === cat;
+        b.classList.toggle('active', on); b.setAttribute('aria-pressed', on);
       });
-      document.getElementById('vidCount').textContent = visible;
+      render();
     }
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activePlat = btn.dataset.plat;
-        applyFilter();
+    function initMedia() {
+      const all = [...YT_VIDEOS, ...YT_SHORTS];
+      document.querySelectorAll('[data-count]').forEach(el => {
+        const k = el.dataset.count;
+        el.textContent = k === 'all' ? all.length : k === 'shorts' ? YT_SHORTS.length : all.filter(v => v.c === k).length;
       });
-    });
+      document.querySelectorAll('[data-stat]').forEach(el => {
+        const k = el.dataset.stat;
+        el.textContent = k === 'videos' ? YT_VIDEOS.length : k === 'shorts' ? YT_SHORTS.length : all.filter(v => v.c === k).length;
+      });
+      document.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', () => {
+        setCat(b.dataset.cat);
+        const target = document.getElementById(b.dataset.cat === 'shorts' ? 'shorts' : 'videos');
+        if (window.scrollY > target.offsetTop) target.scrollIntoView({ block: 'start' });
+      }));
+      let t;
+      document.getElementById('mmSearch').addEventListener('input', e => {
+        clearTimeout(t);
+        t = setTimeout(() => { state.q = norm(e.target.value.trim()); state.vShown = PAGE.videos; state.sShown = PAGE.shorts; render(); }, 150);
+      });
+      document.getElementById('vidMore').addEventListener('click', () => { state.vShown += PAGE.videos; render(); });
+      document.getElementById('shortMore').addEventListener('click', () => { state.sShown += PAGE.shorts * 2; render(); });
+      document.getElementById('mmReset').addEventListener('click', () => { document.getElementById('mmSearch').value = ''; state.q = ''; setCat('all'); });
+      buildMiniPlaylist();
+      render();
+    }
 
     // ── TICKER ────────────────────────────────────────────────────────────────
-    const tnames = ['YouTube · Tutoriales HVAC', 'Facebook · Videos de Marcas', 'Instagram · Reels Técnicos', 'TikTok · Tips Rápidos', 'Haften · Capacitación Online'];
+    const tnames = ['Webinars técnicos', ...new Set([...YT_VIDEOS, ...YT_SHORTS].map(v => v.b).filter(b => b !== 'Haften'))];
     const tkr = document.getElementById('tkr');
     [...tnames, ...tnames, ...tnames, ...tnames].forEach(t => { const e = document.createElement('span'); e.className = 'ticker-item'; e.innerHTML = `<i class="fa-solid fa-circle"></i>${t}`; tkr.appendChild(e) });
 
@@ -2641,8 +2575,7 @@
     cwInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg() });
 
     // ── INIT ──────────────────────────────────────────────────────────────────
-    renderGrid();
-    buildMiniPlaylist();
+    initMedia();
     setTimeout(() => {
       document.querySelectorAll('.rv').forEach(el => { if (!el.classList.contains('on')) io.observe(el) });
     }, 50);

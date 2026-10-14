@@ -123,6 +123,20 @@
     }
   });
 
+  // ── cursor personalizado: estados de hover/clic y ocultar al salir ──
+  if (document.getElementById('cur')) {
+    var HOVER = 'a,button,[role="button"],label,summary,select,input,textarea,.vid-card,.short-card,.soc-card,.post-card,.cat-card,.brand-cell,.pl-item';
+    document.addEventListener('mouseover', function (e) {
+      var t = e.target;
+      body.classList.toggle('cur-hover', !!(t.closest && t.closest(HOVER)));
+      body.classList.toggle('cur-out', t.tagName === 'IFRAME');
+    });
+    document.addEventListener('mousedown', function () { body.classList.add('cur-down'); });
+    document.addEventListener('mouseup', function () { body.classList.remove('cur-down'); });
+    document.documentElement.addEventListener('mouseleave', function () { body.classList.add('cur-out'); });
+    document.documentElement.addEventListener('mouseenter', function () { body.classList.remove('cur-out'); });
+  }
+
   // ── saltar al contenido ──
   var main = document.querySelector('main');
   if (main) {
