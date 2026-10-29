@@ -7,7 +7,80 @@
   var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
 
-  requestAnimationFrame(function () { document.documentElement.classList.add('pro-ready'); });
+  /* ── PRELOADER ── */
+  var root = document.documentElement;
+  var ready = function () { root.classList.add('pro-ready'); };
+  var loader = document.getElementById('loader');
+  if (loader) {
+    var seen = false;
+    try { seen = sessionStorage.getItem('hf-pl') === '1'; sessionStorage.setItem('hf-pl', '1'); } catch (e) {}
+    var quick = seen || reduce || document.body.classList.contains('no-anim');
+    loader.innerHTML =
+      '<div class="pl" aria-hidden="true">' +
+        '<div class="pl-grid"></div><div class="pl-glow"></div>' +
+        '<div class="pl-core">' +
+          '<div class="pl-frame"><i></i><i></i><i></i><i></i>' +
+            '<div class="pl-logo"><img src="assets/logos/logo-haften-white.png" alt=""><span class="pl-scan"></span></div>' +
+          '</div>' +
+          '<div class="pl-meta"><span class="pl-stat">Iniciando</span><span class="pl-pct">000</span></div>' +
+          '<div class="pl-bar"><i></i></div>' +
+          '<div class="pl-tags"><span>HVAC</span><span>BMS</span><span>Energía</span><span>IAQ</span></div>' +
+        '</div>' +
+        '<div class="pl-foot"><span>Control e instrumentación</span><span>Desde 1999</span></div>' +
+      '</div>';
+    if (quick) loader.classList.add('pl-quick');
+    var pct = loader.querySelector('.pl-pct'), fillBar = loader.querySelector('.pl-bar i'),
+      stat = loader.querySelector('.pl-stat'), tags = loader.querySelectorAll('.pl-tags span');
+    var STATES = ['Iniciando', 'Calibrando sensores', 'Sincronizando BMS', 'Cargando marcas', 'Listo'];
+    var t0 = performance.now(), minT = quick ? 450 : 1700, p = 0, loaded = document.readyState === 'complete', out = false;
+    var setLoaded = function () { loaded = true; };
+    window.addEventListener('load', setLoaded);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(setLoaded);
+    setTimeout(setLoaded, quick ? 400 : 1600);
+    var tick = function (now) {
+      if (out) return;
+      var el = now - t0;
+      var cap = loaded ? 100 : 86;
+      var goal = Math.min(cap, el / minT * 100);
+      p += (goal - p) * (quick ? .35 : .12);
+      if (goal >= 100 && p > 99.4) p = 100;
+      var v = Math.round(p);
+      pct.textContent = ('00' + v).slice(-3);
+      fillBar.style.transform = 'scaleX(' + (p / 100).toFixed(3) + ')';
+      stat.textContent = STATES[Math.min(4, Math.floor(p / 25))];
+      for (var i = 0; i < tags.length; i++) tags[i].classList.toggle('on', p >= (i + 1) * 24);
+      if (v >= 100 || el > 5000) { finish(); return; }
+      requestAnimationFrame(tick);
+    };
+    var finish = function () {
+      out = true;
+      loader.classList.add('pro-out');
+      setTimeout(ready, quick ? 120 : 380);
+      setTimeout(function () { loader.style.display = 'none'; }, 1400);
+    };
+    requestAnimationFrame(tick);
+  } else requestAnimationFrame(ready);
+
+  /* ── MENÚ MÓVIL FUERA DE PANTALLA ── */
+  var navL = document.getElementById('navLinks'), hamB = document.getElementById('menuBtn');
+  if (navL && hamB) {
+    var head = document.createElement('li');
+    head.className = 'n-drawer-head';
+    head.setAttribute('aria-hidden', 'true');
+    head.innerHTML = '<img src="assets/logos/logo-haften-white.png" alt=""><span>Menú</span>';
+    navL.insertBefore(head, navL.firstChild);
+    var foot = document.createElement('li');
+    foot.className = 'n-drawer-foot';
+    foot.setAttribute('aria-hidden', 'true');
+    foot.innerHTML = '<span>HVAC · BMS · Medición de energía</span><span>CDMX · MTY · GDL · LEÓN · CUN</span>';
+    navL.appendChild(foot);
+    var scrim = document.createElement('div');
+    scrim.className = 'n-scrim';
+    document.body.appendChild(scrim);
+    var sync = function () { root.classList.toggle('menu-open', navL.classList.contains('open') && innerWidth <= 900); };
+    new MutationObserver(sync).observe(navL, { attributes: true, attributeFilter: ['class'] });
+    window.addEventListener('resize', sync);
+  }
 
   /* ── CINTA DE MARCAS ── */
   var BRANDS = window.HAFTEN_BRANDS || [];
@@ -15,35 +88,26 @@
     return '<a class="br-logo" href="/marcas?q=' + encodeURIComponent(b.n) + '" title="' + esc(b.n) + '" tabindex="-1">' +
       '<img src="assets/logos/' + b.f + '" alt="' + esc(b.n) + '" loading="lazy" decoding="async"></a>';
   }
-  function row(list, rev, dur) {
-    var h = list.map(logo).join('');
-    return '<div class="br-row' + (rev ? ' rev' : '') + '"><div class="br-track" style="--br-dur:' + dur + 's">' + h + h + '</div></div>';
-  }
   function rail() {
-    var half = Math.ceil(BRANDS.length / 2);
-    var a = BRANDS.slice(0, half), b = BRANDS.slice(half);
-    var wrap = document.createElement('div');
-    wrap.className = 'br-wrap';
-    wrap.innerHTML =
-      '<div class="br-rail rv" role="region" aria-label="Marcas que distribuimos">' +
-        '<div class="br-head">' +
-          '<span class="br-kicker"><i></i>Distribuidor autorizado</span>' +
-          '<div class="br-title"><b>' + BRANDS.length + '</b> marcas de clase mundial</div>' +
-          '<a class="br-all" href="/marcas">Ver todas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>' +
-        '</div>' +
-        '<div class="br-rows">' + row(a, false, 55) + row(b, true, 62) + '</div>' +
-      '</div>';
-    return wrap;
+    var h = BRANDS.map(logo).join('');
+    var band = document.createElement('div');
+    band.className = 'br-band';
+    band.setAttribute('role', 'region');
+    band.setAttribute('aria-label', 'Marcas que distribuimos');
+    band.innerHTML =
+      '<div class="br-cap">' +
+        '<span class="br-kicker"><i></i>Distribuidor autorizado</span>' +
+        '<span class="br-line" aria-hidden="true"></span>' +
+        '<span class="br-title"><b>' + BRANDS.length + '</b> marcas de clase mundial</span>' +
+        '<span class="br-line" aria-hidden="true"></span>' +
+        '<a class="br-all" href="/marcas">Ver todas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>' +
+      '</div>' +
+      '<div class="br-row"><div class="br-track">' + h + h + '</div></div>';
+    return band;
   }
   if (BRANDS.length) {
     document.querySelectorAll('.ticker[data-logos], .hx-logos').forEach(function (old) {
-      var r = rail();
-      old.replaceWith(r);
-      var el = r.firstChild;
-      if ('IntersectionObserver' in window) {
-        var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { el.classList.add('on'); o.disconnect(); } }); }, { threshold: .05 });
-        o.observe(el);
-      } else el.classList.add('on');
+      old.replaceWith(rail());
     });
   }
 
