@@ -2533,6 +2533,7 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
@@ -2597,54 +2598,53 @@
   <main id="nosotros-main">
 
     <!-- ██ PAGE HERO ██ -->
-    <section class="page-hero" aria-label="Nosotros hero">
-      <div class="page-hero-bg">
-        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1920&q=85&fit=crop"
-          alt="Equipo Haften">
-      </div>
-      <div class="page-hero-overlay" aria-hidden="true"></div>
-      <div class="page-hero-grid" aria-hidden="true"></div>
-      <canvas id="phCanvas" aria-hidden="true"></canvas>
-
-      <div class="page-hero-inner">
-
-        <div class="page-hero-pill">
-          <span class="page-hero-pill-dot" aria-hidden="true"></span>
-          Quiénes somos
-        </div>
-        <h1 class="page-hero-h1">
-          <span class="pre">Conoce a</span>
-          <span class="main">Haften</span>
-        </h1>
-        <p class="page-hero-sub">Más de dos décadas siendo el socio técnico de confianza para ingenieros, proyectistas y
-          empresas en toda la República Mexicana.</p>
-        <div class="page-hero-stats">
-          <div class="ph-stat">
-            <div class="ph-stat-n">1999</div>
-            <div class="ph-stat-l">Fundación</div>
+    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
+      <div class="hx-panel">
+        <div class="hx-big" aria-hidden="true">NOSOTROS</div>
+        <div class="hx-grid">
+          <div class="hx-copy">
+            <span class="hx-eyebrow"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>Quiénes somos</span>
+            <h1 id="hx-h" class="hx-h1">Conoce a <span>Haften</span></h1>
+            <p class="hx-sub">Más de dos décadas siendo el socio técnico de confianza para ingenieros, proyectistas y empresas en toda la República Mexicana.</p>
+            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+              <div class="hx-field">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+                <span class="hx-kbd" aria-hidden="true">/</span>
+                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="hs-results" id="hsList" role="listbox" hidden></div>
+              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Historia">Historia</button><button type="button" class="hx-chip" data-q="Sucursales">Sucursales</button><button type="button" class="hx-chip" data-q="Johnson Controls">Johnson Controls</button><button type="button" class="hx-chip" data-q="Flowcon">Flowcon</button><button type="button" class="hx-chip" data-q="Contacto">Contacto</button></div>
+            </form>
+            <div class="hx-row">
+              <a class="hx-trust" href="/marcas">
+                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
+                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
+              </a>
+              <a href="#historia" class="hx-btn hx-btn-ac"><i class="fa-solid fa-timeline" aria-hidden="true"></i>Nuestra historia</a><a href="/contacto" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contáctanos</a>
+            </div>
           </div>
-          <div class="ph-stat">
-            <div class="ph-stat-n">20<em>+</em></div>
-            <div class="ph-stat-l">Años de experiencia</div>
-          </div>
-          <div class="ph-stat">
-            <div class="ph-stat-n">25<em>+</em></div>
-            <div class="ph-stat-l">Marcas internacionales</div>
-          </div>
-          <div class="ph-stat">
-            <div class="ph-stat-n">5</div>
-            <div class="ph-stat-l">Oficinas en México</div>
-          </div>
-          <div class="ph-stat">
-            <div class="ph-stat-n">1K<em>+</em></div>
-            <div class="ph-stat-l">Clientes atendidos</div>
+          <div class="hx-visual">
+            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
+            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80&fit=crop" alt="Equipo técnico de Haften en campo" fetchpriority="high"></div>
+            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-flag"></i>Desde 1999</span><span class="hx-pill p2"><i class="fa-solid fa-helmet-safety"></i>Ingeniería</span><span class="hx-pill p3"><i class="fa-solid fa-handshake"></i>Confianza</span></div>
+            <div class="hx-seal" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
+              <i class="fa-solid fa-fan"></i>
+            </div>
+            <div class="hx-card">
+              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
+              <div class="hx-card-r"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span><b>1999</b> · fundación</span></div><div class="hx-card-r"><i class="fa-solid fa-users" aria-hidden="true"></i><span><b>1K+</b> clientes atendidos</span></div><div class="hx-card-r"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><b>5 oficinas</b> en México</span></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TICKER -->
-    <div class="ticker" aria-hidden="true">
+    <div class="ticker" data-logos aria-hidden="true">
       <div class="ticker-lbl"><i class="fa-solid fa-star" style="font-size:.45rem"></i> Marcas</div>
       <div style="flex:1;overflow:hidden">
         <div class="ticker-track" id="tkr"></div>
@@ -2795,7 +2795,7 @@
     </section>
 
     <!-- ██ HISTORIA — TIMELINE ██ -->
-    <section class="historia-sec" data-dark aria-labelledby="hist-h">
+    <section class="historia-sec" id="historia" data-dark aria-labelledby="hist-h">
       <div class="historia-inner">
         <div class="s-hdr rv" style="text-align:center">
           <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-clock-rotate-left"></i> Trayectoria
@@ -2882,7 +2882,7 @@
     </section>
 
     <!-- ██ PORTAFOLIO DE PRODUCTOS ██ -->
-    <section class="portafolio-sec" data-dark aria-labelledby="port-h">
+    <section class="portafolio-sec" id="portafolio" data-dark aria-labelledby="port-h">
       <div class="container">
         <div class="s-hdr rv" style="text-align:center">
           <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-boxes-stacked"></i> Portafolio
@@ -2891,54 +2891,70 @@
           <p class="s-sub" style="margin:0 auto">Instrumentación · Control · Automatización · Climatización</p>
         </div>
         <div class="port-bento">
-          <div class="port-card rv d1">
+          <a class="port-card rv d1" href="/marcas?q=flujo">
             <div class="port-ico"><i class="fa-solid fa-wind"></i></div>
             <div class="port-name">Medidores de flujo de aire, agua y gas</div>
-          </div>
-          <div class="port-card rv d2">
+          </a>
+          <a class="port-card rv d2" href="/marcas?q=v%C3%A1lvulas">
             <div class="port-ico"><i class="fa-solid fa-faucet-drip"></i></div>
             <div class="port-name">Válvulas de control, balanceo y energy valves</div>
-          </div>
-          <div class="port-card rv d3">
+          </a>
+          <a class="port-card rv d3" href="/marcas?q=actuadores">
             <div class="port-ico"><i class="fa-solid fa-gear"></i></div>
             <div class="port-name">Actuadores para damper y válvulas</div>
-          </div>
-          <div class="port-card rv d4">
+          </a>
+          <a class="port-card rv d4" href="/marcas?q=sensores">
             <div class="port-ico"><i class="fa-solid fa-satellite-dish"></i></div>
-            <div class="port-name">Sensores CO2, temperatura, humedad, presión, VOC</div>
-          </div>
-          <div class="port-card rv d1">
+            <div class="port-name">Sensores de temperatura, humedad, presión y calidad de aire (IAQ)</div>
+          </a>
+          <a class="port-card rv d1" href="/marcas?q=man%C3%B3metros">
             <div class="port-ico"><i class="fa-solid fa-gauge-high"></i></div>
-            <div class="port-name">Manómetros y termómetros industriales</div>
-          </div>
-          <div class="port-card rv d2">
+            <div class="port-name">Manómetros y termómetros</div>
+          </a>
+          <a class="port-card rv d2" href="/marcas?q=variadores">
             <div class="port-ico"><i class="fa-solid fa-bolt"></i></div>
             <div class="port-name">Variadores de frecuencia (VFDs)</div>
-          </div>
-          <div class="port-card rv d3">
+          </a>
+          <a class="port-card rv d3" href="/marcas?q=gateways">
             <div class="port-ico"><i class="fa-solid fa-network-wired"></i></div>
-            <div class="port-name">Gateways, routers y controladores BMS</div>
-          </div>
-          <div class="port-card rv d4">
-            <div class="port-ico"><i class="fa-solid fa-microchip"></i></div>
-            <div class="port-name">HMIs, supervisores y power meters</div>
-          </div>
-          <div class="port-card rv d1">
-            <div class="port-ico"><i class="fa-solid fa-temperature-arrow-up"></i></div>
-            <div class="port-name">Humidificadores y deshumidificadores</div>
-          </div>
-          <div class="port-card rv d2">
-            <div class="port-ico"><i class="fa-solid fa-fire-flame-curved"></i></div>
-            <div class="port-name">Calefactores eléctricos industriales</div>
-          </div>
-          <div class="port-card rv d3">
+            <div class="port-name">Gateways, routers, módulos IO y controladores BMS</div>
+          </a>
+          <a class="port-card rv d4" href="/marcas?q=power%20meters">
             <div class="port-ico"><i class="fa-solid fa-display"></i></div>
+            <div class="port-name">HMIs, supervisores y power meters</div>
+          </a>
+          <a class="port-card rv d1" href="/marcas?q=humidific">
+            <div class="port-ico"><i class="fa-solid fa-droplet"></i></div>
+            <div class="port-name">Humidificadores y deshumidificadores</div>
+          </a>
+          <a class="port-card rv d2" href="/marcas?q=calefactores">
+            <div class="port-ico"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <div class="port-name">Calefactores eléctricos</div>
+          </a>
+          <a class="port-card rv d3" href="/marcas?q=termostatos">
+            <div class="port-ico"><i class="fa-solid fa-temperature-half"></i></div>
             <div class="port-name">Termostatos y humidostatos digitales</div>
-          </div>
-          <div class="port-card rv d4">
+          </a>
+          <a class="port-card rv d4" href="/marcas?q=salas%20limpias">
+            <div class="port-ico"><i class="fa-solid fa-shield-virus"></i></div>
+            <div class="port-name">Sensores para áreas críticas</div>
+          </a>
+          <a class="port-card rv d1" href="/marcas?q=comisionamiento">
+            <div class="port-ico"><i class="fa-solid fa-clipboard-check"></i></div>
+            <div class="port-name">Equipos de medición para comisionamiento</div>
+          </a>
+          <a class="port-card rv d2" href="/marcas?q=fuentes">
             <div class="port-ico"><i class="fa-solid fa-plug-circle-bolt"></i></div>
-            <div class="port-name">Sensores para áreas críticas y laboratorios</div>
-          </div>
+            <div class="port-name">Fuentes de alimentación y transformadores</div>
+          </a>
+          <a class="port-card rv d3" href="/marcas?q=BTU">
+            <div class="port-ico"><i class="fa-solid fa-temperature-arrow-up"></i></div>
+            <div class="port-name">Medidores de energía (BTU)</div>
+          </a>
+          <a class="port-card rv d4" href="/marcas?q=relevadores">
+            <div class="port-ico"><i class="fa-solid fa-toggle-on"></i></div>
+            <div class="port-name">Relevadores y contactores</div>
+          </a>
         </div>
         <div class="rv" style="margin-top:44px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
           <a href="/catalogos" class="btn btn-ac"><i class="fa-solid fa-file-pdf"></i>Descargar catálogos</a>
@@ -3239,7 +3255,7 @@
 
     // PAGE HERO CANVAS
     (function () {
-      const canvas = document.getElementById('phCanvas'), ctx = canvas.getContext('2d');
+      const canvas = document.getElementById('phCanvas'); if (!canvas) return; const ctx = canvas.getContext('2d');
       let W, H, pts = [];
       function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
       function mkP() { return { x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0, age: 0, maxAge: Math.random() * 200 + 70, spd: Math.random() * 1.1 + 0.3, sz: Math.random() * 1.2 + 0.2, warm: Math.random() < .12 } }
@@ -3375,6 +3391,7 @@
   </script>
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
+  <script src="assets/js/buscar.js"></script>
   <script src="assets/js/sucursales.js"></script>
 </body>
 

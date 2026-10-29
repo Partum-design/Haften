@@ -2394,6 +2394,7 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
 </head>
 
 <body>
@@ -2456,44 +2457,53 @@
   <main id="main-content">
 
     <!-- ██ PAGE HERO — DARK WITH BG IMAGE ██ -->
-    <section class="page-hero" aria-label="Marcas hero">
-      <div class="page-hero-bg-img" aria-hidden="true"></div>
-      <div class="page-hero-overlay" aria-hidden="true"></div>
-      <div class="page-hero-decor" aria-hidden="true"></div>
-      <div class="page-hero-grid-light" aria-hidden="true"></div>
-      <div class="page-hero-inner">
-        <div>
-
-          <div class="ph-eyebrow">
-            <span class="ph-eyebrow-dot" aria-hidden="true"></span>
-            Distribuidores autorizados
+    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
+      <div class="hx-panel">
+        <div class="hx-big" aria-hidden="true">MARCAS</div>
+        <div class="hx-grid">
+          <div class="hx-copy">
+            <span class="hx-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i>Distribuidores autorizados</span>
+            <h1 id="hx-h" class="hx-h1">Marcas de <span>clase mundial</span></h1>
+            <p class="hx-sub">Representamos marcas reconocidas internacionalmente por su innovación, precisión y calidad en HVAC/R, BMS e instrumentación.</p>
+            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+              <div class="hx-field">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+                <span class="hx-kbd" aria-hidden="true">/</span>
+                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="hs-results" id="hsList" role="listbox" hidden></div>
+              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Vaisala">Vaisala</button><button type="button" class="hx-chip" data-q="Intesis">Intesis</button><button type="button" class="hx-chip" data-q="Particles Plus">Particles Plus</button><button type="button" class="hx-chip" data-q="Variadores">Variadores</button></div>
+            </form>
+            <div class="hx-row">
+              <a class="hx-trust" href="/marcas">
+                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
+                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
+              </a>
+              <a href="#brandsGrid" class="hx-btn hx-btn-ac"><i class="fa-solid fa-grid-2" aria-hidden="true"></i>Ver directorio</a><a href="/catalogos" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Catálogos</a>
+            </div>
           </div>
-          <h1 class="page-hero-h1">
-            Marcas de<br><span>Clase Mundial</span>
-          </h1>
-          <p class="page-hero-sub">Representamos con orgullo a más de 25 marcas reconocidas a nivel internacional por su
-            innovación, precisión y calidad en HVAC/R, BMS e instrumentación.</p>
-
-        </div>
-        <div class="ph-stats-col">
-          <div data-dark class="ph-stat-card rv d1">
-            <div class="ph-stat-n">25<em>+</em></div>
-            <div class="ph-stat-l">Marcas internacionales</div>
-          </div>
-          <div data-dark class="ph-stat-card rv d2">
-            <div class="ph-stat-n">20<em>+</em></div>
-            <div class="ph-stat-l">Años distribuyendo</div>
-          </div>
-          <div data-dark class="ph-stat-card rv d3">
-            <div class="ph-stat-n">100<em>%</em></div>
-            <div class="ph-stat-l">Distribuidores autorizados</div>
+          <div class="hx-visual">
+            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
+            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80&fit=crop" alt="Instalación industrial con equipos HVAC" fetchpriority="high"></div>
+            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-certificate"></i>Autorizados</span><span class="hx-pill p2"><i class="fa-solid fa-earth-americas"></i>Globales</span><span class="hx-pill p3"><i class="fa-solid fa-shield-halved"></i>Garantía</span></div>
+            <div class="hx-seal" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
+              <i class="fa-solid fa-fan"></i>
+            </div>
+            <div class="hx-card">
+              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
+              <div class="hx-card-r"><i class="fa-solid fa-star" aria-hidden="true"></i><span><b>22 marcas</b> representadas</span></div><div class="hx-card-r"><i class="fa-solid fa-certificate" aria-hidden="true"></i><span><b>100%</b> distribución autorizada</span></div><div class="hx-card-r"><i class="fa-solid fa-headset" aria-hidden="true"></i><span><b>Soporte</b> de fábrica</span></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TICKER -->
-    <div class="ticker" aria-hidden="true">
+    <div class="ticker" data-logos aria-hidden="true">
       <div class="ticker-lbl"><i class="fa-solid fa-star" style="font-size:.45rem"></i> Marcas</div>
       <div class="ticker-wrap">
         <div class="ticker-track" id="tkr"></div>
@@ -2757,7 +2767,7 @@
       },
       {
         n: 'Dwyer Omega', f: 'dwyer-omega.png', cat: 'sensors', origin: 'EUA',
-        desc: 'Amplio portafolio de instrumentación: manómetros, presostatos, termómetros, sensores de flujo, humedad y temperatura para HVAC e industrial.',
+        desc: 'Amplio portafolio de instrumentación: manómetros, presostatos, termómetros, sensores de flujo, humedad y temperatura, y equipos portátiles de medición para comisionamiento.',
         tags: ['Manómetros', 'Presión', 'Temperatura'],
         featured: true
       },
@@ -2823,7 +2833,7 @@
       },
       {
         n: 'Senva', f: 'senva.png', cat: 'sensors', origin: 'EUA',
-        desc: 'Sensores y transmisores para edificios: calidad de aire, CO₂, temperatura, humedad y presión. Diseño compacto para integraciones HVAC y BMS.',
+        desc: 'Sensores y transmisores para edificios: calidad de aire, CO₂, temperatura, humedad y presión, además de sensores de corriente, relevadores y contactores para HVAC y BMS.',
         tags: ['CO₂', 'VOC', 'Sensores HVAC'],
         featured: false
       },
@@ -3010,6 +3020,7 @@
   </script>
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
+  <script src="assets/js/buscar.js"></script>
 </body>
 
 </html>

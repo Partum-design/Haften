@@ -1507,6 +1507,7 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
   <link rel="stylesheet" href="assets/css/catalogos.css">
 </head>
 
@@ -1569,21 +1570,54 @@
   </nav>
 
   <!-- PAGE HERO -->
-  <section class="page-hero" aria-label="Encabezado catálogos">
-    <div class="page-hero-grid"></div>
-    <div class="page-hero-glow"></div>
-    <canvas id="phCanvas"></canvas>
-    <div class="page-hero-inner">
-      <div class="page-hero-pill">
-        <span class="ph-dot"></span>
-        Biblioteca de Documentación Técnica
+  <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.43vw">
+      <div class="hx-panel">
+        <div class="hx-big" aria-hidden="true">CATÁLOGOS</div>
+        <div class="hx-grid">
+          <div class="hx-copy">
+            <span class="hx-eyebrow"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Biblioteca técnica</span>
+            <h1 id="hx-h" class="hx-h1">Catálogos <span>técnicos</span></h1>
+            <p class="hx-sub">Descarga la documentación oficial de Haften y de nuestras marcas: todo para especificar, cotizar e instalar.</p>
+            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+              <div class="hx-field">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+                <span class="hx-kbd" aria-hidden="true">/</span>
+                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="hs-results" id="hsList" role="listbox" hidden></div>
+              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Dwyer">Dwyer</button><button type="button" class="hx-chip" data-q="Johnson Controls">Johnson Controls</button><button type="button" class="hx-chip" data-q="Termostatos">Termostatos</button><button type="button" class="hx-chip" data-q="Fichas técnicas">Fichas técnicas</button></div>
+            </form>
+            <div class="hx-row">
+              <a class="hx-trust" href="/marcas">
+                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
+                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
+              </a>
+              <a href="#fichas" class="hx-btn hx-btn-ac"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>Fichas técnicas</a><a href="/contacto" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Pedir cotización</a>
+            </div>
+          </div>
+          <div class="hx-visual">
+            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
+            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1400&q=80&fit=crop" alt="Edificio corporativo con sistemas de automatización" fetchpriority="high"></div>
+            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-file-pdf"></i>PDF</span><span class="hx-pill p2"><i class="fa-solid fa-download"></i>Descarga</span><span class="hx-pill p3"><i class="fa-solid fa-magnifying-glass"></i>Búsqueda</span></div>
+            <div class="hx-seal" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
+              <i class="fa-solid fa-fan"></i>
+            </div>
+            <div class="hx-card">
+              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
+              <div class="hx-card-r"><i class="fa-solid fa-book" aria-hidden="true"></i><span><b>Catálogo Haften</b> 2025</span></div><div class="hx-card-r"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span><b>19 marcas</b> con catálogo</span></div><div class="hx-card-r"><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span><b>Fichas</b> por modelo</span></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>Catálogos<br><span>Técnicos</span></h1>
-      <div class="page-hero-rule"></div>
-      <p>Descarga la documentación técnica oficial de Haften y todas nuestras marcas colaboradoras. Todo lo que
-        necesitas para especificar, cotizar e instalar.</p>
-    </div>
-  </section>
+      <div class="hx-logos">
+        <div class="hx-logos-lbl">Marcas que distribuimos</div>
+        <div class="hx-logos-wrap"><div class="hx-logos-track" data-logo-strip></div></div>
+      </div>
+    </section>
 
   <!-- FILTER BAR -->
   <div class="filter-bar" id="filterBar">
@@ -1782,7 +1816,7 @@
 
     // ── HERO PARTICLE CANVAS ──
     (function () {
-      const c = document.getElementById('phCanvas'), ctx = c.getContext('2d');
+      const c = document.getElementById('phCanvas'); if (!c) return; const ctx = c.getContext('2d');
       let W, H, pts = [];
       function resize() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight }
       function mkP() { return { x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0, age: 0, maxAge: Math.random() * 180 + 60, spd: Math.random() * 1 + 0.3, sz: Math.random() * 1.1 + 0.2, warm: Math.random() < .1 } }
@@ -2620,6 +2654,7 @@
   </script>
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
+  <script src="assets/js/buscar.js"></script>
 </body>
 
 </html>

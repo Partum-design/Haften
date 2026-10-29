@@ -2878,6 +2878,7 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
@@ -2942,73 +2943,53 @@
   <main id="inicio">
 
     <!-- ██ HERO ██ -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-slides" aria-hidden="true">
-        <div class="hero-slide active">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=85&fit=crop"
-            alt="Industrial HVAC">
+    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
+      <div class="hx-panel">
+        <div class="hx-big" aria-hidden="true">HAFTEN</div>
+        <div class="hx-grid">
+          <div class="hx-copy">
+            <span class="hx-eyebrow"><i class="fa-solid fa-fan" aria-hidden="true"></i>HVAC · BMS · Medición de energía</span>
+            <h1 id="hx-h" class="hx-h1">Expertos en <span>HVAC/R &amp; BMS</span></h1>
+            <p class="hx-sub">Tu socio técnico de confianza en México. Más de 20 años distribuyendo las mejores marcas del mundo, con stock y asesoría de ingeniería.</p>
+            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+              <div class="hx-field">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+                <span class="hx-kbd" aria-hidden="true">/</span>
+                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="hs-results" id="hsList" role="listbox" hidden></div>
+              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Válvulas">Válvulas</button><button type="button" class="hx-chip" data-q="Sensores">Sensores</button><button type="button" class="hx-chip" data-q="Humidificadores">Humidificadores</button><button type="button" class="hx-chip" data-q="Catálogos">Catálogos</button></div>
+            </form>
+            <div class="hx-row">
+              <a class="hx-trust" href="/marcas">
+                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
+                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
+              </a>
+              <a href="#finder" class="hx-btn hx-btn-ac"><i class="fa-solid fa-sliders" aria-hidden="true"></i>Encuentra tu solución</a><a href="/nosotros" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>Conócenos</a>
+            </div>
+          </div>
+          <div class="hx-visual">
+            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
+            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1400&q=80&fit=crop" alt="Ingeniero de Haften revisando un sistema HVAC" fetchpriority="high"></div>
+            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-snowflake"></i>HVAC/R</span><span class="hx-pill p2"><i class="fa-solid fa-network-wired"></i>BMS</span><span class="hx-pill p3"><i class="fa-solid fa-gauge-high"></i>Medición</span></div>
+            <div class="hx-seal" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
+              <i class="fa-solid fa-fan"></i>
+            </div>
+            <div class="hx-card">
+              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
+              <div class="hx-card-r"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span><b>Desde 1999</b> en México</span></div><div class="hx-card-r"><i class="fa-solid fa-star" aria-hidden="true"></i><span><b>22 marcas</b> internacionales</span></div><div class="hx-card-r"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><b>5 sucursales</b> en el país</span></div>
+            </div>
+          </div>
         </div>
-        <div class="hero-slide">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=85&fit=crop"
-            alt="BMS automation">
-        </div>
-        <div class="hero-slide">
-          <img src="https://images.unsplash.com/photo-1565034057143-4c3e5d14d7e4?w=1920&q=85&fit=crop"
-            alt="Engineering">
-        </div>
-      </div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-grid-bg" aria-hidden="true"></div>
-      <canvas id="hCanvas" aria-hidden="true"></canvas>
-
-      <div class="hero-inner">
-        <div class="hero-pill">
-          <span class="hero-pill-dot" aria-hidden="true"></span>
-          HVAC &nbsp;&bull;&nbsp; BMS &nbsp;&bull;&nbsp; Medición de Energía
-        </div>
-        <h1 class="hero-h1">
-          <span class="pre">Expertos en</span>
-          <span class="main">HVAC/R &amp; BMS</span>
-        </h1>
-        <div class="hero-rule" aria-hidden="true"></div>
-        <p class="hero-sub">Tu socio técnico de confianza en México.<br>+20 años distribuyendo las mejores marcas del
-          mundo.</p>
-        <div class="hero-btns">
-          <a href="#finder" class="btn btn-ac"><i class="fa-solid fa-sliders"></i>Encuentra tu solución</a>
-          <a href="/nosotros" class="btn btn-outline"><i class="fa-solid fa-arrow-right"></i>Conócenos</a>
-        </div>
-      </div>
-
-      <div class="hero-strip" aria-label="Estadísticas">
-        <div class="h-stat">
-          <div class="h-stat-n">20<em>+</em></div>
-          <div class="h-stat-l">Años de experiencia</div>
-        </div>
-        <div class="h-stat">
-          <div class="h-stat-n">25<em>+</em></div>
-          <div class="h-stat-l">Marcas internacionales</div>
-        </div>
-        <div class="h-stat">
-          <div class="h-stat-n">5</div>
-          <div class="h-stat-l">Oficinas en México</div>
-        </div>
-        <div class="h-stat">
-          <div class="h-stat-n">1K<em>+</em></div>
-          <div class="h-stat-l">Clientes atendidos</div>
-        </div>
-      </div>
-      <div class="hero-dots">
-        <button class="h-dot active" data-i="0" aria-label="Slide 1"></button>
-        <button class="h-dot" data-i="1" aria-label="Slide 2"></button>
-        <button class="h-dot" data-i="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="hero-scroll" aria-hidden="true">
-        <div class="scroll-ln"></div><span class="scroll-lbl">Scroll</span>
       </div>
     </section>
 
     <!-- TICKER -->
-    <div class="ticker" aria-hidden="true">
+    <div class="ticker" data-logos aria-hidden="true">
       <div class="ticker-lbl"><i class="fa-solid fa-star" style="font-size:.45rem"></i> Marcas</div>
       <div class="ticker-wrap">
         <div class="ticker-track" id="tkr"></div>
@@ -3278,7 +3259,7 @@
     </section>
 
     <!-- ██ PRODUCTS ██ -->
-    <section class="prod-sec" data-dark aria-labelledby="prod-h">
+    <section class="prod-sec" id="categorias" data-dark aria-labelledby="prod-h">
       <div class="container">
         <div class="s-hdr rv">
           <div class="eyebrow"><i class="fa-solid fa-boxes-stacked"></i> Portafolio completo</div>
@@ -3286,38 +3267,70 @@
           <p class="s-sub">Instrumentación · Control · Automatización · Climatización</p>
         </div>
         <div class="prod-bento">
-          <div class="prod-card rv d1">
+          <a class="prod-card rv d1" href="/marcas?q=flujo">
             <div class="prod-ico"><i class="fa-solid fa-wind"></i></div>
             <div class="prod-name">Medidores de flujo de aire, agua y gas</div>
-          </div>
-          <div class="prod-card rv d2">
+          </a>
+          <a class="prod-card rv d2" href="/marcas?q=v%C3%A1lvulas">
             <div class="prod-ico"><i class="fa-solid fa-faucet-drip"></i></div>
             <div class="prod-name">Válvulas de control, balanceo y energy valves</div>
-          </div>
-          <div class="prod-card rv d3">
+          </a>
+          <a class="prod-card rv d3" href="/marcas?q=actuadores">
             <div class="prod-ico"><i class="fa-solid fa-gear"></i></div>
             <div class="prod-name">Actuadores para damper y válvulas</div>
-          </div>
-          <div class="prod-card rv d4">
+          </a>
+          <a class="prod-card rv d4" href="/marcas?q=sensores">
             <div class="prod-ico"><i class="fa-solid fa-satellite-dish"></i></div>
-            <div class="prod-name">Sensores CO2, temperatura, humedad, presión, VOC</div>
-          </div>
-          <div class="prod-card rv d1">
+            <div class="prod-name">Sensores de temperatura, humedad, presión y calidad de aire (IAQ)</div>
+          </a>
+          <a class="prod-card rv d1" href="/marcas?q=man%C3%B3metros">
             <div class="prod-ico"><i class="fa-solid fa-gauge-high"></i></div>
-            <div class="prod-name">Manómetros y termómetros industriales</div>
-          </div>
-          <div class="prod-card rv d2">
+            <div class="prod-name">Manómetros y termómetros</div>
+          </a>
+          <a class="prod-card rv d2" href="/marcas?q=variadores">
             <div class="prod-ico"><i class="fa-solid fa-bolt"></i></div>
             <div class="prod-name">Variadores de frecuencia (VFDs)</div>
-          </div>
-          <div class="prod-card rv d3">
+          </a>
+          <a class="prod-card rv d3" href="/marcas?q=gateways">
             <div class="prod-ico"><i class="fa-solid fa-network-wired"></i></div>
-            <div class="prod-name">Gateways, routers y controladores BMS</div>
-          </div>
-          <div class="prod-card rv d4">
-            <div class="prod-ico"><i class="fa-solid fa-microchip"></i></div>
+            <div class="prod-name">Gateways, routers, módulos IO y controladores BMS</div>
+          </a>
+          <a class="prod-card rv d4" href="/marcas?q=power%20meters">
+            <div class="prod-ico"><i class="fa-solid fa-display"></i></div>
             <div class="prod-name">HMIs, supervisores y power meters</div>
-          </div>
+          </a>
+          <a class="prod-card rv d1" href="/marcas?q=humidific">
+            <div class="prod-ico"><i class="fa-solid fa-droplet"></i></div>
+            <div class="prod-name">Humidificadores y deshumidificadores</div>
+          </a>
+          <a class="prod-card rv d2" href="/marcas?q=calefactores">
+            <div class="prod-ico"><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <div class="prod-name">Calefactores eléctricos</div>
+          </a>
+          <a class="prod-card rv d3" href="/marcas?q=termostatos">
+            <div class="prod-ico"><i class="fa-solid fa-temperature-half"></i></div>
+            <div class="prod-name">Termostatos y humidostatos digitales</div>
+          </a>
+          <a class="prod-card rv d4" href="/marcas?q=salas%20limpias">
+            <div class="prod-ico"><i class="fa-solid fa-shield-virus"></i></div>
+            <div class="prod-name">Sensores para áreas críticas</div>
+          </a>
+          <a class="prod-card rv d1" href="/marcas?q=comisionamiento">
+            <div class="prod-ico"><i class="fa-solid fa-clipboard-check"></i></div>
+            <div class="prod-name">Equipos de medición para comisionamiento</div>
+          </a>
+          <a class="prod-card rv d2" href="/marcas?q=fuentes">
+            <div class="prod-ico"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+            <div class="prod-name">Fuentes de alimentación y transformadores</div>
+          </a>
+          <a class="prod-card rv d3" href="/marcas?q=BTU">
+            <div class="prod-ico"><i class="fa-solid fa-temperature-arrow-up"></i></div>
+            <div class="prod-name">Medidores de energía (BTU)</div>
+          </a>
+          <a class="prod-card rv d4" href="/marcas?q=relevadores">
+            <div class="prod-ico"><i class="fa-solid fa-toggle-on"></i></div>
+            <div class="prod-name">Relevadores y contactores</div>
+          </a>
         </div>
         <div class="rv" style="margin-top:44px;display:flex;gap:12px;flex-wrap:wrap">
           <a href="/catalogos" class="btn btn-ac"><i class="fa-solid fa-file-pdf"></i>Descargar catálogos</a>
@@ -3540,7 +3553,7 @@
 
 
     // HERO CANVAS
-    const canvas = document.getElementById('hCanvas'), ctx = canvas.getContext('2d');
+    const canvas = document.getElementById('hCanvas') || document.createElement('canvas'), ctx = canvas.getContext('2d');
     let W, H, pts = [];
     function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
     function mkP() { return { x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0, age: 0, maxAge: Math.random() * 200 + 70, spd: Math.random() * 1.1 + 0.3, sz: Math.random() * 1.2 + 0.2, warm: Math.random() < .12 } }
@@ -3560,12 +3573,13 @@
       });
       requestAnimationFrame(draw);
     }
-    window.addEventListener('resize', resize); resize(); draw();
+    if (document.getElementById('hCanvas')) { window.addEventListener('resize', resize); resize(); draw(); }
 
     // HERO SLIDER
     (function () {
       const slides = document.querySelectorAll('.hero-slide');
       const dots = document.querySelectorAll('.h-dot');
+      if (!slides.length) return;
       let c = 0, timer;
       function go(n) { slides[c].classList.remove('active'); dots[c].classList.remove('active'); c = (n + slides.length) % slides.length; slides[c].classList.add('active'); dots[c].classList.add('active') }
       dots.forEach(d => d.addEventListener('click', () => { clearInterval(timer); go(+d.dataset.i); timer = setInterval(() => go(c + 1), 6000) }));
@@ -3637,6 +3651,7 @@
   </script>
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
+  <script src="assets/js/buscar.js"></script>
   <script src="assets/js/sucursales.js"></script>
 </body>
 

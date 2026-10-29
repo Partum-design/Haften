@@ -2162,6 +2162,7 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
@@ -2224,22 +2225,52 @@
   <main id="main-content">
 
     <!-- ██ HERO — OSCURO ██ -->
-    <section class="page-hero" aria-label="Contacto hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-inner">
-
-        <div class="hero-eyebrow rv"><span class="hero-dot"></span> Estamos para ayudarte</div>
-        <h1 class="hero-h1 rv">Hablemos de<br><span>tu Proyecto</span></h1>
-        <p class="hero-sub rv">Cotizaciones, soporte técnico, selección de productos o simplemente una consulta.
-          Nuestros ingenieros responden en menos de 24 h.</p>
+    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
+      <div class="hx-panel">
+        <div class="hx-big" aria-hidden="true">CONTACTO</div>
+        <div class="hx-grid">
+          <div class="hx-copy">
+            <span class="hx-eyebrow"><i class="fa-solid fa-headset" aria-hidden="true"></i>Estamos para ayudarte</span>
+            <h1 id="hx-h" class="hx-h1">Hablemos de <span>tu proyecto</span></h1>
+            <p class="hx-sub">Cotizaciones, soporte técnico, selección de productos o una consulta. Nuestros ingenieros responden en menos de 24 h.</p>
+            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+              <div class="hx-field">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+                <span class="hx-kbd" aria-hidden="true">/</span>
+                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="hs-results" id="hsList" role="listbox" hidden></div>
+              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Sucursales">Sucursales</button><button type="button" class="hx-chip" data-q="Horario">Horario</button><button type="button" class="hx-chip" data-q="WhatsApp">WhatsApp</button><button type="button" class="hx-chip" data-q="Cotización">Cotización</button><button type="button" class="hx-chip" data-q="Monterrey">Monterrey</button></div>
+            </form>
+            <div class="hx-row">
+              <a class="hx-trust" href="/marcas">
+                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
+                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
+              </a>
+              <a href="#contactForm" class="hx-btn hx-btn-ac"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Escríbenos</a><a href="#sucursales" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Sucursales</a>
+            </div>
+          </div>
+          <div class="hx-visual">
+            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
+            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80&fit=crop" alt="Oficinas de atención a clientes" fetchpriority="high"></div>
+            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-file-invoice-dollar"></i>Cotiza</span><span class="hx-pill p2"><i class="fa-solid fa-screwdriver-wrench"></i>Soporte</span><span class="hx-pill p3"><i class="fa-brands fa-whatsapp"></i>WhatsApp</span></div>
+            <div class="hx-seal" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
+              <i class="fa-solid fa-fan"></i>
+            </div>
+            <div class="hx-card">
+              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
+              <div class="hx-card-r"><i class="fa-regular fa-clock" aria-hidden="true"></i><span><b>L–V</b> 8:00 a 17:30</span></div><div class="hx-card-r"><i class="fa-solid fa-phone" aria-hidden="true"></i><span><b>55 5638 1224</b></span></div><div class="hx-card-r"><i class="fa-solid fa-reply" aria-hidden="true"></i><span><b>&lt; 24 h</b> de respuesta</span></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- ola de transición al blanco -->
-      <div class="hero-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
-        </svg>
+      <div class="hx-logos">
+        <div class="hx-logos-lbl">Marcas que distribuimos</div>
+        <div class="hx-logos-wrap"><div class="hx-logos-track" data-logo-strip></div></div>
       </div>
     </section>
 
@@ -2248,7 +2279,7 @@
       <div class="contact-grid">
 
         <!-- FORMULARIO -->
-        <div class="form-card rv-l">
+        <div class="form-card rv-l" id="contactForm">
           <div id="formContent">
             <div class="eyebrow"><i class="fa-solid fa-paper-plane"></i> Escríbenos</div>
             <h2 id="contact-form-h" class="form-title">Envíanos un mensaje</h2>
@@ -2740,6 +2771,7 @@
   </script>
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
+  <script src="assets/js/buscar.js"></script>
   <script src="assets/js/sucursales.js"></script>
 </body>
 

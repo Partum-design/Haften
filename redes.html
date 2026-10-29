@@ -1972,6 +1972,7 @@
   <link rel="stylesheet" href="assets/css/social.css">
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
 </head>
 
 <body>
@@ -2032,33 +2033,52 @@
   <main id="main-content">
 
     <!-- HERO -->
-    <section class="page-hero" aria-label="Redes sociales hero">
-      <div class="page-hero-bg-img" aria-hidden="true"></div>
-      <div class="page-hero-overlay" aria-hidden="true"></div>
-      <div class="page-hero-grid" aria-hidden="true"></div>
-      <div class="page-hero-inner">
-
-        <div class="ph-eyebrow rv">
-          <span class="ph-dot" aria-hidden="true"></span>
-          Síguenos en todas partes
+    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
+      <div class="hx-panel">
+        <div class="hx-big" aria-hidden="true">REDES</div>
+        <div class="hx-grid">
+          <div class="hx-copy">
+            <span class="hx-eyebrow"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i>Síguenos</span>
+            <h1 id="hx-h" class="hx-h1">Conecta con <span>Haften</span></h1>
+            <p class="hx-sub">Noticias, lanzamientos, eventos y contenido técnico en LinkedIn, Facebook, YouTube e Instagram.</p>
+            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+              <div class="hx-field">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+                <span class="hx-kbd" aria-hidden="true">/</span>
+                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="hs-results" id="hsList" role="listbox" hidden></div>
+              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="LinkedIn">LinkedIn</button><button type="button" class="hx-chip" data-q="YouTube">YouTube</button><button type="button" class="hx-chip" data-q="Eventos">Eventos</button><button type="button" class="hx-chip" data-q="Webinars">Webinars</button><button type="button" class="hx-chip" data-q="Contacto">Contacto</button></div>
+            </form>
+            <div class="hx-row">
+              <a class="hx-trust" href="/marcas">
+                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
+                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
+              </a>
+              <a href="#recientes" class="hx-btn hx-btn-ac"><i class="fa-solid fa-newspaper" aria-hidden="true"></i>Lo más reciente</a><a href="/multimedia" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-circle-play" aria-hidden="true"></i>Multimedia</a>
+            </div>
+          </div>
+          <div class="hx-visual">
+            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
+            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1400&q=80&fit=crop" alt="Redes sociales en un teléfono" fetchpriority="high"></div>
+            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-brands fa-linkedin-in"></i>LinkedIn</span><span class="hx-pill p2"><i class="fa-brands fa-youtube"></i>YouTube</span><span class="hx-pill p3"><i class="fa-brands fa-instagram"></i>Instagram</span></div>
+            <div class="hx-seal" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
+              <i class="fa-solid fa-fan"></i>
+            </div>
+            <div class="hx-card">
+              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
+              <div class="hx-card-r"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span><b>LinkedIn</b> · noticias</span></div><div class="hx-card-r"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span><b>YouTube</b> · videos</span></div><div class="hx-card-r"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i><span><b>Facebook</b> · eventos</span></div>
+            </div>
+          </div>
         </div>
-        <h1 class="ph-h1 rv">Haften en <span>Redes Sociales</span></h1>
-        <p class="ph-sub rv">Webinars técnicos, novedades de producto, seminarios y expos. Esto es lo que estamos
-          compartiendo en nuestras redes.</p>
-        <div class="ph-platforms rv">
-          <a href="https://www.facebook.com/HaftenOficial" target="_blank" rel="noopener" class="ph-platform fb"
-            aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/Haftenoficial" target="_blank" rel="noopener" class="ph-platform ig"
-            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@Haftenoficial/videos" target="_blank" rel="noopener" class="ph-platform yt"
-            aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.linkedin.com/company/haften/" target="_blank" rel="noopener" class="ph-platform li"
-            aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://x.com/haften1" target="_blank" rel="noopener" class="ph-platform tw"
-            aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="https://www.tiktok.com/@Haftenoficial/" target="_blank" rel="noopener" class="ph-platform tt"
-            aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
+      </div>
+      <div class="hx-logos">
+        <div class="hx-logos-lbl">Marcas que distribuimos</div>
+        <div class="hx-logos-wrap"><div class="hx-logos-track" data-logo-strip></div></div>
       </div>
     </section>
 
@@ -2596,6 +2616,7 @@
   </script>
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
+  <script src="assets/js/buscar.js"></script>
 </body>
 
 </html>

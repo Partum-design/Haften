@@ -2058,6 +2058,7 @@
   <link rel="stylesheet" href="assets/css/social.css">
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
 </head>
 
 <body>
@@ -2118,39 +2119,52 @@
   <main id="main-content">
 
     <!-- HERO -->
-    <section class="page-hero" aria-label="Multimedia hero">
-      <div class="page-hero-bg-img" aria-hidden="true"></div>
-      <div class="page-hero-overlay" aria-hidden="true"></div>
-      <div class="page-hero-grid" aria-hidden="true"></div>
-      <div class="page-hero-inner">
-
-        <div class="ph-eyebrow rv">
-          <span class="ph-dot" aria-hidden="true"></span>
-          Videos técnicos · Demos · Capacitación
-        </div>
-        <h1 class="ph-h1 rv">Centro de <span>Multimedia</span></h1>
-        <p class="ph-sub rv">Webinars técnicos, demos de producto y eventos publicados por Haften en su canal oficial de
-          YouTube. Aprende de los especialistas en HVAC/R, BMS e instrumentación.</p>
-        <div class="ph-stats rv">
-          <div class="ph-stat">
-            <div class="ph-stat-n" data-stat="webinars">10</div>
-            <div class="ph-stat-l">Webinars técnicos</div>
+    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:13.89vw">
+      <div class="hx-panel">
+        <div class="hx-big" aria-hidden="true">MULTIMEDIA</div>
+        <div class="hx-grid">
+          <div class="hx-copy">
+            <span class="hx-eyebrow"><i class="fa-solid fa-circle-play" aria-hidden="true"></i>Videos y webinars</span>
+            <h1 id="hx-h" class="hx-h1">Aprende con <span>Haften</span></h1>
+            <p class="hx-sub">Webinars, demostraciones de producto y eventos de nuestras marcas, directo de nuestro canal de YouTube.</p>
+            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+              <div class="hx-field">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+                <span class="hx-kbd" aria-hidden="true">/</span>
+                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="hs-results" id="hsList" role="listbox" hidden></div>
+              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Webinars">Webinars</button><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Neptronic">Neptronic</button><button type="button" class="hx-chip" data-q="Intesis">Intesis</button><button type="button" class="hx-chip" data-q="LOYTEC">LOYTEC</button></div>
+            </form>
+            <div class="hx-row">
+              <a class="hx-trust" href="/marcas">
+                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
+                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
+              </a>
+              <a href="#videos" class="hx-btn hx-btn-ac"><i class="fa-solid fa-play" aria-hidden="true"></i>Ver videos</a><a href="#shorts" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>Shorts</a>
+            </div>
           </div>
-          <div class="ph-stat">
-            <div class="ph-stat-n" data-stat="videos">28</div>
-            <div class="ph-stat-l">Videos</div>
-          </div>
-          <div class="ph-stat">
-            <div class="ph-stat-n" data-stat="shorts">47</div>
-            <div class="ph-stat-l">Shorts</div>
+          <div class="hx-visual">
+            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
+            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1400&q=80&fit=crop" alt="Grabación de contenido técnico" fetchpriority="high"></div>
+            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-play"></i>Webinars</span><span class="hx-pill p2"><i class="fa-solid fa-box-open"></i>Productos</span><span class="hx-pill p3"><i class="fa-solid fa-calendar"></i>Eventos</span></div>
+            <div class="hx-seal" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
+              <i class="fa-solid fa-fan"></i>
+            </div>
+            <div class="hx-card">
+              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
+              <div class="hx-card-r"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span><b>@Haftenoficial</b></span></div><div class="hx-card-r"><i class="fa-solid fa-video" aria-hidden="true"></i><span><b>Webinars</b> técnicos</span></div><div class="hx-card-r"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span><b>Shorts</b> de producto</span></div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- ola de transición al blanco -->
-      <div class="hero-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="#ffffff" />
-        </svg>
+      <div class="hx-logos">
+        <div class="hx-logos-lbl">Marcas que distribuimos</div>
+        <div class="hx-logos-wrap"><div class="hx-logos-track" data-logo-strip></div></div>
       </div>
     </section>
 
@@ -2582,6 +2596,7 @@
   </script>
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
+  <script src="assets/js/buscar.js"></script>
 </body>
 
 </html>
