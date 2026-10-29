@@ -2882,6 +2882,7 @@
   <link rel="stylesheet" href="assets/css/explorador.css">
   <link rel="stylesheet" href="assets/css/paleta.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
+  <link rel="stylesheet" href="assets/css/pro.css">
 </head>
 
 <body>
@@ -3030,6 +3031,44 @@
           </div>
           <a href="/nosotros" class="btn btn-ghost"><i class="fa-solid fa-arrow-right"></i>Conoce nuestra
             historia</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ VISTA 3D / RAYOS X ██ -->
+    <section class="xr-sec" id="por-dentro" aria-labelledby="xr-h">
+      <div class="xr-in">
+        <div class="xr-copy rv-l">
+          <span class="xr-eyebrow"><i class="fa-solid fa-x-ray" aria-hidden="true"></i>Ingeniería por dentro</span>
+          <h2 id="xr-h" class="xr-title">Conocemos cada equipo <span>por dentro</span></h2>
+          <p class="xr-lead">Gira el modelo y desliza el escáner para ver cómo trabaja una válvula de control con su actuador. Así de a fondo asesoramos cada selección.</p>
+          <ul class="xr-parts">
+            <li data-xr-part="act" tabindex="0"><b>01</b><div><strong>Actuador</strong><small>Recibe la señal del BMS y posiciona la válvula.</small></div></li>
+            <li data-xr-part="gear" tabindex="0"><b>02</b><div><strong>Tren de engranes</strong><small>Multiplica el par del motor con precisión.</small></div></li>
+            <li data-xr-part="stem" tabindex="0"><b>03</b><div><strong>Vástago</strong><small>Transmite el giro del actuador a la bola.</small></div></li>
+            <li data-xr-part="ball" tabindex="0"><b>04</b><div><strong>Bola de control</strong><small>Regula el caudal según su ángulo de apertura.</small></div></li>
+            <li data-xr-part="flow" tabindex="0"><b>05</b><div><strong>Flujo</strong><small>Agua helada o caliente para el sistema HVAC.</small></div></li>
+          </ul>
+          <div class="xr-cta">
+            <a href="/marcas?q=actuadores" class="xr-btn p"><i class="fa-solid fa-gear" aria-hidden="true"></i>Ver actuadores y válvulas</a>
+            <a href="/contacto" class="xr-btn g"><i class="fa-solid fa-headset" aria-hidden="true"></i>Asesoría técnica</a>
+          </div>
+        </div>
+        <div class="xr-stage rv-r" data-xray>
+          <div class="xr-hud" aria-hidden="true">
+            <div><span class="xr-live">Vista 3D en vivo</span><b>Válvula de control + actuador</b></div>
+            <div style="text-align:right">Modelo ilustrativo</div>
+          </div>
+          <div class="xr-hint" aria-hidden="true"><i class="fa-solid fa-hand-pointer"></i>Arrastra para girar</div>
+          <div class="xr-labels" aria-hidden="true"></div>
+          <div class="xr-ctrl">
+            <label for="xrRange"><i class="fa-solid fa-x-ray" aria-hidden="true"></i> Escáner</label>
+            <input type="range" id="xrRange" min="0" max="100" value="0" data-xr-range aria-label="Posición del escáner de rayos X">
+            <div class="xr-seg" role="group" aria-label="Modo de vista">
+              <button type="button" data-xr-mode="solid" aria-pressed="true">Sólido</button>
+              <button type="button" data-xr-mode="xray" aria-pressed="false">Rayos X</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -3627,6 +3666,7 @@
   <script src="assets/js/buscar.js"></script>
   <script src="assets/js/explorador.js"></script>
   <script src="assets/js/sucursales.js"></script>
+  <script src="assets/js/pro.js"></script>
 </body>
 
 </html>

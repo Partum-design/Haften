@@ -2536,6 +2536,7 @@
   <link rel="stylesheet" href="assets/css/hero.css">
   <link rel="stylesheet" href="assets/css/paleta.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
+  <link rel="stylesheet" href="assets/css/pro.css">
 </head>
 
 <body>
@@ -2781,88 +2782,91 @@
     </section>
 
     <!-- ██ HISTORIA — TIMELINE ██ -->
-    <section class="historia-sec" id="historia" data-dark aria-labelledby="hist-h">
-      <div class="historia-inner">
-        <div class="s-hdr rv" style="text-align:center">
-          <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-clock-rotate-left"></i> Trayectoria
-          </div>
+    <section class="historia-sec hs2" id="historia" data-dark data-hs aria-labelledby="hist-h">
+      <div class="hs2-in">
+        <div class="hs2-head s-hdr rv">
+          <div class="eyebrow" style="justify-content:center"><i class="fa-solid fa-clock-rotate-left"></i> Trayectoria</div>
           <h2 id="hist-h" class="s-title dark">Nuestra <span>Historia</span></h2>
-          <p class="s-sub" style="margin:0 auto">Más de dos décadas de crecimiento, aprendizaje y compromiso con México.
-          </p>
+          <p class="s-sub" style="margin:0 auto">Más de dos décadas de crecimiento, aprendizaje y compromiso con México.</p>
         </div>
-        <div class="timeline">
-          <div class="tl-item rv">
-            <div class="tl-content">
-              <div class="tl-year">1999</div>
-              <h4>Fundación de Haften</h4>
-              <p>Nace Haften en Ciudad de México con la misión de comercializar equipos de control e instrumentación
-                para sistemas HVAC en el mercado nacional.</p>
+        <div class="hs2-grid">
+          <aside class="hs2-side rv-l" aria-label="Resumen de la trayectoria">
+            <img class="hs2-logo" src="assets/logos/logo-haften-white.png" alt="Haften">
+            <div class="hs2-since">Desde 1999 · Año</div>
+            <div class="hs2-year" data-hs-year aria-hidden="true"></div>
+            <div class="hs2-now" data-hs-now aria-live="polite"></div>
+            <div class="hs2-bar" aria-hidden="true"><i data-hs-bar></i></div>
+            <ol class="hs2-nav"><li><a href="#h-1999">1999</a></li><li><a href="#h-2004">2004</a></li><li><a href="#h-2009">2009</a></li><li><a href="#h-2014">2014</a></li><li><a href="#h-2018">2018</a></li><li><a href="#h-2024">2024+</a></li></ol>
+            <div class="hs2-stats">
+              <div><b>+25</b><span>marcas internacionales</span></div>
+              <div><b>5</b><span>sucursales en México</span></div>
+              <div><b>+1,000</b><span>clientes atendidos</span></div>
+              <div><b>32</b><span>estados atendidos</span></div>
             </div>
-            <div class="tl-dot">
-              <div class="tl-dot-inner"></div>
-            </div>
-            <div class="tl-empty"></div>
-          </div>
-          <div class="tl-item rv d1">
-            <div class="tl-empty"></div>
-            <div class="tl-dot">
-              <div class="tl-dot-inner"></div>
-            </div>
-            <div class="tl-content">
-              <div class="tl-year">2004</div>
-              <h4>Primeras alianzas internacionales</h4>
-              <p>Se consolidan distribuciones exclusivas con marcas líderes como Belimo, Dwyer y Flowcon,
-                ampliando significativamente el portafolio de productos.</p>
-            </div>
-          </div>
-          <div class="tl-item rv d2">
-            <div class="tl-content">
-              <div class="tl-year">2009</div>
-              <h4>Expansión a Monterrey y Guadalajara</h4>
-              <p>Apertura de las primeras oficinas regionales en el norte y occidente del país para atender la creciente
-                demanda industrial y comercial.</p>
-            </div>
-            <div class="tl-dot">
-              <div class="tl-dot-inner"></div>
-            </div>
-            <div class="tl-empty"></div>
-          </div>
-          <div class="tl-item rv d1">
-            <div class="tl-empty"></div>
-            <div class="tl-dot">
-              <div class="tl-dot-inner"></div>
-            </div>
-            <div class="tl-content">
-              <div class="tl-year">2014</div>
-              <h4>Integración BMS y automatización</h4>
-              <p>Incorporamos al portafolio sistemas BMS completos con marcas como Loytec y Johnson Controls,
-                posicionándonos como solución integral de automatización de edificios.</p>
-            </div>
-          </div>
-          <div class="tl-item rv d2">
-            <div class="tl-content">
-              <div class="tl-year">2018</div>
-              <h4>León y Cancún: cobertura nacional</h4>
-              <p>Con la apertura de León y Cancún completamos los 5 puntos estratégicos, logrando cobertura en los
-                principales corredores industriales, hoteleros y hospitalarios de México.</p>
-            </div>
-            <div class="tl-dot">
-              <div class="tl-dot-inner"></div>
-            </div>
-            <div class="tl-empty"></div>
-          </div>
-          <div class="tl-item rv d1">
-            <div class="tl-empty"></div>
-            <div class="tl-dot">
-              <div class="tl-dot-inner"></div>
-            </div>
-            <div class="tl-content">
-              <div class="tl-year">2024+</div>
-              <h4>Más de 25 marcas internacionales</h4>
-              <p>Hoy representamos a más de 25 marcas reconocidas globalmente, con +1,000 clientes atendidos y un equipo
-                de ingenieros especializados en continuo crecimiento.</p>
-            </div>
-          </div>
+          </aside>
+          <ol class="hs2-list">
+            <li class="hs2-rail" role="presentation" aria-hidden="true"><i></i></li>
+            <li class="hs2-item" id="h-1999" data-year="1999">
+              <span class="hs2-node" aria-hidden="true"></span>
+              <article class="hs2-card rv">
+                <span class="hs2-wm" aria-hidden="true">1999</span>
+                <div class="hs2-meta"><span class="hs2-y">1999</span><span class="hs2-tag"><i class="fa-solid fa-flag" aria-hidden="true"></i>Ciudad de México</span></div>
+                <h3>Fundación de Haften</h3>
+                <p>Nace Haften en Ciudad de México con la misión de comercializar equipos de control e instrumentación para sistemas HVAC en el mercado nacional.</p>
+                <div class="hs2-cities"><span class="new"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Ciudad de México · casa matriz</span></div>
+              </article>
+            </li>
+            <li class="hs2-item" id="h-2004" data-year="2004">
+              <span class="hs2-node" aria-hidden="true"></span>
+              <article class="hs2-card rv">
+                <span class="hs2-wm" aria-hidden="true">2004</span>
+                <div class="hs2-meta"><span class="hs2-y">2004</span><span class="hs2-tag"><i class="fa-solid fa-handshake" aria-hidden="true"></i>Distribución exclusiva</span></div>
+                <h3>Primeras alianzas internacionales</h3>
+                <p>Se consolidan distribuciones exclusivas con marcas líderes como Belimo, Dwyer y Flowcon, ampliando significativamente el portafolio de productos.</p>
+                <div class="hs2-logos"><span><img src="assets/logos/belimo.png" alt="Belimo" loading="lazy"></span><span><img src="assets/logos/dwyer-omega.png" alt="Dwyer Omega" loading="lazy"></span><span><img src="assets/logos/flowcon.png" alt="FlowCon" loading="lazy"></span></div>
+              </article>
+            </li>
+            <li class="hs2-item" id="h-2009" data-year="2009">
+              <span class="hs2-node" aria-hidden="true"></span>
+              <article class="hs2-card rv">
+                <span class="hs2-wm" aria-hidden="true">2009</span>
+                <div class="hs2-meta"><span class="hs2-y">2009</span><span class="hs2-tag"><i class="fa-solid fa-route" aria-hidden="true"></i>Norte y occidente</span></div>
+                <h3>Expansión a Monterrey y Guadalajara</h3>
+                <p>Apertura de las primeras oficinas regionales en el norte y occidente del país para atender la creciente demanda industrial y comercial.</p>
+                <div class="hs2-cities"><span class=""><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Ciudad de México</span><span class="new"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Monterrey</span><span class="new"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Guadalajara</span></div>
+              </article>
+            </li>
+            <li class="hs2-item" id="h-2014" data-year="2014">
+              <span class="hs2-node" aria-hidden="true"></span>
+              <article class="hs2-card rv">
+                <span class="hs2-wm" aria-hidden="true">2014</span>
+                <div class="hs2-meta"><span class="hs2-y">2014</span><span class="hs2-tag"><i class="fa-solid fa-microchip" aria-hidden="true"></i>Edificios inteligentes</span></div>
+                <h3>Integración BMS y automatización</h3>
+                <p>Incorporamos al portafolio sistemas BMS completos con marcas como Loytec y Johnson Controls, posicionándonos como solución integral de automatización de edificios.</p>
+                <div class="hs2-logos"><span><img src="assets/logos/loytec.png" alt="LOYTEC" loading="lazy"></span><span><img src="assets/logos/johnson-controls.png" alt="Johnson Controls" loading="lazy"></span></div>
+              </article>
+            </li>
+            <li class="hs2-item" id="h-2018" data-year="2018">
+              <span class="hs2-node" aria-hidden="true"></span>
+              <article class="hs2-card rv">
+                <span class="hs2-wm" aria-hidden="true">2018</span>
+                <div class="hs2-meta"><span class="hs2-y">2018</span><span class="hs2-tag"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>5 puntos estratégicos</span></div>
+                <h3>León y Cancún: cobertura nacional</h3>
+                <p>Con la apertura de León y Cancún completamos los 5 puntos estratégicos, logrando cobertura en los principales corredores industriales, hoteleros y hospitalarios de México.</p>
+                <div class="hs2-cities"><span class=""><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Ciudad de México</span><span class=""><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Monterrey</span><span class=""><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Guadalajara</span><span class="new"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>León</span><span class="new"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Cancún</span></div>
+              </article>
+            </li>
+            <li class="hs2-item" id="h-2024" data-year="2024+">
+              <span class="hs2-node" aria-hidden="true"></span>
+              <article class="hs2-card rv">
+                <span class="hs2-wm" aria-hidden="true">2024</span>
+                <div class="hs2-meta"><span class="hs2-y">2024+</span><span class="hs2-tag"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i>Hoy</span></div>
+                <h3>Más de 25 marcas internacionales</h3>
+                <p>Hoy representamos a más de 25 marcas reconocidas globalmente, con +1,000 clientes atendidos y un equipo de ingenieros especializados en continuo crecimiento.</p>
+                <div class="hs2-logos wall" data-hs-wall><span><img src="assets/logos/belimo.png" alt="Belimo" loading="lazy"></span><span><img src="assets/logos/vaisala.png" alt="Vaisala" loading="lazy"></span><span><img src="assets/logos/johnson-controls.png" alt="Johnson Controls" loading="lazy"></span><span><img src="assets/logos/loytec.png" alt="LOYTEC" loading="lazy"></span><span><img src="assets/logos/onicon.png" alt="ONICON" loading="lazy"></span><span><img src="assets/logos/greystone.png" alt="Greystone" loading="lazy"></span></div>
+              </article>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -3379,6 +3383,7 @@
   <script src="assets/js/ui.js"></script>
   <script src="assets/js/buscar.js"></script>
   <script src="assets/js/sucursales.js"></script>
+  <script src="assets/js/pro.js"></script>
 </body>
 
 </html>
