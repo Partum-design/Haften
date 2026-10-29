@@ -941,26 +941,16 @@ h1, h2, h3, h4, .hs2-card h3, .xr-title, .br-title { -webkit-hyphens: manual !im
 .hx-search{position:relative;z-index:5}
 .hx-hero:has(.hs-results:not([hidden])){overflow:visible!important;z-index:20;position:relative}
 
-/* ══ CURSOR NUEVO ══ */
-#cur, #curR { display: none !important; }
-.hc-dot, .hc-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 100002; opacity: 0; will-change: transform; }
-.hc-dot { width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #7b241b; box-shadow: 0 0 0 2px #fff; transition: opacity .25s, scale .25s cubic-bezier(.2,.8,.2,1); }
-.hc-ring {
-  width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; z-index: 100001;
-  border: 1.5px solid rgba(5,22,42,.55); box-shadow: 0 0 0 1px rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.55);
-  display: grid; place-items: center;
-  transition: opacity .25s, width .35s cubic-bezier(.2,.8,.2,1), height .35s cubic-bezier(.2,.8,.2,1), margin .35s cubic-bezier(.2,.8,.2,1), background .3s, border-color .3s;
-}
-.hc-ring span { font: 700 .58rem 'Outfit', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #fff; opacity: 0; transition: opacity .2s; }
-html.hc-on.hc-in .hc-dot, html.hc-on.hc-in .hc-ring { opacity: 1; }
-html.hc-on, html.hc-on * { cursor: none !important; }
-html.hc-on input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]),
-html.hc-on textarea, html.hc-on select, html.hc-on [contenteditable] { cursor: text !important; }
-html.hc-on select { cursor: pointer !important; }
-html.hc-hover .hc-ring { width: 58px; height: 58px; margin: -29px 0 0 -29px; background: rgba(123,36,27,.1); border-color: #7b241b; box-shadow: 0 0 0 1.5px #fff, inset 0 0 0 1px rgba(255,255,255,.7); }
-html.hc-hover .hc-dot { scale: .5; }
-html.hc-label .hc-ring { width: 76px; height: 76px; margin: -38px 0 0 -38px; background: rgba(123,36,27,.92); border-color: transparent; box-shadow: 0 10px 30px -10px rgba(123,36,27,.8); }
-html.hc-label .hc-ring span { opacity: 1; }
-html.hc-label .hc-dot { scale: 0; }
-html.hc-down .hc-ring { width: 30px; height: 30px; margin: -15px 0 0 -15px; }
-html.hc-text .hc-dot, html.hc-text .hc-ring { opacity: 0 !important; }
+/* ══ CURSOR: SVG nativo, sin retraso (reemplaza al cursor por JS) ══ */
+#cur, #curR, .cur, .cur-r { display: none !important; }
+html.hc-on, html.hc-on * { cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2211%22 fill=%22none%22 stroke=%22%23fff%22 stroke-width=%223.5%22 opacity=%22.9%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2211%22 fill=%22none%22 stroke=%22%2305162a%22 stroke-width=%221.4%22 opacity=%22.75%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%223.6%22 fill=%22%237b241b%22 stroke=%22%23fff%22 stroke-width=%221.6%22/%3E%3C/svg%3E") 16 16, auto !important; }
+html.hc-on a, html.hc-on a *, html.hc-on button, html.hc-on button *, html.hc-on [role="button"], html.hc-on [role="button"] *,
+html.hc-on label, html.hc-on summary, html.hc-on select, html.hc-on [data-tilt], html.hc-on .f-tab,
+html.hc-on input[type=range], html.hc-on input[type=checkbox], html.hc-on input[type=radio],
+html.hc-on input[type=submit], html.hc-on input[type=button], html.hc-on .brand-cell, html.hc-on .vid-card, html.hc-on .short-card,
+html.hc-on .soc-card, html.hc-on .post-card, html.hc-on .pl-item { cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2213.5%22 fill=%22%237b241b%22 fill-opacity=%22.16%22 stroke=%22%23fff%22 stroke-width=%223.5%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2213.5%22 fill=%22none%22 stroke=%22%237b241b%22 stroke-width=%221.8%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%222.4%22 fill=%22%237b241b%22 stroke=%22%23fff%22 stroke-width=%221.2%22/%3E%3C/svg%3E") 16 16, pointer !important; }
+html.hc-on input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]),
+html.hc-on textarea, html.hc-on [contenteditable] { cursor: text !important; }
+html.hc-on .xr-stage canvas { cursor: grab !important; }
+html.hc-on .xr-stage canvas:active { cursor: grabbing !important; }
+html.hc-on :disabled { cursor: not-allowed !important; }
