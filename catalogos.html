@@ -273,7 +273,7 @@
       font-weight: 800;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       padding: 10px 22px;
       border-radius: 10px;
@@ -1506,6 +1506,7 @@
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
+  <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/catalogos.css">
 </head>
 
@@ -1526,7 +1527,7 @@
   <!-- NAVBAR -->
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <a href="/" class="n-logo" aria-label="Haften">
-      <img src="assets/logos/logo-haften-white.png" alt="Haften"
+      <img src="assets/logos/logo-haften.png" alt="Haften"
         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
     </a>
@@ -1761,7 +1762,7 @@
     const cur = document.getElementById('cur'), curR = document.getElementById('curR');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
-    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    (function loop() { rx += (mx - rx) * .55; ry += (my - ry) * .55; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
     document.querySelectorAll('a,button,input,.cat-card,.haf-card').forEach(el => {
       el.addEventListener('mouseenter', () => { cur.style.width = '14px'; cur.style.height = '14px' });
       el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px' });
@@ -2099,7 +2100,7 @@
     "id": "vaisala",
     "name": "Vaisala",
     "file": "/WebSite/DownloadFileCatalog?fileID=25",
-    "logo": "assets/logos/vaisala.svg",
+    "logo": "assets/logos/vaisala.png",
     "size": "9.8 MB",
     "cats": [
       "medicion"

@@ -163,7 +163,7 @@
       left: 1rem;
       padding: .5rem 1rem;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-weight: 700;
       border-radius: 6px;
       z-index: 99999;
@@ -375,7 +375,7 @@
       font-weight: 800;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       padding: 10px 22px;
       border-radius: 10px;
@@ -1303,7 +1303,7 @@
       letter-spacing: .28em;
       text-transform: uppercase;
       background: linear-gradient(135deg, var(--ac), var(--ac-dark));
-      color: var(--ink);
+      color: #fff;
       padding: 6px 16px;
       border-radius: 40px;
       margin-bottom: 18px
@@ -1796,7 +1796,7 @@
     }
 
     .btn-ac {
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4)
     }
@@ -2018,7 +2018,7 @@
       height: 44px;
       border-radius: 12px;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-size: .82rem;
       border: none;
       cursor: none;
@@ -2052,7 +2052,7 @@
       height: 52px;
       border-radius: 50%;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-size: 1.1rem;
       border: none;
       cursor: none;
@@ -2112,7 +2112,7 @@
     .cw-head {
       padding: 14px 16px;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: space-between
@@ -2180,7 +2180,7 @@
 
     .cw-msg.usr {
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       align-self: flex-end;
       border-radius: 11px 4px 11px 11px;
       font-weight: 700
@@ -2214,7 +2214,7 @@
       height: 32px;
       border-radius: 7px;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       border: none;
       cursor: none;
       display: flex;
@@ -2393,6 +2393,7 @@
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
+  <link rel="stylesheet" href="assets/css/claro.css">
 </head>
 
 <body>
@@ -2412,7 +2413,7 @@
   <!-- NAVBAR -->
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <a href="/" class="n-logo" aria-label="Haften">
-      <img src="assets/logos/logo-haften-white.png" alt="Haften"
+      <img src="assets/logos/logo-haften.png" alt="Haften"
         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
     </a>
@@ -2713,7 +2714,7 @@
         featured: false
       },
       {
-        n: 'Badger Meter', f: 'badger-meter.svg', cat: 'flow', origin: 'EUA',
+        n: 'Badger Meter', f: 'badger-meter.png', cat: 'flow', origin: 'EUA',
         desc: 'Líder mundial en medición de flujo de agua, productos químicos y fluidos industriales. Medidores ultrasónicos y mecánicos de alta precisión.',
         tags: ['Flujo', 'Agua', 'Medición'],
         featured: false
@@ -2779,6 +2780,12 @@
         featured: true
       },
       {
+        n: 'Intesis', f: 'intesis.png', cat: 'bms', origin: 'España',
+        desc: 'Gateways de integración by HMS Networks. Conecta equipos de A/C, VRF y sistemas HVAC con BACnet, Modbus, KNX y plataformas de automatización.',
+        tags: ['Gateways', 'VRF', 'Integración BMS'],
+        featured: false
+      },
+      {
         n: 'Johnson Controls', f: 'johnson-controls.png', cat: 'bms', origin: 'EUA',
         desc: 'Líder mundial en tecnologías para edificios inteligentes. Sistemas Metasys BMS, controladores DDC y soluciones integradas de seguridad y climatización.',
         tags: ['BMS', 'Metasys', 'DDC'],
@@ -2798,14 +2805,20 @@
       },
       {
         n: 'Neptronic', f: 'neptronic.png', cat: 'humi', origin: 'Canadá',
-        desc: 'Fabricante de humidificadores de vapor eléctrico, actuadores y termostatos. Soluciones de humidificación para hospitales, data centers y laboratorios.',
-        tags: ['Humidificadores', 'Vapor', 'Hospitales'],
+        desc: 'Fabricante de humidificadores de vapor eléctrico, calefactores eléctricos de ducto, actuadores y termostatos. Soluciones de humidificación para hospitales, data centers y laboratorios.',
+        tags: ['Humidificadores', 'Calefactores', 'Vapor'],
         featured: true
       },
       {
         n: 'ONICON', f: 'onicon.png', cat: 'flow', origin: 'EUA',
         desc: 'Medidores de flujo de alta precisión: BTU/energía térmica, agua caliente/fría y vapor. Soluciones certificadas para facturación y eficiencia energética.',
         tags: ['BTU', 'Energía Térmica', 'Flujo'],
+        featured: false
+      },
+      {
+        n: 'Particles Plus', f: 'particles-plus.png', cat: 'sensors', origin: 'EUA',
+        desc: 'Contadores de partículas portátiles y remotos para salas limpias, farmacéutica y monitoreo de calidad de aire interior bajo normas ISO.',
+        tags: ['Partículas', 'Salas Limpias', 'Calidad del Aire'],
         featured: false
       },
       {
@@ -2821,7 +2834,7 @@
         featured: false
       },
       {
-        n: 'Vaisala', f: 'vaisala.svg', cat: 'sensors', origin: 'Finlandia',
+        n: 'Vaisala', f: 'vaisala.png', cat: 'sensors', origin: 'Finlandia',
         desc: 'Instrumentación de referencia mundial para medición ambiental. Sensores de humedad, temperatura y CO₂ con trazabilidad certificada para procesos críticos.',
         tags: ['Humedad', 'Temperatura', 'Certificado'],
         featured: true
@@ -2843,7 +2856,7 @@
     const cur = document.getElementById('cur'), curR = document.getElementById('curR');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
-    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    (function loop() { rx += (mx - rx) * .55; ry += (my - ry) * .55; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
 
     // ── NAVBAR ──────────────────────────────────────────
     window.addEventListener('scroll', () => {
@@ -2956,6 +2969,15 @@
       searchQuery = this.value.trim();
       applyFilters();
     });
+
+    // ── FILTRO DESDE LA URL (?cat=humi · ?q=texto) ──
+    (function () {
+      const p = new URLSearchParams(location.search);
+      const c = p.get('cat'), q = p.get('q');
+      if (c) { const b = document.querySelector('.filter-btn[data-cat="' + c + '"]'); if (b) b.click(); }
+      if (q) { const i = document.getElementById('brandSearch'); i.value = q; searchQuery = q; applyFilters(); }
+      if (c || q) setTimeout(() => grid.scrollIntoView({ behavior: 'smooth', block: 'start' }), 600);
+    })();
 
     // ── TICKER ──────────────────────────────────────────
     const bnames = BRANDS.map(b => b.n);

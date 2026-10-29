@@ -152,7 +152,7 @@
       left: 1rem;
       padding: .5rem 1rem;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-weight: 700;
       border-radius: 6px;
       z-index: 99999;
@@ -364,7 +364,7 @@
       font-weight: 800;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       padding: 10px 22px;
       border-radius: 10px;
@@ -956,7 +956,7 @@
       font-weight: 800;
       letter-spacing: .1em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       border: none;
       border-radius: 12px;
@@ -1098,7 +1098,7 @@
 
     .cm-card:hover .cm-ico {
       background: var(--ac);
-      color: var(--ink)
+      color: #fff
     }
 
     .cm-label {
@@ -1311,7 +1311,7 @@
     .office-card:hover .off-ico,
     .office-card.active-c .off-ico {
       background: var(--ac);
-      color: var(--ink)
+      color: #fff
     }
 
     .off-city {
@@ -1330,7 +1330,7 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       padding: 2px 8px;
       border-radius: 3px
     }
@@ -1484,7 +1484,7 @@
     .faq-item.open .faq-q-ico {
       transform: rotate(45deg);
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       border-color: var(--ac)
     }
 
@@ -1620,7 +1620,7 @@
     }
 
     .btn-ac {
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4)
     }
@@ -1831,7 +1831,7 @@
       height: 44px;
       border-radius: 50%;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-size: .88rem;
       border: none;
       cursor: none;
@@ -1865,7 +1865,7 @@
       height: 52px;
       border-radius: 50%;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-size: 1.1rem;
       border: none;
       cursor: none;
@@ -1925,7 +1925,7 @@
     .cw-head {
       padding: 14px 16px;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: space-between
@@ -1993,7 +1993,7 @@
 
     .cw-msg.usr {
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       align-self: flex-end;
       border-radius: 11px 4px 11px 11px;
       font-weight: 700
@@ -2027,7 +2027,7 @@
       height: 32px;
       border-radius: 7px;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       border: none;
       cursor: none;
       display: flex;
@@ -2161,6 +2161,7 @@
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
+  <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
@@ -2180,7 +2181,7 @@
   <!-- NAVBAR -->
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <a href="/" class="n-logo" aria-label="Haften">
-      <img src="assets/logos/logo-haften-white.png" alt="Haften"
+      <img src="assets/logos/logo-haften.png" alt="Haften"
         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
     </a>
@@ -2419,14 +2420,10 @@
             <div class="hours-row">
               <span class="hours-day">Lunes — Viernes<span class="hours-badge"><i class="fa-solid fa-circle"
                     style="font-size:.4rem"></i> Abierto</span></span>
-              <span class="hours-time">8:00 — 18:00</span>
+              <span class="hours-time">8:00 — 17:30</span>
             </div>
             <div class="hours-row">
-              <span class="hours-day">Sábados</span>
-              <span class="hours-time">9:00 — 14:00</span>
-            </div>
-            <div class="hours-row">
-              <span class="hours-day">Domingos y festivos</span>
+              <span class="hours-day">Sábados, domingos y festivos</span>
               <span class="hours-time" style="color:rgba(5,22,42,.35)">Cerrado</span>
             </div>
             <div
@@ -2619,7 +2616,7 @@
     const cur = document.getElementById('cur'), curR = document.getElementById('curR');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
-    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    (function loop() { rx += (mx - rx) * .55; ry += (my - ry) * .55; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
     document.querySelectorAll('a,button,.cm-card,.office-card,.faq-q,.s-chip').forEach(el => {
       el.addEventListener('mouseenter', () => { cur.style.width = '14px'; cur.style.height = '14px' });
       el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px' });

@@ -1,0 +1,134 @@
+/* HAFTEN — propuesta más clara y luminosa (reunión 26 oct 2026)
+   Encabezado blanco con el logotipo oficial en guinda, acentos guinda
+   y azul marino para el texto. Las secciones oscuras se conservan
+   como zonas de contraste. Se carga después de ui.css. */
+
+/* ── ENCABEZADO CLARO ── */
+#navbar {
+  --ac: var(--brand);
+  --ac-rgb: var(--brand-rgb);
+  --ac-dark: var(--brand-700);
+  background: rgba(255, 255, 255, .94) !important;
+  border-bottom: 1px solid rgba(5, 22, 42, .08) !important;
+  box-shadow: 0 6px 24px -14px rgba(5, 22, 42, .35) !important;
+}
+#navbar.scrolled {
+  background: rgba(255, 255, 255, .98) !important;
+  box-shadow: 0 10px 34px -14px rgba(5, 22, 42, .4) !important;
+}
+/* logotipo con más presencia */
+.n-logo img { height: 36px !important; }
+#navbar.scrolled .n-logo img { transform: scale(.9); }
+.n-logo-text { color: var(--brand) !important; }
+
+@media (min-width: 901px) {
+  .n-links {
+    background: #f4f6f9 !important;
+    border-color: rgba(5, 22, 42, .07) !important;
+    box-shadow: none !important;
+  }
+  .n-link { color: #33475b !important; }
+  .n-link:hover, .n-link:focus-visible, .n-link.active { color: #05162a !important; }
+  .n-link.active::before { background: var(--brand); box-shadow: none; }
+  .n-ind {
+    background: #fff !important;
+    border-color: rgba(5, 22, 42, .08) !important;
+    box-shadow: 0 2px 8px rgba(5, 22, 42, .08);
+  }
+}
+
+.n-tool-btn {
+  color: #33475b !important;
+  border-color: rgba(5, 22, 42, .14) !important;
+  background: #fff !important;
+}
+.n-tool-btn:hover,
+.n-tool-btn[aria-expanded="true"] { color: var(--brand) !important; border-color: rgba(var(--brand-rgb), .45) !important; }
+.n-ham { border-color: rgba(5, 22, 42, .16) !important; }
+.n-ham span { background: #05162a !important; }
+
+@media (max-width: 900px) {
+  .n-links {
+    background: rgba(255, 255, 255, .99) !important;
+    border-bottom: 1px solid rgba(var(--brand-rgb), .15) !important;
+    box-shadow: 0 30px 60px rgba(5, 22, 42, .18) !important;
+  }
+  .n-link {
+    color: #05162a !important;
+    border-bottom-color: rgba(5, 22, 42, .07) !important;
+  }
+  .n-link::before { color: rgba(5, 22, 42, .3) !important; }
+  .n-link.active { color: var(--brand) !important; }
+  .n-mobile-extra a {
+    border-color: rgba(5, 22, 42, .08) !important;
+    background: #f6f8fa !important;
+    color: #05162a !important;
+  }
+  .n-mobile-extra i { color: var(--brand) !important; }
+}
+
+/* ── LOGOTIPOS DE MARCAS: más grandes y del mismo tamaño ──
+   Todos los archivos comparten el mismo lienzo (960×400) con el
+   logotipo escalado por área, así que basta con fijar la caja. */
+.brand-cell {
+  width: 230px !important;
+  height: 100px !important;
+  padding: 6px 12px !important;
+}
+.brand-cell img {
+  max-width: 206px !important;
+  max-height: 86px !important;
+}
+.bc-logo { height: 150px !important; padding: 14px 18px !important; }
+.bc-logo img { max-width: 260px !important; max-height: 110px !important; }
+.feat-logo-wrap { height: 100px !important; padding: 6px 12px !important; }
+.feat-logo-wrap img { max-width: 216px !important; max-height: 90px !important; }
+@media (max-width: 600px) {
+  .brand-cell { width: 180px !important; height: 80px !important; }
+  .brand-cell img { max-width: 160px !important; max-height: 68px !important; }
+}
+
+/* ── BOTÓN FLOTANTE DE WHATSAPP ── */
+.hz-wa {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 950;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #25D366;
+  color: #fff !important;
+  font-size: 1.85rem;
+  text-decoration: none;
+  box-shadow: 0 10px 28px -6px rgba(18, 140, 70, .6), 0 3px 10px rgba(0, 0, 0, .18);
+  transition: transform .25s cubic-bezier(.16, 1, .3, 1), box-shadow .25s;
+}
+.hz-wa:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 32px -6px rgba(18, 140, 70, .7), 0 3px 10px rgba(0, 0, 0, .2); }
+.hz-wa:focus-visible { outline: 3px solid var(--focus, #F5C26B); outline-offset: 3px; }
+.hz-wa-tip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translate(-6px, -50%);
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff;
+  color: #05162a;
+  font: 600 .78rem/1.2 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  box-shadow: 0 8px 24px rgba(5, 22, 42, .18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .25s;
+}
+.hz-wa:hover .hz-wa-tip,
+.hz-wa:focus-visible .hz-wa-tip { opacity: 1; transform: translate(0, -50%); }
+body.hz-open .hz-wa { opacity: 0; pointer-events: none; }
+@media (max-width: 600px) {
+  .hz-wa { left: 14px; bottom: 14px; width: 54px; height: 54px; font-size: 1.7rem; }
+  .hz-wa-tip { display: none; }
+}
+@media print { .hz-wa { display: none; } }

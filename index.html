@@ -135,7 +135,7 @@
       left: 1rem;
       padding: .5rem 1rem;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-weight: 700;
       border-radius: 6px;
       z-index: 99999;
@@ -307,7 +307,7 @@
       font-weight: 800;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       padding: 10px 22px;
       border-radius: 10px;
@@ -849,7 +849,7 @@
     }
 
     .btn-ac {
-      color: var(--ink);
+      color: #fff;
       background: var(--ac);
       box-shadow: 0 4px 20px rgba(var(--ac-rgb), .4)
     }
@@ -1396,7 +1396,7 @@
 
     .cat-card:hover .cat-ico {
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       transform: scale(1.1)
     }
 
@@ -1643,7 +1643,7 @@
     .finder-opt:hover .finder-opt-ico,
     .finder-opt.selected .finder-opt-ico {
       background: var(--ac);
-      color: var(--ink)
+      color: #fff
     }
 
     .finder-opt-name {
@@ -1739,7 +1739,7 @@
 
     .finder-reset:hover {
       background: var(--ac);
-      color: var(--ink)
+      color: #fff
     }
 
     /* ════════════════════════════════════════════════
@@ -1933,7 +1933,7 @@
 
     .prod-card:hover .prod-ico {
       background: var(--ac);
-      color: var(--ink)
+      color: #fff
     }
 
     .prod-name {
@@ -2053,7 +2053,7 @@
 
     .why-feat:hover .why-feat-ico {
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       transform: scale(1.05) rotate(-3deg);
       box-shadow: 0 8px 24px rgba(var(--ac-rgb), .35)
     }
@@ -2216,7 +2216,7 @@
       letter-spacing: .1em;
       text-transform: uppercase;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       padding: 2px 7px;
       border-radius: 3px
     }
@@ -2510,7 +2510,7 @@
       height: 44px;
       border-radius: 50%;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-size: .88rem;
       border: none;
       cursor: none;
@@ -2544,7 +2544,7 @@
       height: 52px;
       border-radius: 50%;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       font-size: 1.1rem;
       border: none;
       cursor: none;
@@ -2604,7 +2604,7 @@
     .cw-head {
       padding: 14px 16px;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: space-between
@@ -2672,7 +2672,7 @@
 
     .cw-msg.usr {
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       align-self: flex-end;
       border-radius: 11px 4px 11px 11px;
       font-weight: 700
@@ -2706,7 +2706,7 @@
       height: 32px;
       border-radius: 7px;
       background: var(--ac);
-      color: var(--ink);
+      color: #fff;
       border: none;
       cursor: none;
       display: flex;
@@ -2877,6 +2877,7 @@
   </style>
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/ui.css">
+  <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
@@ -2897,7 +2898,7 @@
   <!-- NAVBAR -->
   <nav id="navbar" role="navigation" aria-label="Navegación principal">
     <a href="/" class="n-logo" aria-label="Haften">
-      <img src="assets/logos/logo-haften-white.png" alt="Haften"
+      <img src="assets/logos/logo-haften.png" alt="Haften"
         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="n-logo-text" style="display:none">Haf<em>ten</em></span>
     </a>
@@ -3084,7 +3085,7 @@
               <div class="cat-title">Humidificadores</div>
               <div class="cat-sub">Control preciso de humedad para entornos industriales, hospitalarios y comerciales.
               </div>
-              <a href="/nosotros" class="cat-link">Ver línea completa <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="/marcas?q=humidificadores" class="cat-link">Ver línea completa <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -3098,7 +3099,7 @@
               <div class="cat-ico"><i class="fa-solid fa-fan"></i></div>
               <div class="cat-title">Deshumidificadores</div>
               <div class="cat-sub">Eliminación eficiente de exceso de humedad en ambientes críticos.</div>
-              <a href="/nosotros" class="cat-link">Ver línea completa <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="/marcas?q=deshumidific" class="cat-link">Ver línea completa <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -3111,7 +3112,7 @@
               <div class="cat-ico"><i class="fa-solid fa-fire"></i></div>
               <div class="cat-title">Calefactores</div>
               <div class="cat-sub">Calefacción eléctrica de alta eficiencia para espacios industriales.</div>
-              <a href="/nosotros" class="cat-link">Ver línea completa <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="/marcas?q=calefactores" class="cat-link">Ver línea completa <i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -3518,7 +3519,7 @@
     const cur = document.getElementById('cur'), curR = document.getElementById('curR');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx + 'px'; cur.style.top = my + 'px' });
-    (function loop() { rx += (mx - rx) * .12; ry += (my - ry) * .12; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
+    (function loop() { rx += (mx - rx) * .55; ry += (my - ry) * .55; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(loop) })();
     document.querySelectorAll('a,button,.cat-card,.office-card,.finder-opt,.prod-card').forEach(el => {
       el.addEventListener('mouseenter', () => { cur.style.width = '14px'; cur.style.height = '14px' });
       el.addEventListener('mouseleave', () => { cur.style.width = '10px'; cur.style.height = '10px' });
@@ -3583,11 +3584,12 @@
       { n: 'Ctrl Techniques', f: 'control-techniques.png' }, { n: 'CoolAutomation', f: 'cool-automation.png' },
       { n: 'Delta', f: 'delta-electronics.png' }, { n: 'Dwyer Omega', f: 'dwyer-omega.png' },
       { n: 'FlowCon', f: 'flowcon.png' }, { n: 'GPI', f: 'gpi.png' },
-      { n: 'Greystone', f: 'greystone.png' }, { n: 'Johnson Controls', f: 'johnson-controls.png' },
+      { n: 'Greystone', f: 'greystone.png' }, { n: 'Intesis', f: 'intesis.png' },
+      { n: 'Johnson Controls', f: 'johnson-controls.png' }, { n: 'Particles Plus', f: 'particles-plus.png' },
       { n: 'LOYTEC', f: 'loytec.png' }, { n: 'Meitav Tec', f: 'meitav-tec.png' },
       { n: 'Neptronic', f: 'neptronic.png' }, { n: 'ONICON', f: 'onicon.png' },
       { n: 'Senva', f: 'senva.png' }, { n: 'Setra', f: 'setra-systems.png' },
-      { n: 'Vaisala', f: 'vaisala.svg' }, { n: 'Badger Meter', f: 'badger-meter.svg' },
+      { n: 'Vaisala', f: 'vaisala.png' }, { n: 'Badger Meter', f: 'badger-meter.png' },
     ];
     function mkCell(b) { const c = document.createElement('div'); c.className = 'brand-cell'; const img = document.createElement('img'); img.src = 'assets/logos/' + b.f; img.alt = b.n; img.loading = 'lazy'; img.onerror = function () { this.style.display = 'none'; c.querySelector('.brand-fallback').style.display = 'block' }; const fb = document.createElement('div'); fb.className = 'brand-fallback'; fb.textContent = b.n; c.appendChild(img); c.appendChild(fb); return c }
     const br1 = document.getElementById('br1'), br2 = document.getElementById('br2');

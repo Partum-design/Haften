@@ -133,14 +133,13 @@
     { k: ['cancun', 'quintana roo', 'yucatan', 'merida', 'sureste', 'riviera'], n: 'Cancún, Q. Roo', a: 'Av. Muyil 39, Villas del Carmen, C.P. 77516, Cancún, Q. Roo', map: 'https://www.google.com/maps/search/?api=1&query=HAFTEN%20CANCUN%2C%20Av.%20Muyil%2039%2C%20Canc%C3%BAn' }
   ];
 
-  // horario: lun–vie 8–18, sáb 9–14 (hora del centro de México)
+  // horario: lun–vie 8:00–17:30 (hora del centro de México)
   function openNow() {
     try {
       var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Mexico_City', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
       var get = function (t) { return (parts.find(function (p) { return p.type === t; }) || {}).value; };
       var d = get('weekday'), m = (+get('hour')) * 60 + (+get('minute'));
-      if (['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].indexOf(d) >= 0) return m >= 480 && m < 1080;
-      if (d === 'Sat') return m >= 540 && m < 840;
+      if (['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].indexOf(d) >= 0) return m >= 480 && m < 1050;
       return false;
     } catch (e) { return null; }
   }
@@ -243,7 +242,7 @@
       return { html: 'Nuestro equipo de <strong>ingeniería</strong> te ayuda con selección, instalación, configuración y garantías. Cuéntales el modelo y lo que ocurre:' + '<div class="hz-cards">' + card(mailLink(C.ing, 'Soporte técnico', 'Hola, necesito apoyo técnico con:\n\nModelo: \nDescripción: '), 'fa-solid fa-screwdriver-wrench', 'Escribir a ingeniería', C.ing) + card(waLink('Hola Haften, necesito soporte técnico con un equipo.'), 'fa-brands fa-whatsapp', 'Soporte por WhatsApp', C.wa, true) + '</div>' };
     if (has('horario', 'abierto', 'abren', 'cierran', 'atienden') || /\bhoras?\b/.test(q)) {
       var on = openNow();
-      return { html: (on === null ? '' : (on ? '🟢 <strong>Estamos abiertos ahora.</strong><br>' : '🔴 <strong>Ahora estamos fuera de horario</strong>; te respondemos el siguiente día hábil.<br>')) + '<ul><li>Lunes a viernes: 8:00 – 18:00</li><li>Sábados: 9:00 – 14:00</li><li>Domingos y festivos: cerrado</li></ul><small>Hora del centro de México.</small>', chips: ['Hablar con un asesor'] };
+      return { html: (on === null ? '' : (on ? '🟢 <strong>Estamos abiertos ahora.</strong><br>' : '🔴 <strong>Ahora estamos fuera de horario</strong>; te respondemos el siguiente día hábil.<br>')) + '<ul><li>Lunes a viernes: 8:00 – 17:30</li><li>Sábados, domingos y festivos: cerrado</li></ul><small>Hora del centro de México.</small>', chips: ['Hablar con un asesor'] };
     }
     if (has('asesor', 'humano', 'persona', 'agente', 'vendedor', 'ejecutivo', 'whatsapp', 'llamar', 'telefono', 'contacto', 'correo', 'email', 'mail'))
       return { html: 'Claro, te comunico con un asesor de Haften:' + contactCards('Hola Haften, me gustaría hablar con un asesor.') };
@@ -302,7 +301,17 @@
     '</form>' +
     '<div class="hz-foot">Respuestas automáticas · Atención humana por <a href="' + waLink('Hola Haften, me gustaría más información.') + '" target="_blank" rel="noopener">WhatsApp</a></div>';
 
+  /* botón flotante de WhatsApp (como en la página anterior) */
+  var waFab = document.createElement('a');
+  waFab.className = 'hz-wa';
+  waFab.href = waLink('Hola Haften, me gustaría más información.');
+  waFab.target = '_blank';
+  waFab.rel = 'noopener';
+  waFab.setAttribute('aria-label', 'Escríbenos por WhatsApp');
+  waFab.innerHTML = '<i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span class="hz-wa-tip">¿Hablamos por WhatsApp?</span>';
+
   body.appendChild(teaser);
+  body.appendChild(waFab);
   body.appendChild(fab);
   body.appendChild(win);
 
