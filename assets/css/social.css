@@ -10,7 +10,7 @@
   height: 100%;
   padding: 0;
   border: 0;
-  background: #060d1a;
+  background: #05162a;
   color: inherit;
   font: inherit;
   cursor: pointer;
@@ -67,7 +67,7 @@
   font-size: .8rem;
   transition: border-color .2s, background .2s;
 }
-.mm-search input::placeholder { color: #5f7f95; }
+.mm-search input::placeholder { color: #636f7e; }
 .mm-search input:focus { border-color: var(--ac); background: #fff; }
 
 /* ── MULTIMEDIA: destacado ── */
@@ -294,7 +294,7 @@
 }
 .post-txt {
   padding: 14px 18px 0;
-  color: #cfe3f0;
+  color: #e3e6ea;
   font-size: .8rem;
   line-height: 1.6;
   display: -webkit-box;
@@ -380,7 +380,7 @@
 }
 .fb-copy .s-sub { margin: 14px 0 0; }
 .fb-list { list-style: none; padding: 0; margin: 26px 0 30px; display: grid; gap: 12px; }
-.fb-list li { display: flex; gap: 12px; align-items: center; color: #cfe3f0; font-size: .9rem; }
+.fb-list li { display: flex; gap: 12px; align-items: center; color: #e3e6ea; font-size: .9rem; }
 .fb-list i { color: #4e8ef7; width: 18px; text-align: center; }
 .fb-frame {
   position: relative;

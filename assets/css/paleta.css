@@ -1,0 +1,269 @@
+/* HAFTEN — sistema visual final
+   Solo tres colores: blanco, vino Haften (#7B241B) y azul marino (#05162A).
+   Los colores propios de cada marca solo aparecen como brillo al elegirla.
+   Tipografía: Plus Jakarta Sans (títulos) y Outfit (texto). Se carga al final. */
+
+:root {
+  --navy: #05162a;
+  --navy-2: #0a2038;
+  --navy-3: #10294a;
+  --wine: #7b241b;
+  --wine-2: #9a3326;
+  --wine-3: #5f1b14;
+  --wine-lt: #c0473a;            /* vino iluminado, solo sobre fondos marinos */
+  --mist: #f6f7f9;
+  --line: rgba(5, 22, 42, .09);
+
+  --bg: var(--navy) !important;
+  --bg2: var(--navy) !important;
+  --bg3: var(--navy-2) !important;
+  --lt: var(--mist) !important;
+  --lt2: #eef0f3 !important;
+  --text-1: #fff !important;
+  --text-2: rgba(255, 255, 255, .74) !important;
+  --text-3: rgba(255, 255, 255, .52) !important;
+  --ink: var(--navy) !important;
+  --ink2: #22324a !important;
+  --ink3: #4b5a6e !important;
+  --border-l: var(--line) !important;
+  --focus: #c0473a;
+}
+
+body {
+  background: #fff;
+  color: var(--navy);
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+h1, h2, h3, .s-title, .hx-h1, .bx-name {
+  font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+  letter-spacing: -.03em;
+}
+::selection { background: rgba(123, 36, 27, .9); color: #fff; }
+html { scrollbar-color: rgba(123, 36, 27, .55) #eef0f3; }
+
+/* foco visible y sobrio */
+:focus-visible { outline: 2px solid var(--wine) !important; outline-offset: 3px !important; }
+input:focus-visible, textarea:focus-visible, select:focus-visible { outline-offset: 1px !important; }
+.hx-field input:focus, .hx-field input:focus-visible,
+.mm-search input:focus, .mm-search input:focus-visible,
+#brandSearch:focus, #brandSearch:focus-visible { outline: none !important; box-shadow: none !important; }
+
+/* ════════ SECCIONES OSCURAS — azul marino bien contrastado ════════ */
+[data-dark], .prod-sec, .portafolio-sec, .historia-sec, .offices-sec, footer, .cta-sec, .cta-strip {
+  --ac: var(--wine-lt);
+  --ac-rgb: 192, 71, 58;
+  --ac-dark: #d4594a;
+}
+.prod-sec, .portafolio-sec, .historia-sec, .offices-sec {
+  background: radial-gradient(1100px 520px at 85% 0%, rgba(123, 36, 27, .28), transparent 60%),
+    radial-gradient(800px 500px at 0% 100%, rgba(123, 36, 27, .16), transparent 60%),
+    var(--navy) !important;
+}
+footer { background: var(--navy) !important; }
+/* títulos en oscuro: blanco, con la palabra clave en vino iluminado */
+:is(.prod-sec, .portafolio-sec, .historia-sec, .offices-sec, [data-dark]) :is(.s-title, h2) { color: #fff !important; }
+:is(.prod-sec, .portafolio-sec, .historia-sec, .offices-sec, [data-dark]) .s-title span { color: var(--wine-lt) !important; -webkit-text-fill-color: currentColor !important; background: none !important; }
+:is(.prod-sec, .portafolio-sec, .historia-sec, .offices-sec, [data-dark]) :is(.s-sub, p) { color: rgba(255, 255, 255, .72); }
+:is(.prod-sec, .portafolio-sec, .historia-sec, .offices-sec, [data-dark]) .eyebrow { color: #fff !important; }
+:is(.prod-sec, .portafolio-sec, .historia-sec, .offices-sec, [data-dark]) .eyebrow i { color: var(--wine-lt) !important; }
+
+/* tarjetas de categoría sobre marino */
+.prod-card, .port-card {
+  background: rgba(255, 255, 255, .035) !important;
+  border: 1px solid rgba(255, 255, 255, .09) !important;
+  border-radius: 18px !important;
+  transition: transform .3s cubic-bezier(.16, 1, .3, 1), background .3s, border-color .3s, box-shadow .3s !important;
+}
+.prod-card:hover, .port-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, .07) !important;
+  border-color: rgba(192, 71, 58, .55) !important;
+  box-shadow: 0 22px 44px -22px rgba(0, 0, 0, .8), 0 0 0 1px rgba(192, 71, 58, .2) !important;
+}
+.prod-ico, .port-ico {
+  background: rgba(123, 36, 27, .35) !important;
+  color: #fff !important;
+  border: 1px solid rgba(192, 71, 58, .45) !important;
+  border-radius: 12px !important;
+}
+.prod-card:hover .prod-ico, .port-card:hover .port-ico { background: var(--wine) !important; border-color: var(--wine) !important; }
+.prod-name, .port-name { color: #fff !important; font-weight: 600 !important; font-size: .92rem !important; line-height: 1.4 !important; }
+.prod-card::after, .port-card::after {
+  content: '\f061';
+  font: var(--fa-font-solid, 900 1em 'Font Awesome 6 Free');
+  font-weight: 900;
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  font-size: .78rem;
+  color: rgba(255, 255, 255, .25);
+  transition: color .3s, transform .3s;
+}
+.prod-card, .port-card { position: relative; }
+.prod-card:hover::after, .port-card:hover::after { color: #fff; transform: translateX(3px); }
+
+/* botones contorno en oscuro */
+:is([data-dark], footer, .prod-sec, .portafolio-sec) .btn-outline {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, .28) !important;
+  background: transparent !important;
+}
+:is([data-dark], footer, .prod-sec, .portafolio-sec) .btn-outline:hover { border-color: #fff !important; background: rgba(255, 255, 255, .06) !important; }
+
+/* insignias y estados en la paleta */
+.hours-badge { color: var(--wine) !important; }
+
+/* ════════ MENÚS FIJOS (filtros) — cápsula flotante ════════ */
+.filter-bar {
+  position: sticky !important;
+  top: 80px !important;
+  z-index: 300 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 14px clamp(12px, 3vw, 32px) !important;
+  pointer-events: none;
+  transition: top .45s cubic-bezier(.16, 1, .3, 1) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+body:has(#navbar.nav-hide) .filter-bar { top: 10px !important; }
+.filter-bar > * { pointer-events: auto; }
+.filter-bar-inner, .filter-bar .filter-inner {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center;
+  gap: 6px !important;
+  padding: 6px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, .9) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 14px 34px -18px rgba(5, 22, 42, .45), 0 2px 6px rgba(5, 22, 42, .04) !important;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-bar-inner::-webkit-scrollbar, .filter-bar .filter-inner::-webkit-scrollbar { display: none; }
+.filter-bar .filter-btn, .filter-bar .mm-tab, .filter-bar [role="tab"], .filter-bar .cat-filter, .filter-bar .chip {
+  flex-shrink: 0;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: #3e4c5e !important;
+  font: 600 .8rem/1 'Outfit', sans-serif !important;
+  letter-spacing: .01em !important;
+  text-transform: none !important;
+  cursor: pointer !important;
+  transition: background .2s, color .2s !important;
+  white-space: nowrap;
+}
+.filter-bar .filter-btn:hover, .filter-bar .mm-tab:hover, .filter-bar .cat-filter:hover, .filter-bar .chip:hover { background: var(--mist) !important; color: var(--navy) !important; }
+.filter-bar .filter-btn.active, .filter-bar .mm-tab.active, .filter-bar [aria-selected="true"], .filter-bar .cat-filter.active, .filter-bar .chip.active {
+  background: var(--navy) !important;
+  color: #fff !important;
+}
+.filter-bar .filter-count, .filter-bar .mm-count, .filter-bar .count {
+  min-width: 22px;
+  height: 20px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 6px !important;
+  margin: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(5, 22, 42, .07) !important;
+  color: inherit !important;
+  font: 700 .66rem/1 'Outfit', sans-serif !important;
+}
+.filter-bar .active .filter-count, .filter-bar .active .mm-count, .filter-bar .active .count { background: rgba(255, 255, 255, .18) !important; }
+.filter-bar .filter-btn::after, .filter-bar .filter-btn::before { display: none !important; }
+.filter-bar input {
+  border-radius: 999px !important;
+  border: 1px solid var(--line) !important;
+  background: var(--mist) !important;
+  font: 500 .86rem 'Outfit', sans-serif !important;
+}
+@media (max-width: 900px) {
+  .filter-bar { top: 70px !important; padding: 10px 10px !important; }
+}
+
+/* buscador de la página de marcas: se integra bajo la cápsula */
+.search-bar { background: #fff !important; border: 0 !important; padding: 4px clamp(12px, 3vw, 32px) 10px !important; }
+.search-bar-inner { max-width: 1180px !important; margin: 0 auto !important; }
+.search-input-wrap {
+  border-radius: 999px !important;
+  background: var(--mist) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+.search-input-wrap:focus-within { border-color: rgba(123, 36, 27, .5) !important; background: #fff !important; }
+
+/* ════════ WHATSAPP — en la paleta ════════ */
+.hz-wa { background: var(--navy) !important; box-shadow: 0 12px 28px -8px rgba(5, 22, 42, .6), 0 0 0 3px rgba(255, 255, 255, .9) !important; }
+.hz-wa:hover { background: var(--wine) !important; }
+
+/* ════════ CINTAS ════════ */
+.ticker { background: linear-gradient(90deg, var(--wine-3), var(--wine) 40%, var(--wine-2)) !important; }
+.ticker-lbl {
+  background: var(--navy) !important;
+  color: #fff !important;
+  font-family: 'Outfit', sans-serif !important;
+  letter-spacing: .16em !important;
+  padding: 0 22px !important;
+  height: 100%;
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+.ticker-lbl i { color: var(--wine-lt) !important; }
+.ticker-logo { box-shadow: 0 6px 16px -6px rgba(0, 0, 0, .45) !important; }
+
+/* variantes de pestañas por página (catálogos y multimedia) */
+.filter-bar .filter-tabs { display: flex !important; flex-wrap: nowrap !important; gap: 4px !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: none !important; }
+.filter-bar-inner, .filter-bar .filter-inner { flex-wrap: nowrap !important; }
+.filter-bar .f-tab {
+  flex-shrink: 0;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: #3e4c5e !important;
+  font: 600 .8rem/1 'Outfit', sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: .01em !important;
+  cursor: pointer !important;
+  white-space: nowrap;
+  box-shadow: none !important;
+}
+.filter-bar .f-tab:hover { background: var(--mist) !important; color: var(--navy) !important; }
+.filter-bar .f-tab.active { background: var(--navy) !important; color: #fff !important; }
+.filter-bar .f-tab i, .filter-bar .filter-btn i { color: inherit !important; opacity: .7; }
+.filter-bar .f-n {
+  min-width: 22px; height: 20px; display: inline-grid; place-items: center; padding: 0 6px !important;
+  border-radius: 999px !important; background: rgba(5, 22, 42, .07) !important; color: inherit !important;
+  font: 700 .66rem/1 'Outfit', sans-serif !important;
+}
+.filter-bar .f-tab.active .f-n { background: rgba(255, 255, 255, .18) !important; }
+.filter-bar .filter-search, .filter-bar .mm-search { flex: 0 0 auto; min-width: 220px; border-radius: 999px !important; }
+.filter-bar .filter-search input, .filter-bar .mm-search input { border: 0 !important; background: transparent !important; }
+.filter-bar .filter-search, .filter-bar .mm-search { background: var(--mist) !important; border: 1px solid var(--line) !important; }
+.filter-bar .fs-kbd { display: none !important; }
+
+/* en escritorio la cápsula se acomoda en dos líneas si no cabe */
+@media (min-width: 901px) {
+  .filter-bar-inner, .filter-bar .filter-inner { flex-wrap: wrap !important; border-radius: 26px !important; overflow: visible; justify-content: center; }
+  .filter-bar .filter-tabs { flex-wrap: wrap !important; justify-content: center; }
+}
+
+/* tarjeta "Catálogo Haften" sobre fondo claro: texto marino */
+.haften-feature { --text-1: #05162a; --text-2: #4b5a6e; --text-3: #6e7a88; }

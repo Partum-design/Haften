@@ -21,18 +21,18 @@
       --ac: #7B241B;
       --ac-dark: #5F1B14;
       --ac-rgb: 123, 36, 27;
-      --bg: #030810;
-      --bg2: #060d1a;
-      --bg3: #0c1828;
-      --lt: #f4f8fb;
-      --lt2: #e9f1f7;
+      --bg: #05162a;
+      --bg2: #05162a;
+      --bg3: #0a2038;
+      --lt: #f6f7f9;
+      --lt2: #eef0f3;
       --white: #fff;
       --text-1: #fff;
-      --text-2: #7aafc8;
-      --text-3: #3d7090;
+      --text-2: #aab4c0;
+      --text-3: #6b7a8c;
       --ink: #05162a;
-      --ink2: #183855;
-      --ink3: #2e6080;
+      --ink2: #22324a;
+      --ink3: #4b5a6e;
       --border-d: rgba(var(--ac-rgb), .1);
       --border-l: rgba(5, 22, 42, .08);
       --nav-h: 88px;
@@ -42,7 +42,7 @@
 
     .hc-mode {
       --text-2: #fff !important;
-      --text-3: #d0e8ff !important;
+      --text-3: #e6e9ee !important;
       --ink2: #000 !important;
       --ink3: #111 !important
     }
@@ -214,7 +214,7 @@
       align-items: center;
       padding: 0 5vw;
       gap: 24px;
-      background: rgba(3, 8, 16, .7);
+      background: rgba(5, 22, 42, .7);
       backdrop-filter: blur(32px) saturate(1.8);
       -webkit-backdrop-filter: blur(32px) saturate(1.8);
       border-bottom: 1px solid rgba(255, 255, 255, .05);
@@ -222,7 +222,7 @@
     }
 
     #navbar.scrolled {
-      background: rgba(3, 8, 16, .95);
+      background: rgba(5, 22, 42, .95);
       box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
     }
 
@@ -356,7 +356,7 @@
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      background: #0a1828;
+      background: #071c33;
       border: 1px solid rgba(255, 255, 255, .09);
       border-radius: 14px;
       padding: 18px;
@@ -567,7 +567,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(3, 8, 16, .78) 0%, rgba(3, 8, 16, .4) 40%, rgba(3, 8, 16, .55) 65%, rgba(3, 8, 16, .96) 100%)
+      background: linear-gradient(180deg, rgba(5, 22, 42, .78) 0%, rgba(5, 22, 42, .4) 40%, rgba(5, 22, 42, .55) 65%, rgba(5, 22, 42, .96) 100%)
     }
 
     .hero-grid-bg {
@@ -710,7 +710,7 @@
       z-index: 10;
       display: flex;
       justify-content: center;
-      background: rgba(3, 8, 16, .6);
+      background: rgba(5, 22, 42, .6);
       backdrop-filter: blur(20px);
       border-top: 1px solid rgba(255, 255, 255, .05)
     }
@@ -1123,7 +1123,7 @@
     .about-photo-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(3, 8, 22, .05) 0%, rgba(3, 8, 22, .9) 100%);
+      background: linear-gradient(180deg, rgba(5, 22, 42, .05) 0%, rgba(5, 22, 42, .9) 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -1295,15 +1295,15 @@
     }
 
     .cat-card:nth-child(1) .cat-overlay {
-      background: linear-gradient(175deg, rgba(0, 180, 210, .0) 0%, rgba(0, 90, 120, .15) 40%, rgba(3, 8, 22, .97) 100%)
+      background: linear-gradient(175deg, rgba(123, 36, 27, .0) 0%, rgba(0, 90, 120, .15) 40%, rgba(5, 22, 42, .97) 100%)
     }
 
     .cat-card:nth-child(2) .cat-overlay {
-      background: linear-gradient(175deg, rgba(0, 180, 210, .0) 0%, rgba(3, 20, 50, .2) 40%, rgba(3, 8, 22, .97) 100%)
+      background: linear-gradient(175deg, rgba(123, 36, 27, .0) 0%, rgba(3, 20, 50, .2) 40%, rgba(5, 22, 42, .97) 100%)
     }
 
     .cat-card:nth-child(3) .cat-overlay {
-      background: linear-gradient(175deg, rgba(180, 60, 0, .0) 0%, rgba(100, 30, 0, .15) 40%, rgba(3, 8, 22, .97) 100%)
+      background: linear-gradient(175deg, rgba(180, 60, 0, .0) 0%, rgba(100, 30, 0, .15) 40%, rgba(5, 22, 42, .97) 100%)
     }
 
     .cat-overlay {
@@ -1362,7 +1362,7 @@
       border: 1px solid rgba(var(--ac-rgb), .35);
       padding: 4px 12px;
       border-radius: 3px;
-      background: rgba(3, 8, 16, .65);
+      background: rgba(5, 22, 42, .65);
       backdrop-filter: blur(6px);
       transform: translateY(-4px);
       opacity: 0;
@@ -2235,7 +2235,7 @@
       position: relative;
       padding: 120px 0;
       overflow: hidden;
-      background: linear-gradient(135deg, #04091c 0%, #071830 45%, #04111e 75%, #030810 100%)
+      background: linear-gradient(135deg, #04091c 0%, #071830 45%, #04111e 75%, #05162a 100%)
     }
 
     .cta-sec::before {
@@ -2757,7 +2757,7 @@
         top: var(--nav-h);
         left: 0;
         right: 0;
-        background: rgba(3, 8, 16, .98);
+        background: rgba(5, 22, 42, .98);
         border-bottom: 1px solid rgba(255, 255, 255, .06);
         flex-direction: column;
         padding: 18px 5vw 22px;
@@ -2879,6 +2879,8 @@
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/explorador.css">
+  <link rel="stylesheet" href="assets/css/paleta.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
@@ -2943,47 +2945,32 @@
   <main id="inicio">
 
     <!-- ██ HERO ██ -->
-    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
-      <div class="hx-panel">
-        <div class="hx-big" aria-hidden="true">HAFTEN</div>
-        <div class="hx-grid">
-          <div class="hx-copy">
-            <span class="hx-eyebrow"><i class="fa-solid fa-fan" aria-hidden="true"></i>HVAC · BMS · Medición de energía</span>
-            <h1 id="hx-h" class="hx-h1">Expertos en <span>HVAC/R &amp; BMS</span></h1>
-            <p class="hx-sub">Tu socio técnico de confianza en México. Más de 20 años distribuyendo las mejores marcas del mundo, con stock y asesoría de ingeniería.</p>
-            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
-              <div class="hx-field">
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
-                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
-                <span class="hx-kbd" aria-hidden="true">/</span>
-                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-              </div>
-              <div class="hs-results" id="hsList" role="listbox" hidden></div>
-              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Válvulas">Válvulas</button><button type="button" class="hx-chip" data-q="Sensores">Sensores</button><button type="button" class="hx-chip" data-q="Humidificadores">Humidificadores</button><button type="button" class="hx-chip" data-q="Catálogos">Catálogos</button></div>
-            </form>
-            <div class="hx-row">
-              <a class="hx-trust" href="/marcas">
-                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
-                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
-              </a>
-              <a href="#finder" class="hx-btn hx-btn-ac"><i class="fa-solid fa-sliders" aria-hidden="true"></i>Encuentra tu solución</a><a href="/nosotros" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>Conócenos</a>
+    <section class="hx-hero" aria-labelledby="hx-h">
+      <div class="hx-stage" style="--hx-big:17.00vw;--hx-h:640px">
+        <div class="hx-bg" aria-hidden="true">
+          <img class="hx-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=75&fit=crop" alt="" fetchpriority="high">
+          <div class="hx-tone"></div><div class="hx-lines"></div>
+          <div class="hx-big">HAFTEN</div>
+        </div>
+        <span class="hx-tag t1" aria-hidden="true"><img src="assets/logos/belimo.png" alt=""></span><span class="hx-tag t2" aria-hidden="true"><img src="assets/logos/vaisala.png" alt=""></span><span class="hx-tag t3" aria-hidden="true"><img src="assets/logos/johnson-controls.png" alt=""></span><span class="hx-tag t4" aria-hidden="true"><img src="assets/logos/loytec.png" alt=""></span>
+        <div class="hx-float hx-f1" aria-hidden="true"><b>22</b><p>marcas internacionales con distribución autorizada y soporte de fábrica.</p></div>
+        <div class="hx-float hx-f2" aria-hidden="true"><strong><i class="fa-solid fa-location-dot"></i>5 sucursales</strong><p>CDMX, Monterrey, Guadalajara, León y Cancún.</p></div>
+        <div class="hx-content">
+          <span class="hx-eyebrow"><i class="fa-solid fa-fan" aria-hidden="true"></i>HVAC · BMS · Medición de energía</span>
+          <h1 id="hx-h" class="hx-h1">Expertos en HVAC/R &amp; BMS <span>para México</span></h1>
+          <p class="hx-sub">Más de 20 años distribuyendo las mejores marcas del mundo, con stock disponible y asesoría de ingeniería sin costo.</p>
+          <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+            <div class="hx-field">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+              <span class="hx-kbd" aria-hidden="true">/</span>
+              <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Buscar</span></button>
             </div>
-          </div>
-          <div class="hx-visual">
-            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
-            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1400&q=80&fit=crop" alt="Ingeniero de Haften revisando un sistema HVAC" fetchpriority="high"></div>
-            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-snowflake"></i>HVAC/R</span><span class="hx-pill p2"><i class="fa-solid fa-network-wired"></i>BMS</span><span class="hx-pill p3"><i class="fa-solid fa-gauge-high"></i>Medición</span></div>
-            <div class="hx-seal" aria-hidden="true">
-              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
-              <i class="fa-solid fa-fan"></i>
-            </div>
-            <div class="hx-card">
-              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
-              <div class="hx-card-r"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span><b>Desde 1999</b> en México</span></div><div class="hx-card-r"><i class="fa-solid fa-star" aria-hidden="true"></i><span><b>22 marcas</b> internacionales</span></div><div class="hx-card-r"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><b>5 sucursales</b> en el país</span></div>
-            </div>
-          </div>
+            <div class="hs-results" id="hsList" role="listbox" hidden></div>
+            <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Válvulas">Válvulas</button><button type="button" class="hx-chip" data-q="Sensores">Sensores</button><button type="button" class="hx-chip" data-q="Humidificadores">Humidificadores</button><button type="button" class="hx-chip" data-q="Catálogos">Catálogos</button></div>
+          </form>
+          <div class="hx-row"><a href="#finder" class="hx-btn hx-btn-ac"><i class="fa-solid fa-sliders" aria-hidden="true"></i>Encuentra tu solución</a><a href="/marcas" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-star" aria-hidden="true"></i>Ver marcas</a></div>
         </div>
       </div>
     </section>
@@ -3240,23 +3227,9 @@
     </section>
 
     <!-- ██ BRANDS ██ -->
-    <section class="brands-sec" aria-labelledby="brands-h">
-      <div class="brands-intro rv">
-        <div class="eyebrow"><i class="fa-solid fa-star"></i> Distribuidores autorizados</div>
-        <h2 id="brands-h" class="s-title light">Marcas de <span>Clase Mundial</span></h2>
-        <p class="s-sub light">Partners internacionales en HVAC/R, BMS e instrumentación industrial.</p>
-      </div>
-      <div class="brands-carousel"
-        style="margin-top:44px;border-top:1px solid var(--border-l);border-bottom:1px solid var(--border-l)">
-        <div class="brands-row" id="br1"></div>
-      </div>
-      <div class="brands-carousel" style="border-bottom:1px solid var(--border-l);margin-top:5px">
-        <div class="brands-row rev" id="br2"></div>
-      </div>
-      <div class="container" style="margin-top:48px;text-align:center">
-        <a href="/marcas" class="btn btn-outline-ac rv"><i class="fa-solid fa-grid-2"></i>Ver todas las marcas</a>
-      </div>
+    <section class="bx" data-explorer data-h="h2" aria-label="Explorador de marcas" style="padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(56px,7vw,96px)">
     </section>
+    <div hidden><div id="br1"></div><div id="br2"></div></div>
 
     <!-- ██ PRODUCTS ██ -->
     <section class="prod-sec" id="categorias" data-dark aria-labelledby="prod-h">
@@ -3560,7 +3533,7 @@
     for (let i = 0; i < 480; i++) { const p = mkP(); p.age = Math.random() * p.maxAge; pts.push(p) }
     let t = 0;
     function draw() {
-      t += .0034; ctx.fillStyle = 'rgba(3,8,16,0.14)'; ctx.fillRect(0, 0, W, H);
+      t += .0034; ctx.fillStyle = 'rgba(5, 22, 42,0.14)'; ctx.fillRect(0, 0, W, H);
       pts.forEach((p, i) => {
         const nx = p.x / W * 5.5, ny = p.y / H * 5.5;
         const angle = (Math.sin(nx + t) * Math.cos(ny * .8 + t * .5) + Math.sin(nx * .4 + t * .3) * 1.5) * Math.PI;
@@ -3568,7 +3541,7 @@
         p.x += p.vx; p.y += p.vy; p.age++;
         const lp = p.age / p.maxAge, a = (lp < .1 ? lp * 10 : lp > .72 ? (1 - lp) / .28 : 1) * .48;
         ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
-        ctx.fillStyle = p.warm ? `rgba(226,114,95,${a * .7})` : `rgba(214,226,238,${a * .75})`; ctx.fill();
+        ctx.fillStyle = p.warm ? `rgba(192, 71, 58,${a * .7})` : `rgba(255, 255, 255,${a * .75})`; ctx.fill();
         if (p.age >= p.maxAge || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) pts[i] = mkP();
       });
       requestAnimationFrame(draw);
@@ -3652,6 +3625,7 @@
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
   <script src="assets/js/buscar.js"></script>
+  <script src="assets/js/explorador.js"></script>
   <script src="assets/js/sucursales.js"></script>
 </body>
 

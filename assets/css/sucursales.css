@@ -3,7 +3,7 @@
 ════════════════════════════════════════════════ */
 .suc {
   --suc-ink: #05162a;
-  --suc-ink2: #3a5a72;
+  --suc-ink2: #3e4c5e;
   --suc-line: rgba(5, 22, 42, .08);
   position: relative;
   padding: clamp(72px, 9vw, 120px) 0 clamp(72px, 9vw, 120px);
@@ -140,7 +140,7 @@
   inset: 0;
   pointer-events: none;
   transition: opacity .3s;
-  background: linear-gradient(180deg, rgba(6, 12, 23, .55), transparent 18%, transparent 82%, rgba(6, 12, 23, .6));
+  background: linear-gradient(180deg, rgba(5, 22, 42, .55), transparent 18%, transparent 82%, rgba(5, 22, 42, .6));
   z-index: 1;
 }
 .suc-modes {
@@ -228,7 +228,7 @@
   font: 700 21px 'Outfit', sans-serif;
   letter-spacing: .02em;
   paint-order: stroke;
-  stroke: rgba(6, 12, 23, .85);
+  stroke: rgba(5, 22, 42, .85);
   stroke-width: 5px;
   stroke-linejoin: round;
   transition: fill .3s;
@@ -382,19 +382,19 @@
   border-top: 1px solid var(--suc-line);
   font-size: .88rem;
 }
-.suc-row dt { display: flex; align-items: center; gap: 9px; color: #5a778c; font-weight: 600; font-size: .78rem; }
+.suc-row dt { display: flex; align-items: center; gap: 9px; color: #5d6b7c; font-weight: 600; font-size: .78rem; }
 .suc-row dt i { width: 16px; text-align: center; color: var(--brand); font-size: .82rem; }
 .suc-row dd { margin: 0; color: var(--suc-ink); font-weight: 600; line-height: 1.5; }
 .suc-row dd a { color: var(--suc-ink); background: linear-gradient(var(--brand), var(--brand)) 0 100% / 0 1.5px no-repeat; transition: background-size .35s, color .2s; }
 .suc-row dd a:hover { color: var(--brand); background-size: 100% 1.5px; }
 
 .suc-zone { margin-top: 16px; }
-.suc-zone-lbl { display: block; margin-bottom: 8px; font: 800 .64rem 'Outfit', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #5a778c; }
+.suc-zone-lbl { display: block; margin-bottom: 8px; font: 800 .64rem 'Outfit', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #5d6b7c; }
 .suc-zone ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .suc-zone li {
   padding: 5px 10px;
   border-radius: 8px;
-  background: #f3f6f9;
+  background: #f4f5f7;
   border: 1px solid var(--suc-line);
   font-size: .74rem;
   font-weight: 600;

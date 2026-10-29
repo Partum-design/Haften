@@ -18,18 +18,18 @@
       --ac: #7B241B;
       --ac-dark: #5F1B14;
       --ac-rgb: 123, 36, 27;
-      --bg: #030810;
-      --bg2: #060d1a;
-      --bg3: #0c1828;
-      --lt: #f4f8fb;
-      --lt2: #e9f1f7;
+      --bg: #05162a;
+      --bg2: #05162a;
+      --bg3: #0a2038;
+      --lt: #f6f7f9;
+      --lt2: #eef0f3;
       --white: #fff;
       --text-1: #fff;
-      --text-2: #7aafc8;
-      --text-3: #3d7090;
+      --text-2: #aab4c0;
+      --text-3: #6b7a8c;
       --ink: #05162a;
-      --ink2: #183855;
-      --ink3: #2e6080;
+      --ink2: #22324a;
+      --ink3: #4b5a6e;
       --border-d: rgba(var(--ac-rgb), .1);
       --border-l: rgba(5, 22, 42, .08);
       --nav-h: 88px;
@@ -293,7 +293,7 @@
       align-items: center;
       padding: 0 5vw;
       gap: 24px;
-      background: rgba(3, 8, 16, .7);
+      background: rgba(5, 22, 42, .7);
       backdrop-filter: blur(32px) saturate(1.8);
       -webkit-backdrop-filter: blur(32px) saturate(1.8);
       border-bottom: 1px solid rgba(255, 255, 255, .05);
@@ -301,7 +301,7 @@
     }
 
     #navbar.scrolled {
-      background: rgba(3, 8, 16, .95);
+      background: rgba(5, 22, 42, .95);
       box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
     }
 
@@ -434,7 +434,7 @@
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      background: #0a1828;
+      background: #071c33;
       border: 1px solid rgba(255, 255, 255, .09);
       border-radius: 14px;
       padding: 18px;
@@ -629,7 +629,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(170deg, rgba(3, 8, 16, .8) 0%, rgba(3, 8, 16, .4) 45%, rgba(3, 8, 16, .92) 100%)
+      background: linear-gradient(170deg, rgba(5, 22, 42, .8) 0%, rgba(5, 22, 42, .4) 45%, rgba(5, 22, 42, .92) 100%)
     }
 
     .page-hero-grid {
@@ -1887,7 +1887,7 @@
         top: var(--nav-h);
         left: 0;
         right: 0;
-        background: rgba(3, 8, 16, .98);
+        background: rgba(5, 22, 42, .98);
         border-bottom: 1px solid rgba(255, 255, 255, .06);
         flex-direction: column;
         padding: 18px 5vw 22px;
@@ -1973,6 +1973,7 @@
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/paleta.css">
 </head>
 
 <body>
@@ -2033,51 +2034,36 @@
   <main id="main-content">
 
     <!-- HERO -->
-    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
-      <div class="hx-panel">
-        <div class="hx-big" aria-hidden="true">REDES</div>
-        <div class="hx-grid">
-          <div class="hx-copy">
-            <span class="hx-eyebrow"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i>Síguenos</span>
-            <h1 id="hx-h" class="hx-h1">Conecta con <span>Haften</span></h1>
-            <p class="hx-sub">Noticias, lanzamientos, eventos y contenido técnico en LinkedIn, Facebook, YouTube e Instagram.</p>
-            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
-              <div class="hx-field">
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
-                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
-                <span class="hx-kbd" aria-hidden="true">/</span>
-                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-              </div>
-              <div class="hs-results" id="hsList" role="listbox" hidden></div>
-              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="LinkedIn">LinkedIn</button><button type="button" class="hx-chip" data-q="YouTube">YouTube</button><button type="button" class="hx-chip" data-q="Eventos">Eventos</button><button type="button" class="hx-chip" data-q="Webinars">Webinars</button><button type="button" class="hx-chip" data-q="Contacto">Contacto</button></div>
-            </form>
-            <div class="hx-row">
-              <a class="hx-trust" href="/marcas">
-                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
-                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
-              </a>
-              <a href="#recientes" class="hx-btn hx-btn-ac"><i class="fa-solid fa-newspaper" aria-hidden="true"></i>Lo más reciente</a><a href="/multimedia" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-circle-play" aria-hidden="true"></i>Multimedia</a>
+    <section class="hx-hero" aria-labelledby="hx-h">
+      <div class="hx-stage" style="--hx-big:17.00vw;--hx-h:520px">
+        <div class="hx-bg" aria-hidden="true">
+          <img class="hx-photo" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1600&q=75&fit=crop" alt="" fetchpriority="high">
+          <div class="hx-tone"></div><div class="hx-lines"></div>
+          <div class="hx-big">REDES</div>
+        </div>
+        <span class="hx-tag t1" aria-hidden="true"><img src="assets/logos/belimo.png" alt=""></span><span class="hx-tag t2" aria-hidden="true"><img src="assets/logos/senva.png" alt=""></span><span class="hx-tag t3" aria-hidden="true"><img src="assets/logos/air-monitor.png" alt=""></span><span class="hx-tag t4" aria-hidden="true"><img src="assets/logos/vaisala.png" alt=""></span>
+        <div class="hx-float hx-f1" aria-hidden="true"><b>4</b><p>redes oficiales con contenido técnico y novedades.</p></div>
+        <div class="hx-float hx-f2" aria-hidden="true"><strong><i class="fa-brands fa-linkedin-in"></i>LinkedIn</strong><p>Lanzamientos y eventos de la industria.</p></div>
+        <div class="hx-content">
+          <span class="hx-eyebrow"><i class="fa-solid fa-share-nodes" aria-hidden="true"></i>Síguenos</span>
+          <h1 id="hx-h" class="hx-h1">Conecta con <span>Haften</span></h1>
+          <p class="hx-sub">Noticias, lanzamientos, eventos y contenido técnico en LinkedIn, Facebook, YouTube e Instagram.</p>
+          <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+            <div class="hx-field">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+              <span class="hx-kbd" aria-hidden="true">/</span>
+              <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Buscar</span></button>
             </div>
-          </div>
-          <div class="hx-visual">
-            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
-            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1400&q=80&fit=crop" alt="Redes sociales en un teléfono" fetchpriority="high"></div>
-            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-brands fa-linkedin-in"></i>LinkedIn</span><span class="hx-pill p2"><i class="fa-brands fa-youtube"></i>YouTube</span><span class="hx-pill p3"><i class="fa-brands fa-instagram"></i>Instagram</span></div>
-            <div class="hx-seal" aria-hidden="true">
-              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
-              <i class="fa-solid fa-fan"></i>
-            </div>
-            <div class="hx-card">
-              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
-              <div class="hx-card-r"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span><b>LinkedIn</b> · noticias</span></div><div class="hx-card-r"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span><b>YouTube</b> · videos</span></div><div class="hx-card-r"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i><span><b>Facebook</b> · eventos</span></div>
-            </div>
-          </div>
+            <div class="hs-results" id="hsList" role="listbox" hidden></div>
+            <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="LinkedIn">LinkedIn</button><button type="button" class="hx-chip" data-q="YouTube">YouTube</button><button type="button" class="hx-chip" data-q="Eventos">Eventos</button><button type="button" class="hx-chip" data-q="Webinars">Webinars</button><button type="button" class="hx-chip" data-q="Contacto">Contacto</button></div>
+          </form>
+          <div class="hx-row"><a href="#recientes" class="hx-btn hx-btn-ac"><i class="fa-solid fa-newspaper" aria-hidden="true"></i>Lo más reciente</a><a href="/multimedia" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-circle-play" aria-hidden="true"></i>Multimedia</a></div>
         </div>
       </div>
       <div class="hx-logos">
-        <div class="hx-logos-lbl">Marcas que distribuimos</div>
+        <div class="hx-logos-lbl">Marcas que <b>distribuimos</b></div>
         <div class="hx-logos-wrap"><div class="hx-logos-track" data-logo-strip></div></div>
       </div>
     </section>

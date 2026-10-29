@@ -21,18 +21,18 @@
       --ac: #7B241B;
       --ac-dark: #5F1B14;
       --ac-rgb: 123, 36, 27;
-      --bg: #030810;
-      --bg2: #060d1a;
-      --bg3: #0c1828;
-      --lt: #f4f8fb;
-      --lt2: #e9f1f7;
+      --bg: #05162a;
+      --bg2: #05162a;
+      --bg3: #0a2038;
+      --lt: #f6f7f9;
+      --lt2: #eef0f3;
       --white: #fff;
       --text-1: #fff;
-      --text-2: #7aafc8;
-      --text-3: #3d7090;
+      --text-2: #aab4c0;
+      --text-3: #6b7a8c;
       --ink: #05162a;
-      --ink2: #183855;
-      --ink3: #2e6080;
+      --ink2: #22324a;
+      --ink3: #4b5a6e;
       --border-d: rgba(var(--ac-rgb), .1);
       --border-l: rgba(5, 22, 42, .08);
       --nav-h: 88px;
@@ -41,7 +41,7 @@
 
     .hc-mode {
       --text-2: #fff !important;
-      --text-3: #d0e8ff !important;
+      --text-3: #e6e9ee !important;
       --ink2: #000 !important;
       --ink3: #111 !important
     }
@@ -321,7 +321,7 @@
       align-items: center;
       padding: 0 5vw;
       gap: 24px;
-      background: rgba(3, 8, 16, .7);
+      background: rgba(5, 22, 42, .7);
       backdrop-filter: blur(32px) saturate(1.8);
       -webkit-backdrop-filter: blur(32px) saturate(1.8);
       border-bottom: 1px solid rgba(255, 255, 255, .05);
@@ -329,7 +329,7 @@
     }
 
     #navbar.scrolled {
-      background: rgba(3, 8, 16, .95);
+      background: rgba(5, 22, 42, .95);
       box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
     }
 
@@ -462,7 +462,7 @@
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      background: #0a1828;
+      background: #071c33;
       border: 1px solid rgba(255, 255, 255, .09);
       border-radius: 14px;
       padding: 18px;
@@ -658,7 +658,7 @@
     .page-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(3, 8, 16, .6) 0%, rgba(3, 8, 16, .3) 40%, rgba(3, 8, 16, .92) 100%)
+      background: linear-gradient(180deg, rgba(5, 22, 42, .6) 0%, rgba(5, 22, 42, .3) 40%, rgba(5, 22, 42, .92) 100%)
     }
 
     .page-hero-grid {
@@ -794,7 +794,7 @@
       display: flex;
       gap: 0;
       margin-top: 52px;
-      background: rgba(3, 8, 16, .55);
+      background: rgba(5, 22, 42, .55);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, .06);
       border-radius: 16px;
@@ -1474,7 +1474,7 @@
       border: 1px solid rgba(var(--ac-rgb), .35);
       padding: 4px 12px;
       border-radius: 3px;
-      background: rgba(3, 8, 16, .65);
+      background: rgba(5, 22, 42, .65);
       backdrop-filter: blur(6px);
       transform: translateY(-4px);
       opacity: 0;
@@ -2413,7 +2413,7 @@
         top: var(--nav-h);
         left: 0;
         right: 0;
-        background: rgba(3, 8, 16, .98);
+        background: rgba(5, 22, 42, .98);
         border-bottom: 1px solid rgba(255, 255, 255, .06);
         flex-direction: column;
         padding: 18px 5vw 22px;
@@ -2534,6 +2534,7 @@
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/paleta.css">
   <link rel="stylesheet" href="assets/css/sucursales.css">
 </head>
 
@@ -2598,47 +2599,32 @@
   <main id="nosotros-main">
 
     <!-- ██ PAGE HERO ██ -->
-    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
-      <div class="hx-panel">
-        <div class="hx-big" aria-hidden="true">NOSOTROS</div>
-        <div class="hx-grid">
-          <div class="hx-copy">
-            <span class="hx-eyebrow"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>Quiénes somos</span>
-            <h1 id="hx-h" class="hx-h1">Conoce a <span>Haften</span></h1>
-            <p class="hx-sub">Más de dos décadas siendo el socio técnico de confianza para ingenieros, proyectistas y empresas en toda la República Mexicana.</p>
-            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
-              <div class="hx-field">
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
-                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
-                <span class="hx-kbd" aria-hidden="true">/</span>
-                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-              </div>
-              <div class="hs-results" id="hsList" role="listbox" hidden></div>
-              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Historia">Historia</button><button type="button" class="hx-chip" data-q="Sucursales">Sucursales</button><button type="button" class="hx-chip" data-q="Johnson Controls">Johnson Controls</button><button type="button" class="hx-chip" data-q="Flowcon">Flowcon</button><button type="button" class="hx-chip" data-q="Contacto">Contacto</button></div>
-            </form>
-            <div class="hx-row">
-              <a class="hx-trust" href="/marcas">
-                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
-                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
-              </a>
-              <a href="#historia" class="hx-btn hx-btn-ac"><i class="fa-solid fa-timeline" aria-hidden="true"></i>Nuestra historia</a><a href="/contacto" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contáctanos</a>
+    <section class="hx-hero" aria-labelledby="hx-h">
+      <div class="hx-stage" style="--hx-big:17.00vw;--hx-h:560px">
+        <div class="hx-bg" aria-hidden="true">
+          <img class="hx-photo" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=75&fit=crop" alt="" fetchpriority="high">
+          <div class="hx-tone"></div><div class="hx-lines"></div>
+          <div class="hx-big">NOSOTROS</div>
+        </div>
+        <span class="hx-tag t1" aria-hidden="true"><img src="assets/logos/flowcon.png" alt=""></span><span class="hx-tag t2" aria-hidden="true"><img src="assets/logos/neptronic.png" alt=""></span><span class="hx-tag t3" aria-hidden="true"><img src="assets/logos/onicon.png" alt=""></span><span class="hx-tag t4" aria-hidden="true"><img src="assets/logos/greystone.png" alt=""></span>
+        <div class="hx-float hx-f1" aria-hidden="true"><b>1999</b><p>año de fundación. Desde entonces, más de 1,000 clientes atendidos.</p></div>
+        <div class="hx-float hx-f2" aria-hidden="true"><strong><i class="fa-solid fa-helmet-safety"></i>Ingeniería</strong><p>Asesoría en selección, integración y puesta en marcha.</p></div>
+        <div class="hx-content">
+          <span class="hx-eyebrow"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>Quiénes somos</span>
+          <h1 id="hx-h" class="hx-h1">Conoce a Haften, <span>tu socio técnico</span></h1>
+          <p class="hx-sub">Más de dos décadas acompañando a ingenieros, proyectistas y empresas en toda la República Mexicana.</p>
+          <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+            <div class="hx-field">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+              <span class="hx-kbd" aria-hidden="true">/</span>
+              <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Buscar</span></button>
             </div>
-          </div>
-          <div class="hx-visual">
-            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
-            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&q=80&fit=crop" alt="Equipo técnico de Haften en campo" fetchpriority="high"></div>
-            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-flag"></i>Desde 1999</span><span class="hx-pill p2"><i class="fa-solid fa-helmet-safety"></i>Ingeniería</span><span class="hx-pill p3"><i class="fa-solid fa-handshake"></i>Confianza</span></div>
-            <div class="hx-seal" aria-hidden="true">
-              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
-              <i class="fa-solid fa-fan"></i>
-            </div>
-            <div class="hx-card">
-              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
-              <div class="hx-card-r"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span><b>1999</b> · fundación</span></div><div class="hx-card-r"><i class="fa-solid fa-users" aria-hidden="true"></i><span><b>1K+</b> clientes atendidos</span></div><div class="hx-card-r"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><b>5 oficinas</b> en México</span></div>
-            </div>
-          </div>
+            <div class="hs-results" id="hsList" role="listbox" hidden></div>
+            <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Historia">Historia</button><button type="button" class="hx-chip" data-q="Sucursales">Sucursales</button><button type="button" class="hx-chip" data-q="Johnson Controls">Johnson Controls</button><button type="button" class="hx-chip" data-q="Flowcon">Flowcon</button><button type="button" class="hx-chip" data-q="Contacto">Contacto</button></div>
+          </form>
+          <div class="hx-row"><a href="#historia" class="hx-btn hx-btn-ac"><i class="fa-solid fa-timeline" aria-hidden="true"></i>Nuestra historia</a><a href="/contacto" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contáctanos</a></div>
         </div>
       </div>
     </section>
@@ -2699,12 +2685,12 @@
             style="width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.7)">
           <!-- overlay -->
           <div
-            style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,8,16,.0) 0%,rgba(3,8,16,.72) 100%)">
+            style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(5, 22, 42,.0) 0%,rgba(5, 22, 42,.72) 100%)">
           </div>
           <!-- stat badge -->
           <div style="position:absolute;bottom:44px;left:40px;z-index:2">
             <div
-              style="background:rgba(226, 114, 95, .12);border:1px solid rgba(226, 114, 95, .3);border-radius:14px;padding:20px 26px;backdrop-filter:blur(16px)">
+              style="background:rgba(192, 71, 58, .12);border:1px solid rgba(192, 71, 58, .3);border-radius:14px;padding:20px 26px;backdrop-filter:blur(16px)">
               <div
                 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;font-weight:900;color:#fff;line-height:1">
                 +25<em style="color:var(--ac);font-style:normal"> marcas</em></div>
@@ -2737,7 +2723,7 @@
           <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:36px">
             <div style="display:flex;align-items:flex-start;gap:14px">
               <div
-                style="width:38px;height:38px;border-radius:10px;background:rgba(226, 114, 95, .08);border:1px solid rgba(226, 114, 95, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                style="width:38px;height:38px;border-radius:10px;background:rgba(192, 71, 58, .08);border:1px solid rgba(192, 71, 58, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
                 <i class="fa-solid fa-boxes-stacked"></i>
               </div>
               <div>
@@ -2750,7 +2736,7 @@
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px">
               <div
-                style="width:38px;height:38px;border-radius:10px;background:rgba(226, 114, 95, .08);border:1px solid rgba(226, 114, 95, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                style="width:38px;height:38px;border-radius:10px;background:rgba(192, 71, 58, .08);border:1px solid rgba(192, 71, 58, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
                 <i class="fa-solid fa-helmet-safety"></i>
               </div>
               <div>
@@ -2763,7 +2749,7 @@
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px">
               <div
-                style="width:38px;height:38px;border-radius:10px;background:rgba(226, 114, 95, .08);border:1px solid rgba(226, 114, 95, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                style="width:38px;height:38px;border-radius:10px;background:rgba(192, 71, 58, .08);border:1px solid rgba(192, 71, 58, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
                 <i class="fa-solid fa-certificate"></i>
               </div>
               <div>
@@ -2776,7 +2762,7 @@
             </div>
             <div style="display:flex;align-items:flex-start;gap:14px">
               <div
-                style="width:38px;height:38px;border-radius:10px;background:rgba(226, 114, 95, .08);border:1px solid rgba(226, 114, 95, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
+                style="width:38px;height:38px;border-radius:10px;background:rgba(192, 71, 58, .08);border:1px solid rgba(192, 71, 58, .15);display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:.85rem;flex-shrink:0">
                 <i class="fa-solid fa-map-location-dot"></i>
               </div>
               <div>
@@ -3262,7 +3248,7 @@
       for (let i = 0; i < 360; i++) { const p = mkP(); p.age = Math.random() * p.maxAge; pts.push(p) }
       let t = 0;
       function draw() {
-        t += .0034; ctx.fillStyle = 'rgba(3,8,16,0.14)'; ctx.fillRect(0, 0, W, H);
+        t += .0034; ctx.fillStyle = 'rgba(5, 22, 42,0.14)'; ctx.fillRect(0, 0, W, H);
         pts.forEach((p, i) => {
           const nx = p.x / W * 5.5, ny = p.y / H * 5.5;
           const angle = (Math.sin(nx + t) * Math.cos(ny * .8 + t * .5) + Math.sin(nx * .4 + t * .3) * 1.5) * Math.PI;
@@ -3270,7 +3256,7 @@
           p.x += p.vx; p.y += p.vy; p.age++;
           const lp = p.age / p.maxAge, a = (lp < .1 ? lp * 10 : lp > .72 ? (1 - lp) / .28 : 1) * .48;
           ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
-          ctx.fillStyle = p.warm ? `rgba(226,114,95,${a * .7})` : `rgba(214,226,238,${a * .75})`; ctx.fill();
+          ctx.fillStyle = p.warm ? `rgba(192, 71, 58,${a * .7})` : `rgba(255, 255, 255,${a * .75})`; ctx.fill();
           if (p.age >= p.maxAge || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) pts[i] = mkP();
         });
         requestAnimationFrame(draw);

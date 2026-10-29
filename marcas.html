@@ -21,18 +21,18 @@
       --ac: #7B241B;
       --ac-dark: #5F1B14;
       --ac-rgb: 123, 36, 27;
-      --bg: #030810;
-      --bg2: #060d1a;
-      --bg3: #0c1828;
-      --lt: #f4f8fb;
-      --lt2: #e9f1f7;
+      --bg: #05162a;
+      --bg2: #05162a;
+      --bg3: #0a2038;
+      --lt: #f6f7f9;
+      --lt2: #eef0f3;
       --white: #fff;
       --text-1: #fff;
-      --text-2: #7aafc8;
-      --text-3: #3d7090;
+      --text-2: #aab4c0;
+      --text-3: #6b7a8c;
       --ink: #05162a;
-      --ink2: #183855;
-      --ink3: #2e6080;
+      --ink2: #22324a;
+      --ink3: #4b5a6e;
       --border-d: rgba(var(--ac-rgb), .1);
       --border-l: rgba(5, 22, 42, .08);
       --nav-h: 88px;
@@ -282,7 +282,7 @@
       align-items: center;
       padding: 0 5vw;
       gap: 24px;
-      background: rgba(3, 8, 16, .7);
+      background: rgba(5, 22, 42, .7);
       backdrop-filter: blur(32px) saturate(1.8);
       -webkit-backdrop-filter: blur(32px) saturate(1.8);
       border-bottom: 1px solid rgba(255, 255, 255, .05);
@@ -290,7 +290,7 @@
     }
 
     #navbar.scrolled {
-      background: rgba(3, 8, 16, .95);
+      background: rgba(5, 22, 42, .95);
       box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
     }
 
@@ -423,7 +423,7 @@
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      background: #0a1828;
+      background: #071c33;
       border: 1px solid rgba(255, 255, 255, .09);
       border-radius: 14px;
       padding: 18px;
@@ -620,7 +620,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(170deg, rgba(3, 8, 16, .72) 0%, rgba(3, 8, 16, .45) 45%, rgba(3, 8, 16, .88) 100%)
+      background: linear-gradient(170deg, rgba(5, 22, 42, .72) 0%, rgba(5, 22, 42, .45) 45%, rgba(5, 22, 42, .88) 100%)
     }
 
     .page-hero-decor {
@@ -1272,7 +1272,7 @@
 
     /* ── HAFTEN CROWN CARD ── */
     .haften-crown {
-      background: linear-gradient(135deg, rgba(226, 114, 95, .12) 0%, rgba(226, 114, 95, .05) 50%, rgba(0, 153, 187, .08) 100%);
+      background: linear-gradient(135deg, rgba(192, 71, 58, .12) 0%, rgba(192, 71, 58, .05) 50%, rgba(123, 36, 27, .08) 100%);
       border: 1.5px solid rgba(var(--ac-rgb), .35);
       border-radius: 20px;
       padding: 44px 48px;
@@ -2301,7 +2301,7 @@
         top: var(--nav-h);
         left: 0;
         right: 0;
-        background: rgba(3, 8, 16, .98);
+        background: rgba(5, 22, 42, .98);
         border-bottom: 1px solid rgba(255, 255, 255, .06);
         flex-direction: column;
         padding: 18px 5vw 22px;
@@ -2395,6 +2395,8 @@
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/explorador.css">
+  <link rel="stylesheet" href="assets/css/paleta.css">
 </head>
 
 <body>
@@ -2457,50 +2459,7 @@
   <main id="main-content">
 
     <!-- ██ PAGE HERO — DARK WITH BG IMAGE ██ -->
-    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:15.50vw">
-      <div class="hx-panel">
-        <div class="hx-big" aria-hidden="true">MARCAS</div>
-        <div class="hx-grid">
-          <div class="hx-copy">
-            <span class="hx-eyebrow"><i class="fa-solid fa-star" aria-hidden="true"></i>Distribuidores autorizados</span>
-            <h1 id="hx-h" class="hx-h1">Marcas de <span>clase mundial</span></h1>
-            <p class="hx-sub">Representamos marcas reconocidas internacionalmente por su innovación, precisión y calidad en HVAC/R, BMS e instrumentación.</p>
-            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
-              <div class="hx-field">
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
-                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
-                <span class="hx-kbd" aria-hidden="true">/</span>
-                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-              </div>
-              <div class="hs-results" id="hsList" role="listbox" hidden></div>
-              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Vaisala">Vaisala</button><button type="button" class="hx-chip" data-q="Intesis">Intesis</button><button type="button" class="hx-chip" data-q="Particles Plus">Particles Plus</button><button type="button" class="hx-chip" data-q="Variadores">Variadores</button></div>
-            </form>
-            <div class="hx-row">
-              <a class="hx-trust" href="/marcas">
-                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
-                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
-              </a>
-              <a href="#brandsGrid" class="hx-btn hx-btn-ac"><i class="fa-solid fa-grid-2" aria-hidden="true"></i>Ver directorio</a><a href="/catalogos" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Catálogos</a>
-            </div>
-          </div>
-          <div class="hx-visual">
-            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
-            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80&fit=crop" alt="Instalación industrial con equipos HVAC" fetchpriority="high"></div>
-            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-certificate"></i>Autorizados</span><span class="hx-pill p2"><i class="fa-solid fa-earth-americas"></i>Globales</span><span class="hx-pill p3"><i class="fa-solid fa-shield-halved"></i>Garantía</span></div>
-            <div class="hx-seal" aria-hidden="true">
-              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
-              <i class="fa-solid fa-fan"></i>
-            </div>
-            <div class="hx-card">
-              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
-              <div class="hx-card-r"><i class="fa-solid fa-star" aria-hidden="true"></i><span><b>22 marcas</b> representadas</span></div><div class="hx-card-r"><i class="fa-solid fa-certificate" aria-hidden="true"></i><span><b>100%</b> distribución autorizada</span></div><div class="hx-card-r"><i class="fa-solid fa-headset" aria-hidden="true"></i><span><b>Soporte</b> de fábrica</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="bx bx-hero" data-explorer data-h="h1" data-title="Marcas de <span>clase mundial</span>" aria-label="Explorador de marcas"></section>
 
     <!-- TICKER -->
     <div class="ticker" data-logos aria-hidden="true">
@@ -2511,7 +2470,7 @@
     </div>
 
     <!-- FILTER BAR -->
-    <div class="filter-bar" role="navigation" aria-label="Filtro por categoría">
+    <div class="filter-bar" id="directorio-filtros" role="navigation" aria-label="Filtro por categoría">
       <div class="filter-bar-inner">
         <button class="filter-btn active" data-cat="all">Todas <span class="filter-count"
             id="cnt-all">20</span></button>
@@ -2542,7 +2501,7 @@
     </div>
 
     <!-- ██ BRANDS GRID — LIGHT ██ -->
-    <section class="brands-main" aria-labelledby="brands-grid-h">
+    <section class="brands-main" id="directorio" aria-labelledby="brands-grid-h">
       <div class="container">
         <div class="brands-grid" id="brandsGrid">
           <!-- Populated by JS -->
@@ -2555,73 +2514,10 @@
     </section>
 
     <!-- ██ FEATURED — DARK ██ -->
-    <section class="featured-banner" data-dark aria-labelledby="feat-h">
-      <div class="feat-inner">
-        <div class="feat-header rv">
-          <div class="eyebrow"><i class="fa-solid fa-crown"></i> Socios estratégicos</div>
-          <h2 id="feat-h" class="feat-title">Marcas <span>Destacadas</span></h2>
-        </div>
-
-        <!-- HAFTEN CROWN CARD -->
-        <div class="haften-crown rv">
-          <div class="haften-crown-logo">
-            <img src="assets/logos/logo-haften.png" alt="Haften"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-            <span class="haften-crown-logo-txt">Haf<em>ten</em></span>
-          </div>
-          <div class="haften-crown-body">
-            <div class="haften-crown-badge"><i class="fa-solid fa-crown"></i> Marca Principal</div>
-            <div class="haften-crown-name">Haf<em>ten</em></div>
-            <div class="haften-crown-cat"><i class="fa-solid fa-circle-dot"></i> Distribuidor Especializado · México ·
-              Desde 1999</div>
-            <p class="haften-crown-desc">Haften es la empresa líder en distribución especializada de equipos HVAC/R, BMS
-              e instrumentación en México. Con más de 20 años de experiencia, somos el socio técnico de confianza que
-              integra las mejores marcas del mundo bajo un mismo techo — con asesoría de ingenieros especializados,
-              stock inmediato y soporte postventa.</p>
-            <div class="haften-crown-tags">
-              <span class="haften-crown-tag">HVAC/R</span>
-              <span class="haften-crown-tag">BMS</span>
-              <span class="haften-crown-tag">Instrumentación</span>
-              <span class="haften-crown-tag">Distribuidor Autorizado</span>
-              <span class="haften-crown-tag">5 Oficinas en México</span>
-              <span class="haften-crown-tag">+25 Marcas Internacionales</span>
-            </div>
-          </div>
-          <div class="haften-crown-stats">
-            <div class="hc-stat">
-              <div class="hc-stat-n">25<em>+</em></div>
-              <div class="hc-stat-l">Marcas representadas</div>
-            </div>
-            <div class="hc-stat">
-              <div class="hc-stat-n">20<em>+</em></div>
-              <div class="hc-stat-l">Años de experiencia</div>
-            </div>
-            <div class="hc-stat">
-              <div class="hc-stat-n">5</div>
-              <div class="hc-stat-l">Oficinas en México</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-grid" id="featuredGrid">
-          <!-- Populated by JS -->
-        </div>
-      </div>
-    </section>
 
     <!-- ██ CARRUSEL — LIGHT ██ -->
-    <section class="carousel-sec" aria-label="Carrusel de marcas">
-      <div class="container" style="margin-bottom:40px">
-        <div class="eyebrow rv"><i class="fa-solid fa-infinity"></i> Todas las marcas</div>
-        <p style="font-size:.9rem;color:var(--ink3)" class="rv">Pasa el cursor sobre el carrusel para pausar.</p>
-      </div>
-      <div class="brands-carousel" style="border-top:1px solid var(--border-l);border-bottom:1px solid var(--border-l)">
-        <div class="brands-row" id="br1"></div>
-      </div>
-      <div class="brands-carousel" style="border-bottom:1px solid var(--border-l);margin-top:5px">
-        <div class="brands-row rev" id="br2"></div>
-      </div>
-    </section>
+
+    <div hidden><div id="featuredGrid"></div><div id="br1"></div><div id="br2"></div></div>
 
     <!-- ██ CTA ██ -->
     <section class="cta-sec" aria-labelledby="cta-h">
@@ -2718,133 +2614,133 @@
     // ── DATA ──────────────────────────────────────────
     const BRANDS = [
       {
-        n: 'Air Monitor', f: 'air-monitor.png', cat: 'sensors', origin: 'EUA',
+        n: 'Air Monitor', f: 'air-monitor.png', c: '#0c84cc', pdf: 'air-monitor', cat: 'sensors', origin: 'EUA',
         desc: 'Especialista en medición y monitoreo de calidad del aire. Sensores y transmisores de CO₂, CO, VOC, temperatura y humedad para HVAC y edificios.',
         tags: ['Calidad del Aire', 'CO₂', 'Sensores'],
         featured: false
       },
       {
-        n: 'Badger Meter', f: 'badger-meter.png', cat: 'flow', origin: 'EUA',
+        n: 'Badger Meter', f: 'badger-meter.png', c: '#0c6ccc', pdf: '', cat: 'flow', origin: 'EUA',
         desc: 'Líder mundial en medición de flujo de agua, productos químicos y fluidos industriales. Medidores ultrasónicos y mecánicos de alta precisión.',
         tags: ['Flujo', 'Agua', 'Medición'],
         featured: false
       },
       {
-        n: 'Belimo', f: 'belimo.png', cat: 'hvac', origin: 'Suiza',
+        n: 'Belimo', f: 'belimo.png', c: '#e4840c', pdf: 'belimo', cat: 'hvac', origin: 'Suiza',
         desc: 'Referente global en actuadores para damper y válvulas de control HVAC/R. Innovación en eficiencia energética y control de caudal con energy valves.',
         tags: ['Actuadores', 'Válvulas', 'Energy Valves'],
         featured: true
       },
       {
-        n: 'Bry-Air', f: 'bry-air.png', cat: 'humi', origin: 'India / Global',
+        n: 'Bry-Air', f: 'bry-air.png', c: '#e40c0c', pdf: 'bry-air', cat: 'humi', origin: 'India / Global',
         desc: 'Soluciones de control de humedad de alta eficiencia. Deshumidificadores industriales, sistemas de secado y climatización para áreas críticas y procesos.',
         tags: ['Deshumidificación', 'Climatización', 'Industrial'],
         featured: false
       },
       {
-        n: 'Contemporary Controls', f: 'contemporary-controls.png', cat: 'bms', origin: 'EUA',
+        n: 'Contemporary Controls', f: 'contemporary-controls.png', c: '#3c5ca8', pdf: 'contemporary-controls', cat: 'bms', origin: 'EUA',
         desc: 'Fabricante de gateways, routers y dispositivos de red para automatización de edificios. Soluciones BACnet, Modbus y ARCNET para integración BMS.',
         tags: ['BACnet', 'Gateways', 'Routers'],
         featured: false
       },
       {
-        n: 'Control Techniques', f: 'control-techniques.png', cat: 'drives', origin: 'Reino Unido',
+        n: 'Control Techniques', f: 'control-techniques.png', c: '#1e9e3a', pdf: 'control-techniques', cat: 'drives', origin: 'Reino Unido',
         desc: 'Variadores de frecuencia (VFDs) de alto rendimiento para motores AC y DC. Aplicaciones en HVAC, bombas, compresores y procesos industriales.',
         tags: ['VFDs', 'Motores', 'Drives'],
         featured: false
       },
       {
-        n: 'CoolAutomation', f: 'cool-automation.png', cat: 'bms', origin: 'Israel',
+        n: 'CoolAutomation', f: 'cool-automation.png', c: '#6c4bd8', pdf: 'cool-automation', cat: 'bms', origin: 'Israel',
         desc: 'Integración inteligente de sistemas de A/C con protocolos BMS abiertos. Gateways para VRF/VRV compatibles con BACnet, Modbus y KNX.',
         tags: ['VRF/VRV', 'Integración', 'BACnet'],
         featured: false
       },
       {
-        n: 'Delta Electronics', f: 'delta-electronics.png', cat: 'drives', origin: 'Taiwán',
+        n: 'Delta Electronics', f: 'delta-electronics.png', c: '#0c9ce4', pdf: 'delta', cat: 'drives', origin: 'Taiwán',
         desc: 'Grupo líder en electrónica de potencia. Variadores de frecuencia, fuentes de alimentación y soluciones de automatización para HVAC e industria.',
         tags: ['VFDs', 'Electrónica', 'Automatización'],
         featured: false
       },
       {
-        n: 'Dwyer Omega', f: 'dwyer-omega.png', cat: 'sensors', origin: 'EUA',
+        n: 'Dwyer Omega', f: 'dwyer-omega.png', c: '#3a3aa0', pdf: 'dwyer', cat: 'sensors', origin: 'EUA',
         desc: 'Amplio portafolio de instrumentación: manómetros, presostatos, termómetros, sensores de flujo, humedad y temperatura, y equipos portátiles de medición para comisionamiento.',
         tags: ['Manómetros', 'Presión', 'Temperatura'],
         featured: true
       },
       {
-        n: 'FlowCon International', f: 'flowcon.png', cat: 'flow', origin: 'Dinamarca',
+        n: 'FlowCon International', f: 'flowcon.png', c: '#2f8f8f', pdf: 'flowcon', cat: 'flow', origin: 'Dinamarca',
         desc: 'Válvulas de balanceo automático y control de caudal para sistemas hidrónic. Tecnología de balanceo dinámico para máxima eficiencia energética.',
         tags: ['Válvulas', 'Balanceo', 'Eficiencia'],
         featured: false
       },
       {
-        n: 'GPI', f: 'gpi.png', cat: 'flow', origin: 'EUA',
+        n: 'GPI', f: 'gpi.png', c: '#3c84cc', pdf: 'gpi', cat: 'flow', origin: 'EUA',
         desc: 'Global Precision Instruments — medidores de flujo para combustibles, productos químicos y agua. Soluciones portátiles e industriales de alta precisión.',
         tags: ['Flujo', 'Combustibles', 'Medición'],
         featured: false
       },
       {
-        n: 'Greystone Energy', f: 'greystone.png', cat: 'sensors', origin: 'Canadá',
+        n: 'Greystone Energy', f: 'greystone.png', c: '#0c8c6c', pdf: 'greystone', cat: 'sensors', origin: 'Canadá',
         desc: 'Sensores y transmisores para edificios: CO₂, temperatura, humedad, presión diferencial, calidad de aire y medidores de energía eléctrica.',
         tags: ['CO₂', 'Humedad', 'Power Meters'],
         featured: true
       },
       {
-        n: 'Intesis', f: 'intesis.png', cat: 'bms', origin: 'España',
+        n: 'Intesis', f: 'intesis.png', c: '#1a6a8c', pdf: '', cat: 'bms', origin: 'España',
         desc: 'Gateways de integración by HMS Networks. Conecta equipos de A/C, VRF y sistemas HVAC con BACnet, Modbus, KNX y plataformas de automatización.',
         tags: ['Gateways', 'VRF', 'Integración BMS'],
         featured: false
       },
       {
-        n: 'Johnson Controls', f: 'johnson-controls.png', cat: 'bms', origin: 'EUA',
+        n: 'Johnson Controls', f: 'johnson-controls.png', c: '#1e5bc6', pdf: 'johnson-controls', cat: 'bms', origin: 'EUA',
         desc: 'Líder mundial en tecnologías para edificios inteligentes. Sistemas Metasys BMS, controladores DDC y soluciones integradas de seguridad y climatización.',
         tags: ['BMS', 'Metasys', 'DDC'],
         featured: true
       },
       {
-        n: 'LOYTEC', f: 'loytec.png', cat: 'bms', origin: 'Austria',
+        n: 'LOYTEC', f: 'loytec.png', c: '#d0142c', pdf: 'loytec', cat: 'bms', origin: 'Austria',
         desc: 'Especialista en controladores y gateways para automatización de edificios. Plataformas BACnet/IP, KNX y Modbus para BMS de alto nivel.',
         tags: ['BACnet', 'KNX', 'Controladores'],
         featured: true
       },
       {
-        n: 'Meitav-Tec', f: 'meitav-tec.png', cat: 'hvac', origin: 'Israel',
+        n: 'Meitav-Tec', f: 'meitav-tec.png', c: '#2a2fa0', pdf: 'meitav', cat: 'hvac', origin: 'Israel',
         desc: 'Termostatos, humidostatos y controladores para HVAC. Soluciones de control ambiental para habitaciones de hotel, oficinas y uso residencial.',
         tags: ['Termostatos', 'Hotel', 'Control Ambiental'],
         featured: false
       },
       {
-        n: 'Neptronic', f: 'neptronic.png', cat: 'humi', origin: 'Canadá',
+        n: 'Neptronic', f: 'neptronic.png', c: '#1e64a8', pdf: 'neptronic', cat: 'humi', origin: 'Canadá',
         desc: 'Fabricante de humidificadores de vapor eléctrico, calefactores eléctricos de ducto, actuadores y termostatos. Soluciones de humidificación para hospitales, data centers y laboratorios.',
         tags: ['Humidificadores', 'Calefactores', 'Vapor'],
         featured: true
       },
       {
-        n: 'ONICON', f: 'onicon.png', cat: 'flow', origin: 'EUA',
+        n: 'ONICON', f: 'onicon.png', c: '#0c84cc', pdf: 'onicon', cat: 'flow', origin: 'EUA',
         desc: 'Medidores de flujo de alta precisión: BTU/energía térmica, agua caliente/fría y vapor. Soluciones certificadas para facturación y eficiencia energética.',
         tags: ['BTU', 'Energía Térmica', 'Flujo'],
         featured: false
       },
       {
-        n: 'Particles Plus', f: 'particles-plus.png', cat: 'sensors', origin: 'EUA',
+        n: 'Particles Plus', f: 'particles-plus.png', c: '#e42424', pdf: '', cat: 'sensors', origin: 'EUA',
         desc: 'Contadores de partículas portátiles y remotos para salas limpias, farmacéutica y monitoreo de calidad de aire interior bajo normas ISO.',
         tags: ['Partículas', 'Salas Limpias', 'Calidad del Aire'],
         featured: false
       },
       {
-        n: 'Senva', f: 'senva.png', cat: 'sensors', origin: 'EUA',
+        n: 'Senva', f: 'senva.png', c: '#b07a3e', pdf: 'senva', cat: 'sensors', origin: 'EUA',
         desc: 'Sensores y transmisores para edificios: calidad de aire, CO₂, temperatura, humedad y presión, además de sensores de corriente, relevadores y contactores para HVAC y BMS.',
         tags: ['CO₂', 'VOC', 'Sensores HVAC'],
         featured: false
       },
       {
-        n: 'Setra Systems', f: 'setra-systems.png', cat: 'sensors', origin: 'EUA',
+        n: 'Setra Systems', f: 'setra-systems.png', c: '#1f5fa9', pdf: 'setra', cat: 'sensors', origin: 'EUA',
         desc: 'Transductores de presión de alta precisión para salas limpias, laboratorios y aplicaciones críticas. Certificaciones para entornos hospitalarios.',
         tags: ['Presión', 'Salas Limpias', 'Precisión'],
         featured: false
       },
       {
-        n: 'Vaisala', f: 'vaisala.png', cat: 'sensors', origin: 'Finlandia',
+        n: 'Vaisala', f: 'vaisala.png', c: '#1f5a9e', pdf: 'vaisala', cat: 'sensors', origin: 'Finlandia',
         desc: 'Instrumentación de referencia mundial para medición ambiental. Sensores de humedad, temperatura y CO₂ con trazabilidad certificada para procesos críticos.',
         tags: ['Humedad', 'Temperatura', 'Certificado'],
         featured: true
@@ -2883,6 +2779,7 @@
     function buildCard(b, idx) {
       const div = document.createElement('div');
       div.className = 'brand-card rv';
+      div.style.setProperty('--bc', b.c);
       div.dataset.cat = b.cat;
       div.dataset.name = b.n.toLowerCase();
       div.dataset.tags = b.tags.join(' ').toLowerCase();
@@ -2900,8 +2797,9 @@
       <div class="bc-desc">${b.desc}</div>
     </div>
     <div class="bc-footer">
-      <div class="bc-tag"><i class="fa-solid fa-tag"></i>${b.tags[0]}</div>
-      <div class="bc-link"><i class="fa-solid fa-arrow-right"></i>Ver más</div>
+      ${b.pdf ? `<a class="bc-act bc-act-pdf" href="assets/catalogos/${b.pdf}.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i>Catálogo</a>`
+        : `<a class="bc-act bc-act-pdf" href="https://wa.me/5215580070413?text=${encodeURIComponent('Hola Haften, me interesa el catálogo de ' + b.n + '.')}" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i>Pedir catálogo</a>`}
+      <a class="bc-act bc-act-q" href="https://wa.me/5215580070413?text=${encodeURIComponent('Hola Haften, quiero cotizar productos ' + b.n + '.')}" target="_blank" rel="noopener"><i class="fa-solid fa-file-invoice-dollar"></i>Cotizar</a>
     </div>`;
       return div;
     }
@@ -3021,6 +2919,7 @@
   <script src="assets/js/site.js"></script>
   <script src="assets/js/ui.js"></script>
   <script src="assets/js/buscar.js"></script>
+  <script src="assets/js/explorador.js"></script>
 </body>
 
 </html>

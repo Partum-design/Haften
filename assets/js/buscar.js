@@ -7,28 +7,28 @@
 
   /* ── MARCAS (todas, con su logotipo) ── */
   var BRANDS = [
-    { n: 'Air Monitor', f: 'air-monitor.png', k: 'calidad del aire flujo de aire co2 data center', cat: true },
-    { n: 'Badger Meter', f: 'badger-meter.png', k: 'flujo agua medidores ultrasonicos' },
-    { n: 'Belimo', f: 'belimo.png', k: 'actuadores valvulas energy valve sensores damper', cat: true },
-    { n: 'Bry-Air', f: 'bry-air.png', k: 'deshumidificadores deshumidificacion secado', cat: true },
-    { n: 'Contemporary Controls', f: 'contemporary-controls.png', k: 'bms basview routers controladores bacnet', cat: true },
-    { n: 'Control Techniques', f: 'control-techniques.png', k: 'variadores vfd drives', cat: true },
-    { n: 'CoolAutomation', f: 'cool-automation.png', k: 'vrf gateways integracion', cat: true },
-    { n: 'Delta Electronics', f: 'delta-electronics.png', k: 'delta variadores fuentes de alimentacion', cat: 'Delta' },
-    { n: 'Dwyer Omega', f: 'dwyer-omega.png', k: 'manometros presion temperatura comisionamiento', cat: 'Dwyer' },
-    { n: 'FlowCon International', f: 'flowcon.png', k: 'flowcon valvulas balanceo', cat: 'FlowCon' },
-    { n: 'GPI', f: 'gpi.png', k: 'medidores de flujo combustibles', cat: true },
-    { n: 'Greystone Energy', f: 'greystone.png', k: 'greystone sensores co2 humedad power meters', cat: 'Greystone' },
-    { n: 'Intesis', f: 'intesis.png', k: 'gateways vrf hms networks integracion' },
-    { n: 'Johnson Controls', f: 'johnson-controls.png', k: 'bms metasys facility explorer controladores', cat: true },
-    { n: 'LOYTEC', f: 'loytec.png', k: 'bms controladores gateways l-vis', cat: true },
-    { n: 'Meitav-Tec', f: 'meitav-tec.png', k: 'termostatos humidostatos fan coil', cat: 'Meitav' },
-    { n: 'Neptronic', f: 'neptronic.png', k: 'humidificadores calefactores actuadores', cat: true },
-    { n: 'ONICON', f: 'onicon.png', k: 'btu energia termica flujo', cat: true },
-    { n: 'Particles Plus', f: 'particles-plus.png', k: 'contadores de particulas salas limpias areas criticas' },
-    { n: 'Senva', f: 'senva.png', k: 'sensores corriente relevadores', cat: true },
-    { n: 'Setra Systems', f: 'setra-systems.png', k: 'presion salas limpias areas criticas', cat: 'Setra' },
-    { n: 'Vaisala', f: 'vaisala.png', k: 'humedad temperatura co2 instrumentacion', cat: true }
+    { n: 'Air Monitor', f: 'air-monitor.png', k: 'calidad del aire flujo de aire co2 data center', cat: true, c: '#0c84cc', pdf: 'air-monitor', o: 'EUA', d: 'Medición de flujo de aire y calidad de aire para HVAC, salas limpias y data centers.' },
+    { n: 'Badger Meter', f: 'badger-meter.png', k: 'flujo agua medidores ultrasonicos', c: '#0c6ccc', pdf: '', o: 'EUA', d: 'Medidores de flujo de agua y fluidos industriales: ultrasónicos, electromagnéticos y mecánicos.' },
+    { n: 'Belimo', f: 'belimo.png', k: 'actuadores valvulas energy valve sensores damper', cat: true, c: '#e4840c', pdf: 'belimo', o: 'Suiza', d: 'Actuadores, válvulas de control, Energy Valve y sensores para sistemas HVAC eficientes.' },
+    { n: 'Bry-Air', f: 'bry-air.png', k: 'deshumidificadores deshumidificacion secado', cat: true, c: '#e40c0c', pdf: 'bry-air', o: 'India', d: 'Deshumidificadores desecantes y soluciones de control de humedad para procesos críticos.' },
+    { n: 'Contemporary Controls', f: 'contemporary-controls.png', k: 'bms basview routers controladores bacnet', cat: true, c: '#3c5ca8', pdf: 'contemporary-controls', o: 'EUA', d: 'Routers, controladores BACnet y supervisión BASview para automatización de edificios.' },
+    { n: 'Control Techniques', f: 'control-techniques.png', k: 'variadores vfd drives', cat: true, c: '#1e9e3a', pdf: 'control-techniques', o: 'Reino Unido', d: 'Variadores de frecuencia (VFDs) para bombas, ventiladores y aplicaciones HVAC.' },
+    { n: 'CoolAutomation', f: 'cool-automation.png', k: 'vrf gateways integracion', cat: true, c: '#6c4bd8', pdf: 'cool-automation', o: 'Israel', d: 'Gateways para integrar equipos VRF/VRV a BMS y domótica con BACnet, Modbus y KNX.' },
+    { n: 'Delta Electronics', f: 'delta-electronics.png', k: 'delta variadores fuentes de alimentacion', cat: 'Delta', c: '#0c9ce4', pdf: 'delta', o: 'Taiwán', d: 'Variadores, fuentes de alimentación y automatización para HVAC e industria.' },
+    { n: 'Dwyer Omega', f: 'dwyer-omega.png', k: 'manometros presion temperatura comisionamiento', cat: 'Dwyer', c: '#3a3aa0', pdf: 'dwyer', o: 'EUA', d: 'Manómetros, transmisores de presión, temperatura y humedad, y equipos de comisionamiento.' },
+    { n: 'FlowCon International', f: 'flowcon.png', k: 'flowcon valvulas balanceo', cat: 'FlowCon', c: '#2f8f8f', pdf: 'flowcon', o: 'Dinamarca', d: 'Válvulas de balanceo automático e independientes de la presión para hidrónicos.' },
+    { n: 'GPI', f: 'gpi.png', k: 'medidores de flujo combustibles', cat: true, c: '#3c84cc', pdf: 'gpi', o: 'EUA', d: 'Medidores de flujo para agua, químicos y combustibles, portátiles e industriales.' },
+    { n: 'Greystone Energy', f: 'greystone.png', k: 'greystone sensores co2 humedad power meters', cat: 'Greystone', c: '#0c8c6c', pdf: 'greystone', o: 'Canadá', d: 'Sensores de CO₂, temperatura, humedad y presión, y medidores de energía eléctrica.' },
+    { n: 'Intesis', f: 'intesis.png', k: 'gateways vrf hms networks integracion', c: '#1a6a8c', pdf: '', o: 'España', d: 'Gateways de integración by HMS Networks para A/C, VRF y protocolos BMS.' },
+    { n: 'Johnson Controls', f: 'johnson-controls.png', k: 'bms metasys facility explorer controladores', cat: true, c: '#1e5bc6', pdf: 'johnson-controls', o: 'EUA', d: 'Controladores Facility Explorer, sensores y soluciones BMS para edificios inteligentes.' },
+    { n: 'LOYTEC', f: 'loytec.png', k: 'bms controladores gateways l-vis', cat: true, c: '#d0142c', pdf: 'loytec', o: 'Austria', d: 'Controladores, gateways y paneles L-VIS para BACnet, KNX y Modbus.' },
+    { n: 'Meitav-Tec', f: 'meitav-tec.png', k: 'termostatos humidostatos fan coil', cat: 'Meitav', c: '#2a2fa0', pdf: 'meitav', o: 'Israel', d: 'Termostatos y humidostatos digitales para fan & coil, hotelería y oficinas.' },
+    { n: 'Neptronic', f: 'neptronic.png', k: 'humidificadores calefactores actuadores', cat: true, c: '#1e64a8', pdf: 'neptronic', o: 'Canadá', d: 'Humidificadores de vapor, calefactores eléctricos de ducto, actuadores y válvulas.' },
+    { n: 'ONICON', f: 'onicon.png', k: 'btu energia termica flujo', cat: true, c: '#0c84cc', pdf: 'onicon', o: 'EUA', d: 'Medidores de flujo y de energía térmica (BTU) para facturación y eficiencia.' },
+    { n: 'Particles Plus', f: 'particles-plus.png', k: 'contadores de particulas salas limpias areas criticas', c: '#e42424', pdf: '', o: 'EUA', d: 'Contadores de partículas para salas limpias, farmacéutica y calidad de aire.' },
+    { n: 'Senva', f: 'senva.png', k: 'sensores corriente relevadores', cat: true, c: '#b07a3e', pdf: 'senva', o: 'EUA', d: 'Sensores de calidad de aire, corriente, relevadores y contactores para HVAC y BMS.' },
+    { n: 'Setra Systems', f: 'setra-systems.png', k: 'presion salas limpias areas criticas', cat: 'Setra', c: '#1f5fa9', pdf: 'setra', o: 'EUA', d: 'Transductores de presión de alta precisión para áreas críticas y laboratorios.' },
+    { n: 'Vaisala', f: 'vaisala.png', k: 'humedad temperatura co2 instrumentacion', cat: true, c: '#1f5a9e', pdf: 'vaisala', o: 'Finlandia', d: 'Instrumentos de referencia para humedad, temperatura y CO₂ en procesos críticos.' }
   ];
   window.HAFTEN_BRANDS = BRANDS;
 
@@ -160,7 +160,7 @@
 
   /* tecla "/" enfoca el buscador */
   document.addEventListener('keydown', function (e) {
-    if (e.key !== '/' || /input|textarea|select/i.test((document.activeElement || {}).tagName || '')) return;
+    if (e.key !== '/' || document.getElementById('searchInput') || /input|textarea|select/i.test((document.activeElement || {}).tagName || '')) return;
     var i = document.querySelector('[data-hsearch] input');
     if (i) { e.preventDefault(); i.focus(); i.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
   });

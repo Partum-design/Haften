@@ -18,18 +18,18 @@
       --ac: #7B241B;
       --ac-dark: #5F1B14;
       --ac-rgb: 123, 36, 27;
-      --bg: #030810;
-      --bg2: #060d1a;
-      --bg3: #0c1828;
-      --lt: #f4f8fb;
-      --lt2: #e9f1f7;
+      --bg: #05162a;
+      --bg2: #05162a;
+      --bg3: #0a2038;
+      --lt: #f6f7f9;
+      --lt2: #eef0f3;
       --white: #fff;
       --text-1: #fff;
-      --text-2: #7aafc8;
-      --text-3: #3d7090;
+      --text-2: #aab4c0;
+      --text-3: #6b7a8c;
       --ink: #05162a;
-      --ink2: #183855;
-      --ink3: #2e6080;
+      --ink2: #22324a;
+      --ink3: #4b5a6e;
       --border-d: rgba(var(--ac-rgb), .1);
       --border-l: rgba(5, 22, 42, .08);
       --nav-h: 88px;
@@ -256,7 +256,7 @@
       align-items: center;
       padding: 0 5vw;
       gap: 24px;
-      background: rgba(3, 8, 16, .7);
+      background: rgba(5, 22, 42, .7);
       backdrop-filter: blur(32px) saturate(1.8);
       -webkit-backdrop-filter: blur(32px) saturate(1.8);
       border-bottom: 1px solid rgba(255, 255, 255, .05);
@@ -264,7 +264,7 @@
     }
 
     #navbar.scrolled {
-      background: rgba(3, 8, 16, .95);
+      background: rgba(5, 22, 42, .95);
       box-shadow: 0 4px 40px rgba(0, 0, 0, .5)
     }
 
@@ -397,7 +397,7 @@
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      background: #0a1828;
+      background: #071c33;
       border: 1px solid rgba(255, 255, 255, .09);
       border-radius: 14px;
       padding: 18px;
@@ -597,7 +597,7 @@
       inset: 0;
       pointer-events: none;
       /* ← Opacidades REDUCIDAS */
-      background: linear-gradient(165deg, rgba(3, 8, 16, 0.4) 0%, rgba(3, 8, 16, 0.1) 50%, rgba(3, 8, 16, 0.5) 100%);
+      background: linear-gradient(165deg, rgba(5, 22, 42, 0.4) 0%, rgba(5, 22, 42, 0.1) 50%, rgba(5, 22, 42, 0.5) 100%);
       z-index: 1;
     }
 
@@ -732,7 +732,7 @@
       text-align: center;
       padding: 16px 36px;
       border-right: 1px solid rgba(255, 255, 255, .08);
-      background: rgba(3, 8, 16, .55);
+      background: rgba(5, 22, 42, .55);
       backdrop-filter: blur(12px)
     }
 
@@ -935,7 +935,7 @@
     }
 
     .vid-thumb img {
-      background: #060d1a;
+      background: #05162a;
       /* Fondo oscuro por si la imagen falla */
       color: transparent;
       /* Oculta el texto de error si la imagen no carga */
@@ -959,7 +959,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(3, 8, 16, .25)
+      background: rgba(5, 22, 42, .25)
     }
 
     .play-circle {
@@ -967,7 +967,7 @@
       height: 56px;
       border-radius: 50%;
       border: 2px solid rgba(255, 255, 255, .9);
-      background: rgba(3, 8, 16, .5);
+      background: rgba(5, 22, 42, .5);
       backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
@@ -1966,7 +1966,7 @@
         top: var(--nav-h);
         left: 0;
         right: 0;
-        background: rgba(3, 8, 16, .98);
+        background: rgba(5, 22, 42, .98);
         border-bottom: 1px solid rgba(255, 255, 255, .06);
         flex-direction: column;
         padding: 18px 5vw 22px;
@@ -2059,6 +2059,7 @@
   <link rel="stylesheet" href="assets/css/ui.css">
   <link rel="stylesheet" href="assets/css/claro.css">
   <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/paleta.css">
 </head>
 
 <body>
@@ -2119,51 +2120,36 @@
   <main id="main-content">
 
     <!-- HERO -->
-    <section class="hx-hero" aria-labelledby="hx-h" style="--hx-big:13.89vw">
-      <div class="hx-panel">
-        <div class="hx-big" aria-hidden="true">MULTIMEDIA</div>
-        <div class="hx-grid">
-          <div class="hx-copy">
-            <span class="hx-eyebrow"><i class="fa-solid fa-circle-play" aria-hidden="true"></i>Videos y webinars</span>
-            <h1 id="hx-h" class="hx-h1">Aprende con <span>Haften</span></h1>
-            <p class="hx-sub">Webinars, demostraciones de producto y eventos de nuestras marcas, directo de nuestro canal de YouTube.</p>
-            <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
-              <div class="hx-field">
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
-                  aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
-                <span class="hx-kbd" aria-hidden="true">/</span>
-                <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-              </div>
-              <div class="hs-results" id="hsList" role="listbox" hidden></div>
-              <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Webinars">Webinars</button><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Neptronic">Neptronic</button><button type="button" class="hx-chip" data-q="Intesis">Intesis</button><button type="button" class="hx-chip" data-q="LOYTEC">LOYTEC</button></div>
-            </form>
-            <div class="hx-row">
-              <a class="hx-trust" href="/marcas">
-                <div class="hx-stack"><span><img src="assets/logos/belimo.png" alt=""></span><span><img src="assets/logos/johnson-controls.png" alt=""></span><span><img src="assets/logos/vaisala.png" alt=""></span><span><img src="assets/logos/loytec.png" alt=""></span><span><img src="assets/logos/neptronic.png" alt=""></span></div>
-                <div><strong>22 marcas</strong><small>internacionales que respaldan</small></div>
-              </a>
-              <a href="#videos" class="hx-btn hx-btn-ac"><i class="fa-solid fa-play" aria-hidden="true"></i>Ver videos</a><a href="#shorts" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>Shorts</a>
+    <section class="hx-hero" aria-labelledby="hx-h">
+      <div class="hx-stage" style="--hx-big:14.86vw;--hx-h:520px">
+        <div class="hx-bg" aria-hidden="true">
+          <img class="hx-photo" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1600&q=75&fit=crop" alt="" fetchpriority="high">
+          <div class="hx-tone"></div><div class="hx-lines"></div>
+          <div class="hx-big">MULTIMEDIA</div>
+        </div>
+        <span class="hx-tag t1" aria-hidden="true"><img src="assets/logos/intesis.png" alt=""></span><span class="hx-tag t2" aria-hidden="true"><img src="assets/logos/cool-automation.png" alt=""></span><span class="hx-tag t3" aria-hidden="true"><img src="assets/logos/neptronic.png" alt=""></span><span class="hx-tag t4" aria-hidden="true"><img src="assets/logos/loytec.png" alt=""></span>
+        <div class="hx-float hx-f1" aria-hidden="true"><b>75+</b><p>videos técnicos, webinars y eventos.</p></div>
+        <div class="hx-float hx-f2" aria-hidden="true"><strong><i class="fa-brands fa-youtube"></i>@Haftenoficial</strong><p>Nuevos webinars cada mes.</p></div>
+        <div class="hx-content">
+          <span class="hx-eyebrow"><i class="fa-solid fa-circle-play" aria-hidden="true"></i>Videos y webinars</span>
+          <h1 id="hx-h" class="hx-h1">Aprende con <span>Haften</span></h1>
+          <p class="hx-sub">Webinars, demostraciones de producto y eventos de nuestras marcas, directo de nuestro canal de YouTube.</p>
+          <form class="hx-search" role="search" data-hsearch aria-label="Buscar en Haften">
+            <div class="hx-field">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" placeholder="Busca una marca, producto o sección…" autocomplete="off"
+                aria-label="Buscar marca, producto o sección" role="combobox" aria-expanded="false" aria-controls="hsList" aria-autocomplete="list">
+              <span class="hx-kbd" aria-hidden="true">/</span>
+              <button type="submit" class="hx-go" aria-label="Buscar"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Buscar</span></button>
             </div>
-          </div>
-          <div class="hx-visual">
-            <span class="hx-dot d1" aria-hidden="true"></span><span class="hx-dot d2" aria-hidden="true"></span><span class="hx-dot d3" aria-hidden="true"></span>
-            <div class="hx-photo"><img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1400&q=80&fit=crop" alt="Grabación de contenido técnico" fetchpriority="high"></div>
-            <div class="hx-pills" aria-hidden="true"><span class="hx-pill p1"><i class="fa-solid fa-play"></i>Webinars</span><span class="hx-pill p2"><i class="fa-solid fa-box-open"></i>Productos</span><span class="hx-pill p3"><i class="fa-solid fa-calendar"></i>Eventos</span></div>
-            <div class="hx-seal" aria-hidden="true">
-              <svg viewBox="0 0 100 100"><defs><path id="hxc" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-                <text><textPath href="#hxc">Distribuidor autorizado · Haften ·</textPath></text></svg>
-              <i class="fa-solid fa-fan"></i>
-            </div>
-            <div class="hx-card">
-              <div class="hx-card-h"><img src="assets/logos/logo-haften.png" alt="Haften"><small>Tu solución integral</small></div>
-              <div class="hx-card-r"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span><b>@Haftenoficial</b></span></div><div class="hx-card-r"><i class="fa-solid fa-video" aria-hidden="true"></i><span><b>Webinars</b> técnicos</span></div><div class="hx-card-r"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span><b>Shorts</b> de producto</span></div>
-            </div>
-          </div>
+            <div class="hs-results" id="hsList" role="listbox" hidden></div>
+            <div class="hx-pop"><span>Populares:</span><button type="button" class="hx-chip" data-q="Webinars">Webinars</button><button type="button" class="hx-chip" data-q="Belimo">Belimo</button><button type="button" class="hx-chip" data-q="Neptronic">Neptronic</button><button type="button" class="hx-chip" data-q="Intesis">Intesis</button><button type="button" class="hx-chip" data-q="LOYTEC">LOYTEC</button></div>
+          </form>
+          <div class="hx-row"><a href="#videos" class="hx-btn hx-btn-ac"><i class="fa-solid fa-play" aria-hidden="true"></i>Ver videos</a><a href="#shorts" class="hx-btn hx-btn-ghost"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>Shorts</a></div>
         </div>
       </div>
       <div class="hx-logos">
-        <div class="hx-logos-lbl">Marcas que distribuimos</div>
+        <div class="hx-logos-lbl">Marcas que <b>distribuimos</b></div>
         <div class="hx-logos-wrap"><div class="hx-logos-track" data-logo-strip></div></div>
       </div>
     </section>
@@ -2575,7 +2561,7 @@
       for (let i = 0; i < 250; i++) { const p = mkP(); p.age = Math.random() * p.maxAge; pts.push(p); }
       let t = 0;
       function draw() {
-        t += .003; ctx.fillStyle = 'rgba(3,8,16,0.18)'; ctx.fillRect(0, 0, W, H);
+        t += .003; ctx.fillStyle = 'rgba(5, 22, 42,0.18)'; ctx.fillRect(0, 0, W, H);
         pts.forEach((p, i) => {
           const nx = p.x / W * 5, ny = p.y / H * 5;
           const angle = (Math.sin(nx + t) * Math.cos(ny * .8 + t * .4) + Math.sin(nx * .4 + t * .3) * 1.5) * Math.PI;
@@ -2583,7 +2569,7 @@
           p.x += p.vx; p.y += p.vy; p.age++;
           const lp = p.age / p.maxAge, a = (lp < .1 ? lp * 10 : lp > .72 ? (1 - lp) / .28 : 1) * .4;
           ctx.beginPath(); ctx.arc(p.x, p.y, p.sz, 0, Math.PI * 2);
-          ctx.fillStyle = p.warm ? `rgba(226,114,95,${a * .6})` : `rgba(214,226,238,${a * .75})`; ctx.fill();
+          ctx.fillStyle = p.warm ? `rgba(192, 71, 58,${a * .6})` : `rgba(255, 255, 255,${a * .75})`; ctx.fill();
           if (p.age >= p.maxAge || p.x < -10 || p.x > W + 10 || p.y < -10 || p.y > H + 10) pts[i] = mkP();
         });
         requestAnimationFrame(draw);

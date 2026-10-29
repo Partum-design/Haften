@@ -107,7 +107,7 @@
   transition: transform .25s cubic-bezier(.16, 1, .3, 1), box-shadow .25s;
 }
 .hz-wa:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 32px -6px rgba(18, 140, 70, .7), 0 3px 10px rgba(0, 0, 0, .2); }
-.hz-wa:focus-visible { outline: 3px solid var(--focus, #F5C26B); outline-offset: 3px; }
+.hz-wa:focus-visible { outline: 3px solid var(--focus, #c0473a); outline-offset: 3px; }
 .hz-wa-tip {
   position: absolute;
   left: calc(100% + 12px);
