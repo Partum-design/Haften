@@ -111,6 +111,20 @@
     });
   }
 
+
+  /* ── TEXTO JUSTIFICADO en párrafos de varias líneas ── */
+  var justify = function () {
+    document.querySelectorAll('main p, section p, .hx-hero p, footer p').forEach(function (p) {
+      if (p.closest('#loader, .n-links, form, button, a, .br-band, .xr-hud, .filter-bar')) return;
+      if ((p.textContent || '').trim().length < 70) return;
+      var ta = getComputedStyle(p).textAlign;
+      if (ta === 'right' || ta === 'end') return;
+      p.classList.add('pro-just');
+      if (ta === 'center') p.classList.add('pro-just-c');
+    });
+  };
+  justify();
+
   /* ── RELIEVE 3D EN TARJETAS ── */
   if (fine && !reduce) {
     document.querySelectorAll('.prod-card, .port-card, .why-card, .fil-card, .sector-card, .cat-card').forEach(function (c) {
@@ -202,10 +216,10 @@
   /* ── VISOR 3D / RAYOS X (se carga al acercarse) ── */
   var stage = document.querySelector('[data-xray]');
   if (stage) {
-    var loaded = false;
+    var xrStarted = false;
     var load = function () {
-      if (loaded) return;
-      loaded = true;
+      if (xrStarted) return;
+      xrStarted = true;
       var add = function (src, cb) { var s = document.createElement('script'); s.src = src; s.async = true; s.onload = cb; s.onerror = fail; document.body.appendChild(s); };
       var fail = function () { stage.insertAdjacentHTML('beforeend', '<div class="xr-fallback">No se pudo cargar la vista 3D.</div>'); };
       var go = function () { add('assets/js/xray3d.js', function () { if (window.HaftenXray) window.HaftenXray(stage); }); };
