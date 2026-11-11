@@ -6,6 +6,11 @@
       "source": "/index",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/assets/catalogos/catalogo-haften-2025.pdf",
+      "destination": "/assets/catalogos/catalogo-haften-2026.pdf",
+      "permanent": false
     }
   ],
   "rewrites": [

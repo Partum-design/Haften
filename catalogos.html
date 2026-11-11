@@ -1514,6 +1514,7 @@
   <link rel="stylesheet" href="assets/css/paleta.css">
   <link rel="stylesheet" href="assets/css/catalogos.css">
   <link rel="stylesheet" href="assets/css/pro.css">
+  <link rel="stylesheet" href="assets/css/comunicados.css">
 </head>
 
 <body>
@@ -1652,7 +1653,7 @@
           </div>
           <div class="hx-doc hx-doc-front">
             <img src="assets/logos/logo-haften-white.png" alt="">
-            <div class="hx-doc-t">Catálogo<b>2025</b></div>
+            <div class="hx-doc-t">Catálogo<b>2026</b></div>
             <div class="hx-doc-lines"><i></i><i></i><i></i><i></i></div>
             <div class="hx-doc-foot">HVAC · BMS · Medición de energía</div>
           </div>
@@ -1834,10 +1835,10 @@
     const haftenCatalogs = [
   {
     "id": "haften-main",
-    "name": "Catálogo HAFTEN 2025",
-    "file": "assets/catalogos/catalogo-haften-2025.pdf",
+    "name": "Catálogo HAFTEN 2026",
+    "file": "assets/catalogos/catalogo-haften-2026.pdf",
     "icon": "fa-solid fa-book-open",
-    "size": "9.0 MB"
+    "size": "33.7 MB"
   }
 ];
     const collabCatalogs = [
@@ -2563,7 +2564,7 @@
     let currentCat = 'all';
 
     function matches(q) {
-      const haften = !q || norm('haften catalogo 2025 general').includes(q);
+      const haften = !q || norm('haften catalogo 2026 2025 general').includes(q);
       const byCat = { all: 0, haften: haften ? 1 : 0, hvac: 0, bms: 0, medicion: 0, variadores: 0, fichas: 0 };
       cards.forEach(c => { if (!q || c.dataset.search.includes(q)) { byCat.all++; c.dataset.cats.split(' ').forEach(k => byCat[k]++); } });
       fichas.forEach(f => { if (!q || f.dataset.search.includes(q)) { byCat.fichas++; byCat.all++; } });
@@ -2596,7 +2597,7 @@
         nFichas += n;
       });
 
-      const showHaften = (currentCat === 'all' || currentCat === 'haften') && (!q || norm('haften catalogo 2025 general').includes(q));
+      const showHaften = (currentCat === 'all' || currentCat === 'haften') && (!q || norm('haften catalogo 2026 2025 general').includes(q));
       haftenFeature.hidden = !showHaften;
       collabDivider.hidden = nCollab === 0;
       collabGrid.hidden = nCollab === 0;
@@ -2643,6 +2644,7 @@
     filterCatalogs();
   </script>
   <script src="assets/js/site.js"></script>
+  <script src="assets/js/comunicados.js"></script>
   <script src="assets/js/ui.js"></script>
   <script src="assets/js/buscar.js"></script>
   <script src="assets/js/pro.js"></script>
